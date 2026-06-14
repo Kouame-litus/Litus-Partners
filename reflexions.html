@@ -215,10 +215,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
       <div class="filters-inner">
         <span class="filter-label">Trier par :</span>
         <button class="filter-btn active" onclick="filterArticles('all',this)">Tous</button>
-        <button class="filter-btn" onclick="filterArticles('conseil',this)">Conseil en gestion</button>
+        <button class="filter-btn" onclick="filterArticles('gouvernance',this)">Gouvernance</button>
         <button class="filter-btn" onclick="filterArticles('ia',this)">Intelligence artificielle</button>
-        <button class="filter-btn" onclick="filterArticles('architecture',this)">Architecture d'entreprise</button>
         <button class="filter-btn" onclick="filterArticles('transformation',this)">Transformation numérique</button>
+        <button class="filter-btn" onclick="filterArticles('conseil',this)">Conseil en gestion</button>
+        <button class="filter-btn" onclick="filterArticles('architecture',this)">Architecture d'entreprise</button>
         <div class="filter-sep"></div>
         <select class="sort-select" onchange="sortArticles(this.value)">
           <option value="recent">Plus récent</option>
@@ -401,21 +402,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 // FADE
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
 // FILTER
+let currentFilter='all';
 function filterArticles(cat,btn){
+  currentFilter=cat;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.art-card').forEach(card=>{
-    if(cat==='all'||card.dataset.cat===cat){
-      card.style.display='';
-    } else {
-      card.style.display='none';
-    }
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
   });
 }
 
@@ -424,8 +424,8 @@ function sortArticles(order){
   const grid=document.getElementById('artGrid');
   const cards=[...grid.querySelectorAll('.art-card')];
   cards.sort((a,b)=>{
-    const da=a.dataset.date, db=b.dataset.date;
-    return order==='recent' ? db.localeCompare(da) : da.localeCompare(db);
+    const da=a.dataset.date,db=b.dataset.date;
+    return order==='recent'?db.localeCompare(da):da.localeCompare(db);
   });
   cards.forEach(c=>grid.appendChild(c));
 }
@@ -436,6 +436,79 @@ function subscribeNewsletter(){
   if(!em){alert('Veuillez entrer votre courriel.');return;}
   window.location.href='mailto:contact@lituspartners.com?subject=Inscription infolettre&body=Inscription à l\'infolettre : '+em;
 }
+
+// ── CHARGEMENT DES ARTICLES DU CMS ─────────────────────────────────────────
+const CAT_MAP={
+  'gouvernance':         {key:'gouvernance',         cls:'badge-navy',   label:'Gouvernance'},
+  'intelligence artificielle':{key:'ia',             cls:'badge-teal',   label:'Intelligence artificielle'},
+  'transformation numérique': {key:'transformation', cls:'badge-purple', label:'Transformation numérique'},
+  'conseil en gestion': {key:'conseil',              cls:'badge-orange', label:'Conseil en gestion'}
+};
+const DEFAULT_IMG='https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=70';
+
+function catInfo(category){
+  const c=CAT_MAP[(category||'').toLowerCase()]||{key:'autre',cls:'badge-orange',label:category||''};
+  return c;
+}
+
+function fmtDate(d){
+  if(!d) return '';
+  const dt=new Date(d);
+  return dt.toLocaleDateString('fr-CA',{year:'numeric',month:'2-digit',day:'2-digit'}).replace(/-/g,'.');
+}
+
+function openArticle(slug){
+  window.location.href='reflexions/article.html?slug='+encodeURIComponent(slug);
+}
+
+function buildCard(a){
+  const div=document.createElement('div');
+  const cat=catInfo(a.category);
+  div.className='art-card fade cms-card';
+  div.dataset.cat=cat.key;
+  div.dataset.date=a.date||'';
+  div.onclick=()=>openArticle(a.slug);
+  div.innerHTML=`
+    <div class="art-card-img">
+      <img src="${a.image||DEFAULT_IMG}" alt="${a.title}" loading="lazy">
+      <div class="art-badge ${cat.cls}">
+        <div class="art-date">${fmtDate(a.date)}</div>
+        <div class="art-cat-label">${cat.label}</div>
+        <span class="art-read">${a.readtime||5} min de lecture</span>
+      </div>
+    </div>
+    <div class="art-card-body">
+      <h3>${a.title}</h3>
+      <p>${a.summary||''}</p>
+    </div>`;
+  return div;
+}
+
+async function loadCMSArticles(){
+  try{
+    const res=await fetch('/reflexions/articles.json?_='+Date.now());
+    if(!res.ok) return;
+    const articles=await res.json();
+    if(!articles||!articles.length) return;
+    const grid=document.getElementById('artGrid');
+    const frag=document.createDocumentFragment();
+    articles.forEach(a=>{
+      const card=buildCard(a);
+      frag.appendChild(card);
+    });
+    grid.insertBefore(frag,grid.firstChild);
+    // Observer les nouvelles cartes
+    grid.querySelectorAll('.cms-card').forEach(el=>obs.observe(el));
+    // Réappliquer filtre actif
+    if(currentFilter!=='all'){
+      document.querySelectorAll('.art-card').forEach(card=>{
+        card.style.display=(card.dataset.cat===currentFilter)?'':'none';
+      });
+    }
+  }catch(e){/* articles statiques restent affichés */}
+}
+
+loadCMSArticles();
 </script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "fr"
+
+collections:
+  - name: "reflexions"
+    label: "Réflexions"
+    label_singular: "Article"
+    folder: "reflexions/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "reflexions.html"
+    summary: "{{title}} — {{category}} ({{date}})"
+    fields:
+      - label: "Titre"
+        name: "title"
+        widget: "string"
+        hint: "Titre de l'article (affiché en grand sur la page)"
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Gouvernance", value: "Gouvernance" }
+          - { label: "Intelligence artificielle", value: "Intelligence artificielle" }
+          - { label: "Transformation numérique", value: "Transformation numérique" }
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD MMMM YYYY"
+        time_format: false
+        format: "YYYY-MM-DD"
+      - label: "Image de couverture"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Image affichée en haut de l'article et dans la liste"
+      - label: "Résumé"
+        name: "summary"
+        widget: "text"
+        hint: "Courte description affichée dans la liste des articles (2-3 phrases)"
+      - label: "Temps de lecture (minutes)"
+        name: "readtime"
+        widget: "number"
+        default: 5
+        value_type: "int"
+        min: 1
+        max: 60
+        required: false
+      - label: "Auteur"
+        name: "author"
+        widget: "string"
+        default: "Litus Partners"
+        required: false
+      - label: "Contenu de l'article"
+        name: "body"
+        widget: "markdown"
+        hint: "Utilisez la barre d'outils pour mettre en forme votre texte"
