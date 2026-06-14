@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réserver une formation — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2340; --blue:#1B3D6F; --accent:#C05C1E;
+  --light:#F7F8FA; --white:#fff; --gray:#64748B;
+  --border:#E2E8F0; --text:#0F2340;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-a{font-size:13.5px;font-weight:600;color:rgba(255,255,255,.7);padding:8px 18px;border-radius:6px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:700;font-size:13.5px;margin-left:8px}
+.nav-btn:hover{background:#a84d18!important}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+
+/* MOBILE MENU */
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+
+/* PAGE LAYOUT */
+.page{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:72px}
+
+/* PANEL GAUCHE */
+.panel-left{background:linear-gradient(160deg,#0F2340 0%,#1B3D6F 60%,#C05C1E 150%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:sticky;top:72px;height:calc(100vh - 72px)}
+.panel-kicker{font-size:10px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.panel-kicker::before{content:"";display:block;width:28px;height:2px;background:var(--accent)}
+.panel-title{font-size:clamp(28px,2.8vw,44px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:24px}
+.panel-title em{font-style:normal;color:rgba(255,255,255,.35)}
+.panel-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;max-width:380px;margin-bottom:48px}
+.panel-selected{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:20px 24px}
+.panel-selected-label{font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px}
+.panel-selected-value{font-size:16px;font-weight:700;color:#fff;line-height:1.3}
+.panel-promise{margin-top:48px;display:flex;flex-direction:column;gap:14px}
+.panel-promise-item{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,.6)}
+.panel-promise-item svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* PANEL DROIT — FORMULAIRE */
+.panel-right{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.form-title{font-size:clamp(22px,2vw,30px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:8px}
+.form-subtitle{font-size:14px;color:var(--gray);margin-bottom:40px;line-height:1.6}
+
+.form-group{margin-bottom:24px}
+.form-label{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+.form-label span{color:var(--accent)}
+.form-input,.form-select,.form-textarea{width:100%;padding:14px 18px;border:1.5px solid var(--border);border-radius:3px;font-family:'Nunito Sans',sans-serif;font-size:15px;color:var(--navy);background:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(192,92,30,.1)}
+.form-input::placeholder,.form-textarea::placeholder{color:#b0bec5}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.form-select option{color:var(--navy)}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-submit{width:100%;background:var(--navy);color:#fff;border:none;border-radius:3px;padding:18px 32px;font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s;margin-top:8px}
+.form-submit:hover{background:var(--blue);transform:translateY(-1px)}
+.form-note{font-size:12px;color:var(--gray);text-align:center;margin-top:16px;line-height:1.6}
+
+/* SUCCESS STATE */
+.success-screen{display:none;text-align:center;padding:48px 0}
+.success-icon{width:72px;height:72px;background:rgba(192,92,30,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.success-icon svg{width:32px;height:32px;stroke:var(--accent);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.success-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:12px;letter-spacing:-.5px}
+.success-desc{font-size:15px;color:var(--gray);line-height:1.7;max-width:380px;margin:0 auto 32px}
+.success-back{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:3px;padding:14px 28px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:background .2s}
+.success-back:hover{background:var(--blue)}
+
+/* FOOTER */
+footer{background:#070f1c;padding:24px 0;text-align:center}
+footer p{font-size:12px;color:rgba(255,255,255,.25)}
+
+/* ANIMATIONS */
+.fu{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.fu.v{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media(max-width:900px){
+  .page{grid-template-columns:1fr}
+  .panel-left{position:static;height:auto;padding:56px 32px}
+  .panel-right{padding:56px 32px}
+  .form-row{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#expertises" class="nav-a">Expertises</a>
+      <a href="../index.html#formation" class="nav-a">Formation</a>
+      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <a href="equipe.html" class="nav-a nav-btn">Nous contacter</a>
+    </div>
+    <button class="hamburger" onclick="document.querySelector('.mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob">
+  <button class="mob-close" onclick="document.querySelector('.mob').classList.remove('open')">&times;</button>
+  <a href="../index.html#expertises">Expertises</a>
+  <a href="../index.html#formation">Formation</a>
+  <a href="../index.html#apropos">&Agrave; propos</a>
+  <a href="../reflexions.html">R&eacute;flexions</a>
+  <a href="equipe.html">Nous contacter</a>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- PANNEAU GAUCHE -->
+  <div class="panel-left">
+    <div class="panel-kicker fu">Demande d&rsquo;information</div>
+    <h1 class="panel-title fu d1">
+      Votre parcours<br>
+      de formation<br>
+      <em>commence ici.</em>
+    </h1>
+    <p class="panel-desc fu d2">
+      Remplissez ce formulaire et notre &eacute;quipe vous contactera
+      dans les 48&nbsp;h pour confirmer votre inscription et
+      r&eacute;pondre &agrave; vos questions.
+    </p>
+  </div>
+
+  <!-- PANNEAU DROIT — FORMULAIRE -->
+  <div class="panel-right">
+
+    <!-- FORMULAIRE -->
+    <div id="form-section">
+      <h2 class="form-title fu">Demande d&rsquo;information</h2>
+      <p class="form-subtitle fu d1">Tous les champs marqu&eacute;s d&rsquo;un <span style="color:var(--accent)">*</span> sont obligatoires.</p>
+
+      <form id="reservationForm" novalidate>
+
+        <div class="form-group fu d1">
+          <label class="form-label" for="formation">Formation souhait&eacute;e <span>*</span></label>
+          <select class="form-select" id="formation" name="formation" required>
+            <option value="">— S&eacute;lectionnez une formation</option>
+            <option value="Modélisation, processus et outils">Mod&eacute;lisation, processus et outils</option>
+            <option value="Gestion de projet">Gestion de projet</option>
+            <option value="Architecture et analyse d'affaires">Architecture et analyse d&rsquo;affaires</option>
+            <option value="Gouvernance et performance d'entreprise">Gouvernance et performance d&rsquo;entreprise</option>
+            <option value="Gestion de l'innovation">Gestion de l&rsquo;innovation</option>
+            <option value="Offre de formation sur mesure">Offre de formation sur mesure</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group fu d2">
+            <label class="form-label" for="prenom">Pr&eacute;nom <span>*</span></label>
+            <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Votre pr&eacute;nom" required>
+          </div>
+          <div class="form-group fu d2">
+            <label class="form-label" for="nom">Nom <span>*</span></label>
+            <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group fu d3">
+            <label class="form-label" for="email">Courriel <span>*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="votre@courriel.com" required>
+          </div>
+          <div class="form-group fu d3">
+            <label class="form-label" for="telephone">T&eacute;l&eacute;phone</label>
+            <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="+1 (514) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group fu d3">
+          <label class="form-label" for="organisation">Organisation <span>*</span></label>
+          <input class="form-input" type="text" id="organisation" name="organisation" placeholder="Nom de votre organisation" required>
+        </div>
+
+        <div class="form-group fu d4">
+          <label class="form-label" for="niveau">Niveau souhait&eacute;</label>
+          <select class="form-select" id="niveau" name="niveau">
+            <option value="">— S&eacute;lectionnez un niveau</option>
+            <option value="Fondamental — Formation de base">Fondamental &mdash; Formation de base</option>
+            <option value="Avancé — Formation avancée">Avanc&eacute; &mdash; Formation avanc&eacute;e</option>
+            <option value="Terrain — Formation pratique">Terrain &mdash; Formation pratique</option>
+            <option value="À déterminer">À d&eacute;terminer selon l&rsquo;&eacute;valuation</option>
+          </select>
+        </div>
+
+        <div class="form-group fu d4">
+          <label class="form-label" for="message">Informations compl&eacute;mentaires</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Nombre de participants, dates souhait&eacute;es, besoins sp&eacute;cifiques..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit fu">Envoyer ma demande</button>
+        <p class="form-note fu">Vos informations sont confidentielles et ne seront jamais partag&eacute;es avec des tiers.</p>
+
+      </form>
+    </div>
+
+    <!-- ÉCRAN SUCCÈS -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 class="success-title">Demande envoy&eacute;e !</h3>
+      <p class="success-desc">
+        Merci pour votre int&eacute;r&ecirc;t. Notre &eacute;quipe de formation vous
+        contactera dans les <strong>48 heures</strong> pour confirmer votre
+        r&eacute;servation et r&eacute;pondre &agrave; vos questions.
+      </p>
+      <a href="offre.html" class="success-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour aux formations
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Litus Partners &mdash; Tous droits r&eacute;serv&eacute;s</p>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+//  ✉️  ADRESSE COURRIEL — Modifier uniquement cette ligne
+// ─────────────────────────────────────────────────────────────
+const LITUS_EMAIL = 'formation@lituspartners.com'; // ← À CONFIRMER
+// ─────────────────────────────────────────────────────────────
+
+// Mapping URL params → noms complets des formations
+const FORMATIONS = {
+  'modelisation':   'Modélisation, processus et outils',
+  'gestion-projet': 'Gestion de projet',
+  'architecture':   "Architecture et analyse d'affaires",
+  'gouvernance':    "Gouvernance et performance d'entreprise",
+  'innovation':     "Gestion de l'innovation",
+  'sur-mesure':     'Offre de formation sur mesure'
+};
+
+// Pré-remplir depuis l'URL
+const params = new URLSearchParams(window.location.search);
+const formationParam = params.get('formation');
+if(formationParam && FORMATIONS[formationParam]){
+  const nom = FORMATIONS[formationParam];
+  const sel = document.getElementById('formation');
+  for(let opt of sel.options){
+    if(opt.value === nom){ opt.selected = true; break; }
+  }
+}
+
+// Soumission du formulaire via Formspree
+document.getElementById('reservationForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  const data = {
+    formation:    document.getElementById('formation').value,
+    prenom:       document.getElementById('prenom').value,
+    nom:          document.getElementById('nom').value,
+    email:        document.getElementById('email').value,
+    telephone:    document.getElementById('telephone').value,
+    organisation: document.getElementById('organisation').value,
+    niveau:       document.getElementById('niveau').value,
+    message:      document.getElementById('message').value,
+    _replyto:     document.getElementById('email').value,
+    _subject:     'Réservation formation — ' + document.getElementById('formation').value
+  };
+
+  // Validation simple
+  if(!data.formation || !data.prenom || !data.nom || !data.email || !data.organisation){
+    alert('Veuillez remplir tous les champs obligatoires.');
+    return;
+  }
+
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Envoi en cours…';
+  btn.disabled = true;
+
+  try {
+    // ── Option A : Formspree (activer quand l'endpoint est créé) ──
+    // const res = await fetch('https://formspree.io/f/VOTRE_ID', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+    // if(res.ok){ showSuccess(); return; }
+
+    // ── Option B : Mailto (actif par défaut jusqu'à confirmation email) ──
+    const body = Object.entries(data)
+      .filter(([k]) => !k.startsWith('_'))
+      .map(([k,v]) => `${k}: ${v}`)
+      .join('\n');
+
+    window.location.href = `mailto:${LITUS_EMAIL}`
+      + `?subject=${encodeURIComponent(data._subject)}`
+      + `&body=${encodeURIComponent(body)}`;
+
+    setTimeout(showSuccess, 800);
+
+  } catch(err){
+    btn.textContent = 'Envoyer ma demande de réservation';
+    btn.disabled = false;
+    alert('Une erreur est survenue. Veuillez réessayer.');
+  }
+});
+
+function showSuccess(){
+  document.getElementById('form-section').style.display = 'none';
+  const s = document.getElementById('success-screen');
+  s.style.display = 'block';
+}
+
+// Animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
+}, {threshold:0.1});
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conseil en gestion et accompagnement stratégique — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2340; --blue:#1B3D6F; --accent:#C05C1E;
+  --light:#F7F8FA; --white:#fff; --gray:#64748B;
+  --border:#E2E8F0; --text:#0F2340;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.1)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
+.nav-btn:hover{background:#a84d18!important}
+
+/* HERO */
+.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
+.exp-hero-left{background:linear-gradient(150deg,#c05000 0%,#8a3200 25%,#1a3d70 60%,#0a1e38 100%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.exp-hero-right{position:relative;overflow:hidden}
+.exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#8a3200 0%,transparent 100%);z-index:1}
+.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.exp-breadcrumb a{color:rgba(255,255,255,.5);transition:color .2s}
+.exp-breadcrumb a:hover{color:#fff}
+.exp-breadcrumb span{color:rgba(255,255,255,.25)}
+.exp-hero-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:28px;border:1px solid rgba(255,255,255,.25);width:fit-content}
+.exp-hero h1{font-size:clamp(36px,4.2vw,62px);font-weight:300;color:#fff;line-height:1.08;letter-spacing:-.3px;max-width:520px;margin-bottom:28px}
+.exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.72);max-width:460px;line-height:1.8;margin-bottom:44px}
+.exp-hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:14px 30px;font-size:15px;font-weight:700;transition:all .2s;cursor:pointer;border:none;width:fit-content}
+.exp-hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.exp-hero-cta svg{width:18px;height:18px}
+@media(max-width:900px){
+  .exp-hero{grid-template-columns:1fr;min-height:auto}
+  .exp-hero-right{height:300px}
+  .exp-hero-left{padding:80px 32px 56px}
+}
+
+/* INTRO SECTION */
+.section{padding:80px 0}
+.section-light{background:var(--light)}
+.section-dark{background:linear-gradient(160deg,#ffffff 0%,#e4f5f8 45%,#a8dde6 100%)}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.kicker-light{color:var(--accent)}
+.s-title{font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.s-title-light{color:var(--navy)}
+.s-sub{font-size:clamp(15px,1.4vw,18px);color:var(--gray);line-height:1.75;max-width:680px;margin-bottom:48px}
+.s-sub-light{color:var(--gray)}
+
+/* SERVICES GRID */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.svc-item{background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:44px 36px;position:relative;overflow:hidden;transition:all .3s;backdrop-filter:blur(8px)}
+.svc-item:hover{background:#fff;border-color:rgba(192,92,30,.3);box-shadow:0 12px 40px rgba(15,35,64,.1);transform:translateY(-4px)}
+.svc-item::after{content:"";position:absolute;bottom:-30px;right:-20px;font-size:100px;font-weight:800;color:rgba(15,35,64,.04);line-height:1;pointer-events:none}
+.svc-item:nth-child(1)::after{content:"01"}
+.svc-item:nth-child(2)::after{content:"02"}
+.svc-item:nth-child(3)::after{content:"03"}
+.svc-num{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:20px;display:block}
+.svc-item h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.25}
+.svc-item p{font-size:14px;color:var(--gray);line-height:1.75}
+.svc-divider{width:40px;height:2px;background:var(--accent);margin-bottom:20px;opacity:.7}
+
+/* LIVRAISON SECTION */
+.livraison-intro{margin-bottom:56px}
+.livraison-intro h2{font-size:clamp(28px,3.5vw,48px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.livraison-intro p{font-size:clamp(15px,1.4vw,18px);color:var(--gray);max-width:640px;line-height:1.7}
+.livraison-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:16px;overflow:hidden}
+.livraison-card{background:#1a2e4a;padding:48px 36px;transition:background .3s}
+.livraison-card:hover{background:#1f3860}
+.livraison-card h3{font-size:clamp(20px,2vw,26px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px;letter-spacing:-.3px}
+.livraison-card p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.75}
+
+/* NEWSLETTER BANNER */
+.newsletter-banner{background:linear-gradient(90deg,#ffffff 0%,#e8884a 40%,#C05C1E 100%);padding:18px 32px;display:flex;align-items:center;justify-content:flex-end;cursor:pointer;transition:background .2s}
+.newsletter-banner:hover{background:#a84d18}
+.newsletter-banner span{font-size:15px;font-weight:600;color:var(--navy);letter-spacing:.02em}
+.nl-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center}
+.nl-modal.open{display:flex}
+.nl-box{background:#1a2240;border-radius:16px;padding:48px;max-width:520px;width:90%;position:relative}
+.nl-box h2{font-size:28px;font-weight:700;color:#fff;margin-bottom:32px}
+.nl-close{position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.6);font-size:24px;cursor:pointer;line-height:1}
+.nl-close:hover{color:#fff}
+.nl-input{width:100%;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:14px 16px;color:#fff;font-size:15px;font-family:'Nunito Sans',sans-serif;outline:none;margin-bottom:20px;transition:border-color .2s}
+.nl-input:focus{border-color:rgba(255,255,255,.7)}
+.nl-input::placeholder{color:rgba(255,255,255,.4)}
+.nl-label{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:8px;display:block}
+.nl-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:28px}
+.nl-check input{margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer}
+.nl-check label{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5;cursor:pointer}
+.nl-check label span{color:rgba(255,100,100,.8)}
+.nl-submit{background:#e8602a;color:#fff;border:none;border-radius:50px;padding:14px 32px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:background .2s}
+.nl-submit:hover{background:#c04e1e}
+
+/* ARTICLES SECTION */
+.art-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:24px}
+.art-header-left h2{font-size:clamp(22px,2.5vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.5px;max-width:480px;line-height:1.2}
+.art-link-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:none;cursor:pointer;font-family:'Nunito Sans',sans-serif;margin-top:20px}
+.art-link-btn span{font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px;transition:all .2s}
+.art-link-btn:hover span{color:var(--accent);border-color:var(--accent)}
+.art-link-circle{width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.art-link-btn:hover .art-link-circle{background:var(--accent)}
+.art-link-circle svg{color:#fff}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.art-card{cursor:pointer;transition:transform .3s}
+.art-card:hover{transform:translateY(-4px)}
+.art-card-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.art-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.art-card:hover .art-card-img img{transform:scale(1.05)}
+.art-badge{position:absolute;bottom:16px;left:16px;padding:16px 18px;border-radius:8px;max-width:210px}
+.art-badge .art-date{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-bottom:4px}
+.art-badge .art-cat-label{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;line-height:1.4;margin-bottom:8px}
+.art-badge .art-read{font-size:12px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:3px}
+.art-card-body{padding:16px 4px 0}
+.art-card-body h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px}
+.art-card-body p{font-size:13px;color:var(--gray);line-height:1.6}
+.badge-orange{background:var(--accent)}
+.badge-purple{background:#4a2080}
+.badge-teal{background:#0d7a75}
+
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,#071628 0%,#0F2340 60%,#1B3D6F 100%);padding:80px 0}
+.cta-in{max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center}
+.cta-text h2{font-size:clamp(26px,3vw,42px);font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.2;margin-bottom:16px}
+.cta-text p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;max-width:500px}
+.cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:36px;min-width:280px;text-align:center}
+.cta-card p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:20px;line-height:1.6}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:14px 28px;font-size:15px;font-weight:600;transition:all .2s;border:none;cursor:pointer;width:100%;justify-content:center}
+.btn-cta:hover{background:#a84d18;transform:translateY(-2px)}
+.btn-cta svg{width:16px;height:16px}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand p{font-size:13px;line-height:1.8;margin-top:16px;color:rgba(255,255,255,.5)}
+.foot-col h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px;cursor:pointer;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3)}
+.foot-btm-links{display:flex;gap:20px}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.fade.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:1fr}
+  .livraison-grid{grid-template-columns:1fr}
+  .art-grid{grid-template-columns:1fr}
+  .cta-in{grid-template-columns:1fr}
+  .cta-card{min-width:auto}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">
+            <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#expertises" class="nav-a">Expertises</a>
+      <a href="../index.html#formation" class="nav-a">Formation</a>
+    </div></div></div></div>
+    </div></a></div></a></div></a></div></a></div></div>
+    </div>
+      <a class="nav-a" href="../index.html#apropos">À propos</a>
+      <a class="nav-a" href="../index.html#reflexions">Réflexions</a>
+      <a class="nav-a nav-btn" href="../index.html#contact">Nous contacter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="exp-hero">
+  <div class="exp-hero-left">
+    <div class="exp-breadcrumb">
+      <a href="../index.html">Accueil</a>
+      <span>/</span>
+      <a href="../index.html#expertises">Expertises</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.8)">Conseil en gestion</span>
+    </div>
+    <h1>Conseil en gestion et accompagnement stratégique</h1>
+    <p class="exp-hero-sub">Nos services de conseil en gestion vous permettent de bénéficier du soutien de nos experts pour la prise de décision, l'anticipation des risques et la transformation de vos organisations.</p>
+    <button class="exp-hero-cta" onclick="document.getElementById('consultation').scrollIntoView({behavior:'smooth'})">
+      Réservez votre consultation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+  <div class="exp-hero-right">
+    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&auto=format&fit=crop&q=80" alt="Conseil stratégique">
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section section-dark">
+  <div class="s-in">
+    <div class="fade">
+      <div class="kicker kicker-light">Notre approche</div>
+      <h2 class="s-title s-title-light">Une expertise au service<br>de votre transformation</h2>
+      <p class="s-sub s-sub-light">Nous combinons la proximité d'un cabinet-boutique avec la rigueur d'une grande firme-conseil. Nos conseillers travaillent directement avec vos équipes pour aligner ambition stratégique et capacités réelles.</p>
+    </div>
+
+    <!-- SERVICES GRID -->
+    <div class="svc-grid fade">
+      <div class="svc-item">
+        <span class="svc-num">01</span>
+        <div class="svc-divider"></div>
+        <h3>Architecture d'entreprise et d'affaires</h3>
+        <p>Repensez vos processus d'affaires. Nous vous aidons à modéliser, analyser et optimiser l'ensemble de votre architecture organisationnelle et technologique.</p>
+      </div>
+      <div class="svc-item">
+        <span class="svc-num">02</span>
+        <div class="svc-divider"></div>
+        <h3>Conseil stratégique</h3>
+        <p>Alignez stratégie et technologies. Nos experts vous accompagnent dans la définition de vos orientations stratégiques et la mise en œuvre de vos initiatives de transformation.</p>
+      </div>
+      <div class="svc-item">
+        <span class="svc-num">03</span>
+        <div class="svc-divider"></div>
+        <h3>Gestion de projets et programmes</h3>
+        <p>Mobilisez vos équipes. Nous assurons la gouvernance, le pilotage et la livraison de vos projets complexes avec une approche rigoureuse et adaptée à votre contexte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER BANNER -->
+<div class="newsletter-banner" onclick="document.getElementById('nlModal').classList.add('open')">
+  <span>S'inscrire à l'infolettre →</span>
+</div>
+
+<!-- NEWSLETTER MODAL -->
+<div class="nl-modal" id="nlModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="nl-box">
+    <button class="nl-close" onclick="document.getElementById('nlModal').classList.remove('open')">✕</button>
+    <h2>Inscription à l'infolettre</h2>
+    <span class="nl-label">Courriel <span style="color:rgba(255,100,100,.8)">*</span></span>
+    <input class="nl-input" id="nlEmail" type="email" placeholder="votre@courriel.com">
+    <div class="nl-check">
+      <input type="checkbox" id="nlConsent">
+      <label for="nlConsent">En soumettant ce formulaire, vous consentez à la collecte et à l'utilisation de vos renseignements personnels conformément à notre politique de confidentialité. <span>*</span></label>
+    </div>
+    <button class="nl-submit" onclick="submitNewsletter()">S'inscrire</button>
+  </div>
+</div>
+
+<!-- MODE DE LIVRAISON -->
+<section class="section section-light">
+  <div class="s-in">
+    <div class="livraison-intro fade">
+      <div class="kicker">Notre approche de livraison</div>
+      <h2>Un mode de livraison selon vos besoins.</h2>
+      <p>Notre offre est supportée par trois méthodes de livraison qui peuvent être activées à tout moment du cycle de vie de votre transformation.</p>
+    </div>
+    <div class="livraison-grid fade">
+      <div class="livraison-card">
+        <h3>Consultation stratégique</h3>
+        <p>Un partenaire stratégique dans vos réflexions d'affaires. Nous vous aidons à clarifier vos enjeux, structurer vos priorités et définir un cap clair.</p>
+      </div>
+      <div class="livraison-card">
+        <h3>Services professionnels</h3>
+        <p>Les meilleurs experts disponibles dès que vous en avez besoin. Nos conseillers s'intègrent à vos équipes pour accélérer vos projets de transformation.</p>
+      </div>
+      <div class="livraison-card">
+        <h3>Solutions et projets</h3>
+        <p>Engagés avec vous dans le succès de vos projets. Nous prenons en charge la livraison complète, de la conception à la mise en production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section">
+  <div class="s-in">
+    <div class="art-header fade">
+      <div class="art-header-left">
+        <h2>Consultez notre dernier article sur l'accompagnement stratégique.</h2>
+        <button class="art-link-btn" onclick="window.location.href='../reflexions.html'">
+          <span>Consultez nos dernières réflexions</span>
+          <div class="art-link-circle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="art-grid">
+      <!-- ARTICLE 1 -->
+      <div class="art-card fade">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-orange">
+            <div class="art-date">2026.06.01</div>
+            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Comment aligner votre stratégie d'affaires et votre transformation numérique</h3>
+          <p>Les organisations qui réussissent ancrent leurs initiatives dans une vision stratégique claire.</p>
+        </div>
+      </div>
+      <!-- ARTICLE 2 -->
+      <div class="art-card fade">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-purple">
+            <div class="art-date">2026.04.20</div>
+            <div class="art-cat-label">Architecture d'entreprise</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Architecture d'entreprise : un levier souvent sous-estimé pour la performance</h3>
+          <p>Investir dans la technologie sans cartographier ses processus est une erreur coûteuse.</p>
+        </div>
+      </div>
+      <!-- ARTICLE 3 -->
+      <div class="art-card fade">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-teal">
+            <div class="art-date">2026.03.10</div>
+            <div class="art-cat-label">Transformation numérique</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Mobiliser les équipes : le facteur humain au cœur de la réussite des projets</h3>
+          <p>La réussite d'un projet de transformation repose avant tout sur l'adhésion des équipes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA CONSULTATION -->
+<section class="cta-section" id="consultation">
+  <div class="cta-in">
+    <div class="cta-text fade">
+      <div class="kicker" style="color:rgba(255,255,255,.5)">Première consultation gratuite</div>
+      <h2>Profitez d'une séance de stratégie, sans frais, de 30 minutes avec l'un de nos experts.</h2>
+      <p>Découvrez comment concrétiser vos ambitions en alignant de manière cohérente votre stratégie d'affaires et vos initiatives numériques.</p>
+    </div>
+    <div class="cta-card fade">
+      <p>Première consultation <strong style="color:#fff">gratuite et sans engagement</strong>.</p>
+      <a class="btn-cta" href="../index.html#contact">
+        Réservez votre consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="s-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+              <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+        <p>Conseil · Stratégie · Transformation<br>Québec, Canada — Abidjan, Côte d'Ivoire</p>
+      </div>
+      <div class="foot-col">
+        <h5>Expertises</h5>
+        <a href="#">Conseil en gestion</a>
+        <a href="../index.html#expertises">Stratégie LP</a>
+        <a href="../index.html#expertises">Technologies</a>
+        <a href="../index.html#expertises">Intelligence artificielle</a>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="../index.html#formation">Formation</a>
+        <a href="../index.html#apropos">À propos</a>
+        <a href="../index.html#reflexions">Réflexions</a>
+        <a href="../index.html#carrieres">Carrières</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
+        <a>Québec, Canada</a>
+        <a>Abidjan, Côte d'Ivoire</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div>© 2026 Litus Partners. Tous droits réservés.</div>
+      <div class="foot-btm-links">
+        <a>Confidentialité</a>
+        <a>Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+},{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+function submitNewsletter(){
+  const em=document.getElementById('nlEmail').value.trim();
+  const ok=document.getElementById('nlConsent').checked;
+  if(!em||!ok){alert('Veuillez entrer votre courriel et accepter les conditions.');return;}
+  window.location.href='mailto:contact@lituspartners.com?subject=Inscription infolettre&body=Inscription à l\'infolettre : '+em;
+  document.getElementById('nlModal').classList.remove('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gouvernance des organisations &mdash; Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2340;--blue:#1B3D6F;--accent:#C05C1E;--light:#F7F8FA;--white:#fff;--gray:#64748B;--border:#E2E8F0;--text:#0F2340}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.1)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-a{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:700;font-size:14px;margin-left:8px}
+.nav-btn:hover{background:#a84d18!important}
+
+/* HERO */
+.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
+.exp-hero-left{background:linear-gradient(150deg,#0d2444 0%,#1B3D6F 50%,#1a5f8f 80%,#0d2444 100%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.exp-hero-right{position:relative;overflow:hidden}
+.exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
+.exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#0d2444 0%,transparent 100%);z-index:1}
+.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.exp-breadcrumb a{color:rgba(255,255,255,.5);transition:color .2s}
+.exp-breadcrumb a:hover{color:#fff}
+.exp-breadcrumb span{color:rgba(255,255,255,.25)}
+.exp-hero h1{font-size:clamp(32px,3.8vw,56px);font-weight:300;color:#fff;line-height:1.1;letter-spacing:-.3px;max-width:520px;margin-bottom:24px}
+.exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.72);max-width:460px;line-height:1.8;margin-bottom:44px}
+.exp-hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:14px 30px;font-size:15px;font-weight:700;transition:all .2s;cursor:pointer;width:fit-content}
+.exp-hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+@media(max-width:900px){.exp-hero{grid-template-columns:1fr;min-height:auto}.exp-hero-right{height:300px}.exp-hero-left{padding:80px 32px 56px}}
+
+/* NEWSLETTER BANNER */
+.nl-banner{background:linear-gradient(90deg,#ffffff 0%,#e8884a 40%,#C05C1E 100%);padding:18px 0;cursor:pointer}
+.nl-banner-in{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl-banner p{font-size:15px;font-weight:600;color:var(--navy)}
+.nl-banner-btn{flex-shrink:0;background:#fff;color:var(--accent);border-radius:50px;padding:8px 22px;font-size:13px;font-weight:700;white-space:nowrap;transition:all .2s}
+.nl-banner:hover .nl-banner-btn{background:var(--navy);color:#fff}
+
+/* SECTIONS */
+.section{padding:88px 0}
+.section-teal{background:linear-gradient(160deg,#ffffff 0%,#e4f5f8 45%,#a8dde6 100%)}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.kicker{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.s-title{font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.s-sub{font-size:clamp(15px,1.4vw,18px);color:var(--gray);line-height:1.75;max-width:680px;margin-bottom:48px}
+
+/* PHOTO CARDS */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:16px}
+.svc-item{background:#fff;border-radius:16px;overflow:hidden;transition:all .3s;box-shadow:0 2px 20px rgba(15,35,64,.08);display:flex;flex-direction:column}
+.svc-item:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(15,35,64,.14)}
+.svc-img-wrap{overflow:hidden;position:relative}
+.svc-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(15,35,64,.22) 100%)}
+.svc-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .5s ease}
+.svc-item:hover .svc-img{transform:scale(1.05)}
+.svc-body{padding:30px 28px 36px;flex-grow:1;display:flex;flex-direction:column;gap:10px;border-top:3px solid transparent;transition:border-color .3s}
+.svc-item:hover .svc-body{border-top-color:var(--accent)}
+.svc-item h3{font-size:20px;font-weight:800;color:var(--navy);line-height:1.2;margin:0}
+.svc-item p{font-size:14px;color:var(--gray);line-height:1.8;margin:0;flex-grow:1}
+.svc-cta{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--accent);margin-top:6px;transition:gap .2s}
+.svc-cta svg{transition:transform .2s}
+.svc-item:hover .svc-cta{gap:10px}
+.svc-item:hover .svc-cta svg{transform:translateX(3px)}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}
+
+/* VALEUR */
+.section-approach{background:linear-gradient(160deg,#ffffff 0%,#e8f4fb 40%,#b8dff0 100%)}
+.approach-wrap{display:grid;grid-template-columns:360px 1fr;gap:72px;align-items:start;margin-top:0}
+.approach-left .s-title{margin-bottom:20px}
+.approach-left .s-sub{margin-bottom:32px}
+.approach-divider{width:48px;height:4px;background:var(--accent);border-radius:2px;margin-bottom:32px}
+.val-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.val-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:16px;padding:32px 32px 32px 36px;transition:all .35s;box-shadow:0 4px 24px rgba(15,35,64,.08);display:flex;gap:24px;align-items:flex-start;position:relative;overflow:hidden}
+.val-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,92,30,.02) 0%,transparent 60%);pointer-events:none}
+.val-card:hover{box-shadow:0 12px 40px rgba(15,35,64,.13);transform:translateX(6px);border-left-color:#a84d18}
+.val-icon{width:56px;height:56px;flex-shrink:0;background:linear-gradient(145deg,rgba(30,41,59,.1) 0%,rgba(30,41,59,.04) 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(30,41,59,.12),inset 0 1px 0 rgba(255,255,255,.6)}
+.val-icon svg{width:26px;height:26px}
+.val-body h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px;line-height:1.25}
+.val-body p{font-size:14px;color:var(--gray);line-height:1.8}
+@media(max-width:900px){.approach-wrap{grid-template-columns:1fr}}
+
+/* CTA */
+.cta-s{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
+.cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
+.cta-left .cta-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
+.cta-left h2{font-size:clamp(28px,3.5vw,48px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
+.cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
+.cta-card-info{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;text-align:center;margin-bottom:24px}
+.cta-card-info strong{color:#fff;font-weight:700}
+.btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;transition:all .25s;width:100%}
+.btn-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 32px rgba(192,92,30,.4)}
+@media(max-width:900px){.cta-in{grid-template-columns:1fr}.cta-card{max-width:420px}}
+
+/* FADE */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fu.v{opacity:1;transform:none}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- pins top -->
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins bottom -->
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins left -->
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins right -->
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <!-- chip body -->
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <!-- chip inner -->
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <!-- LP text -->
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#expertises" class="nav-a">Expertises</a>
+      <a href="../index.html#formation" class="nav-a">Formation</a>
+    </div></div></div></div>
+    </div></a></div></a></div></a></div></a></div></div>
+    </div>
+      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="exp-hero">
+  <div class="exp-hero-left">
+    <div class="exp-breadcrumb fu">
+      <a href="../index.html">Accueil</a><span>/</span><span>Gouvernance des organisations</span>
+    </div>
+    <h1 class="fu">Gouvernance des organisations</h1>
+    <p class="exp-hero-sub fu">Renforcez la clart&eacute; et l&rsquo;efficacit&eacute; de vos structures d&eacute;cisionnelles &mdash; pour une organisation transparente, responsable et durablement performante.</p>
+    <a href="../index.html#contact" class="exp-hero-cta fu">
+      R&eacute;server une consultation
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="exp-hero-right">
+    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=85" alt="Gouvernance des organisations">
+  </div>
+</section>
+
+<!-- NEWSLETTER BANNER -->
+<div class="nl-banner">
+  <div class="nl-banner-in">
+    <p>Restez inform&eacute; des meilleures pratiques en gouvernance organisationnelle &mdash; inscrivez-vous &agrave; notre infolettre.</p>
+    <span class="nl-banner-btn">S&rsquo;inscrire &agrave; l&rsquo;infolettre</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section section-teal">
+  <div class="s-in">
+    <div class="kicker fu">D&eacute;couvrez nos services</div>
+    <h2 class="s-title fu">Des leviers pour une gouvernance efficace</h2>
+    <p class="s-sub fu">Nous intervenons sur les dimensions strat&eacute;giques de votre gouvernance, avec une approche structur&eacute;e centr&eacute;e sur la transparence et la responsabilit&eacute;.</p>
+    <div class="svc-grid">
+
+      <!-- Audit de gouvernance -->
+      <div class="svc-item fu">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Audit de gouvernance">
+        </div>
+        <div class="svc-body">
+          <h3>Audit de gouvernance</h3>
+          <p>Nous &eacute;valuons vos structures et processus actuels pour identifier les zones d&rsquo;am&eacute;lioration et renforcer l&rsquo;efficacit&eacute; de votre cadre organisationnel.</p>
+          <a href="../index.html#contact" class="svc-cta">
+            R&eacute;server une consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- D&eacute;veloppement de strat&eacute;gies -->
+      <div class="svc-item fu">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="D&eacute;veloppement de strat&eacute;gies de gouvernance">
+        </div>
+        <div class="svc-body">
+          <h3>D&eacute;veloppement de strat&eacute;gies</h3>
+          <p>Cr&eacute;ation de politiques et de pratiques qui renforcent la transparence, la responsabilit&eacute; et l&rsquo;alignement strat&eacute;gique au sein de votre organisation.</p>
+          <a href="../index.html#contact" class="svc-cta">
+            R&eacute;server une consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formation et impl&eacute;mentation -->
+      <div class="svc-item fu">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80" alt="Formation et impl&eacute;mentation">
+        </div>
+        <div class="svc-body">
+          <h3>Formation et impl&eacute;mentation</h3>
+          <p>Nous accompagnons vos &eacute;quipes dans l&rsquo;adoption et la mise en &oelig;uvre de nouvelles pratiques de gouvernance, pour un changement durable et ancr&eacute; dans la culture organisationnelle.</p>
+          <a href="../index.html#contact" class="svc-cta">
+            R&eacute;server une consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOTRE APPROCHE -->
+<section class="section section-approach">
+  <div class="s-in">
+    <div class="approach-wrap">
+      <div class="approach-left fu">
+        <div class="kicker">Notre approche</div>
+        <h2 class="s-title">Une gouvernance b&acirc;tie sur trois piliers essentiels.</h2>
+        <div class="approach-divider"></div>
+        <p class="s-sub" style="margin-bottom:0">Des engagements fondamentaux qui guident chacune de nos interventions &mdash; pour des r&eacute;sultats concrets et durables.</p>
+      </div>
+      <div class="val-grid">
+        <div class="val-card fu">
+          <div class="val-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#1E293B" stroke="none"/>
+              <line x1="12" y1="3" x2="12" y2="1"/><line x1="12" y1="23" x2="12" y2="21"/>
+              <line x1="3" y1="12" x2="1" y2="12"/><line x1="23" y1="12" x2="21" y2="12"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <h3>D&eacute;cisions strat&eacute;giques &eacute;clair&eacute;es</h3>
+            <p>Nous structurons vos processus d&eacute;cisionnels pour que chaque d&eacute;cision soit rapide, fond&eacute;e sur des donn&eacute;es fiables et align&eacute;e avec vos objectifs d&rsquo;affaires.</p>
+          </div>
+        </div>
+        <div class="val-card fu">
+          <div class="val-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
+              <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/>
+              <path d="m21 3 1 11h-1"/>
+              <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/>
+              <path d="M3 4h8"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <h3>Transparence et responsabilit&eacute;</h3>
+            <p>Nous instaurons des m&eacute;canismes de contr&ocirc;le et de reddition de comptes clairs, renfor&ccedil;ant la confiance de vos parties prenantes internes et externes.</p>
+          </div>
+        </div>
+        <div class="val-card fu">
+          <div class="val-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+            </svg>
+          </div>
+          <div class="val-body">
+            <h3>Performance durable</h3>
+            <p>Nos strat&eacute;gies de gouvernance sont con&ccedil;ues pour &eacute;liminer les inefficacit&eacute;s structurelles et maximiser durablement la performance de votre organisation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-s">
+  <div class="cta-in">
+    <div class="cta-left fu">
+      <div class="cta-kicker">Premi&egrave;re consultation offerte</div>
+      <h2>Profitez d&rsquo;une s&eacute;ance de strat&eacute;gie, sans frais, de 30&nbsp;minutes avec l&rsquo;un de nos experts.</h2>
+      <p>D&eacute;couvrez comment renforcer votre gouvernance en alignant vos structures d&eacute;cisionnelles avec vos objectifs strat&eacute;giques.</p>
+    </div>
+    <div class="cta-card fu">
+      <p class="cta-card-info">
+        Premi&egrave;re consultation <strong>gratuite et sans engagement</strong>.
+      </p>
+      <a href="../index.html#contact" class="btn-cta">
+        R&eacute;servez votre consultation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("v")})},{threshold:.1});
+document.querySelectorAll(".fu").forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offre de formation — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2340; --blue:#1B3D6F; --accent:#C05C1E;
+  --light:#F7F8FA; --white:#fff; --gray:#64748B;
+  --border:#E2E8F0; --text:#0F2340;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:rgba(15,35,64,0);backdrop-filter:blur(0px);transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+nav.solid{background:rgba(15,35,64,.98);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-a{font-size:13.5px;font-weight:600;color:rgba(255,255,255,.7);padding:8px 18px;border-radius:6px;cursor:pointer;transition:all .2s;white-space:nowrap;letter-spacing:.01em}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:700;font-size:13.5px;margin-left:8px;transition:all .2s}
+.nav-btn:hover{background:#a84d18!important;transform:translateY(-1px)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+
+/* ─── MOBILE MENU ─── */
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+
+/* ─── HERO CINEMATIC ─── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(7,18,36,.98) 0%, rgba(10,24,48,.85) 40%, rgba(15,35,64,.5) 75%, rgba(15,35,64,.2) 100%)}
+.hero-overlay-h{position:absolute;inset:0;background:linear-gradient(to right, rgba(7,18,36,.6) 0%, transparent 60%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 40px;width:100%}
+.hero-breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:32px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-breadcrumb a{color:rgba(255,255,255,.4);transition:color .2s}
+.hero-breadcrumb a:hover{color:rgba(255,255,255,.8)}
+.hero-breadcrumb span{color:rgba(255,255,255,.2)}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-line{width:40px;height:2px;background:var(--accent)}
+.hero-kicker{font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(42px,6vw,88px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-3px;max-width:820px;margin-bottom:32px}
+.hero h1 em{font-style:normal;color:rgba(255,255,255,.35)}
+.hero-desc{font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.6);max-width:520px;line-height:1.8;margin-bottom:48px;font-weight:400}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:48px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:4px;padding:16px 36px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .25s}
+.btn-primary:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 16px 40px rgba(192,92,30,.4)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:rgba(255,255,255,.7);border-radius:4px;padding:16px 36px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);transition:all .25s}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+.hero-scroll{position:absolute;bottom:40px;right:40px;z-index:2;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.35);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.hero-scroll-line{width:40px;height:1px;background:rgba(255,255,255,.2)}
+
+/* ─── STATS ─── */
+.stats{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06)}
+.stats-in{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:44px 0;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:clamp(36px,3.5vw,56px);font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
+.stat-n span{color:var(--accent)}
+.stat-l{font-size:13px;color:rgba(255,255,255,.45);margin-top:8px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+
+/* ─── APPROCHE ─── */
+.section{padding:100px 0}
+.s-in{max-width:1200px;margin:0 auto;padding:0 40px}
+.section-light{background:var(--light)}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.eyebrow-line{width:32px;height:2px;background:var(--accent)}
+.kicker{font-size:10px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.section-title{font-size:clamp(32px,3.5vw,52px);font-weight:900;color:var(--navy);line-height:1.0;letter-spacing:-1.5px;margin-bottom:20px}
+.section-title em{font-style:normal;color:var(--accent)}
+.section-sub{font-size:clamp(15px,1.2vw,17px);color:var(--gray);line-height:1.8;max-width:560px}
+
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:0}
+.approach-left{}
+.approach-right{padding-top:8px}
+.approach-pillars{display:flex;flex-direction:column;gap:0;margin-top:48px}
+.pillar{display:grid;grid-template-columns:64px 1fr;gap:0;padding:28px 0;border-bottom:1px solid var(--border)}
+.pillar:first-child{border-top:1px solid var(--border)}
+.pillar-num{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:.1em;padding-top:3px}
+.pillar-body strong{display:block;font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.pillar-body p{font-size:14px;color:var(--gray);line-height:1.7}
+
+.approach-visual{border-radius:3px;overflow:hidden;position:relative}
+.approach-visual img{width:100%;height:540px;object-fit:cover}
+.approach-visual-label{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,rgba(7,18,36,.9) 0%,transparent 100%)}
+.approach-visual-label p{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px}
+.approach-visual-label strong{font-size:22px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-.5px;display:block}
+@media(max-width:900px){.approach-grid{grid-template-columns:1fr}.approach-visual{display:none}}
+
+/* ─── NIVEAUX ACCORDÉON ─── */
+.levels-stack{display:flex;flex-direction:column;gap:0;margin-top:0}
+.lvl{background:linear-gradient(135deg,#f0f2f5 0%,#ffffff 100%);border:1px solid var(--border);border-bottom:none;position:relative;overflow:hidden;transition:box-shadow .3s}
+.lvl:last-child{border-bottom:1px solid var(--border)}
+.lvl.open{box-shadow:0 8px 40px rgba(15,35,64,.1);border-color:rgba(192,92,30,.2);z-index:1}
+.lvl-header{display:flex;align-items:center;justify-content:space-between;padding:32px 48px;cursor:pointer;gap:24px;user-select:none}
+.lvl-header-left{display:flex;align-items:center;gap:28px}
+.lvl-badge{display:none}
+.lvl-title{font-size:clamp(17px,1.6vw,22px);font-weight:800;color:var(--navy);line-height:1.2;letter-spacing:-.3px}
+.lvl-toggle{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;color:var(--gray);flex-shrink:0;transition:all .25s;line-height:1;background:#fff}
+.lvl.open .lvl-toggle{background:var(--accent);border-color:var(--accent);color:#fff}
+.lvl-body{display:none;padding:0 48px 36px;border-top:1px solid var(--border);margin:0 48px;padding-top:32px}
+.lvl.open .lvl-body{display:flex;flex-direction:column;gap:20px}
+.lvl-desc{font-size:15px;color:var(--gray);line-height:1.8;max-width:680px}
+.lvl-list{display:flex;flex-direction:column;gap:10px}
+.lvl-item{font-size:14px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:12px}
+.lvl-item svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+@media(max-width:860px){
+  .lvl-header{padding:24px}
+  .lvl-body{padding:0 24px 28px;margin:0 24px;padding-top:24px}
+  .lvl-header-left{flex-wrap:wrap;gap:12px}
+}
+
+/* ─── CATALOGUE ─── */
+.cat-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.cat-intro-right p{font-size:15px;color:var(--gray);line-height:1.8}
+@media(max-width:760px){.cat-intro{grid-template-columns:1fr;gap:32px}}
+
+.cat-list{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.cat-item{padding:48px 44px;border:1px solid var(--border);background:var(--white);position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.cat-item:hover{border-color:rgba(192,92,30,.3);box-shadow:0 20px 60px rgba(15,35,64,.08)}
+.cat-item-dark{background:var(--navy);border-color:transparent}
+.cat-item-dark:hover{border-color:rgba(255,255,255,.1);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.cat-item::after{content:"";position:absolute;bottom:0;left:44px;right:44px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.cat-item:hover::after{transform:scaleX(1)}
+.cat-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
+.cat-num-badge{display:none}
+.cat-item-dark .cat-num-badge{color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
+.cat-icon{display:none}
+.cat-item-dark .cat-icon{background:rgba(255,255,255,.07)}
+.cat-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cat-item-dark .cat-icon svg{stroke:rgba(255,255,255,.5)}
+.cat-title{font-size:clamp(18px,1.8vw,22px);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.5px;margin-bottom:14px}
+.cat-item-dark .cat-title{color:#fff}
+.cat-desc{font-size:14px;color:var(--gray);line-height:1.75}
+.cat-item-dark .cat-desc{color:rgba(255,255,255,.55)}
+.cat-tags{display:none}
+.cat-tag{display:none}
+.cat-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:28px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:background .2s,transform .2s;width:100%}
+.cat-btn:hover{background:var(--blue);transform:translateY(-1px)}
+.cat-item-dark .cat-btn{background:var(--accent)}
+.cat-item-dark .cat-btn:hover{background:#a84d18}
+.cat-item-dark .cat-tag{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4)}
+.cat-cta{margin-top:32px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .2s;cursor:pointer}
+.cat-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.cat-cta:hover{color:#fff}
+.cat-cta:hover svg{transform:translateX(4px)}
+@media(max-width:760px){.cat-list{grid-template-columns:1fr}}
+
+/* ─── CTA SECTION ─── */
+.cta-section{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center}
+.cta-bg{position:absolute;inset:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,18,36,.97) 0%,rgba(15,35,64,.9) 45%,rgba(27,61,111,.7) 100%)}
+.cta-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:96px 40px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cta-left .eyebrow{margin-bottom:20px}
+.cta-left h2{font-size:clamp(32px,3.5vw,52px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-1.5px;margin-bottom:0}
+.cta-left h2 em{font-style:normal;color:var(--accent)}
+.cta-right p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:36px}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:860px){.cta-content{grid-template-columns:1fr;gap:40px}}
+
+/* ─── FOOTER ─── */
+footer{background:#070f1c;padding:32px 0;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
+
+/* ─── ANIMATIONS ─── */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.fu.v{opacity:1;transform:none}
+.fu-l{opacity:0;transform:translateX(-28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.fu-l.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .stats-in{grid-template-columns:1fr 1fr}
+  .s-in{padding:0 24px}
+  .section{padding:72px 0}
+  .hero-content{padding:0 24px 72px}
+  .nav-in{padding:0 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#expertises" class="nav-a">Expertises</a>
+      <a href="../index.html#formation" class="nav-a">Formation</a>
+      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <a href="equipe.html" class="nav-a nav-btn">Nous contacter</a>
+    </div>
+    <button class="hamburger" onclick="document.querySelector('.mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob">
+  <button class="mob-close" onclick="document.querySelector('.mob').classList.remove('open')">&times;</button>
+  <a href="../index.html#expertises">Expertises</a>
+  <a href="../index.html#formation">Formation</a>
+  <a href="../index.html#apropos">&Agrave; propos</a>
+  <a href="../reflexions.html">R&eacute;flexions</a>
+  <a href="equipe.html">Nous contacter</a>
+</div>
+
+<!-- HERO CINEMATIC -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=1800&q=85" alt="Formation professionnelle Litus Partners">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-h"></div>
+  <div class="hero-content">
+<h1 class="fu d2">
+      Au c&oelig;ur de votre<br>
+      d&eacute;veloppement
+</h1>
+<div class="hero-actions fu d4">
+      <a href="#catalogue" class="btn-primary">Consultez notre offre de formation</a>
+    </div>
+  </div>
+</section>
+
+<!-- NIVEAUX -->
+<section class="section section-light" style="padding-top:0;padding-bottom:0">
+  <div class="s-in" style="padding:0">
+    <div style="padding:80px 40px 40px;max-width:1200px;margin:0 auto">
+      <h2 class="section-title fu" style="color:var(--accent);font-weight:300">Votre parcours de d&eacute;veloppement<br>commence ici</h2>
+    </div>
+    <div class="levels-stack">
+
+      <div class="lvl fu" id="lvl-1">
+        <div class="lvl-header" onclick="toggleLvl('lvl-1')">
+          <div class="lvl-header-left">
+            <span class="lvl-badge">Fondamental</span>
+            <span class="lvl-title">Formation de base</span>
+          </div>
+          <div class="lvl-toggle">+</div>
+        </div>
+        <div class="lvl-body">
+          <p class="lvl-desc">Introduction structur&eacute;e aux concepts cl&eacute;s du domaine. Con&ccedil;ue pour &eacute;tablir des fondations solides et une compr&eacute;hension commune &agrave; l&rsquo;ensemble de votre &eacute;quipe.</p>
+          <div class="lvl-list">
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Concepts et mod&egrave;les fondamentaux</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Exemples tir&eacute;s du terrain</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Exercices pratiques guid&eacute;s</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lvl fu d1" id="lvl-2">
+        <div class="lvl-header" onclick="toggleLvl('lvl-2')">
+          <div class="lvl-header-left">
+            <span class="lvl-badge">Avanc&eacute;</span>
+            <span class="lvl-title">Formation avanc&eacute;e</span>
+          </div>
+          <div class="lvl-toggle">+</div>
+        </div>
+        <div class="lvl-body">
+          <p class="lvl-desc">Approfondissement des pratiques professionnelles avec mise en situation r&eacute;elle. Id&eacute;al pour les &eacute;quipes voulant g&eacute;n&eacute;rer un impact imm&eacute;diat et mesurable.</p>
+          <div class="lvl-list">
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cas pratiques complexes</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Analyse de situations r&eacute;elles</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ateliers de co-d&eacute;veloppement</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lvl fu d2" id="lvl-3">
+        <div class="lvl-header" onclick="toggleLvl('lvl-3')">
+          <div class="lvl-header-left">
+            <span class="lvl-badge">Terrain</span>
+            <span class="lvl-title">Formation pratique</span>
+          </div>
+          <div class="lvl-toggle">+</div>
+        </div>
+        <div class="lvl-body">
+          <p class="lvl-desc">Application directe sur vos projets r&eacute;els avec un encadrement expert. Le participant repart avec des livrables concrets et un plan d&rsquo;action op&eacute;rationnel.</p>
+          <div class="lvl-list">
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Application sur vos projets actifs</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accompagnement expert d&eacute;di&eacute;</span>
+            <span class="lvl-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Livrables et plan d&rsquo;action</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="section" id="catalogue">
+  <div class="s-in">
+<div style="margin-bottom:48px" class="fu">
+      <h3 style="font-size:clamp(26px,2.8vw,38px);font-weight:300;color:var(--accent);letter-spacing:-.5px;margin-bottom:16px">Catalogue de formation</h3>
+      <p style="font-size:clamp(15px,1.2vw,17px);color:var(--gray);font-weight:600">Explorez notre catalogue complet pour trouver la formation qui r&eacute;pond &agrave; vos besoins.</p>
+    </div>
+
+    <div class="cat-list">
+
+      <!-- 01 -->
+      <div class="cat-item fu">
+        <div class="cat-header">
+          <div class="cat-num-badge">01</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Mod&eacute;lisation, processus<br>et outils</div>
+        <p class="cat-desc">Ma&icirc;trisez les techniques de mod&eacute;lisation d&rsquo;affaires, l&rsquo;analyse et l&rsquo;optimisation des processus, et les outils num&eacute;riques qui soutiennent l&rsquo;efficacit&eacute; op&eacute;rationnelle.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">BPMN</span>
+          <span class="cat-tag">Lean</span>
+          <span class="cat-tag">ERP</span>
+          <span class="cat-tag">BPM</span>
+          <span class="cat-tag">Cartographie</span>
+        </div>
+        <a href="reservation.html?formation=modelisation" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+      <!-- 02 -->
+      <div class="cat-item fu d1">
+        <div class="cat-header">
+          <div class="cat-num-badge">02</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M12 20V4M18 20v-8"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Gestion de projet</div>
+        <p class="cat-desc">Acqu&eacute;rez les comp&eacute;tences pour piloter des projets complexes : planification, gestion des risques, leadership d&rsquo;&eacute;quipe et suivi de performance selon les meilleures pratiques reconnues mondialemennt.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">PMP</span>
+          <span class="cat-tag">Agile</span>
+          <span class="cat-tag">Scrum</span>
+          <span class="cat-tag">Prince2</span>
+          <span class="cat-tag">PMO</span>
+        </div>
+        <a href="reservation.html?formation=gestion-projet" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+      <!-- 03 -->
+      <div class="cat-item fu">
+        <div class="cat-header">
+          <div class="cat-num-badge">03</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Architecture et analyse<br>d&rsquo;affaires</div>
+        <p class="cat-desc">D&eacute;veloppez une vision syst&eacute;mique de l&rsquo;entreprise. Apprenez &agrave; documenter les besoins, concevoir des architectures d&rsquo;affaires coh&eacute;rentes et aligner les syst&egrave;mes d&rsquo;information avec la strat&eacute;gie.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">TOGAF</span>
+          <span class="cat-tag">BABOK</span>
+          <span class="cat-tag">UML</span>
+          <span class="cat-tag">CBAP</span>
+        </div>
+        <a href="reservation.html?formation=architecture" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+      <!-- 04 -->
+      <div class="cat-item fu d1">
+        <div class="cat-header">
+          <div class="cat-num-badge">04</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Gouvernance et performance<br>d&rsquo;entreprise</div>
+        <p class="cat-desc">Renforcez la capacit&eacute; de votre organisation &agrave; piloter sa performance : tableaux de bord strat&eacute;giques, gestion des risques, conformit&eacute; r&eacute;glementaire et structures de gouvernance efficaces.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">COBIT</span>
+          <span class="cat-tag">ISO</span>
+          <span class="cat-tag">OKR</span>
+          <span class="cat-tag">BSC</span>
+          <span class="cat-tag">Risk Mgmt</span>
+        </div>
+        <a href="reservation.html?formation=gouvernance" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+      <!-- 05 -->
+      <div class="cat-item fu">
+        <div class="cat-header">
+          <div class="cat-num-badge">05</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Gestion de l&rsquo;innovation</div>
+        <p class="cat-desc">Cultivez une culture d&rsquo;innovation durable. Structurez vos processus d&rsquo;id&eacute;ation, g&eacute;rez le changement et d&eacute;ployez des initiatives innovantes au sein de votre organisation avec m&eacute;thode et rigueur.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">Design Thinking</span>
+          <span class="cat-tag">Open Innovation</span>
+          <span class="cat-tag">Change</span>
+        </div>
+        <a href="reservation.html?formation=innovation" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+      <!-- 06 — sur mesure dark -->
+      <div class="cat-item cat-item-dark fu d1">
+        <div class="cat-header">
+          <div class="cat-num-badge">06</div>
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+        <div class="cat-title">Offre de formation<br>sur mesure</div>
+        <p class="cat-desc">Votre organisation a des besoins sp&eacute;cifiques? Nous co-concevons avec vous un programme 100&nbsp;% personnalis&eacute; &mdash; contenu, format, dur&eacute;e et livrables adapt&eacute;s &agrave; votre r&eacute;alit&eacute; et &agrave; vos objectifs.</p>
+        <div class="cat-tags">
+          <span class="cat-tag">Co-conception</span>
+          <span class="cat-tag">100% adapt&eacute;</span>
+          <span class="cat-tag">Tous niveaux</span>
+        </div>
+        <a href="reservation.html?formation=sur-mesure" class="cat-btn">Demande d&rsquo;information</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=1800&q=80" alt="Équipe en formation">
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="cta-left">
+      <div class="eyebrow fu">
+        <div class="eyebrow-line"></div>
+        <span class="kicker" style="color:rgba(255,255,255,.45)">Passez &agrave; l&rsquo;action</span>
+      </div>
+      <h2 class="fu">Pr&ecirc;t &agrave; investir dans<br>l&rsquo;<em>excellence</em><br>de vos &eacute;quipes&nbsp;?</h2>
+    </div>
+    <div class="cta-right fu">
+      <p>Partagez-nous votre projet de formation. Notre &eacute;quipe &eacute;value vos besoins et vous propose un programme adapt&eacute; &agrave; votre r&eacute;alit&eacute; organisationnelle dans les meilleurs d&eacute;lais.</p>
+      <div class="cta-btns">
+        <a href="equipe.html" class="btn-primary">Contacter notre &eacute;quipe</a>
+        <a href="../index.html" class="btn-ghost">Retour &agrave; l&rsquo;accueil</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Litus Partners &mdash; Tous droits r&eacute;serv&eacute;s</p>
+</footer>
+
+<script>
+// Accordéon niveaux
+function toggleLvl(id){
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.lvl').forEach(c => {
+    c.classList.remove('open');
+    c.querySelector('.lvl-toggle').textContent = '+';
+  });
+  if(!isOpen){
+    card.classList.add('open');
+    card.querySelector('.lvl-toggle').textContent = '−';
+  }
+}
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 40);
+}, {passive:true});
+
+// Intersection observer animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
+}, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fu,.fu-l').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

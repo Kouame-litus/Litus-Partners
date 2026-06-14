@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technologies &mdash; Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2340;--blue:#1B3D6F;--accent:#C05C1E;--light:#F7F8FA;--white:#fff;--gray:#64748B;--border:#E2E8F0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--navy);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.1)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
+.nav-btn:hover{background:#a84d18!important}
+/* HERO — split */
+.hero{position:relative;min-height:72vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
+.hero-left{background:linear-gradient(150deg,#0d2444 0%,#1B3D6F 50%,#0d2444 100%);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;overflow:hidden}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+.hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#0d2444 0%,transparent 100%);z-index:1}
+.hero h1{font-size:clamp(56px,7.2vw,108px);font-weight:300;color:#fff;line-height:1.0;letter-spacing:-3px;margin-bottom:24px}
+.hero-sub{font-size:clamp(15px,1.3vw,18px);color:#fff;font-weight:700;max-width:440px;line-height:1.6;margin-bottom:44px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:16px 36px;font-size:15px;font-weight:700;transition:all .25s;width:fit-content}
+.hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,92,30,.35)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{height:280px}.hero-left{padding:72px 32px 56px}}
+/* INTRO BAND */
+.intro-band{background:linear-gradient(90deg,#ffffff 0%,#e8884a 40%,#C05C1E 100%);padding:26px 0}
+.ib-in{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.ib-btn{flex-shrink:0;background:#fff;color:var(--accent);border-radius:50px;padding:9px 24px;font-size:13px;font-weight:700;white-space:nowrap;transition:all .2s}
+.ib-btn:hover{background:var(--navy);color:#fff}
+.ib-icon{flex-shrink:0;width:42px;height:42px;background:rgba(255,255,255,.25);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ib-icon svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ib-in p{font-size:15px;color:var(--navy);line-height:1.65}
+.ib-in strong{color:var(--navy)}
+/* SECTION */
+.section{padding:88px 0}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.s-title{font-size:clamp(28px,3.2vw,44px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.s-sub{font-size:clamp(15px,1.4vw,17px);color:var(--gray);line-height:1.8;max-width:640px}
+/* TECH GRID */
+.section-tech{background:linear-gradient(160deg,#ffffff 0%,#e8f4fb 50%,#b8dff0 100%);padding:88px 0}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:64px}
+.tc{background:#fff;border-radius:20px;padding:48px 44px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden;transition:all .35s;box-shadow:0 2px 20px rgba(15,35,64,.06);border:1px solid rgba(226,232,240,.8)}
+.tc:hover{box-shadow:0 16px 56px rgba(15,35,64,.12);transform:translateY(-4px);border-color:rgba(27,61,111,.15)}
+.tlogo{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.3px;display:flex;align-items:center;gap:14px}
+.ticon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.tdiv{width:36px;height:3px;background:var(--accent);border-radius:2px}
+.tc h3{font-size:20px;font-weight:700;color:var(--navy);line-height:1.25}
+.tc p{font-size:15px;color:var(--gray);line-height:1.85;flex-grow:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12px;font-weight:600;color:var(--blue);background:rgba(27,61,111,.07);padding:5px 14px;border-radius:50px;border:1px solid rgba(27,61,111,.1)}
+.cnum{position:absolute;bottom:-28px;right:24px;font-size:110px;font-weight:800;color:rgba(15,35,64,.03);line-height:1;pointer-events:none;user-select:none}
+/* CTA */
+.cta-s{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
+.cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
+.cta-left .cta-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
+.cta-left h2{font-size:clamp(28px,3.5vw,48px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
+.cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
+.cta-card-info{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;text-align:center;margin-bottom:24px}
+.cta-card-info strong{color:#fff;font-weight:700}
+.btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;transition:all .25s;width:100%}
+.btn-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 32px rgba(192,92,30,.4)}
+@media(max-width:900px){.cta-in{grid-template-columns:1fr}.cta-card{max-width:420px}}
+.btn-w{background:#fff;color:var(--navy);border-radius:50px;padding:16px 36px;font-size:15px;font-weight:700;transition:all .2s;display:inline-flex;align-items:center;gap:10px}
+.btn-w:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,92,30,.35)}
+/* FADE */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fu.v{opacity:1;transform:none}
+@media(max-width:900px){.tech-grid{grid-template-columns:1fr}.tc{padding:36px 28px}}
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- pins top -->
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins bottom -->
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins left -->
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <!-- pins right -->
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <!-- chip body -->
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <!-- chip inner -->
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <!-- LP text -->
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#expertises" class="nav-a">Expertises</a>
+      <a href="../index.html#formation" class="nav-a">Formation</a>
+    </div></div></div></div>
+    </div></a></div></a></div></a></div></a></div></div>
+    </div>
+      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="fu">Technologies</h1>
+    <p class="hero-sub fu">Des technologies au service de votre transformation num&eacute;rique.</p>
+    <a href="../index.html#contact" class="hero-cta fu">
+      R&eacute;server une consultation
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80" alt="Technologies">
+  </div>
+</section>
+
+<div class="intro-band">
+  <div class="ib-in">
+    <div class="ib-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+    </div>
+    <p><strong>Expertise technologique</strong> &mdash; Nos conseillers ma&icirc;trisent les &eacute;cosyst&egrave;mes Microsoft et AWS pour vous accompagner de la strat&eacute;gie &agrave; l&rsquo;impl&eacute;mentation, avec une approche centr&eacute;e sur vos objectifs d&rsquo;affaires.</p>
+    <a href="../index.html#contact" class="ib-btn">S&rsquo;inscrire &agrave; l&rsquo;infolettre</a>
+  </div>
+</div>
+
+<section class="section-tech">
+  <div class="s-in">
+    <div class="kicker fu">Nos technologies</div>
+    <h2 class="s-title fu">Les plateformes que nous ma&icirc;trisons</h2>
+    <p class="s-sub fu">Chaque technologie est s&eacute;lectionn&eacute;e pour sa capacit&eacute; &agrave; r&eacute;pondre aux d&eacute;fis r&eacute;els des organisations en transformation.</p>
+
+    <div class="tech-grid">
+
+      <!-- Azure -->
+      <div class="tc fu">
+        <div class="tlogo">
+          <div class="ticon" style="background:#e8f4ff">
+            <svg width="22" height="22" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="az1" x1="0" y1="0.667" x2="1" y2="0.336"><stop offset="0" stop-color="#114a8b"/><stop offset="1" stop-color="#0669bc"/></linearGradient>
+                <linearGradient id="az2" x1="0.341" y1="0.479" x2="0.686" y2="0.43"><stop offset="0" stop-opacity=".3"/><stop offset="1" stop-opacity="0"/></linearGradient>
+                <linearGradient id="az3" x1="0.111" y1="0.607" x2="0.964" y2="0.276"><stop offset="0" stop-color="#3ccbf4"/><stop offset="1" stop-color="#2892df"/></linearGradient>
+              </defs>
+              <path d="M33.3 6.5h26L33.9 90.1a4.1 4.1 0 01-3.9 2.8H8.4a4.1 4.1 0 01-3.9-5.5L28.9 13.9a4.2 4.2 0 014.4-7.4z" fill="url(#az1)"/>
+              <path d="M71.2 60.3H30a1.9 1.9 0 00-1.3 3.3l26.6 24.8a4.2 4.2 0 002.8 1.6h23.4z" fill="#0078d4"/>
+              <path d="M33.3 6.5a4.1 4.1 0 00-3.9 2.9L4.5 82.8a4.1 4.1 0 003.9 5.2H30a4.4 4.4 0 003.4-3l5.1-15.1 18.4 17.1a4.2 4.2 0 002.7 1H83L71.2 60.3l-31.4-.1L59.3 6.5z" fill="url(#az2)"/>
+              <path d="M67.1 13.9a4.1 4.1 0 00-3.9-2.9H33.6a4.1 4.1 0 013.9 2.9L61.9 87.4a4.1 4.1 0 01-3.9 5.5H88a4.1 4.1 0 003.9-5.5z" fill="url(#az3)"/>
+            </svg>
+          </div>
+          Microsoft Azure
+        </div>
+        <div class="tdiv"></div>
+        <h3>Infrastructure cloud &amp; services manag&eacute;s</h3>
+        <p>Microsoft Azure est la plateforme cloud de r&eacute;f&eacute;rence pour h&eacute;berger vos applications, donn&eacute;es et services dans un environnement s&eacute;curis&eacute;, &eacute;volutif et conforme aux normes les plus exigeantes. Nous accompagnons votre migration et votre architecture cloud sur Azure.</p>
+        <div class="tags">
+          <span class="tag">Migration cloud</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">S&eacute;curit&eacute;</span>
+          <span class="tag">DevOps</span>
+        </div>
+        <div class="cnum">01</div>
+      </div>
+
+      <!-- M365 -->
+      <div class="tc fu">
+        <div class="tlogo">
+          <div class="ticon" style="background:#f0f4ff;padding:6px">
+            <svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="10" height="10" rx="1" fill="#F25022"/>
+              <rect x="13" y="1" width="10" height="10" rx="1" fill="#7FBA00"/>
+              <rect x="1" y="13" width="10" height="10" rx="1" fill="#00A4EF"/>
+              <rect x="13" y="13" width="10" height="10" rx="1" fill="#FFB900"/>
+            </svg>
+          </div>
+          Microsoft 365
+        </div>
+        <div class="tdiv"></div>
+        <h3>Productivit&eacute; &amp; collaboration d&rsquo;entreprise</h3>
+        <p>Microsoft 365 centralise la communication, la collaboration et la productivit&eacute; au sein de votre organisation. De Teams &agrave; SharePoint en passant par Power Automate, nous optimisons votre d&eacute;ploiement pour maximiser l&rsquo;adoption et l&rsquo;efficacit&eacute; de vos &eacute;quipes.</p>
+        <div class="tags">
+          <span class="tag">Teams</span>
+          <span class="tag">SharePoint</span>
+          <span class="tag">Power Platform</span>
+          <span class="tag">Gouvernance</span>
+        </div>
+        <div class="cnum">02</div>
+      </div>
+
+      <!-- Power BI -->
+      <div class="tc fu">
+        <div class="tlogo">
+          <div class="ticon" style="background:#fffbea;display:flex;align-items:flex-end;gap:3px;padding:8px 10px">
+            <div style="width:6px;height:10px;background:#F2C811;border-radius:1px"></div>
+            <div style="width:6px;height:16px;background:#F2C811;border-radius:1px"></div>
+            <div style="width:6px;height:22px;background:#F2C811;border-radius:1px"></div>
+          </div>
+          Power BI
+        </div>
+        <div class="tdiv"></div>
+        <h3>Analytique &amp; intelligence d&rsquo;affaires</h3>
+        <p>Power BI transforme vos donn&eacute;es brutes en tableaux de bord interactifs et en insights actionnables. Nous concevons des solutions de reporting sur mesure qui permettent &agrave; vos dirigeants et &eacute;quipes de prendre des d&eacute;cisions &eacute;clair&eacute;es, en temps r&eacute;el.</p>
+        <div class="tags">
+          <span class="tag">Tableaux de bord</span>
+          <span class="tag">Reporting</span>
+          <span class="tag">Data modeling</span>
+          <span class="tag">KPI</span>
+        </div>
+        <div class="cnum">03</div>
+      </div>
+
+      <!-- AWS -->
+      <div class="tc fu">
+        <div class="tlogo">
+          <div class="ticon" style="background:#fff8f0">
+            <svg width="26" height="16" viewBox="0 0 64 38" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 24.5c0 .5.1.9.3 1.2.2.3.4.7.8 1.1.1.1.2.3.2.5 0 .2-.1.4-.4.6l-1.4 1c-.2.1-.4.2-.5.2-.2 0-.4-.1-.6-.3-.3-.3-.5-.6-.7-1-.2-.4-.4-.8-.6-1.3-1.5 1.8-3.4 2.8-5.8 2.8-1.7 0-3-.5-4-1.4-1-.9-1.5-2.2-1.5-3.8 0-1.7.6-3 1.8-4 1.2-1 2.8-1.5 4.9-1.5.7 0 1.4 0 2.1.1.7.1 1.5.3 2.3.5v-1.4c0-1.5-.3-2.6-1-3.2-.7-.7-1.9-1-3.5-1-.7 0-1.5.1-2.3.3-.8.2-1.5.5-2.3.9-.4.2-.6.3-.7.3h-.4c-.4 0-.5-.3-.5-.8v-1.2c0-.4.1-.6.4-.8.7-.4 1.6-.7 2.6-1 1-.3 2-.4 3.1-.4 2.4 0 4.1.5 5.2 1.6 1.1 1.1 1.6 2.7 1.6 4.8v6.4zm-7.9 3c.6 0 1.3-.1 2-.4.7-.3 1.4-.7 1.9-1.3.3-.4.5-.8.7-1.3.2-.5.2-1 .2-1.6v-.8c-.6-.1-1.2-.2-1.9-.3-.6-.1-1.2-.1-1.8-.1-1.3 0-2.2.3-2.9.8-.6.5-1 1.2-1 2.1 0 .8.2 1.5.7 1.9.5.6 1.2.9 2.1 1zm15 2c-.4 0-.6-.1-.7-.3-.1-.1-.3-.4-.4-.8L20 13.5c-.1-.3-.1-.6-.1-.7 0-.3.2-.5.5-.5h2.1c.4 0 .7.1.8.3.1.1.2.4.3.8l3 11.8 2.8-11.8c.1-.4.2-.6.4-.8.1-.1.4-.2.8-.2h1.7c.4 0 .7.1.8.2.1.1.3.4.4.8l2.8 12 3.1-12c.1-.4.2-.6.4-.8.1-.1.4-.2.8-.2h2c.3 0 .5.2.5.5 0 .1 0 .3-.1.4l-4.6 14.9c-.1.4-.3.6-.4.8-.2.1-.4.2-.7.2h-1.8c-.4 0-.7-.1-.8-.2-.1-.1-.3-.4-.4-.8l-2.8-11.4-2.8 11.4c-.1.4-.2.6-.4.8-.1.1-.4.2-.8.2H26zm24.8.5c-1.1 0-2.2-.1-3.3-.4-1.1-.3-2-.6-2.5-.9-.4-.2-.6-.5-.6-.7v-1.1c0-.4.1-.5.5-.5.1 0 .3 0 .4.1.1 0 .3.1.5.2.7.3 1.4.5 2.2.7.8.2 1.6.3 2.4.3 1.3 0 2.2-.2 2.9-.7.7-.4 1-1 1-1.8 0-.5-.2-1-.5-1.4-.3-.4-1-.7-2-.1.1l-2.8-.9c-1.5-.5-2.6-1.1-3.3-2-.7-.9-1-1.8-1-2.9 0-.8.2-1.6.5-2.2.4-.7.8-1.2 1.4-1.7.6-.4 1.3-.8 2.1-1 .8-.2 1.7-.3 2.6-.3.4 0 .9 0 1.3.1.5.1.9.2 1.3.3.4.1.7.2 1.1.4.3.1.6.3.8.4.3.2.4.4.5.5.1.2.1.4.1.6v1c0 .4-.1.5-.5.5-.1 0-.4-.1-.7-.2-1.2-.5-2.5-.7-3.9-.7-1.1 0-2 .2-2.6.6-.6.4-.9.9-.9 1.7 0 .5.2 1 .6 1.4.4.4 1.2.7 2.2 1.1l2.8.9c1.5.5 2.6 1.1 3.2 2 .6.8 1 1.8 1 2.8 0 .9-.2 1.7-.5 2.4-.4.7-.8 1.4-1.5 1.8-.6.5-1.4.9-2.2 1.1-.9.3-1.9.4-3 .4z" fill="#FF9900"/>
+              <path d="M57.8 34.2c-7.2 4.6-17.6 7-26.6 7C19.5 41.2 9 37 1.2 30c-.6-.5-.1-1.2.6-.8 8.5 5 19 7.9 29.8 7.9 7.3 0 15.3-1.5 22.7-4.6 1.1-.5 2 .7 1.5 1.7z" fill="#FF9900"/>
+              <path d="M60.5 31c-.8-1.1-5.5-.5-7.6-.3-.6.1-.7-.4-.1-.8 3.7-2.6 9.8-1.9 10.5-1 .7.9-.2 11.9-3.7 16.8-.5.7-1 .4-.8-.3.8-3.3 2.5-10.5 1.7-14.7z" fill="#FF9900"/>
+            </svg>
+          </div>
+          Amazon Web Services
+        </div>
+        <div class="tdiv"></div>
+        <h3>Cloud infrastructure &amp; services AWS</h3>
+        <p>Amazon Web Services est le leader mondial du cloud computing. Nous vous accompagnons dans l&rsquo;architecture, le d&eacute;ploiement et l&rsquo;optimisation de vos solutions sur AWS &mdash; h&eacute;bergement, machine learning, stockage ou automatisation de vos processus m&eacute;tiers.</p>
+        <div class="tags">
+          <span class="tag">EC2 / S3</span>
+          <span class="tag">Lambda</span>
+          <span class="tag">Multi-cloud</span>
+          <span class="tag">FinOps</span>
+        </div>
+        <div class="cnum">04</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <div class="cta-in">
+    <div class="cta-left fu">
+      <div class="cta-kicker">Premi&egrave;re consultation offerte</div>
+      <h2>Profitez d&rsquo;une s&eacute;ance de strat&eacute;gie, sans frais, de 30&nbsp;minutes avec l&rsquo;un de nos experts.</h2>
+      <p>D&eacute;couvrez comment moderniser votre infrastructure technologique et aligner vos outils num&eacute;riques avec vos objectifs strat&eacute;giques.</p>
+    </div>
+    <div class="cta-card fu">
+      <p class="cta-card-info">Premi&egrave;re consultation <strong>gratuite et sans engagement</strong>.</p>
+      <a href="../index.html#contact" class="btn-cta">
+        R&eacute;servez votre consultation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("v")})},{threshold:.1});
+document.querySelectorAll(".fu").forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

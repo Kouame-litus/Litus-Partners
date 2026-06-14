@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Litus Partner — Administration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3D6F;--blue:#2E5FA3;--orange:#C05C1E;--light:#F4F6FA;--white:#fff;--gray:#6B7280;--gray-light:#E5E9F0;--text:#1A2540;--radius:12px;--shadow:0 4px 24px rgba(27,61,111,0.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',sans-serif;background:var(--light);color:var(--text);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:700}
+.hidden{display:none!important}
+
+/* GATE */
+#admin-gate{position:fixed;inset:0;z-index:999;background:linear-gradient(135deg,#0E2448,#1B3D6F);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.gate-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);border-radius:24px;padding:48px;width:100%;max-width:420px;text-align:center}
+.gate-logo-text{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:white;margin-bottom:4px}
+.gate-logo-sub{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:36px;font-family:'Montserrat',sans-serif}
+.gate-box h2{font-size:18px;font-weight:700;color:white;margin-bottom:8px}
+.gate-box p{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.6}
+.gate-input-wrap{position:relative;margin-bottom:14px}
+.gate-input{width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 44px 13px 16px;font-size:14px;color:white;font-family:'Open Sans',sans-serif;outline:none}
+.gate-input::placeholder{color:rgba(255,255,255,0.3)}
+.gate-input:focus{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.12)}
+.gate-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.4);padding:4px}
+.gate-btn{width:100%;background:var(--orange);color:white;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer}
+.gate-btn:hover{background:#D4691F}
+.gate-error{color:#FCA5A5;font-size:12px;margin-top:10px;display:none}
+.gate-footer{margin-top:24px;font-size:11px;color:rgba(255,255,255,0.2)}
+
+/* LAYOUT */
+.admin-wrap{min-height:100vh}
+.admin-header{background:var(--navy);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-header-brand{display:flex;align-items:center;gap:16px}
+.admin-header-brand h1{font-size:16px;font-weight:700;color:white}
+.admin-header-brand span{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;font-family:'Montserrat',sans-serif}
+.header-badge{background:rgba(192,92,30,0.2);border:1px solid rgba(192,92,30,0.4);border-radius:50px;padding:4px 14px;font-size:11px;font-weight:700;color:#F59E0B;font-family:'Montserrat',sans-serif;letter-spacing:0.5px}
+.btn-logout{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);border-radius:50px;padding:8px 20px;font-size:12px;font-weight:600;font-family:'Montserrat',sans-serif;cursor:pointer}
+.btn-logout:hover{background:rgba(255,255,255,0.15);color:white}
+
+.admin-body{max-width:1100px;margin:0 auto;padding:32px}
+.admin-grid{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+
+/* CARDS */
+.admin-card{background:white;border-radius:var(--radius);border:1px solid var(--gray-light);padding:28px;box-shadow:var(--shadow)}
+.admin-card-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.admin-card-sub{font-size:12px;color:var(--gray);margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-label{font-size:12px;font-weight:600;color:var(--navy);font-family:'Montserrat',sans-serif;display:block;margin-bottom:6px}
+.form-input,.form-select{width:100%;background:var(--light);border:1.5px solid var(--gray-light);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--text);font-family:'Open Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.form-input:focus,.form-select:focus{border-color:var(--blue);background:white}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-generate{width:100%;background:var(--navy);color:white;border:none;border-radius:50px;padding:13px;font-size:14px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;transition:background 0.2s;margin-top:4px}
+.btn-generate:hover{background:var(--blue)}
+
+/* GENERATED URL BOX */
+.url-box{background:var(--light);border:1.5px solid var(--blue);border-radius:10px;padding:16px;margin-top:20px}
+.url-box-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);font-family:'Montserrat',sans-serif;margin-bottom:8px}
+.url-display{font-size:11px;color:var(--text);word-break:break-all;background:white;border-radius:6px;padding:10px 12px;border:1px solid var(--gray-light);font-family:'Courier New',monospace;margin-bottom:10px;line-height:1.5}
+.url-actions{display:flex;gap:8px}
+.btn-copy{flex:1;background:var(--blue);color:white;border:none;border-radius:50px;padding:9px;font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer}
+.btn-copy:hover{background:var(--navy)}
+.btn-copy-email{flex:1;background:var(--orange);color:white;border:none;border-radius:50px;padding:9px;font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer}
+.copy-confirm{font-size:11px;color:#22C55E;font-weight:600;text-align:center;margin-top:8px;display:none}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.stat-box{background:white;border-radius:var(--radius);padding:16px 20px;border:1px solid var(--gray-light);text-align:center}
+.stat-box-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--navy);line-height:1}
+.stat-box-label{font-size:11px;color:var(--gray);margin-top:4px;font-weight:500}
+
+/* TOKENS TABLE */
+.tokens-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--light);border-bottom:2px solid var(--gray-light)}
+th{padding:10px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:var(--gray);letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+td{padding:12px 14px;border-bottom:1px solid var(--gray-light);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(244,246,250,0.5)}
+.badge{display:inline-flex;align-items:center;gap:4px;border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;font-family:'Montserrat',sans-serif;white-space:nowrap}
+.badge-active{background:rgba(34,197,94,0.1);color:#166534}
+.badge-expiring{background:rgba(245,158,11,0.12);color:#854D0E}
+.badge-expired{background:rgba(239,68,68,0.1);color:#991B1B}
+.badge-dot{width:5px;height:5px;border-radius:50%}
+.badge-active .badge-dot{background:#22C55E}
+.badge-expiring .badge-dot{background:#F59E0B}
+.badge-expired .badge-dot{background:#EF4444}
+.btn-action{background:none;border:1px solid var(--gray-light);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:600;font-family:'Montserrat',sans-serif;cursor:pointer;transition:all 0.2s;color:var(--text)}
+.btn-action:hover{background:var(--light)}
+.btn-revoke{color:#EF4444;border-color:rgba(239,68,68,0.3)}
+.btn-revoke:hover{background:rgba(239,68,68,0.05)}
+.empty-state{text-align:center;padding:48px;color:var(--gray)}
+.empty-state svg{margin:0 auto 12px;display:block;opacity:0.3}
+.empty-state p{font-size:14px;font-weight:500}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal{background:white;border-radius:16px;padding:40px;max-width:400px;width:90%;text-align:center}
+.modal h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.modal p{font-size:13px;color:var(--gray);margin-bottom:24px;line-height:1.6}
+.modal-actions{display:flex;gap:10px;justify-content:center}
+.btn-modal-cancel{background:var(--light);border:1.5px solid var(--gray-light);color:var(--navy);border-radius:50px;padding:10px 24px;font-size:13px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer}
+.btn-modal-confirm{background:#EF4444;color:white;border:none;border-radius:50px;padding:10px 24px;font-size:13px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer}
+
+@media(max-width:900px){.admin-grid{grid-template-columns:1fr}.admin-body{padding:16px}}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="admin-gate">
+  <div class="gate-box">
+    <div class="gate-logo-text">Litus Partner</div>
+    <div class="gate-logo-sub">Administration</div>
+    <h2>Accès réservé</h2>
+    <p>Panneau de gestion des accès clients.<br>Mot de passe administrateur requis.</p>
+    <div class="gate-input-wrap">
+      <input class="gate-input" id="admin-pwd" type="password" placeholder="Mot de passe administrateur" onkeydown="if(event.key==='Enter')checkAdminPwd()">
+      <button class="gate-toggle" onclick="toggleAdminPwd()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+    <button class="gate-btn" onclick="checkAdminPwd()">Accéder au panneau</button>
+    <div class="gate-error" id="admin-gate-error">Mot de passe incorrect.</div>
+  </div>
+  <div class="gate-footer">© 2024 Litus Partner — Usage exclusif interne</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="admin-dashboard" class="admin-wrap hidden">
+  <header class="admin-header">
+    <div class="admin-header-brand">
+      <div>
+        <h1>Panneau d'administration</h1>
+        <span>Gestion des accès clients</span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="header-badge">Litus Partner — Interne</div>
+      <button class="btn-logout" onclick="adminLogout()">Déconnexion</button>
+    </div>
+  </header>
+
+  <div class="admin-body">
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat-box"><div class="stat-box-num" id="stat-total">0</div><div class="stat-box-label">Accès générés</div></div>
+      <div class="stat-box"><div class="stat-box-num" id="stat-active" style="color:#22C55E">0</div><div class="stat-box-label">Accès actifs</div></div>
+      <div class="stat-box"><div class="stat-box-num" id="stat-expired" style="color:#EF4444">0</div><div class="stat-box-label">Accès expirés</div></div>
+    </div>
+
+    <div class="admin-grid">
+      <!-- LEFT: Generate -->
+      <div>
+        <div class="admin-card">
+          <div class="admin-card-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Générer un accès client
+          </div>
+          <div class="admin-card-sub">Le lien généré sera valide pour la durée choisie.</div>
+          <div class="form-group">
+            <label class="form-label">Nom du client / Organisation *</label>
+            <input class="form-input" id="a-name" type="text" placeholder="Ex. : Ministère des Finances">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Courriel du client (optionnel)</label>
+            <input class="form-input" id="a-email" type="email" placeholder="contact@organisation.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Utilisateurs max (1–10)</label>
+              <input class="form-input" id="a-users" type="number" min="1" max="10" value="5">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Durée (jours ouvrables)</label>
+              <input class="form-input" id="a-days" type="number" min="1" max="60" value="20">
+            </div>
+          </div>
+          <button class="btn-generate" onclick="generateAccess()">Générer le lien d'accès</button>
+
+          <!-- URL générée -->
+          <div id="url-result-box" class="url-box hidden">
+            <div class="url-box-label">Lien d'accès généré</div>
+            <div class="url-display" id="url-display"></div>
+            <div class="url-actions">
+              <button class="btn-copy" onclick="copyURL()">Copier le lien</button>
+              <button class="btn-copy-email" onclick="copyEmailTemplate()">Copier le courriel</button>
+            </div>
+            <div class="copy-confirm" id="copy-confirm">✓ Copié dans le presse-papier</div>
+          </div>
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="admin-card" style="margin-top:16px;background:rgba(27,61,111,0.03);border-color:rgba(27,61,111,0.12)">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px;font-family:'Montserrat',sans-serif">Comment fonctionne cet accès</div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.8">
+            <div>• Le lien est <strong>unique</strong> par client</div>
+            <div>• Il <strong>expire automatiquement</strong> après la durée choisie</div>
+            <div>• Jusqu'à <strong>10 utilisateurs</strong> peuvent partager le même lien</div>
+            <div>• Sans le lien, l'accès est <strong>impossible</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Table -->
+      <div class="admin-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div class="admin-card-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Accès générés
+          </div>
+          <button onclick="exportTokens()" style="background:none;border:1px solid var(--gray-light);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:600;font-family:'Montserrat',sans-serif;cursor:pointer;color:var(--gray)">Exporter JSON</button>
+        </div>
+        <div class="admin-card-sub">Gérez et suivez tous les accès clients.</div>
+        <div class="tokens-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Utilisateurs</th>
+                <th>Créé le</th>
+                <th>Expire le</th>
+                <th>Jours restants</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tokens-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL REVOKE -->
+<div id="modal-revoke" class="modal-overlay hidden">
+  <div class="modal">
+    <h3>Révoquer cet accès ?</h3>
+    <p>Le lien sera supprimé de votre liste. Si le client possède déjà le lien, il restera fonctionnel jusqu'à expiration naturelle.</p>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeRevokeModal()">Annuler</button>
+      <button class="btn-modal-confirm" onclick="confirmRevoke()">Révoquer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// CONFIGURATION — identique à index.html
+// ═══════════════════════════════════════════
+const ADMIN_PWD_HASH = 'a1b67c53cebea0c72903999fcba08adcc7739549c9415b5e3e7f4b3776a77c0f';
+const TOKEN_SECRET   = 'LP-DiagIA-2024-Litus-Partner-SecretKey-v1';
+const TOKENS_KEY     = 'lp_tokens_admin_v1';
+const SESSION_KEY    = 'lp_admin_session_v1';
+const LP_EMAIL       = 'contact@lituspartners.com';
+
+let revokeTarget = null;
+let lastGeneratedToken = null;
+let lastGeneratedClient = null;
+
+// ─── CRYPTO ───────────────────────────────
+async function sha256(msg){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function hmacSign(payload){
+  const key = await crypto.subtle.importKey('raw',
+    new TextEncoder().encode(TOKEN_SECRET),
+    {name:'HMAC',hash:'SHA-256'}, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
+  return Array.from(new Uint8Array(sig)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function b64url(str){ return btoa(str).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_'); }
+
+// ─── BUSINESS DAYS ────────────────────────
+function addBusinessDays(date, days){
+  let d = new Date(date); let count = 0;
+  while(count < days){
+    d.setDate(d.getDate()+1);
+    if(d.getDay()!==0 && d.getDay()!==6) count++;
+  }
+  return d;
+}
+
+function businessDaysLeft(expiryDate){
+  const now = new Date(); now.setHours(0,0,0,0);
+  const exp = new Date(expiryDate); exp.setHours(0,0,0,0);
+  if(exp <= now) return 0;
+  let d = new Date(now); let count = 0;
+  while(d < exp){
+    d.setDate(d.getDate()+1);
+    if(d.getDay()!==0 && d.getDay()!==6) count++;
+  }
+  return count;
+}
+
+// ─── GATE ─────────────────────────────────
+async function checkAdminPwd(){
+  const val = document.getElementById('admin-pwd').value;
+  if(!val) return;
+  const hash = await sha256(val);
+  if(hash === ADMIN_PWD_HASH){
+    sessionStorage.setItem(SESSION_KEY,'1');
+    document.getElementById('admin-gate').style.display='none';
+    document.getElementById('admin-dashboard').classList.remove('hidden');
+    renderTokens();
+  } else {
+    const el = document.getElementById('admin-gate-error');
+    el.style.display='block';
+    document.getElementById('admin-pwd').value='';
+    setTimeout(()=>el.style.display='none', 3000);
+  }
+}
+
+function toggleAdminPwd(){
+  const i=document.getElementById('admin-pwd');
+  i.type=i.type==='password'?'text':'password';
+}
+
+function adminLogout(){
+  sessionStorage.removeItem(SESSION_KEY);
+  location.reload();
+}
+
+// ─── TOKEN STORAGE ─────────────────────────
+function getTokens(){ try{ return JSON.parse(localStorage.getItem(TOKENS_KEY)||'[]'); }catch(e){return [];} }
+function saveTokens(t){ localStorage.setItem(TOKENS_KEY, JSON.stringify(t)); }
+
+// ─── GENERATE ─────────────────────────────
+async function generateAccess(){
+  const name  = document.getElementById('a-name').value.trim();
+  const email = document.getElementById('a-email').value.trim();
+  const users = parseInt(document.getElementById('a-users').value)||5;
+  const days  = parseInt(document.getElementById('a-days').value)||20;
+  if(!name){ alert('Veuillez indiquer le nom du client.'); return; }
+
+  const created = new Date().toISOString();
+  const expires = addBusinessDays(new Date(), days).toISOString();
+  const id = Math.random().toString(36).substr(2,8) + Date.now().toString(36);
+
+  const payload = {id, name, email, maxUsers: users, created, expires};
+  const payloadB64 = b64url(JSON.stringify(payload));
+  const sig = await hmacSign(payloadB64);
+  const token = `${payloadB64}.${sig}`;
+
+  // Build URL
+  const base = window.location.href.replace(/admin\.html.*/, 'index.html');
+  const url = `${base}?t=${token}`;
+
+  // Store token
+  const tokens = getTokens();
+  tokens.unshift({...payload, token, url});
+  saveTokens(tokens);
+
+  // Display URL
+  lastGeneratedToken = token;
+  lastGeneratedClient = {name, email, expires, users};
+  document.getElementById('url-display').textContent = url;
+  document.getElementById('url-result-box').classList.remove('hidden');
+  document.getElementById('copy-confirm').style.display='none';
+
+  // Reset form
+  document.getElementById('a-name').value='';
+  document.getElementById('a-email').value='';
+
+  renderTokens();
+}
+
+// ─── COPY ──────────────────────────────────
+function copyURL(){
+  const url = document.getElementById('url-display').textContent;
+  navigator.clipboard.writeText(url).then(()=>{
+    const el=document.getElementById('copy-confirm');
+    el.textContent='✓ Lien copié dans le presse-papier';
+    el.style.display='block';
+    setTimeout(()=>el.style.display='none',3000);
+  });
+}
+
+function copyEmailTemplate(){
+  if(!lastGeneratedClient) return;
+  const url = document.getElementById('url-display').textContent;
+  const expDate = new Date(lastGeneratedClient.expires).toLocaleDateString('fr-CA',{year:'numeric',month:'long',day:'numeric'});
+  const template = `Bonjour,
+
+Veuillez trouver ci-dessous votre lien d'accès personnalisé à l'outil de Diagnostic de Maturité IA de Litus Partner.
+
+Lien d'accès :
+${url}
+
+Ce lien est valide jusqu'au ${expDate} et peut être partagé avec jusqu'à ${lastGeneratedClient.users} membres de votre équipe.
+
+N'hésitez pas à nous contacter pour toute question.
+
+Cordialement,
+L'équipe Litus Partner
+${LP_EMAIL}`;
+
+  navigator.clipboard.writeText(template).then(()=>{
+    const el=document.getElementById('copy-confirm');
+    el.textContent='✓ Modèle de courriel copié';
+    el.style.display='block';
+    setTimeout(()=>el.style.display='none',3000);
+  });
+}
+
+// ─── RENDER TABLE ──────────────────────────
+function renderTokens(){
+  const tokens = getTokens();
+  const now = new Date();
+  let active=0, expired=0;
+
+  const tbody = document.getElementById('tokens-tbody');
+  if(!tokens.length){
+    tbody.innerHTML=`<tr><td colspan="7">
+      <div class="empty-state">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        <p>Aucun accès généré pour l'instant</p>
+      </div>
+    </td></tr>`;
+    updateStats(0,0,0); return;
+  }
+
+  tbody.innerHTML = tokens.map((t,i)=>{
+    const isExpired = new Date(t.expires) < now;
+    const daysLeft = businessDaysLeft(t.expires);
+    const isExpiring = !isExpired && daysLeft <= 3;
+    const statusBadge = isExpired
+      ? `<span class="badge badge-expired"><span class="badge-dot"></span>Expiré</span>`
+      : isExpiring
+      ? `<span class="badge badge-expiring"><span class="badge-dot"></span>${daysLeft}j restants</span>`
+      : `<span class="badge badge-active"><span class="badge-dot"></span>Actif</span>`;
+
+    if(!isExpired) active++; else expired++;
+
+    const createdStr = new Date(t.created).toLocaleDateString('fr-CA');
+    const expiresStr = new Date(t.expires).toLocaleDateString('fr-CA');
+    const daysStr = isExpired ? '—' : `${daysLeft} jour${daysLeft>1?'s':''} ouvrables`;
+
+    return `<tr>
+      <td><div style="font-weight:600;color:var(--navy)">${t.name}</div>${t.email?`<div style="font-size:11px;color:var(--gray)">${t.email}</div>`:''}</td>
+      <td style="text-align:center">${t.maxUsers}</td>
+      <td>${createdStr}</td>
+      <td>${expiresStr}</td>
+      <td style="font-size:12px">${daysStr}</td>
+      <td>${statusBadge}</td>
+      <td>
+        <div style="display:flex;gap:6px">
+          <button class="btn-action" onclick="copyTokenURL(${i})" title="Copier le lien">Copier</button>
+          <button class="btn-action btn-revoke" onclick="openRevokeModal(${i})">Supprimer</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  updateStats(tokens.length, active, expired);
+}
+
+function updateStats(total, active, expired){
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-active').textContent = active;
+  document.getElementById('stat-expired').textContent = expired;
+}
+
+function copyTokenURL(idx){
+  const tokens = getTokens();
+  if(!tokens[idx]) return;
+  navigator.clipboard.writeText(tokens[idx].url).then(()=>{
+    alert('Lien copié : ' + tokens[idx].name);
+  });
+}
+
+// ─── REVOKE ────────────────────────────────
+function openRevokeModal(idx){ revokeTarget=idx; document.getElementById('modal-revoke').classList.remove('hidden'); }
+function closeRevokeModal(){ revokeTarget=null; document.getElementById('modal-revoke').classList.add('hidden'); }
+function confirmRevoke(){
+  if(revokeTarget===null) return;
+  const tokens = getTokens();
+  tokens.splice(revokeTarget,1);
+  saveTokens(tokens);
+  closeRevokeModal();
+  renderTokens();
+}
+
+// ─── EXPORT ────────────────────────────────
+function exportTokens(){
+  const tokens = getTokens();
+  const blob = new Blob([JSON.stringify(tokens, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `litus-acces-${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+}
+
+// ─── INIT ──────────────────────────────────
+window.addEventListener('DOMContentLoaded', ()=>{
+  if(sessionStorage.getItem(SESSION_KEY)==='1'){
+    document.getElementById('admin-gate').style.display='none';
+    document.getElementById('admin-dashboard').classList.remove('hidden');
+    renderTokens();
+  }
+});
+</script>
+</body>
+</html>

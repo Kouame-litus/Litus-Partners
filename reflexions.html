@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos réflexions — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2340; --blue:#1B3D6F; --accent:#C05C1E;
+  --light:#F7F8FA; --white:#fff; --gray:#64748B;
+  --border:#E2E8F0; --text:#0F2340;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-chip{display:inline-flex;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
+
+/* HERO */
+.page-hero{padding:120px 0 60px;background:linear-gradient(135deg,#071628 0%,#0F2340 60%,#1B3D6F 100%)}
+.page-hero-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb span{color:rgba(255,255,255,.25)}
+.page-hero h1{font-size:clamp(32px,4vw,52px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.page-hero p{font-size:clamp(15px,1.4vw,18px);color:rgba(255,255,255,.65);max-width:560px;line-height:1.7}
+
+/* FEATURED ARTICLE */
+.featured{padding:64px 0 0}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.featured-card{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;background:var(--light);cursor:pointer;transition:box-shadow .3s}
+.featured-card:hover{box-shadow:0 16px 48px rgba(15,35,64,.12)}
+.featured-img{position:relative;min-height:380px;overflow:hidden}
+.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.featured-card:hover .featured-img img{transform:scale(1.04)}
+.featured-badge{position:absolute;bottom:24px;left:24px;background:var(--accent);padding:20px 24px;max-width:260px;border-radius:8px}
+.featured-badge .art-date{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.08em;margin-bottom:6px}
+.featured-badge .art-cat-label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.4}
+.featured-badge .art-read{font-size:13px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:3px}
+.featured-body{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.featured-body .kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.featured-body h2{font-size:clamp(22px,2.2vw,30px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:16px;letter-spacing:-.3px}
+.featured-body p{font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:24px}
+.featured-body .read-more{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--navy);border-bottom:1.5px solid var(--navy);padding-bottom:2px;transition:all .2s}
+.featured-body .read-more:hover{color:var(--accent);border-color:var(--accent)}
+
+/* FILTERS */
+.filters-bar{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:48px}
+.filters-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.filter-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-right:8px}
+.filter-btn{padding:8px 18px;border-radius:50px;border:1.5px solid var(--border);font-size:13px;font-weight:500;color:var(--gray);cursor:pointer;transition:all .2s;background:#fff;font-family:'Nunito Sans',sans-serif}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filter-sep{width:1px;height:24px;background:var(--border);margin:0 4px}
+.sort-select{padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);font-size:13px;color:var(--gray);cursor:pointer;background:#fff;font-family:'Nunito Sans',sans-serif;outline:none}
+
+/* ARTICLES GRID */
+.articles-section{padding:0 0 80px}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.art-card{cursor:pointer;transition:transform .3s}
+.art-card:hover{transform:translateY(-4px)}
+.art-card-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;margin-bottom:0}
+.art-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+.art-card:hover .art-card-img img{transform:scale(1.05)}
+.art-badge{position:absolute;bottom:16px;left:16px;padding:16px 20px;border-radius:8px;max-width:200px}
+.art-badge .art-date{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-bottom:4px}
+.art-badge .art-cat-label{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;line-height:1.4;margin-bottom:8px}
+.art-badge .art-read{font-size:12px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:3px}
+.art-card-body{padding:20px 4px 0}
+.art-card-body h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
+.art-card-body p{font-size:13px;color:var(--gray);line-height:1.65}
+
+/* badge colors */
+.badge-orange{background:var(--accent)}
+.badge-teal{background:#0d7a75}
+.badge-purple{background:#4a2080}
+.badge-navy{background:var(--navy)}
+.badge-blue{background:#1B3D6F}
+
+/* NEWSLETTER */
+.newsletter-section{background:linear-gradient(90deg,#ffffff 0%,#e8f4fb 50%,#b8dff0 100%);padding:64px 0}
+.nl-wrap{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.nl-text h2{font-size:clamp(22px,2.5vw,32px);font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:8px}
+.nl-text p{color:var(--gray);font-size:15px}
+.nl-form{display:flex;gap:12px;align-items:center}
+.nl-form input{padding:13px 20px;border:1.5px solid var(--border);border-radius:50px;font-size:14px;font-family:'Nunito Sans',sans-serif;color:var(--text);outline:none;min-width:280px;transition:border-color .2s}
+.nl-form input:focus{border-color:var(--navy)}
+.nl-form button{background:var(--accent);color:#fff;border:none;border-radius:50px;padding:13px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Nunito Sans',sans-serif;white-space:nowrap;transition:background .2s}
+.nl-form button:hover{background:#a84d18}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand p{font-size:13px;line-height:1.8;margin-top:16px;color:rgba(255,255,255,.5)}
+.foot-col h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px;cursor:pointer;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3)}
+.foot-btm-links{display:flex;gap:20px}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.fade.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .featured-card{grid-template-columns:1fr}
+  .art-grid{grid-template-columns:1fr 1fr}
+  .nl-wrap{grid-template-columns:1fr}
+  .nl-form{flex-direction:column;align-items:stretch}
+  .nl-form input{min-width:auto}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .art-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a class="nav-logo" href="index.html">
+            <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-a" href="index.html#expertises">Expertises</a>
+      <a class="nav-a" href="index.html#formation">Formation</a>
+    </div></div></div></div>
+    </div></a></div></a></div></a></div></a></div></div>
+    </div>
+      <a class="nav-a" href="index.html#apropos">À propos</a>
+      <a class="nav-a" href="reflexions.html" style="color:#fff">Réflexions</a>
+      <a class="nav-a nav-btn" href="index.html#contact">Nous contacter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-in">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.8)">Nos réflexions</span>
+    </div>
+    <h1>Nos réflexions</h1>
+    <p>Explorez nos articles, études de cas et points de vue sur la transformation numérique, l'intelligence artificielle et la stratégie d'affaires.</p>
+  </div>
+</section>
+
+<!-- ARTICLE VEDETTE -->
+<section class="featured">
+  <div class="s-in">
+    <div class="featured-card fade" onclick="alert('Article à venir')">
+      <div class="featured-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&auto=format&fit=crop&q=70" alt="Article vedette">
+        <div class="featured-badge badge-orange">
+          <div class="art-date">2026.06.01</div>
+          <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
+          <span class="art-read">Lire l'article</span>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="kicker">Article vedette</div>
+        <h2>Comment aligner votre stratégie d'affaires et votre transformation numérique</h2>
+        <p>Les organisations qui réussissent leur transformation sont celles qui ancrent leurs initiatives numériques dans une vision stratégique claire et partagée par l'ensemble des parties prenantes.</p>
+        <span class="read-more">Lire l'article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section class="articles-section">
+  <div class="s-in">
+    <div class="filters-bar fade">
+      <div class="filters-inner">
+        <span class="filter-label">Trier par :</span>
+        <button class="filter-btn active" onclick="filterArticles('all',this)">Tous</button>
+        <button class="filter-btn" onclick="filterArticles('conseil',this)">Conseil en gestion</button>
+        <button class="filter-btn" onclick="filterArticles('ia',this)">Intelligence artificielle</button>
+        <button class="filter-btn" onclick="filterArticles('architecture',this)">Architecture d'entreprise</button>
+        <button class="filter-btn" onclick="filterArticles('transformation',this)">Transformation numérique</button>
+        <div class="filter-sep"></div>
+        <select class="sort-select" onchange="sortArticles(this.value)">
+          <option value="recent">Plus récent</option>
+          <option value="ancien">Plus ancien</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- GRILLE D'ARTICLES -->
+    <!-- Pour ajouter un article : copiez un bloc art-card et modifiez le contenu -->
+    <div class="art-grid" id="artGrid">
+
+      <!-- ARTICLE 1 -->
+      <div class="art-card fade" data-cat="conseil" data-date="2026-06-01">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-orange">
+            <div class="art-date">2026.06.01</div>
+            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Comment aligner votre stratégie d'affaires et votre transformation numérique</h3>
+          <p>Les organisations qui réussissent leur transformation ancrent leurs initiatives numériques dans une vision stratégique claire.</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE 2 -->
+      <div class="art-card fade" data-cat="ia" data-date="2026-05-15">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-teal">
+            <div class="art-date">2026.05.15</div>
+            <div class="art-cat-label">Intelligence artificielle</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Maturité IA : avancer sur tous les fronts pour créer de la valeur</h3>
+          <p>Comprendre où se situe votre organisation sur l'échelle de maturité IA est la première étape vers une adoption responsable et rentable.</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE 3 -->
+      <div class="art-card fade" data-cat="architecture" data-date="2026-04-20">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-purple">
+            <div class="art-date">2026.04.20</div>
+            <div class="art-cat-label">Architecture d'entreprise</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Architecture d'entreprise : un levier souvent sous-estimé pour la performance</h3>
+          <p>Investir dans la technologie sans cartographier ses processus d'abord est une erreur coûteuse que beaucoup d'organisations commettent.</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE 4 -->
+      <div class="art-card fade" data-cat="transformation" data-date="2026-03-10">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-navy">
+            <div class="art-date">2026.03.10</div>
+            <div class="art-cat-label">Transformation numérique</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Mobiliser les équipes : le facteur humain au cœur de la réussite des projets</h3>
+          <p>La technologie ne suffit pas. La réussite d'un projet de transformation repose avant tout sur l'adhésion et la mobilisation des équipes.</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE 5 -->
+      <div class="art-card fade" data-cat="conseil" data-date="2026-02-28">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-orange">
+            <div class="art-date">2026.02.28</div>
+            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Gestion du changement : pourquoi les programmes de transformation échouent</h3>
+          <p>70 % des initiatives de transformation échouent. Voici les facteurs clés qui font la différence entre succès et échec.</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE 6 -->
+      <div class="art-card fade" data-cat="ia" data-date="2026-01-15">
+        <div class="art-card-img">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&auto=format&fit=crop&q=70" alt="">
+          <div class="art-badge badge-teal">
+            <div class="art-date">2026.01.15</div>
+            <div class="art-cat-label">Intelligence artificielle</div>
+            <span class="art-read">Lire l'article</span>
+          </div>
+        </div>
+        <div class="art-card-body">
+          <h3>Gouvernance de l'IA : bâtir un cadre responsable pour votre organisation</h3>
+          <p>L'adoption de l'IA sans gouvernance claire expose les organisations à des risques éthiques, légaux et opérationnels majeurs.</p>
+        </div>
+      </div>
+
+    </div><!-- /art-grid -->
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="s-in">
+    <div class="nl-wrap fade">
+      <div class="nl-text">
+        <h2>Restez à l'affût de nos dernières réflexions.</h2>
+        <p>Recevez nos articles directement dans votre boîte courriel.</p>
+      </div>
+      <div class="nl-form">
+        <input type="email" id="nlEmail" placeholder="votre@courriel.com">
+        <button onclick="subscribeNewsletter()">S'inscrire à l'infolettre</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="s-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+              <div class="logo-chip">
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
+          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
+          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
+        </svg>
+      </div>
+        <p>Conseil · Stratégie · Transformation<br>Québec, Canada — Abidjan, Côte d'Ivoire</p>
+      </div>
+      <div class="foot-col">
+        <h5>Expertises</h5>
+        <a href="expertises/conseil.html">Conseil en gestion</a>
+        <a href="index.html#expertises">Stratégie LP</a>
+        <a href="index.html#expertises">Technologies</a>
+        <a href="index.html#expertises">Intelligence artificielle</a>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="index.html#formation">Formation</a>
+        <a href="index.html#apropos">À propos</a>
+        <a href="reflexions.html">Réflexions</a>
+        <a href="index.html#carrieres">Carrières</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
+        <a>Québec, Canada</a>
+        <a>Abidjan, Côte d'Ivoire</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div>© 2026 Litus Partners. Tous droits réservés.</div>
+      <div class="foot-btm-links"><a>Confidentialité</a><a>Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FADE
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+// FILTER
+function filterArticles(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.art-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){
+      card.style.display='';
+    } else {
+      card.style.display='none';
+    }
+  });
+}
+
+// SORT
+function sortArticles(order){
+  const grid=document.getElementById('artGrid');
+  const cards=[...grid.querySelectorAll('.art-card')];
+  cards.sort((a,b)=>{
+    const da=a.dataset.date, db=b.dataset.date;
+    return order==='recent' ? db.localeCompare(da) : da.localeCompare(db);
+  });
+  cards.forEach(c=>grid.appendChild(c));
+}
+
+// NEWSLETTER
+function subscribeNewsletter(){
+  const em=document.getElementById('nlEmail').value.trim();
+  if(!em){alert('Veuillez entrer votre courriel.');return;}
+  window.location.href='mailto:contact@lituspartners.com?subject=Inscription infolettre&body=Inscription à l\'infolettre : '+em;
+}
+</script>
+</body>
+</html>
