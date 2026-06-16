@@ -131,52 +131,60 @@ nav.solid{background:rgba(15,35,64,.98);backdrop-filter:blur(20px);box-shadow:0 
 @media(max-width:760px){.cat-intro{grid-template-columns:1fr;gap:32px}}
 
 .cat-list{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.cat-item{padding:48px 44px;border:1px solid var(--border);background:var(--white);position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
-.cat-item:hover{border-color:rgba(192,92,30,.3);box-shadow:0 20px 60px rgba(15,35,64,.08)}
-.cat-item-dark{background:var(--navy);border-color:transparent}
-.cat-item-dark:hover{border-color:rgba(255,255,255,.1);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+/* Flexbox colonne sur chaque carte → bouton toujours au bas */
+.cat-item{
+  padding:48px 44px;border:1px solid var(--border);background:var(--white);
+  position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;
+  display:flex;flex-direction:column;
+}
+.cat-item:hover{border-color:rgba(192,92,30,.25);box-shadow:0 20px 60px rgba(15,35,64,.07)}
+.cat-item-dark{background:var(--navy);border-color:var(--navy)}
+.cat-item-dark:hover{box-shadow:0 20px 60px rgba(0,0,0,.25)}
 .cat-item::after{content:"";position:absolute;bottom:0;left:44px;right:44px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
 .cat-item:hover::after{transform:scaleX(1)}
 .cat-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
 .cat-num-badge{display:none}
-.cat-item-dark .cat-num-badge{color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
 .cat-icon{display:none}
-.cat-item-dark .cat-icon{background:rgba(255,255,255,.07)}
-.cat-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cat-item-dark .cat-icon svg{stroke:rgba(255,255,255,.5)}
-.cat-title{font-size:clamp(18px,1.8vw,22px);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.5px;margin-bottom:14px}
+.cat-title{font-size:clamp(17px,1.6vw,20px);font-weight:900;color:var(--navy);line-height:1.2;letter-spacing:-.3px;margin-bottom:12px}
 .cat-item-dark .cat-title{color:#fff}
-.cat-desc{font-size:14px;color:var(--gray);line-height:1.75}
-.cat-item-dark .cat-desc{color:rgba(255,255,255,.55)}
+/* Description prend tout l'espace disponible → pousse le bouton vers le bas */
+.cat-desc{font-size:14px;color:var(--gray);line-height:1.75;flex:1}
+.cat-item-dark .cat-desc{color:rgba(255,255,255,.6)}
 .cat-tags{display:none}
 .cat-tag{display:none}
-.cat-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:28px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:background .2s,transform .2s;width:100%}
-.cat-btn:hover{background:var(--blue);transform:translateY(-1px)}
-.cat-item-dark .cat-btn{background:var(--accent)}
-.cat-item-dark .cat-btn:hover{background:#a84d18}
-.cat-item-dark .cat-tag{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4)}
-.cat-cta{margin-top:32px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .2s;cursor:pointer}
-.cat-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
-.cat-cta:hover{color:#fff}
-.cat-cta:hover svg{transform:translateX(4px)}
-@media(max-width:760px){.cat-list{grid-template-columns:1fr}}
+/* Bouton uniforme accent sur toutes les cartes */
+.cat-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:32px;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  padding:15px 28px;border-radius:3px;transition:background .2s,transform .2s;width:100%;
+  flex-shrink:0;
+}
+.cat-btn:hover{background:#a84d18;transform:translateY(-1px)}
+.cat-item-dark .cat-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.cat-item-dark .cat-btn:hover{background:var(--accent);border-color:var(--accent)}
+@media(max-width:760px){.cat-list{grid-template-columns:1fr}.cat-item{padding:32px 28px}}
 
 /* ─── CTA SECTION ─── */
-.cta-section{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center}
-.cta-bg{position:absolute;inset:0}
-.cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.cta-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,18,36,.97) 0%,rgba(15,35,64,.9) 45%,rgba(27,61,111,.7) 100%)}
-.cta-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:96px 40px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cta-section{
+  position:relative;overflow:hidden;min-height:440px;display:flex;align-items:center;
+  background:linear-gradient(120deg,#071220 0%,var(--navy) 55%,#1B3D6F 100%);
+}
+/* Cercles décoratifs subtils */
+.cta-section::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:-160px;left:-60px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.03);pointer-events:none}
+.cta-bg{display:none}
+.cta-overlay{display:none}
+.cta-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:80px 40px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .cta-left .eyebrow{margin-bottom:20px}
-.cta-left h2{font-size:clamp(32px,3.5vw,52px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-1.5px;margin-bottom:0}
+.cta-left h2{font-size:clamp(28px,3vw,46px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:0}
 .cta-left h2 em{font-style:normal;color:var(--accent)}
-.cta-right p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:36px}
+.cta-right p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:32px}
 .cta-btns{display:flex;gap:14px;flex-wrap:wrap}
-@media(max-width:860px){.cta-content{grid-template-columns:1fr;gap:40px}}
+@media(max-width:860px){.cta-content{grid-template-columns:1fr;gap:36px}}
 
 /* ─── FOOTER ─── */
-footer{background:#070f1c;padding:32px 0;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
-footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
+
 
 /* ─── ANIMATIONS ─── */
 .fu{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -194,6 +202,24 @@ footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
   .hero-content{padding:0 24px 72px}
   .nav-in{padding:0 24px}
 }
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
+.foot-social{margin-top:28px}
+.foot-social-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:12px}
+.foot-social-icons{display:flex;gap:10px}
+.foot-si{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);transition:all .2s}
+.foot-si:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+.foot-col h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;cursor:pointer;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm a:hover{color:rgba(255,255,255,.6)}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -229,7 +255,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
       <a href="../index.html#expertises" class="nav-a">Expertises</a>
       <a href="../index.html#formation" class="nav-a">Formation</a>
       <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
-      <a href="../reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <a href="../reflexions.html" class="nav-a">Publications</a>
       <a href="equipe.html" class="nav-a nav-btn">Nous contacter</a>
     </div>
     <button class="hamburger" onclick="document.querySelector('.mob').classList.toggle('open')">
@@ -244,7 +270,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
   <a href="../index.html#expertises">Expertises</a>
   <a href="../index.html#formation">Formation</a>
   <a href="../index.html#apropos">&Agrave; propos</a>
-  <a href="../reflexions.html">R&eacute;flexions</a>
+  <a href="../reflexions.html">Publications</a>
   <a href="equipe.html">Nous contacter</a>
 </div>
 
@@ -479,7 +505,6 @@ footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
       <p>Partagez-nous votre projet de formation. Notre &eacute;quipe &eacute;value vos besoins et vous propose un programme adapt&eacute; &agrave; votre r&eacute;alit&eacute; organisationnelle dans les meilleurs d&eacute;lais.</p>
       <div class="cta-btns">
         <a href="equipe.html" class="btn-primary">Contacter notre &eacute;quipe</a>
-        <a href="../index.html" class="btn-ghost">Retour &agrave; l&rsquo;accueil</a>
       </div>
     </div>
   </div>
@@ -487,7 +512,52 @@ footer p{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.05em}
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2025 Litus Partners &mdash; Tous droits r&eacute;serv&eacute;s</p>
+  <div class="s-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+          <span class="foot-logo-name">Litus Partners</span>
+        </div>
+        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <div class="foot-social">
+          <span class="foot-social-label">Suivez-nous</span>
+          <div class="foot-social-icons">
+            <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="foot-si" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Expertises</h5>
+        <a href="../expertises/conseil.html">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html">Gouvernance</a>
+        <a href="../expertises/ia.html">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html">Innovation</a>
+        <a href="../technologies/index.html">Technologies</a>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="../formation/offre.html">Formation</a>
+        <a href="../index.html#apropos">&Agrave; propos</a>
+        <a href="../reflexions.html">Publications</a>
+        <a href="../index.html#carrieres">Carri&egrave;res</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
+        <a>Qu&eacute;bec, Canada</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links">
+        <a>Confidentialit&eacute;</a>
+        <a>Conditions</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>

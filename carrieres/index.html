@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrières — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2340;--blue:#1B3D6F;--accent:#C05C1E;--light:#F7F8FA;--white:#fff;--gray:#64748B;--border:#E2E8F0;--text:#0F2340}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:transparent;transition:background .3s,box-shadow .3s}
+nav.solid{background:var(--white);box-shadow:0 1px 0 var(--border)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2;transition:color .3s}
+nav.solid .logo-name{color:var(--navy)}
+.logo-tagline{font-size:8.5px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap;transition:color .3s}
+nav.solid .logo-tagline{color:var(--gray)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-home{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;transition:all .2s}
+nav.solid .nav-home{color:var(--navy)}
+.nav-home:hover{background:rgba(255,255,255,.12)}
+nav.solid .nav-home:hover{background:var(--light)}
+.nav-home svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-cta{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:10px 24px;border-radius:50px;transition:all .2s}
+.nav-cta:hover{background:#a84d18;transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;min-height:520px;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,18,32,.93) 0%,rgba(15,35,64,.82) 55%,rgba(27,61,111,.65) 100%)}
+.hero-inner{position:relative;z-index:2;padding:140px 0 80px;max-width:1160px;margin:0 auto;padding-left:32px;padding-right:32px;width:100%}
+.hero-kicker{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.hero h1{font-size:clamp(36px,4vw,56px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px;max-width:680px}
+.hero p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.85;max-width:500px}
+
+/* SECTIONS */
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%}
+
+/* CTA CARDS */
+.cta-section{padding:80px 0;background:var(--white)}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cta-card{background:var(--light);border:1px solid var(--border);border-radius:16px;padding:48px 44px;display:flex;flex-direction:column;transition:all .3s}
+.cta-card:hover{box-shadow:0 12px 40px rgba(15,35,64,.09);transform:translateY(-4px);border-color:#c8d4e0}
+.cta-card h3{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:14px}
+.cta-card p{font-size:14px;color:var(--gray);line-height:1.8;flex:1;margin-bottom:36px}
+.btn-card{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:16px 28px;border-radius:4px;transition:all .2s;width:100%}
+.btn-card:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-card svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* OFFRES */
+.jobs-section{padding:80px 0;background:var(--white);border-top:1px solid var(--border)}
+.section-head{margin-bottom:48px}
+.section-kicker{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-size:clamp(24px,2.5vw,34px);font-weight:900;color:var(--navy);letter-spacing:-.5px}
+.jobs-list{display:flex;flex-direction:column;gap:16px}
+.job-card{display:flex;align-items:center;justify-content:space-between;background:var(--light);border:1px solid var(--border);border-radius:12px;padding:28px 32px;transition:all .2s;gap:24px}
+.job-card:hover{border-color:var(--navy);box-shadow:0 4px 20px rgba(15,35,64,.08)}
+.job-info h4{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.job-tags{display:flex;gap:8px;flex-wrap:wrap}
+.job-tag{font-size:11px;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:rgba(15,35,64,.07);color:var(--navy)}
+.job-tag.accent{background:rgba(192,92,30,.1);color:var(--accent)}
+.btn-job{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--navy);color:var(--navy);font-size:12px;font-weight:700;letter-spacing:.5px;padding:10px 20px;border-radius:50px;transition:all .2s;white-space:nowrap}
+.btn-job:hover{background:var(--navy);color:#fff}
+.btn-job svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.no-jobs{text-align:center;padding:56px 32px;border:1.5px dashed var(--border);border-radius:12px}
+.no-jobs p{font-size:14px;color:var(--gray);margin-top:10px}
+.no-jobs strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
+
+/* CULTURE */
+.culture-section{padding:96px 0;background:var(--navy)}
+.culture-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.culture-text .section-kicker{color:var(--accent)}
+.culture-text .section-title{color:#fff;margin-bottom:20px}
+.culture-text p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.85}
+.culture-avantages{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.avantage{border-left:2px solid var(--accent);padding:18px 24px}
+.avantage span{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);line-height:1.5}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
+.foot-social{margin-top:28px}
+.foot-social-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:12px}
+.foot-social-icons{display:flex;gap:10px}
+.foot-si{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);transition:all .2s}
+.foot-si:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+.foot-col h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;cursor:pointer;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+.foot-btm-links{display:flex;gap:20px}
+
+@media(max-width:768px){
+  .cta-grid,.culture-grid{grid-template-columns:1fr}
+  .culture-avantages{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+  .job-card{flex-direction:column;align-items:flex-start}
+  .cta-card{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+        <span class="logo-tagline">Conseil · Stratégie · Transformation</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a class="nav-home" href="../index.html">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Accueil
+      </a>
+      <a class="nav-cta" href="postuler.html">Postuler</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Carrières</p>
+    <h1>Propulsez votre carrière chez Litus Partners</h1>
+    <p>Des missions à fort impact, une culture d'excellence et une équipe senior qui investit dans votre développement.</p>
+  </div>
+</div>
+
+<!-- CTA CARDS -->
+<div class="cta-section">
+  <div class="s-in">
+    <div class="cta-grid">
+      <div class="cta-card">
+        <h3>Offres d'emploi</h3>
+        <p>Consultez nos postes ouverts et rejoignez une équipe de conseil en pleine croissance au Québec et en Afrique subsaharienne.</p>
+        <a href="#offres" class="btn-card">
+          Voir les postes
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="cta-card">
+        <h3>Candidature spontanée</h3>
+        <p>Votre profil ne correspond pas à un poste affiché ? Soumettez votre dossier — nous sommes toujours à la recherche de talent exceptionnel.</p>
+        <a href="postuler.html" class="btn-card">
+          Soumettre ma candidature
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFRES D'EMPLOI -->
+<div class="jobs-section" id="offres">
+  <div class="s-in">
+    <div class="section-head">
+      <p class="section-kicker">Postes ouverts</p>
+      <h2 class="section-title">Nos opportunités actuelles</h2>
+    </div>
+    <div class="jobs-list" id="jobsList">
+      <!-- Postes publiés via CMS apparaîtront ici -->
+      <div class="no-jobs">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 12px"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        <strong>Aucun poste affiché pour le moment</strong>
+        <p>Revenez bientôt ou soumettez une candidature spontanée — nous recrutons en continu.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CULTURE -->
+<div class="culture-section">
+  <div class="s-in">
+    <div class="culture-grid">
+      <div class="culture-text">
+        <p class="section-kicker">Notre culture</p>
+        <h2 class="section-title">Un environnement qui vous élève</h2>
+        <p>Chez Litus Partners, chaque consultant est un acteur stratégique. Nous cultivons une culture d'excellence, de rigueur et d'impact réel — où votre contribution compte dès le premier jour.</p>
+      </div>
+      <div class="culture-avantages">
+        <div class="avantage"><span>Missions à impact direct sur les organisations</span></div>
+        <div class="avantage"><span>Horaires flexibles</span></div>
+        <div class="avantage"><span>Équipe senior et mentors expérimentés</span></div>
+        <div class="avantage"><span>Développement professionnel continu</span></div>
+        <div class="avantage"><span>Présence internationale — Canada &amp; Afrique</span></div>
+        <div class="avantage"><span>Culture de respect, d'intégrité et de rigueur</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="s-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+          <span class="foot-logo-name">Litus Partners</span>
+        </div>
+        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <div class="foot-social">
+          <span class="foot-social-label">Suivez-nous</span>
+          <div class="foot-social-icons">
+            <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="foot-si" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Expertises</h5>
+        <a href="../expertises/conseil.html">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html">Gouvernance</a>
+        <a href="../expertises/ia.html">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html">Innovation</a>
+        <a href="../technologies/index.html">Technologies</a>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="../formation/offre.html">Formation</a>
+        <a href="../index.html#apropos">&Agrave; propos</a>
+        <a href="../reflexions.html">Publications</a>
+        <a href="../index.html#carrieres">Carri&egrave;res</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
+        <a>Qu&eacute;bec, Canada</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links"><a>Confidentialit&eacute;</a><a>Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60));
+
+// Chargement des postes depuis le CMS
+(async function(){
+  try {
+    const res = await fetch('/carrieres/postes.json?_=' + Date.now());
+    if (!res.ok) return;
+    const postes = await res.json();
+    const actifs = postes.filter(p => p.actif !== false);
+    if (!actifs || actifs.length === 0) return;
+
+    const list = document.getElementById('jobsList');
+    list.innerHTML = '';
+
+    actifs.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'job-card';
+      card.innerHTML = `
+        <div class="job-info">
+          <h4>${p.titre}</h4>
+          <div class="job-tags">
+            <span class="job-tag">${p.lieu || 'Québec, Canada'}</span>
+            <span class="job-tag">${p.type_contrat || 'Temps plein'}</span>
+            <span class="job-tag accent">${p.mode || 'Hybride'}</span>
+          </div>
+        </div>
+        <a href="postuler.html?poste=${encodeURIComponent(p.titre)}" class="btn-job">
+          Postuler
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>`;
+      list.appendChild(card);
+    });
+  } catch(e) { /* garde le message "aucun poste" */ }
+})();
+</script>
+</body>
+</html>

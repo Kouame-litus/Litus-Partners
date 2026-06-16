@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postuler — Litus Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2340;--blue:#1B3D6F;--accent:#C05C1E;--light:#F7F8FA;--white:#fff;--gray:#64748B;--border:#E2E8F0;--text:#0F2340}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--white);box-shadow:0 1px 0 var(--border)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-text-group{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:17px;font-weight:700;color:var(--navy);letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
+.logo-tagline{font-size:8.5px;font-weight:700;color:var(--gray);letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
+.nav-back{font-size:14px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;transition:background .2s}
+.nav-back:hover{background:var(--light)}
+.nav-back svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* HERO */
+.hero{background:linear-gradient(120deg,#071220 0%,var(--navy) 60%,#1B3D6F 100%);padding:120px 0 72px}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%}
+.hero-kicker{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero h1{font-size:clamp(32px,3.5vw,48px);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}
+.hero p{font-size:15px;color:rgba(255,255,255,.65);max-width:520px;line-height:1.8}
+
+/* PAGE BODY */
+.page-body{padding:72px 0 96px;background:var(--light)}
+.page-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:72px;align-items:start}
+
+/* CONFIDENTIALITE */
+.conf-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 32px}
+.conf-box h3{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.conf-box h3 svg{width:15px;height:15px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.conf-box p{font-size:13px;color:var(--gray);line-height:1.75}
+
+/* SIDEBAR INFO */
+.sidebar{display:flex;flex-direction:column;gap:24px}
+.sidebar-title{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.sidebar-sub{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:8px}
+
+/* FORM */
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px 44px}
+.form-card h2{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.fg{margin-bottom:20px}
+.fl{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+.fi,.fs,.ft{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14px;color:var(--text);background:var(--white);transition:border-color .2s;outline:none}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--navy)}
+.ft{min-height:100px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.file-zone{border:1.5px dashed var(--border);border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:var(--light);position:relative}
+.file-zone:hover{border-color:var(--navy);background:#f0f4f8}
+.file-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.file-zone svg{width:24px;height:24px;stroke:var(--gray);fill:none;stroke-width:1.5;margin:0 auto 8px}
+.file-zone p{font-size:13px;color:var(--gray)}
+.file-zone p strong{color:var(--navy)}
+.file-name{font-size:12px;color:var(--accent);font-weight:700;margin-top:6px;display:none}
+.consent{display:flex;align-items:flex-start;gap:12px;margin:24px 0}
+.consent input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--navy);flex-shrink:0;cursor:pointer}
+.consent label{font-size:13px;color:var(--gray);line-height:1.6;cursor:pointer}
+.btn-postuler{width:100%;background:var(--navy);color:#fff;border:none;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;letter-spacing:.02em}
+.btn-postuler:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-postuler svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* SUCCESS */
+.form-ok{display:none;text-align:center;padding:48px 32px}
+.form-ok .ok-icon{width:56px;height:56px;background:rgba(15,35,64,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.form-ok .ok-icon svg{width:26px;height:26px;stroke:var(--navy);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.form-ok h4{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.form-ok p{font-size:14px;color:var(--gray);line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
+.foot-social{margin-top:28px}
+.foot-social-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:12px}
+.foot-social-icons{display:flex;gap:10px}
+.foot-si{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);transition:all .2s}
+.foot-si:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+.foot-col h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;cursor:pointer;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+.foot-btm-links{display:flex;gap:20px}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}.page-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.form-card{padding:28px 20px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+      <div class="logo-text-group">
+        <span class="logo-name">Litus Partners</span>
+        <span class="logo-tagline">Conseil · Stratégie · Transformation</span>
+      </div>
+    </a>
+    <a class="nav-back" href="../index.html#carrieres">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Retour aux carrières
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="s-in">
+    <p class="hero-kicker">Carrières</p>
+    <h1>Rejoignez notre équipe</h1>
+    <p>Nous recrutons des professionnels engagés, curieux et passionnés par la transformation des organisations.</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="page-body">
+  <div class="s-in">
+    <div class="page-grid">
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div>
+          <p class="sidebar-title">Candidature spontanée</p>
+          <p class="sidebar-sub">Vous ne trouvez pas de poste correspondant à votre profil ? Soumettez votre candidature et nous vous contacterons dès qu'une opportunité se présente.</p>
+        </div>
+        <div class="conf-box">
+          <h3>
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Confidentialité
+          </h3>
+          <p>Les renseignements personnels que vous nous transmettez sont utilisés uniquement dans le cadre de l'évaluation de votre candidature. Litus Partners s'engage à protéger vos données conformément aux lois applicables en matière de protection des renseignements personnels.</p>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="form-card">
+        <h2>Votre candidature</h2>
+        <div id="appForm">
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl" for="a1">Prénom *</label>
+              <input class="fi" id="a1" type="text" placeholder="Votre prénom">
+            </div>
+            <div class="fg">
+              <label class="fl" for="a2">Nom *</label>
+              <input class="fi" id="a2" type="text" placeholder="Votre nom">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl" for="a3">Courriel *</label>
+              <input class="fi" id="a3" type="email" placeholder="vous@exemple.com">
+            </div>
+            <div class="fg">
+              <label class="fl" for="a4">Téléphone</label>
+              <input class="fi" id="a4" type="tel" placeholder="+1 (000) 000-0000">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl" for="a5">Poste visé *</label>
+              <input class="fi" id="a5" type="text" placeholder="Ex. : Conseiller en stratégie">
+            </div>
+            <div class="fg">
+              <label class="fl" for="a6">Langue de correspondance</label>
+              <select class="fs" id="a6">
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl" for="a7">Profil LinkedIn</label>
+            <input class="fi" id="a7" type="url" placeholder="https://linkedin.com/in/votre-profil">
+          </div>
+          <div class="fg">
+            <label class="fl">Curriculum vitæ * <span style="font-size:10px;color:var(--gray);font-weight:400;text-transform:none;letter-spacing:0">(PDF, max 5 Mo)</span></label>
+            <div class="file-zone" onclick="document.getElementById('a8').click()">
+              <input type="file" id="a8" accept=".pdf" onchange="showFileName(this)">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <p><strong>Cliquez pour téléverser</strong> votre CV</p>
+              <p id="fileNameDisplay" class="file-name"></p>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl" for="a9">Message (optionnel)</label>
+            <textarea class="ft" id="a9" placeholder="Parlez-nous de votre parcours et de vos motivations..."></textarea>
+          </div>
+          <div class="consent">
+            <input type="checkbox" id="consentCheck" required>
+            <label for="consentCheck">J'accepte que Litus Partners conserve mes renseignements personnels aux fins d'évaluation de ma candidature, conformément à sa politique de confidentialité. *</label>
+          </div>
+          <button class="btn-postuler" onclick="submitApp()">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma candidature
+          </button>
+        </div>
+        <div class="form-ok" id="appOk">
+          <div class="ok-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h4>Candidature reçue !</h4>
+          <p>Merci pour votre intérêt envers Litus Partners.<br>Notre équipe examinera votre dossier et vous contactera<br>dans les meilleurs délais.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="s-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+          <span class="foot-logo-name">Litus Partners</span>
+        </div>
+        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <div class="foot-social">
+          <span class="foot-social-label">Suivez-nous</span>
+          <div class="foot-social-icons">
+            <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="foot-si" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Expertises</h5>
+        <a href="../expertises/conseil.html">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html">Gouvernance</a>
+        <a href="../expertises/ia.html">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html">Innovation</a>
+        <a href="../technologies/index.html">Technologies</a>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="../formation/offre.html">Formation</a>
+        <a href="../index.html#apropos">&Agrave; propos</a>
+        <a href="../reflexions.html">Publications</a>
+        <a href="../index.html#carrieres">Carri&egrave;res</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
+        <a>Qu&eacute;bec, Canada</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links"><a>Confidentialit&eacute;</a><a>Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showFileName(input){
+  const display = document.getElementById('fileNameDisplay');
+  if(input.files && input.files[0]){
+    display.textContent = '✓ ' + input.files[0].name;
+    display.style.display = 'block';
+  }
+}
+
+function submitApp(){
+  const prenom = document.getElementById('a1').value.trim();
+  const nom    = document.getElementById('a2').value.trim();
+  const email  = document.getElementById('a3').value.trim();
+  const poste  = document.getElementById('a5').value.trim();
+  const cv     = document.getElementById('a8').files[0];
+  const consent= document.getElementById('consentCheck').checked;
+
+  if(!prenom||!nom||!email||!poste){
+    alert('Veuillez remplir tous les champs obligatoires (*).');return;
+  }
+  if(!cv){alert('Veuillez joindre votre CV en format PDF.');return;}
+  if(!consent){alert('Veuillez accepter la politique de confidentialité pour continuer.');return;}
+
+  const tel    = document.getElementById('a4').value.trim();
+  const langue = document.getElementById('a6').value;
+  const li     = document.getElementById('a7').value.trim();
+  const msg    = document.getElementById('a9').value.trim();
+
+  const sub  = encodeURIComponent('Candidature — ' + poste + ' — ' + prenom + ' ' + nom);
+  const body = encodeURIComponent(
+    'Prénom : ' + prenom +
+    '\nNom : ' + nom +
+    '\nCourriel : ' + email +
+    '\nTéléphone : ' + (tel||'—') +
+    '\nPoste visé : ' + poste +
+    '\nLangue : ' + (langue==='fr'?'Français':'Anglais') +
+    '\nLinkedIn : ' + (li||'—') +
+    '\n\n' + (msg||'Aucun message.')
+  );
+
+  window.location.href = 'mailto:contact@lituspartners.com?subject=' + sub + '&body=' + body;
+
+  document.getElementById('appForm').style.display = 'none';
+  document.getElementById('appOk').style.display   = 'block';
+}
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 [build]
-  command   = "node build-index.js"
+  command   = "node build-index.js && node carrieres/build-postes.js"
   publish   = "."
 
 [[headers]]

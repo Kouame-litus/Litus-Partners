@@ -60,3 +60,52 @@ collections:
         name: "body"
         widget: "markdown"
         hint: "Utilisez la barre d'outils pour mettre en forme votre texte"
+
+  - name: "postes"
+    label: "Postes"
+    label_singular: "Poste"
+    folder: "carrieres/postes"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{titre}} — {{lieu}} ({{type_contrat}})"
+    fields:
+      - label: "Titre du poste"
+        name: "titre"
+        widget: "string"
+        hint: "Ex. : Conseiller en stratégie senior"
+      - label: "Lieu"
+        name: "lieu"
+        widget: "string"
+        default: "Québec, Canada"
+        hint: "Ex. : Québec, Canada — Télétravail"
+      - label: "Type de contrat"
+        name: "type_contrat"
+        widget: "select"
+        options:
+          - { label: "Temps plein", value: "Temps plein" }
+          - { label: "Temps partiel", value: "Temps partiel" }
+          - { label: "Contrat", value: "Contrat" }
+          - { label: "Stage", value: "Stage" }
+      - label: "Mode de travail"
+        name: "mode"
+        widget: "select"
+        options:
+          - { label: "Présentiel", value: "Présentiel" }
+          - { label: "Télétravail", value: "Télétravail" }
+          - { label: "Hybride", value: "Hybride" }
+        default: "Hybride"
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD MMMM YYYY"
+        time_format: false
+        format: "YYYY-MM-DD"
+      - label: "Poste actif"
+        name: "actif"
+        widget: "boolean"
+        default: true
+        hint: "Décochez pour masquer le poste sans le supprimer"
+      - label: "Description du poste"
+        name: "body"
+        widget: "markdown"
+        hint: "Décrivez les responsabilités, le profil recherché et les conditions"
