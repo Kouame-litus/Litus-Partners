@@ -77,7 +77,7 @@ nav.solid .hamburger span{background:var(--navy)}
 /* ─── GENERIC SECTION ─── */
 section{padding:96px 0}
 .s-in{max-width:1160px;margin:0 auto;padding:0 32px}
-.kicker{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.kicker{font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .s-title{font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
 .s-sub{font-size:16px;color:var(--gray);line-height:1.7;max-width:520px;font-weight:400}
 
@@ -136,18 +136,38 @@ section{padding:96px 0}
 .pres-flag{font-size:16px}
 
 /* ─── RÉFLEXIONS ─── */
-#reflexions{background:var(--white)}
-.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
-.ref-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all .25s;cursor:pointer}
-.ref-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,35,64,.1)}
-.ref-img{height:200px;overflow:hidden;position:relative}
-.ref-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.ref-card:hover .ref-img img{transform:scale(1.04)}
-.ref-cat{position:absolute;top:16px;left:16px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px}
-.ref-body{padding:24px}
-.ref-date{font-size:11px;color:var(--gray);margin-bottom:8px;font-weight:500}
-.ref-body h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:12px}
-.ref-body p{font-size:13px;color:var(--gray);line-height:1.6}
+#reflexions{background:#fff;padding:96px 0;border-top:1px solid var(--border)}
+.ref-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0;padding-bottom:32px;border-bottom:2px solid var(--navy);flex-wrap:wrap;gap:16px}
+.ref-header-left h2{margin:0;color:var(--navy)}
+.ref-see-all{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
+.ref-see-all svg{transition:transform .2s}
+.ref-see-all:hover{color:var(--accent)}
+.ref-see-all:hover svg{transform:translateX(4px)}
+/* Grille 3 colonnes style McKinsey/EY */
+.ref-editorial{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:0}
+/* Carte standard */
+.ref-card-v{cursor:pointer;padding:36px 32px;border-right:1px solid var(--border);transition:background .2s}
+.ref-card-v:last-child{border-right:none}
+.ref-card-v:hover{background:var(--light)}
+.ref-card-v-img{width:100%;height:220px;object-fit:cover;display:block;margin-bottom:24px;transition:opacity .3s}
+.ref-card-v:hover .ref-card-v-img{opacity:.9}
+.ref-cat-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ref-cat-line{width:24px;height:2px;border-radius:2px;flex-shrink:0}
+.ref-cat-label{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}
+.cat-ia .ref-cat-line{background:#0d7a75}
+.cat-ia .ref-cat-label{color:#0d7a75}
+.cat-gouv .ref-cat-line{background:var(--navy)}
+.cat-gouv .ref-cat-label{color:var(--navy)}
+.cat-transfo .ref-cat-line{background:#4a2080}
+.cat-transfo .ref-cat-label{color:#4a2080}
+.cat-default .ref-cat-line{background:var(--accent)}
+.cat-default .ref-cat-label{color:var(--accent)}
+.ref-card-v h3{font-size:17px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:12px;letter-spacing:-.2px}
+.ref-card-v p{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:24px}
+.ref-card-v-footer{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--border)}
+.ref-card-v-date{font-size:11px;color:var(--gray);font-weight:600;letter-spacing:.04em}
+.ref-lire{font-size:11px;font-weight:800;color:var(--navy);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:5px;transition:all .2s}
+.ref-card-v:hover .ref-lire{color:var(--accent);gap:9px}
 
 /* ─── DIAGNOSTIC ─── */
 #diagnostic{background:var(--light);padding:80px 0}
@@ -165,29 +185,25 @@ section{padding:96px 0}
 .diag-note{font-size:11px;color:#aaa;margin-top:10px}
 
 /* ─── CARRIÈRES ─── */
-#carrieres{background:var(--white);padding:96px 0}
-.car-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:56px}
-.car-img{border-radius:16px;overflow:hidden;height:400px}
-.car-img img{width:100%;height:100%;object-fit:cover}
-.car-text h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:12px}
-.car-text p{font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:32px}
-.car-points{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
-.car-pt{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text)}
-.car-pt-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+#carrieres{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center}
+.car-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.car-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,18,32,.92) 0%,rgba(15,35,64,.80) 55%,rgba(27,61,111,.65) 100%)}
+.car-inner{position:relative;z-index:2;padding:100px 0}
+.car-kicker{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.car-title{font-size:clamp(32px,3.8vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;max-width:640px}
+.car-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;max-width:520px;margin-bottom:40px}
+.btn-car-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:16px 36px;border-radius:4px;transition:all .2s}
+.btn-car-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,92,30,.35)}
+.btn-car-cta svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .btn-career{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:50px;padding:14px 28px;font-size:14px;font-weight:600;transition:all .2s}
 .btn-career:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-about-more{display:inline-flex;align-items:center;gap:8px;margin-top:32px;border:2px solid var(--navy);color:var(--navy);border-radius:50px;padding:13px 28px;font-size:14px;font-weight:700;transition:all .2s}
+.btn-about-more:hover{background:var(--navy);color:#fff;transform:translateY(-1px)}
 
 /* ─── CONTACT ─── */
-#contact{background:var(--light);padding:96px 0}
-.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
-.contact-info h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:24px}
-.ci{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
-.ci-icon{width:38px;height:38px;background:var(--white);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
-.ci-icon svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.ci-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
-.ci-val{font-size:14px;color:var(--text);font-weight:500}
-.ci-val a{color:var(--blue)}
-.contact-note{font-size:13px;color:var(--gray);background:#fff;border-radius:8px;padding:16px;border-left:3px solid var(--accent);line-height:1.6;margin-top:24px}
+#contact{background:linear-gradient(to bottom,#fff 0%,var(--light) 80px);padding:96px 0}
+.contact-layout{display:block;max-width:680px;margin:0 auto}
+.contact-form-only{}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fg{margin-bottom:18px}
 .fl{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:7px}
@@ -201,17 +217,24 @@ section{padding:96px 0}
 .form-ok h4{font-size:15px;font-weight:700;color:#166534;margin-bottom:6px}
 .form-ok p{font-size:13px;color:#166534;opacity:.8}
 
-/* ─── FOOTER ─── */
-footer{background:var(--navy);padding:56px 0 28px}
-.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07)}
-.foot-brand p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7;margin-top:16px;max-width:220px}
-.foot-col h5{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:16px}
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
+.foot-social{margin-top:28px}
+.foot-social-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:12px}
+.foot-social-icons{display:flex;gap:10px}
+.foot-si{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);transition:all .2s}
+.foot-si:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+.foot-col h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px}
 .foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;cursor:pointer;transition:color .2s}
-.foot-col a:hover{color:rgba(255,255,255,.85)}
-.foot-btm{display:flex;align-items:center;justify-content:space-between;padding-top:24px;font-size:12px;color:rgba(255,255,255,.2)}
-.foot-btm-links{display:flex;gap:16px}
-.foot-btm-links a{color:rgba(255,255,255,.2);cursor:pointer;transition:color .2s}
-.foot-btm-links a:hover{color:rgba(255,255,255,.45)}
+.foot-col a:hover{color:#fff}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm a:hover{color:rgba(255,255,255,.6)}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 
 /* ─── FADE ─── */
 .fade{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
@@ -238,6 +261,10 @@ footer{background:var(--navy);padding:56px 0 28px}
   .nav-links{display:none}
   .hamburger{display:flex}
   .ref-grid,.sec-grid,.contact-layout,.form-row{grid-template-columns:1fr}
+  .ref-editorial{grid-template-columns:1fr}
+  .ref-card-v{border-right:none;border-bottom:1px solid var(--border);padding:28px 0}
+  .ref-card-v:last-child{border-bottom:none}
+  .ref-header{flex-direction:column;align-items:flex-start}
   .exp-grid,.car-layout{grid-template-columns:1fr}
   .vals{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr 1fr}
@@ -259,7 +286,7 @@ footer{background:var(--navy);padding:56px 0 28px}
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-in">
-    <a class="nav-logo" onclick="goTop()">
+    <a class="nav-logo" href="index.html" style="cursor:pointer">
             <div class="logo-chip">
         <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
@@ -287,7 +314,8 @@ footer{background:var(--navy);padding:56px 0 28px}
       <span class="nav-a" onclick="go('expertises')">Expertises</span>
       <span class="nav-a" onclick="go('formation')">Formation</span>
       <span class="nav-a" onclick="go('apropos')">&Agrave; propos</span>
-      <a href="reflexions.html" class="nav-a">R&eacute;flexions</a>
+      <span class="nav-a" onclick="go('reflexions')">Publications</span>
+      <span class="nav-a" onclick="go('carrieres')">Carri&egrave;res</span>
       <span class="nav-a nav-btn" onclick="go('contact')">Nous contacter</span>
     </div>
     <button class="hamburger" id="ham" onclick="toggleMob()">
@@ -302,7 +330,7 @@ footer{background:var(--navy);padding:56px 0 28px}
   <a onclick="go('expertises');toggleMob()">Expertises</a>
   <a onclick="go('formation');toggleMob()">Formation</a>
   <a onclick="go('apropos');toggleMob()">À propos</a>
-  <a onclick="go('reflexions');toggleMob()">Réflexions</a>
+  <a onclick="go('reflexions');toggleMob()">Publications</a>
   <a onclick="go('contact');toggleMob()" style="color:var(--accent)">Nous contacter →</a>
 </div>
 
@@ -438,6 +466,10 @@ footer{background:var(--navy);padding:56px 0 28px}
           <p>Adoption du numérique accessible à toutes les organisations.</p>
         </div>
       </div>
+      <a href="apropos/index.html" class="btn-about-more">
+        En savoir plus
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -445,42 +477,16 @@ footer{background:var(--navy);padding:56px 0 28px}
 <!-- RÉFLEXIONS -->
 <section id="reflexions">
   <div class="s-in">
-    <div class="kicker">Réflexions</div>
-    <h2 class="s-title">Nos points de vue</h2>
-    <div class="ref-grid">
-      <div class="ref-card fade">
-        <div class="ref-img">
-          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&auto=format&fit=crop&q=70" alt="">
-          <span class="ref-cat">Intelligence artificielle</span>
-        </div>
-        <div class="ref-body">
-          <div class="ref-date">Juin 2026</div>
-          <h3>L'IA dans le secteur public : entre promesse et réalité</h3>
-          <p>Comment avancer avec méthode lorsque la pression d'adopter l'IA s'accroît mais que les cadres manquent ?</p>
-        </div>
+    <div class="ref-header">
+      <div class="ref-header-left">
+        <div class="kicker">Publications</div>
+        <h2 class="s-title" style="margin-top:8px">Nos points de vue</h2>
       </div>
-      <div class="ref-card fade">
-        <div class="ref-img">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop&q=70" alt="">
-          <span class="ref-cat">Transformation numérique</span>
-        </div>
-        <div class="ref-body">
-          <div class="ref-date">Mai 2026</div>
-          <h3>PME africaines : 5 leviers de transformation numérique prioritaires</h3>
-          <p>Des leviers d'action pour des résultats rapides et mesurables, malgré la fracture numérique.</p>
-        </div>
-      </div>
-      <div class="ref-card fade">
-        <div class="ref-img">
-          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop&q=70" alt="">
-          <span class="ref-cat">Gouvernance</span>
-        </div>
-        <div class="ref-body">
-          <div class="ref-date">Avril 2026</div>
-          <h3>Gouvernance de l'IA : pourquoi les organisations doivent agir maintenant</h3>
-          <p>Les organisations qui anticipent aujourd'hui éviteront les crises de conformité de demain.</p>
-        </div>
-      </div>
+      <a href="reflexions.html" class="ref-see-all">Tous les articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+
+    <div class="ref-editorial" id="homeRefGrid">
+      <p style="color:var(--gray);font-size:15px;padding:32px 0">Chargement des publications…</p>
     </div>
   </div>
 </section>
@@ -507,25 +513,16 @@ footer{background:var(--navy);padding:56px 0 28px}
 
 <!-- CARRIÈRES -->
 <section id="carrieres">
-  <div class="s-in">
-    <div class="car-layout">
-      <div class="car-img">
-        <!-- Free image: Unsplash — team/collaboration -->
-        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop&q=70" alt="Carrières Litus Partner">
-      </div>
-      <div class="car-text">
-        <div class="kicker">Carrières</div>
-        <h2 class="s-title">Rejoignez-nous</h2>
-        <p>Litus Partner recrute des professionnels passionnés par la transformation numérique, l'IA et l'impact social au Québec et en Afrique.</p>
-        <div class="car-points">
-          <div class="car-pt"><span class="car-pt-dot"></span>Candidatures spontanées bienvenues</div>
-        </div>
-        <a href="mailto:contact@lituspartners.com?subject=Candidature Litus Partner" class="btn-career">
-          Postuler
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
+  <img class="car-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="">
+  <div class="car-overlay"></div>
+  <div class="s-in car-inner">
+    <p class="car-kicker">Carrières</p>
+    <h2 class="car-title">Construisez votre avenir avec nous</h2>
+    <p class="car-sub">Rejoignez une équipe qui valorise votre expertise, votre ambition et votre impact. Litus Partners recrute des professionnels engagés au Québec et en Afrique.</p>
+    <a href="carrieres/index.html" class="btn-car-cta">
+      Découvrez nos opportunités
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
 </section>
 
@@ -533,25 +530,9 @@ footer{background:var(--navy);padding:56px 0 28px}
 <section id="contact">
   <div class="s-in">
     <div class="kicker">Contact</div>
-    <h2 class="s-title" style="margin-bottom:48px">Parlons de votre projet</h2>
+    <h2 class="s-title" style="margin-bottom:48px;font-size:clamp(26px,2.4vw,34px);font-weight:800;letter-spacing:-.5px">Parlons de votre projet</h2>
     <div class="contact-layout">
-      <div class="contact-info">
-        <h3>Coordonnées</h3>
-        <div class="ci">
-          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="ci-label">Courriel</div><div class="ci-val"><a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a></div></div>
-        </div>
-        <div class="ci">
-          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="ci-label">Siège social</div><div class="ci-val">Québec, Canada</div></div>
-        </div>
-        <div class="ci">
-          <div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-          <div><div class="ci-label">Présence terrain</div><div class="ci-val">Abidjan, Côte d'Ivoire</div></div>
-        </div>
-        <div class="contact-note">Première consultation <strong>gratuite et sans engagement</strong>.</div>
-      </div>
-      <div>
+      <div class="contact-form-only">
         <div id="cform">
           <div class="fg"><label class="fl">Nom complet *</label><input class="fi" id="f1" type="text" placeholder="Votre nom complet"></div>
           <div class="fg"><label class="fl">Organisation *</label><input class="fi" id="f3" type="text" placeholder="Nom de votre organisation"></div>
@@ -590,55 +571,46 @@ footer{background:var(--navy);padding:56px 0 28px}
   <div class="s-in">
     <div class="foot-top">
       <div class="foot-brand">
-              <div class="logo-chip">
-        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
-          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
-          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
-        </svg>
-      </div>
-        <p>Conseil · Stratégie · Transformation<br>Québec, Canada — Abidjan, Côte d'Ivoire</p>
+        <div class="foot-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+          <span class="foot-logo-name">Litus Partners</span>
+        </div>
+        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <div class="foot-social">
+          <span class="foot-social-label">Suivez-nous</span>
+          <div class="foot-social-icons">
+            <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="foot-si" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Expertises</h5>
         <a href="expertises/conseil.html">Conseil en gestion</a>
-        <a onclick="go('expertises')">Stratégie LP</a>
-        <a onclick="go('expertises')">Technologies</a>
-        <a onclick="go('expertises')">Intelligence artificielle</a>
+        <a href="expertises/gouvernance.html">Gouvernance</a>
+        <a href="expertises/ia.html">Intelligence artificielle</a>
+        <a href="expertises/innovation.html">Innovation</a>
+        <a href="technologies/index.html">Technologies</a>
       </div>
       <div class="foot-col">
         <h5>Entreprise</h5>
-        <a onclick="go('formation')">Formation</a>
-        <a onclick="go('apropos')">À propos</a>
-        <a onclick="go('reflexions')">Réflexions</a>
-        <a onclick="go('carrieres')">Carrières</a>
-        <a onclick="go('diagnostic')">Diagnostic IA</a>
+        <a href="formation/offre.html">Formation</a>
+        <a href="index.html#apropos">&Agrave; propos</a>
+        <a href="reflexions.html">Publications</a>
+        <a href="index.html#carrieres">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
         <h5>Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Québec, Canada</a>
-        <a>Abidjan, Côte d'Ivoire</a>
+        <a>Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>© 2026 Litus Partner. Tous droits réservés.</div>
+      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
-        <a>Confidentialité</a>
+        <a>Confidentialit&eacute;</a>
         <a>Conditions</a>
-        <a href="admin/index.html" style="opacity:.15;font-size:10px">·</a>
       </div>
     </div>
   </div>
@@ -676,6 +648,46 @@ function sendForm(){
   document.getElementById('cform').style.display='none';
   document.getElementById('fok').style.display='block';
 }
+</script>
+<script>
+// Charge les vraies publications du CMS sur la page d'accueil — 3 cartes max, chacune
+// pointant vers son propre article (plus de fausses cartes ni de lien générique).
+(async function(){
+  var grid=document.getElementById('homeRefGrid');
+  if(!grid) return;
+  var CAT_CLASS={'gouvernance':'cat-gouv','intelligence artificielle':'cat-ia','transformation numérique':'cat-transfo','transformation numerique':'cat-transfo'};
+  var DEFAULT_IMGS={'gouvernance':'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&auto=format&fit=crop&q=80','intelligence artificielle':'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&auto=format&fit=crop&q=80','transformation numérique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80','transformation numerique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80'};
+  function fmtDate(d){if(!d)return '';return new Date(d).toLocaleDateString('fr-CA',{year:'numeric',month:'long'});}
+  function artUrl(a){return 'reflexions/article.html?slug='+encodeURIComponent(a.slug);}
+  try{
+    var res=await fetch('/reflexions/articles.json?_='+Date.now());
+    if(!res.ok) throw new Error('fetch failed');
+    var arts=await res.json();
+    if(!arts||!arts.length){
+      grid.innerHTML='<p style="color:var(--gray);font-size:15px;padding:32px 0">Nos premières publications arrivent bientôt. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">Voir la page Publications →</a></p>';
+      return;
+    }
+    arts=arts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,3);
+    var html='';
+    arts.forEach(function(a){
+      var catKey=(a.category||'').toLowerCase();
+      var img=a.image||(DEFAULT_IMGS[catKey]||'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&auto=format&fit=crop&q=80');
+      var cls=CAT_CLASS[catKey]||'cat-default';
+      html+='<div class="ref-card-v '+cls+' fade" onclick="window.location.href=\''+artUrl(a)+'\'">'
+        +'<img class="ref-card-v-img" src="'+img+'" alt="'+a.title+'">'
+        +'<div class="ref-cat-bar"><span class="ref-cat-line"></span><span class="ref-cat-label">'+(a.category||'')+'</span></div>'
+        +'<h3>'+a.title+'</h3>'
+        +'<p>'+(a.summary||'')+'</p>'
+        +'<div class="ref-card-v-footer"><span class="ref-card-v-date">'+fmtDate(a.date)+' · '+(a.readtime||5)+' min</span>'
+        +'<span class="ref-lire">Lire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>'
+        +'</div></div>';
+    });
+    grid.innerHTML=html;
+    grid.querySelectorAll('.fade').forEach(function(el){el.classList.add('in');});
+  }catch(e){
+    grid.innerHTML='<p style="color:var(--gray);font-size:15px;padding:32px 0">Nos premières publications arrivent bientôt. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">Voir la page Publications →</a></p>';
+  }
+})();
 </script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>

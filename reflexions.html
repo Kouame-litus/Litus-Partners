@@ -32,8 +32,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
 
 /* HERO */
-.page-hero{padding:120px 0 60px;background:linear-gradient(135deg,#071628 0%,#0F2340 60%,#1B3D6F 100%)}
-.page-hero-in{max-width:1160px;margin:0 auto;padding:0 32px}
+.page-hero{position:relative;padding:120px 0 64px;overflow:hidden;background:#0F2340}
+.page-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0}
+.page-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(7,22,40,.88) 0%,rgba(15,35,64,.82) 55%,rgba(27,61,111,.7) 100%)}
+.page-hero-in{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 32px}
 .breadcrumb{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s}
 .breadcrumb a:hover{color:#fff}
@@ -104,14 +106,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nl-form button:hover{background:#a84d18}
 
 /* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-brand p{font-size:13px;line-height:1.8;margin-top:16px;color:rgba(255,255,255,.5)}
-.foot-col h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:16px}
-.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px;cursor:pointer;transition:color .2s}
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
+.foot-social{margin-top:28px}
+.foot-social-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:12px}
+.foot-social-icons{display:flex;gap:10px}
+.foot-si{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);transition:all .2s}
+.foot-si:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+.foot-col h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;cursor:pointer;transition:color .2s}
 .foot-col a:hover{color:#fff}
-.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3)}
+.foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
 .foot-btm-links{display:flex;gap:20px}
+.foot-btm a:hover{color:rgba(255,255,255,.6)}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 
 /* FADE */
 .fade{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
@@ -167,7 +178,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
     </div></a></div></a></div></a></div></a></div></div>
     </div>
       <a class="nav-a" href="index.html#apropos">À propos</a>
-      <a class="nav-a" href="reflexions.html" style="color:#fff">Réflexions</a>
+      <a class="nav-a" href="reflexions.html" style="color:#fff">Publications</a>
       <a class="nav-a nav-btn" href="index.html#contact">Nous contacter</a>
     </div>
   </div>
@@ -175,36 +186,23 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
 
 <!-- HERO -->
 <section class="page-hero">
+  <img class="page-hero-bg" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=80" alt="Publications Litus Partners">
+  <div class="page-hero-overlay"></div>
   <div class="page-hero-in">
     <div class="breadcrumb">
       <a href="index.html">Accueil</a>
       <span>/</span>
-      <span style="color:rgba(255,255,255,.8)">Nos réflexions</span>
+      <span style="color:rgba(255,255,255,.8)">Publications</span>
     </div>
-    <h1>Nos réflexions</h1>
+    <h1>Publications</h1>
     <p>Explorez nos articles, études de cas et points de vue sur la transformation numérique, l'intelligence artificielle et la stratégie d'affaires.</p>
   </div>
 </section>
 
 <!-- ARTICLE VEDETTE -->
-<section class="featured">
+<section class="featured" id="featuredSection" style="display:none">
   <div class="s-in">
-    <div class="featured-card fade" onclick="alert('Article à venir')">
-      <div class="featured-img">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&auto=format&fit=crop&q=70" alt="Article vedette">
-        <div class="featured-badge badge-orange">
-          <div class="art-date">2026.06.01</div>
-          <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
-          <span class="art-read">Lire l'article</span>
-        </div>
-      </div>
-      <div class="featured-body">
-        <div class="kicker">Article vedette</div>
-        <h2>Comment aligner votre stratégie d'affaires et votre transformation numérique</h2>
-        <p>Les organisations qui réussissent leur transformation sont celles qui ancrent leurs initiatives numériques dans une vision stratégique claire et partagée par l'ensemble des parties prenantes.</p>
-        <span class="read-more">Lire l'article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </div>
+    <div class="featured-card fade" id="featuredCard"></div>
   </div>
 </section>
 
@@ -219,7 +217,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
         <button class="filter-btn" onclick="filterArticles('ia',this)">Intelligence artificielle</button>
         <button class="filter-btn" onclick="filterArticles('transformation',this)">Transformation numérique</button>
         <button class="filter-btn" onclick="filterArticles('conseil',this)">Conseil en gestion</button>
-        <button class="filter-btn" onclick="filterArticles('architecture',this)">Architecture d'entreprise</button>
         <div class="filter-sep"></div>
         <select class="sort-select" onchange="sortArticles(this.value)">
           <option value="recent">Plus récent</option>
@@ -228,107 +225,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
       </div>
     </div>
 
-    <!-- GRILLE D'ARTICLES -->
-    <!-- Pour ajouter un article : copiez un bloc art-card et modifiez le contenu -->
-    <div class="art-grid" id="artGrid">
-
-      <!-- ARTICLE 1 -->
-      <div class="art-card fade" data-cat="conseil" data-date="2026-06-01">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-orange">
-            <div class="art-date">2026.06.01</div>
-            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Comment aligner votre stratégie d'affaires et votre transformation numérique</h3>
-          <p>Les organisations qui réussissent leur transformation ancrent leurs initiatives numériques dans une vision stratégique claire.</p>
-        </div>
-      </div>
-
-      <!-- ARTICLE 2 -->
-      <div class="art-card fade" data-cat="ia" data-date="2026-05-15">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-teal">
-            <div class="art-date">2026.05.15</div>
-            <div class="art-cat-label">Intelligence artificielle</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Maturité IA : avancer sur tous les fronts pour créer de la valeur</h3>
-          <p>Comprendre où se situe votre organisation sur l'échelle de maturité IA est la première étape vers une adoption responsable et rentable.</p>
-        </div>
-      </div>
-
-      <!-- ARTICLE 3 -->
-      <div class="art-card fade" data-cat="architecture" data-date="2026-04-20">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-purple">
-            <div class="art-date">2026.04.20</div>
-            <div class="art-cat-label">Architecture d'entreprise</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Architecture d'entreprise : un levier souvent sous-estimé pour la performance</h3>
-          <p>Investir dans la technologie sans cartographier ses processus d'abord est une erreur coûteuse que beaucoup d'organisations commettent.</p>
-        </div>
-      </div>
-
-      <!-- ARTICLE 4 -->
-      <div class="art-card fade" data-cat="transformation" data-date="2026-03-10">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-navy">
-            <div class="art-date">2026.03.10</div>
-            <div class="art-cat-label">Transformation numérique</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Mobiliser les équipes : le facteur humain au cœur de la réussite des projets</h3>
-          <p>La technologie ne suffit pas. La réussite d'un projet de transformation repose avant tout sur l'adhésion et la mobilisation des équipes.</p>
-        </div>
-      </div>
-
-      <!-- ARTICLE 5 -->
-      <div class="art-card fade" data-cat="conseil" data-date="2026-02-28">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-orange">
-            <div class="art-date">2026.02.28</div>
-            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Gestion du changement : pourquoi les programmes de transformation échouent</h3>
-          <p>70 % des initiatives de transformation échouent. Voici les facteurs clés qui font la différence entre succès et échec.</p>
-        </div>
-      </div>
-
-      <!-- ARTICLE 6 -->
-      <div class="art-card fade" data-cat="ia" data-date="2026-01-15">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-teal">
-            <div class="art-date">2026.01.15</div>
-            <div class="art-cat-label">Intelligence artificielle</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Gouvernance de l'IA : bâtir un cadre responsable pour votre organisation</h3>
-          <p>L'adoption de l'IA sans gouvernance claire expose les organisations à des risques éthiques, légaux et opérationnels majeurs.</p>
-        </div>
-      </div>
-
-    </div><!-- /art-grid -->
+    <!-- GRILLE D'ARTICLES — alimentée uniquement par les vraies publications (CMS) -->
+    <div class="art-grid" id="artGrid"></div>
+    <p id="noArticles" style="display:none;color:var(--gray);font-size:15px;padding:24px 0">Aucune publication pour le moment. Revenez bientôt — nos premiers articles arrivent.</p>
   </div>
 </section>
 
@@ -353,51 +252,47 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:48px 0 24px}
   <div class="s-in">
     <div class="foot-top">
       <div class="foot-brand">
-              <div class="logo-chip">
-        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
-          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
-          <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
-        </svg>
-      </div>
-        <p>Conseil · Stratégie · Transformation<br>Québec, Canada — Abidjan, Côte d'Ivoire</p>
+        <div class="foot-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
+          <span class="foot-logo-name">Litus Partners</span>
+        </div>
+        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <div class="foot-social">
+          <span class="foot-social-label">Suivez-nous</span>
+          <div class="foot-social-icons">
+            <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="foot-si" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Expertises</h5>
         <a href="expertises/conseil.html">Conseil en gestion</a>
-        <a href="index.html#expertises">Stratégie LP</a>
-        <a href="index.html#expertises">Technologies</a>
-        <a href="index.html#expertises">Intelligence artificielle</a>
+        <a href="expertises/gouvernance.html">Gouvernance</a>
+        <a href="expertises/ia.html">Intelligence artificielle</a>
+        <a href="expertises/innovation.html">Innovation</a>
+        <a href="technologies/index.html">Technologies</a>
       </div>
       <div class="foot-col">
         <h5>Entreprise</h5>
-        <a href="index.html#formation">Formation</a>
-        <a href="index.html#apropos">À propos</a>
-        <a href="reflexions.html">Réflexions</a>
-        <a href="index.html#carrieres">Carrières</a>
+        <a href="formation/offre.html">Formation</a>
+        <a href="index.html#apropos">&Agrave; propos</a>
+        <a href="reflexions.html">Publications</a>
+        <a href="index.html#carrieres">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
         <h5>Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Québec, Canada</a>
-        <a>Abidjan, Côte d'Ivoire</a>
+        <a>Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>© 2026 Litus Partners. Tous droits réservés.</div>
-      <div class="foot-btm-links"><a>Confidentialité</a><a>Conditions</a></div>
+      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links">
+        <a>Confidentialit&eacute;</a>
+        <a>Conditions</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -484,28 +379,52 @@ function buildCard(a){
   return div;
 }
 
+function buildFeatured(a){
+  const cat=catInfo(a.category);
+  const card=document.getElementById('featuredCard');
+  card.onclick=()=>openArticle(a.slug);
+  card.innerHTML=`
+    <div class="featured-img">
+      <img src="${a.image||DEFAULT_IMG}" alt="${a.title}">
+      <div class="featured-badge ${cat.cls}">
+        <div class="art-date">${fmtDate(a.date)}</div>
+        <div class="art-cat-label">${cat.label}</div>
+        <span class="art-read">Lire l'article</span>
+      </div>
+    </div>
+    <div class="featured-body">
+      <div class="kicker">Article vedette</div>
+      <h2>${a.title}</h2>
+      <p>${a.summary||''}</p>
+      <span class="read-more">Lire l'article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    </div>`;
+  document.getElementById('featuredSection').style.display='';
+}
+
 async function loadCMSArticles(){
+  const grid=document.getElementById('artGrid');
+  const noArt=document.getElementById('noArticles');
   try{
     const res=await fetch('/reflexions/articles.json?_='+Date.now());
-    if(!res.ok) return;
-    const articles=await res.json();
-    if(!articles||!articles.length) return;
-    const grid=document.getElementById('artGrid');
+    if(!res.ok) throw new Error('fetch failed');
+    let articles=await res.json();
+    if(!articles||!articles.length){ noArt.style.display=''; return; }
+    // tri du plus récent au plus ancien
+    articles=[...articles].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+    // le 1er article devient la une, le reste alimente la grille
+    buildFeatured(articles[0]);
+    const rest=articles.slice(1);
+    if(!rest.length){ noArt.style.display='none'; return; }
     const frag=document.createDocumentFragment();
-    articles.forEach(a=>{
-      const card=buildCard(a);
-      frag.appendChild(card);
-    });
-    grid.insertBefore(frag,grid.firstChild);
-    // Observer les nouvelles cartes
+    rest.forEach(a=>frag.appendChild(buildCard(a)));
+    grid.appendChild(frag);
     grid.querySelectorAll('.cms-card').forEach(el=>obs.observe(el));
-    // Réappliquer filtre actif
     if(currentFilter!=='all'){
       document.querySelectorAll('.art-card').forEach(card=>{
         card.style.display=(card.dataset.cat===currentFilter)?'':'none';
       });
     }
-  }catch(e){/* articles statiques restent affichés */}
+  }catch(e){ noArt.style.display=''; }
 }
 
 loadCMSArticles();
