@@ -314,7 +314,7 @@ const SERVICE_MAP = {
   'diagnostic':   'Évaluation de la maturité IA'
 };
 const params = new URLSearchParams(window.location.search);
-const sParam = params.get('service');
+const sParam = window.CONTACT_SERVICE || params.get('service');
 if(sParam && SERVICE_MAP[sParam]){
   const sel = document.getElementById('service');
   for(let opt of sel.options){
