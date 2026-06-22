@@ -38,10 +38,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .exp-hero-right{position:relative;overflow:hidden}
 .exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
 .exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#8a3200 0%,transparent 100%);z-index:1}
-.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;display:flex;align-items:center;gap:8px}
-.exp-breadcrumb a{color:rgba(255,255,255,.5);transition:color .2s}
+.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.exp-breadcrumb a{color:rgba(255,255,255,.6);transition:color .2s}
 .exp-breadcrumb a:hover{color:#fff}
-.exp-breadcrumb span{color:rgba(255,255,255,.25)}
+.exp-breadcrumb span{color:rgba(255,255,255,.35)}
+.exp-breadcrumb span:last-child{color:#fff;font-weight:600}
 .exp-hero-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:28px;border:1px solid rgba(255,255,255,.25);width:fit-content}
 .exp-hero h1{font-size:clamp(36px,4.2vw,62px);font-weight:300;color:#fff;line-height:1.08;letter-spacing:-.3px;max-width:520px;margin-bottom:28px}
 .exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.72);max-width:460px;line-height:1.8;margin-bottom:44px}
@@ -107,8 +108,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nl-submit:hover{background:#c04e1e}
 
 /* ARTICLES SECTION */
-.art-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:24px}
-.art-header-left h2{font-size:clamp(22px,2.5vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.5px;max-width:480px;line-height:1.2}
+.art-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;gap:24px}
+.art-header-left h2{font-size:clamp(22px,2.2vw,32px);font-weight:800;color:var(--navy);letter-spacing:-.5px;white-space:nowrap;line-height:1.2}
 .art-link-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:none;cursor:pointer;font-family:'Nunito Sans',sans-serif;margin-top:20px}
 .art-link-btn span{font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px;transition:all .2s}
 .art-link-btn:hover span{color:var(--accent);border-color:var(--accent)}
@@ -133,9 +134,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .badge-teal{background:#0d7a75}
 
 /* CTA SECTION */
-.cta-section{background:linear-gradient(135deg,#071628 0%,#0F2340 60%,#1B3D6F 100%);padding:80px 0}
+.cta-section{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
+.cta-section::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
 .cta-in{max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center}
-.cta-text h2{font-size:clamp(26px,3vw,42px);font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.2;margin-bottom:16px}
+.cta-text h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.15;margin-bottom:16px}
 .cta-text p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;max-width:500px}
 .cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:36px;min-width:280px;text-align:center}
 .cta-card p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:20px;line-height:1.6}
@@ -209,9 +211,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <div class="nav-links">
       <a href="../index.html#expertises" class="nav-a">Expertises</a>
       <a href="../index.html#formation" class="nav-a">Formation</a>
-    </div></div></div></div>
-    </div></a></div></a></div></a></div></a></div></div>
-    </div>
       <a class="nav-a" href="../index.html#apropos">À propos</a>
       <a class="nav-a" href="../index.html#reflexions">Publications</a>
       <a class="nav-a nav-btn" href="../index.html#contact">Nous contacter</a>
@@ -230,11 +229,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <span style="color:rgba(255,255,255,.8)">Conseil en gestion</span>
     </div>
     <h1>Conseil en gestion et accompagnement stratégique</h1>
-    <p class="exp-hero-sub">Nos services de conseil en gestion vous permettent de bénéficier du soutien de nos experts pour la prise de décision, l'anticipation des risques et la transformation de vos organisations.</p>
-    <button class="exp-hero-cta" onclick="document.getElementById('consultation').scrollIntoView({behavior:'smooth'})">
+    <p class="exp-hero-sub">Des d&eacute;cisions plus &eacute;clair&eacute;es. Une transformation durable. Nous travaillons aux c&ocirc;t&eacute;s de vos &eacute;quipes dirigeantes pour faire de votre strat&eacute;gie un avantage concurrentiel r&eacute;el.</p>
+    <a class="exp-hero-cta" href="../contact/index.html?service=conseil">
       Réservez votre consultation
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </button>
+    </a>
   </div>
   <div class="exp-hero-right">
     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&auto=format&fit=crop&q=80" alt="Conseil stratégique">
@@ -247,7 +246,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <div class="fade">
       <div class="kicker kicker-light">Notre approche</div>
       <h2 class="s-title s-title-light">Une expertise au service<br>de votre transformation</h2>
-      <p class="s-sub s-sub-light">Nous combinons la proximité d'un cabinet-boutique avec la rigueur d'une grande firme-conseil. Nos conseillers travaillent directement avec vos équipes pour aligner ambition stratégique et capacités réelles.</p>
+      <p class="s-sub s-sub-light">Nos conseillers s&rsquo;int&egrave;grent directement dans vos &eacute;quipes pour transformer votre strat&eacute;gie en r&eacute;sultats concrets &mdash; avec la rigueur et la proximit&eacute; que les grands mandats exigent.</p>
     </div>
 
     <!-- SERVICES GRID -->
@@ -299,8 +298,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="livraison-intro fade">
       <div class="kicker">Notre approche de livraison</div>
-      <h2>Un mode de livraison selon vos besoins.</h2>
-      <p>Notre offre est supportée par trois méthodes de livraison qui peuvent être activées à tout moment du cycle de vie de votre transformation.</p>
+      <h2>Trois fa&ccedil;ons de travailler ensemble.</h2>
+      <p>Chaque engagement est structur&eacute; pour s&rsquo;adapter &agrave; votre situation &mdash; qu&rsquo;elle soit strat&eacute;gique, op&eacute;rationnelle ou en pleine transformation.</p>
     </div>
     <div class="livraison-grid fade">
       <div class="livraison-card">
@@ -324,60 +323,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="art-header fade">
       <div class="art-header-left">
-        <h2>Consultez notre dernier article sur l'accompagnement stratégique.</h2>
+        <h2>Nos r&eacute;flexions sur le conseil en gestion.</h2>
         <button class="art-link-btn" onclick="window.location.href='../reflexions.html'">
-          <span>Consultez nos dernières réflexions</span>
+          <span>Consultez nos derni&egrave;res r&eacute;flexions</span>
           <div class="art-link-circle">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
         </button>
-      </div>
-    </div>
-    <div class="art-grid">
-      <!-- ARTICLE 1 -->
-      <div class="art-card fade">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-orange">
-            <div class="art-date">2026.06.01</div>
-            <div class="art-cat-label">Conseil en gestion et accompagnement stratégique</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Comment aligner votre stratégie d'affaires et votre transformation numérique</h3>
-          <p>Les organisations qui réussissent ancrent leurs initiatives dans une vision stratégique claire.</p>
-        </div>
-      </div>
-      <!-- ARTICLE 2 -->
-      <div class="art-card fade">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-purple">
-            <div class="art-date">2026.04.20</div>
-            <div class="art-cat-label">Architecture d'entreprise</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Architecture d'entreprise : un levier souvent sous-estimé pour la performance</h3>
-          <p>Investir dans la technologie sans cartographier ses processus est une erreur coûteuse.</p>
-        </div>
-      </div>
-      <!-- ARTICLE 3 -->
-      <div class="art-card fade">
-        <div class="art-card-img">
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=70" alt="">
-          <div class="art-badge badge-teal">
-            <div class="art-date">2026.03.10</div>
-            <div class="art-cat-label">Transformation numérique</div>
-            <span class="art-read">Lire l'article</span>
-          </div>
-        </div>
-        <div class="art-card-body">
-          <h3>Mobiliser les équipes : le facteur humain au cœur de la réussite des projets</h3>
-          <p>La réussite d'un projet de transformation repose avant tout sur l'adhésion des équipes.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -387,13 +339,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="cta-section" id="consultation">
   <div class="cta-in">
     <div class="cta-text fade">
-      <div class="kicker" style="color:rgba(255,255,255,.5)">Première consultation gratuite</div>
-      <h2>Profitez d'une séance de stratégie, sans frais, de 30 minutes avec l'un de nos experts.</h2>
-      <p>Découvrez comment concrétiser vos ambitions en alignant de manière cohérente votre stratégie d'affaires et vos initiatives numériques.</p>
+      <h2>Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p>D&eacute;couvrez comment transformer votre strat&eacute;gie en avantage concurrentiel r&eacute;el, avec l&rsquo;appui de conseillers qui s&rsquo;engagent sur les r&eacute;sultats.</p>
     </div>
     <div class="cta-card fade">
-      <p>Première consultation <strong style="color:#fff">gratuite et sans engagement</strong>.</p>
-      <a class="btn-cta" href="../index.html#contact">
+      <a class="btn-cta" href="../contact/index.html?service=conseil">
         Réservez votre consultation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>

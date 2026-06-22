@@ -34,10 +34,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .exp-hero-right{position:relative;overflow:hidden}
 .exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
 .exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#0d2444 0%,transparent 100%);z-index:1}
-.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;display:flex;align-items:center;gap:8px}
-.exp-breadcrumb a{color:rgba(255,255,255,.5);transition:color .2s}
+.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.exp-breadcrumb a{color:rgba(255,255,255,.6);transition:color .2s}
 .exp-breadcrumb a:hover{color:#fff}
-.exp-breadcrumb span{color:rgba(255,255,255,.25)}
+.exp-breadcrumb span{color:rgba(255,255,255,.35)}
+.exp-breadcrumb span:last-child{color:#fff;font-weight:600}
 .exp-hero h1{font-size:clamp(32px,3.8vw,56px);font-weight:300;color:#fff;line-height:1.1;letter-spacing:-.3px;max-width:520px;margin-bottom:24px}
 .exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.72);max-width:460px;line-height:1.8;margin-bottom:44px}
 .exp-hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:14px 30px;font-size:15px;font-weight:700;transition:all .2s;cursor:pointer;width:fit-content}
@@ -98,7 +99,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
 .cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
 .cta-left .cta-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
-.cta-left h2{font-size:clamp(28px,3.5vw,48px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.cta-left h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
 .cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
 .cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
 .cta-card-info{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;text-align:center;margin-bottom:24px}
@@ -169,9 +170,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <div class="nav-links">
       <a href="../index.html#expertises" class="nav-a">Expertises</a>
       <a href="../index.html#formation" class="nav-a">Formation</a>
-    </div></div></div></div>
-    </div></a></div></a></div></a></div></a></div></div>
-    </div>
       <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
       <a href="../reflexions.html" class="nav-a">Publications</a>
       <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
@@ -187,7 +185,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     </div>
     <h1 class="fu">Gouvernance des organisations</h1>
     <p class="exp-hero-sub fu">Renforcez la clart&eacute; et l&rsquo;efficacit&eacute; de vos structures d&eacute;cisionnelles &mdash; pour une organisation transparente, responsable et durablement performante.</p>
-    <a href="../index.html#contact" class="exp-hero-cta fu">
+    <a href="../contact/index.html?service=gouvernance" class="exp-hero-cta fu">
       R&eacute;server une consultation
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -200,7 +198,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- NEWSLETTER BANNER -->
 <div class="nl-banner">
   <div class="nl-banner-in">
-    <p>Restez inform&eacute; des meilleures pratiques en gouvernance organisationnelle &mdash; inscrivez-vous &agrave; notre infolettre.</p>
+    <p>Restez inform&eacute; des meilleures pratiques en gouvernance organisationnelle, inscrivez-vous &agrave; notre infolettre.</p>
     <span class="nl-banner-btn">S&rsquo;inscrire &agrave; l&rsquo;infolettre</span>
   </div>
 </div>
@@ -221,7 +219,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <div class="svc-body">
           <h3>Audit de gouvernance</h3>
           <p>Nous &eacute;valuons vos structures et processus actuels pour identifier les zones d&rsquo;am&eacute;lioration et renforcer l&rsquo;efficacit&eacute; de votre cadre organisationnel.</p>
-          <a href="../index.html#contact" class="svc-cta">
+          <a href="../contact/index.html?service=gouvernance" class="svc-cta">
             R&eacute;server une consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -236,7 +234,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <div class="svc-body">
           <h3>D&eacute;veloppement de strat&eacute;gies</h3>
           <p>Cr&eacute;ation de politiques et de pratiques qui renforcent la transparence, la responsabilit&eacute; et l&rsquo;alignement strat&eacute;gique au sein de votre organisation.</p>
-          <a href="../index.html#contact" class="svc-cta">
+          <a href="../contact/index.html?service=gouvernance" class="svc-cta">
             R&eacute;server une consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -251,7 +249,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <div class="svc-body">
           <h3>Formation et impl&eacute;mentation</h3>
           <p>Nous accompagnons vos &eacute;quipes dans l&rsquo;adoption et la mise en &oelig;uvre de nouvelles pratiques de gouvernance, pour un changement durable et ancr&eacute; dans la culture organisationnelle.</p>
-          <a href="../index.html#contact" class="svc-cta">
+          <a href="../contact/index.html?service=gouvernance" class="svc-cta">
             R&eacute;server une consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -321,15 +319,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="cta-s">
   <div class="cta-in">
     <div class="cta-left fu">
-      <div class="cta-kicker">Premi&egrave;re consultation offerte</div>
-      <h2>Profitez d&rsquo;une s&eacute;ance de strat&eacute;gie, sans frais, de 30&nbsp;minutes avec l&rsquo;un de nos experts.</h2>
-      <p>D&eacute;couvrez comment renforcer votre gouvernance en alignant vos structures d&eacute;cisionnelles avec vos objectifs strat&eacute;giques.</p>
+      <h2>Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p>D&eacute;couvrez comment renforcer vos structures de gouvernance pour prendre de meilleures d&eacute;cisions, plus vite.</p>
     </div>
     <div class="cta-card fu">
-      <p class="cta-card-info">
-        Premi&egrave;re consultation <strong>gratuite et sans engagement</strong>.
-      </p>
-      <a href="../index.html#contact" class="btn-cta">
+      <a href="../contact/index.html?service=gouvernance" class="btn-cta">
         R&eacute;servez votre consultation
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>

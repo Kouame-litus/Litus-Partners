@@ -199,13 +199,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   </div>
 </section>
 
-<!-- ARTICLE VEDETTE -->
-<section class="featured" id="featuredSection" style="display:none">
-  <div class="s-in">
-    <div class="featured-card fade" id="featuredCard"></div>
-  </div>
-</section>
-
 <!-- FILTERS -->
 <section class="articles-section">
   <div class="s-in">
@@ -227,7 +220,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 
     <!-- GRILLE D'ARTICLES — alimentée uniquement par les vraies publications (CMS) -->
     <div class="art-grid" id="artGrid"></div>
-    <p id="noArticles" style="display:none;color:var(--gray);font-size:15px;padding:24px 0">Aucune publication pour le moment. Revenez bientôt — nos premiers articles arrivent.</p>
+    <p id="noArticles" style="display:none;color:var(--gray);font-size:15px;padding:24px 0">Aucune publication pour le moment. Revenez bientôt, nos premiers articles arrivent.</p>
   </div>
 </section>
 
@@ -411,12 +404,8 @@ async function loadCMSArticles(){
     if(!articles||!articles.length){ noArt.style.display=''; return; }
     // tri du plus récent au plus ancien
     articles=[...articles].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-    // le 1er article devient la une, le reste alimente la grille
-    buildFeatured(articles[0]);
-    const rest=articles.slice(1);
-    if(!rest.length){ noArt.style.display='none'; return; }
     const frag=document.createDocumentFragment();
-    rest.forEach(a=>frag.appendChild(buildCard(a)));
+    articles.forEach(a=>frag.appendChild(buildCard(a)));
     grid.appendChild(frag);
     grid.querySelectorAll('.cms-card').forEach(el=>obs.observe(el));
     if(currentFilter!=='all'){

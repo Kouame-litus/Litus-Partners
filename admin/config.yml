@@ -28,6 +28,7 @@ collections:
           - { label: "Gouvernance", value: "Gouvernance" }
           - { label: "Intelligence artificielle", value: "Intelligence artificielle" }
           - { label: "Transformation numérique", value: "Transformation numérique" }
+          - { label: "Conseil en gestion", value: "Conseil en gestion" }
       - label: "Date de publication"
         name: "date"
         widget: "datetime"
