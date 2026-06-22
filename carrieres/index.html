@@ -129,7 +129,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         Accueil
       </a>
-      <a class="nav-cta" href="postuler.html">Postuler</a>
+      <a class="nav-cta" href="/carrieres/postuler">Postuler</a>
     </div>
   </div>
 </nav>
@@ -160,7 +160,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
       <div class="cta-card">
         <h3>Candidature spontanée</h3>
         <p>Votre profil ne correspond pas à un poste affiché ? Soumettez votre dossier : nous sommes toujours à la recherche de talent exceptionnel.</p>
-        <a href="postuler.html" class="btn-card">
+        <a href="/carrieres/postuler" class="btn-card">
           Soumettre ma candidature
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -284,7 +284,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 
             <span class="job-tag accent">${p.mode || 'Hybride'}</span>
           </div>
         </div>
-        <a href="postuler.html?poste=${encodeURIComponent(p.titre)}" class="btn-job">
+        <a href="/carrieres/postuler?poste=${encodeURIComponent(p.titre)}" class="btn-job">
           Postuler
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>`;
