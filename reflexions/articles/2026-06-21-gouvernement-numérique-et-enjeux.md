@@ -2,7 +2,7 @@
 title: Gouvernement numérique et enjeux
 category: Transformation numérique
 date: 2026-06-21
-image: https://unsplash.com/fr/photos/chaises-en-bois-marron-sur-parquet-bleu-et-marron-p7av1ZhKGBQ
+image: https://images.unsplash.com/photo-1607778417094-1fef13315e6e?q=80&w=773&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 summary: La transformation numérique redéfinit les modalités selon lesquelles
   l'État conçoit, délivre et évalue ses services publics. Face à des gains
   d'efficience indéniables et à des risques croissants en matière de
