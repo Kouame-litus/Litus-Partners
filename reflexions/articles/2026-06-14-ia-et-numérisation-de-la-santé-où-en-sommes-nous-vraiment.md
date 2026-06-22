@@ -2,6 +2,7 @@
 title: "IA et numérisation de la santé : où en sommes-nous vraiment ?"
 category: Intelligence artificielle
 date: 2026-06-14
+image: https://plus.unsplash.com/premium_photo-1673953510197-0950d951c6d9?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 summary: De la santé connectée aux dossiers médicaux électroniques, la
   transformation numérique du secteur de la santé s’accélère. Mais entre
   potentiel et réalité, quels sont les enjeux pour les organisations publiques ?
