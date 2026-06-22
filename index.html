@@ -653,7 +653,7 @@ function sendForm(){
   var CAT_CLASS={'gouvernance':'cat-gouv','intelligence artificielle':'cat-ia','transformation numérique':'cat-transfo','transformation numerique':'cat-transfo'};
   var DEFAULT_IMGS={'gouvernance':'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&auto=format&fit=crop&q=80','intelligence artificielle':'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&auto=format&fit=crop&q=80','transformation numérique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80','transformation numerique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80'};
   function fmtDate(d){if(!d)return '';return new Date(d).toLocaleDateString('fr-CA',{year:'numeric',month:'long'});}
-  function artUrl(a){return 'reflexions/article.html?slug='+encodeURIComponent(a.slug);}
+  function artUrl(a){return 'reflexions/'+(a.cleanSlug||encodeURIComponent(a.slug));}
   try{
     var res=await fetch('/reflexions/articles.json?_='+Date.now());
     if(!res.ok) throw new Error('fetch failed');

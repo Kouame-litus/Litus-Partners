@@ -1,10 +1,11 @@
 // Script de génération automatique de l'index des articles Réflexions
-// Exécuté par Netlify à chaque déploiement
+// Exécuté par Vercel à chaque déploiement
 const fs   = require('fs');
 const path = require('path');
 
 const ARTICLES_DIR = path.join(__dirname, 'reflexions', 'articles');
 const OUTPUT_FILE  = path.join(__dirname, 'reflexions', 'articles.json');
+const TEMPLATE     = path.join(__dirname, 'reflexions', 'article.html');
 
 // Créer le dossier si inexistant
 if (!fs.existsSync(ARTICLES_DIR)) {
@@ -23,8 +24,12 @@ for (const file of files) {
   const meta = parseFrontmatter(raw);
   if (!meta.title) continue;
 
+  const slug      = file.replace(/\.md$/, '');
+  const cleanSlug = toCleanSlug(slug);
+
   articles.push({
-    slug:     file.replace(/\.md$/, ''),
+    slug,
+    cleanSlug,
     title:    meta.title    || '',
     category: meta.category || '',
     date:     meta.date     || '',
@@ -41,6 +46,29 @@ articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 fs.writeFileSync(OUTPUT_FILE, JSON.stringify(articles, null, 2), 'utf8');
 console.log(`✅ ${articles.length} article(s) indexé(s) → reflexions/articles.json`);
+
+// Générer un fichier HTML par article avec URL propre
+const template = fs.existsSync(TEMPLATE) ? fs.readFileSync(TEMPLATE, 'utf8') : null;
+if (template) {
+  for (const art of articles) {
+    const dir = path.join(__dirname, 'reflexions', art.cleanSlug);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const html = template.replace(
+      '<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>',
+      `<script>window.ARTICLE_SLUG='${art.slug}';</script>\n<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>`
+    );
+    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+  }
+  console.log(`✅ ${articles.length} page(s) article générée(s)`);
+}
+
+// ─── Slug propre sans date ni accents ────────────────────────────────────────
+function toCleanSlug(filename) {
+  let s = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  s = s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+  s = s.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return s;
+}
 
 // ─── Parseur de frontmatter YAML minimal ─────────────────────────────────────
 function parseFrontmatter(raw) {

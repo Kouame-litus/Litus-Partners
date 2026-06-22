@@ -345,8 +345,8 @@ function fmtDate(d){
   return dt.toLocaleDateString('fr-CA',{year:'numeric',month:'2-digit',day:'2-digit'}).replace(/-/g,'.');
 }
 
-function openArticle(slug){
-  window.location.href='reflexions/article.html?slug='+encodeURIComponent(slug);
+function openArticle(slug,cleanSlug){
+  window.location.href='/reflexions/'+(cleanSlug||encodeURIComponent(slug));
 }
 
 function buildCard(a){
@@ -355,7 +355,7 @@ function buildCard(a){
   div.className='art-card fade cms-card';
   div.dataset.cat=cat.key;
   div.dataset.date=a.date||'';
-  div.onclick=()=>openArticle(a.slug);
+  div.onclick=()=>openArticle(a.slug,a.cleanSlug);
   div.innerHTML=`
     <div class="art-card-img">
       <img src="${a.image||DEFAULT_IMG}" alt="${a.title}" loading="lazy">

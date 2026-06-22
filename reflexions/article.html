@@ -234,8 +234,7 @@ function showError(msg){
 }
 
 async function loadArticle(){
-  var params=new URLSearchParams(window.location.search);
-  var slug=params.get('slug');
+  var slug=window.ARTICLE_SLUG||(new URLSearchParams(window.location.search).get('slug'));
   if(!slug){showError('Aucun article specifie.');return;}
   try{
     var res=await fetch('/reflexions/articles.json?_='+Date.now());
