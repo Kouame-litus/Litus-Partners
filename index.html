@@ -272,6 +272,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   .s-in{padding:0 20px}
   .diag-wrap{padding:40px 24px}
   .about-text{padding:48px 24px}
+  .exp-card-diag{grid-column:span 1!important;display:flex!important;flex-direction:column!important}
+  .exp-card-diag .exp-diag-arrow{display:none}
+  .exp-card-diag .exp-diag-inner{display:flex!important;flex-direction:column!important}
 }
 @media(max-width:480px){
   .foot-top{grid-template-columns:1fr}
@@ -406,8 +409,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <p>Feuilles de route IA et accompagnement stratégique de bout en bout.</p>
         <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card fade" onclick="window.location.href='diagnostic/index.html'" style="cursor:pointer;grid-column:span 3;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:40px">
-        <div style="grid-column:1">
+      <div class="exp-card exp-card-diag fade" onclick="window.location.href='diagnostic/index.html'" style="cursor:pointer;grid-column:span 3;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:40px">
+        <div class="exp-diag-inner" style="grid-column:1">
           <div class="exp-bg-num" style="position:static;font-size:48px;opacity:.06;margin-bottom:8px">07</div>
           <div class="exp-tag">Service exclusif</div>
           <h3>Évaluation de la maturité IA</h3>
@@ -415,7 +418,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <div style="grid-column:2">
           <p style="font-size:15px;color:var(--gray);line-height:1.75">Litus Partners vous accompagne dans une démarche structurée d'évaluation sur 6 dimensions clés : Stratégie, Technologie, Données, Employés, Processus, Gouvernance, pour mesurer votre niveau de préparation à l'IA et identifier des axes d'amélioration concrets.</p>
         </div>
-        <div style="grid-column:3;display:flex;justify-content:flex-end;align-items:center">
+        <div class="exp-diag-arrow" style="grid-column:3;display:flex;justify-content:flex-end;align-items:center">
           <span class="exp-arrow" style="font-size:14px">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
         </div>
       </div>

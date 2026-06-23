@@ -168,6 +168,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-btm-links{display:flex;gap:20px}
 .foot-btm a:hover{color:rgba(255,255,255,.6)}
 @media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .s-in{padding:0 20px}
+  section,.section{padding:64px 0}
+  .foot-top{grid-template-columns:1fr}
+  .foot-brand{grid-column:unset}
+  .steps-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -212,8 +227,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <a href="../reflexions.html" class="nav-a">Publications</a>
       <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
     </div>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)">Nous contacter &rarr;</a>
+</div>
 
 <!-- HERO plein écran -->
 <section class="hero">

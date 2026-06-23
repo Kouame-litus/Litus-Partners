@@ -109,7 +109,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 
 /* ARTICLES SECTION */
 .art-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;gap:24px}
-.art-header-left h2{font-size:clamp(22px,2.2vw,32px);font-weight:800;color:var(--navy);letter-spacing:-.5px;white-space:nowrap;line-height:1.2}
+.art-header-left h2{font-size:clamp(22px,2.2vw,32px);font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.2}
 .art-link-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:none;cursor:pointer;font-family:'Nunito Sans',sans-serif;margin-top:20px}
 .art-link-btn span{font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px;transition:all .2s}
 .art-link-btn:hover span{color:var(--accent);border-color:var(--accent)}
@@ -175,7 +175,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   .cta-in{grid-template-columns:1fr}
   .cta-card{min-width:auto}
   .foot-top{grid-template-columns:1fr 1fr}
+}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+@media(max-width:768px){
   .nav-links{display:none}
+  .hamburger{display:flex}
+  .s-in{padding:0 20px}
+  section,.section{padding:64px 0}
+  .exp-hero-left{padding:80px 20px 48px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-brand{grid-column:unset}
 }
 </style>
 </head>
@@ -212,11 +226,22 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <a href="../index.html#expertises" class="nav-a">Expertises</a>
       <a href="../index.html#formation" class="nav-a">Formation</a>
       <a class="nav-a" href="../index.html#apropos">À propos</a>
-      <a class="nav-a" href="../index.html#reflexions">Publications</a>
+      <a class="nav-a" href="../reflexions.html">Publications</a>
       <a class="nav-a nav-btn" href="../index.html#contact">Nous contacter</a>
     </div>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)">Nous contacter &rarr;</a>
+</div>
 
 <!-- HERO -->
 <section class="exp-hero">
