@@ -30,14 +30,16 @@ for (const file of files) {
   articles.push({
     slug,
     cleanSlug,
-    title:    meta.title    || '',
-    category: meta.category || '',
-    date:     meta.date     || '',
-    image:    meta.image    || '',
-    summary:  meta.summary  || '',
-    readtime: meta.readtime || 5,
-    author:   meta.author   || 'Litus Partners',
-    body:     meta._body    || ''
+    title:      meta.title      || '',
+    title_en:   meta.title_en   || '',
+    category:   meta.category   || '',
+    date:       meta.date       || '',
+    image:      meta.image      || '',
+    summary:    meta.summary    || '',
+    summary_en: meta.summary_en || '',
+    readtime:   meta.readtime   || 5,
+    author:     meta.author     || 'Litus Partners',
+    body:       meta._body      || ''
   });
 }
 
