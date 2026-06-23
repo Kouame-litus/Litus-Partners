@@ -44,6 +44,12 @@ nav.solid .nav-a:hover{color:var(--navy);background:var(--light)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
 nav.solid .hamburger span{background:var(--navy)}
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 
 /* ─── MOBILE MENU ─── */
 .mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -314,12 +320,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <span class="nav-a" onclick="go('expertises')">Expertises</span>
-      <span class="nav-a" onclick="go('formation')">Formation</span>
-      <span class="nav-a" onclick="go('apropos')">&Agrave; propos</span>
+      <span class="nav-a" data-en="Expertise" onclick="go('expertises')">Expertises</span>
+      <span class="nav-a" data-en="Training" onclick="go('formation')">Formation</span>
+      <span class="nav-a" data-en="About" onclick="go('apropos')">&Agrave; propos</span>
       <span class="nav-a" onclick="go('reflexions')">Publications</span>
-      <span class="nav-a" onclick="go('carrieres')">Carri&egrave;res</span>
-      <span class="nav-a nav-btn" onclick="go('contact')">Nous contacter</span>
+      <span class="nav-a" data-en="Careers" onclick="go('carrieres')">Carri&egrave;res</span>
+      <span class="nav-a nav-btn" data-en="Contact Us" onclick="go('contact')">Nous contacter</span>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
     <button class="hamburger" id="ham" onclick="toggleMob()">
       <span></span><span></span><span></span>
@@ -330,11 +341,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- MOBILE MENU -->
 <div class="mob" id="mob">
   <button class="mob-close" onclick="toggleMob()">✕</button>
-  <a onclick="go('expertises');toggleMob()">Expertises</a>
-  <a onclick="go('formation');toggleMob()">Formation</a>
-  <a onclick="go('apropos');toggleMob()">À propos</a>
+  <a data-en="Expertise" onclick="go('expertises');toggleMob()">Expertises</a>
+  <a data-en="Training" onclick="go('formation');toggleMob()">Formation</a>
+  <a data-en="About" onclick="go('apropos');toggleMob()">À propos</a>
   <a onclick="go('reflexions');toggleMob()">Publications</a>
-  <a onclick="go('contact');toggleMob()" style="color:var(--accent)">Nous contacter →</a>
+  <a data-en="Careers" onclick="go('carrieres');toggleMob()">Carrières</a>
+  <a data-en="Contact Us →" onclick="go('contact');toggleMob()" style="color:var(--accent)">Nous contacter →</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -346,10 +363,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-in">
-<h1>Conseil en strat&eacute;gie, gouvernance et transformation &agrave; l&rsquo;&egrave;re num&eacute;rique</h1>
-    <p class="hero-sub">Nous aidons les organisations &agrave; prendre des d&eacute;cisions plus &eacute;clair&eacute;es, &agrave; agir plus vite et &agrave; cr&eacute;er une valeur durable, &agrave; chaque &eacute;tape de leur transformation.</p>
+<h1 data-en="Strategy, Governance and Digital Transformation Consulting">Conseil en strat&eacute;gie, gouvernance et transformation &agrave; l&rsquo;&egrave;re num&eacute;rique</h1>
+    <p class="hero-sub" data-en="We help organizations make better decisions, act faster and create lasting value at every step of their transformation.">Nous aidons les organisations &agrave; prendre des d&eacute;cisions plus &eacute;clair&eacute;es, &agrave; agir plus vite et &agrave; cr&eacute;er une valeur durable, &agrave; chaque &eacute;tape de leur transformation.</p>
     <a href="#expertises" class="hero-cta">
-      D&eacute;couvrir nos expertises
+      <span data-en="Explore Our Expertise">D&eacute;couvrir nos expertises</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -361,65 +378,65 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="exp-intro">
       <div>
-        <div class="kicker">Nos expertises</div>
-        <h2 class="s-title">Sept domaines.<br>Une approche.</h2>
+        <div class="kicker" data-en="Our Expertise">Nos expertises</div>
+        <h2 class="s-title" data-en="Seven Domains.&lt;br&gt;One Approach.">Sept domaines.<br>Une approche.</h2>
       </div>
-      <p class="exp-intro-right">De la stratégie à la mise en œuvre, nous mobilisons les bonnes expertises pour chaque défi de transformation.</p>
+      <p class="exp-intro-right" data-en="From strategy to execution, we bring the right expertise to every transformation challenge.">De la stratégie à la mise en œuvre, nous mobilisons les bonnes expertises pour chaque défi de transformation.</p>
     </div>
     <div class="exp-grid">
       <div class="exp-card fade" onclick="window.location.href='expertises/conseil.html'">
         <div class="exp-bg-num">01</div>
-        <div class="exp-tag">Conseil</div>
-        <h3>Conseil en gestion et accompagnement stratégique</h3>
-        <p>Accompagnement stratégique, diagnostic organisationnel et feuilles de route sur mesure.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Consulting">Conseil</div>
+        <h3 data-en="Management Consulting and Strategic Advisory">Conseil en gestion et accompagnement stratégique</h3>
+        <p data-en="Strategic advisory, organizational diagnostics and customized roadmaps.">Accompagnement stratégique, diagnostic organisationnel et feuilles de route sur mesure.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card fade" onclick="window.location.href='expertises/soutien.html'" style="cursor:pointer">
         <div class="exp-bg-num">02</div>
-        <div class="exp-tag">Opérations</div>
-        <h3>Soutien aux opérations et amélioration continue</h3>
-        <p>Soutien durable pour optimiser vos performances, former vos équipes et cartographier vos processus.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Operations">Opérations</div>
+        <h3 data-en="Operations Support and Continuous Improvement">Soutien aux opérations et amélioration continue</h3>
+        <p data-en="Sustained support to optimize performance, develop your teams and map your processes.">Soutien durable pour optimiser vos performances, former vos équipes et cartographier vos processus.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card fade" onclick="window.location.href='technologies/index.html'" style="cursor:pointer">
         <div class="exp-bg-num">03</div>
-        <div class="exp-tag">Technologie</div>
-        <h3>Technologies</h3>
-        <p>Sélection, déploiement et automatisation des solutions adaptées à vos objectifs d'affaires.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Technology">Technologie</div>
+        <h3 data-en="Technologies">Technologies</h3>
+        <p data-en="Selection, deployment and automation of solutions adapted to your business objectives.">Sélection, déploiement et automatisation des solutions adaptées à vos objectifs d'affaires.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card fade" onclick="window.location.href='expertises/innovation.html'" style="cursor:pointer">
         <div class="exp-bg-num">04</div>
-        <div class="exp-tag">Innovation</div>
-        <h3>Innovation en entreprise</h3>
-        <p>Strat&eacute;gie, culture et gestion de projets d&rsquo;innovation pour acc&eacute;l&eacute;rer votre croissance.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Innovation">Innovation</div>
+        <h3 data-en="Corporate Innovation">Innovation en entreprise</h3>
+        <p data-en="Strategy, culture and innovation project management to accelerate your growth.">Strat&eacute;gie, culture et gestion de projets d&rsquo;innovation pour acc&eacute;l&eacute;rer votre croissance.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card fade" onclick="window.location.href='expertises/gouvernance.html'" style="cursor:pointer">
         <div class="exp-bg-num">05</div>
-        <div class="exp-tag">Gouvernance</div>
-        <h3>Gouvernance</h3>
-        <p>Cadres de gouvernance et politiques d'usage responsable de l'IA au sein des organisations.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Governance">Gouvernance</div>
+        <h3 data-en="Governance">Gouvernance</h3>
+        <p data-en="Governance frameworks and responsible AI usage policies within organizations.">Cadres de gouvernance et politiques d'usage responsable de l'IA au sein des organisations.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card fade" onclick="window.location.href='expertises/ia.html'" style="cursor:pointer">
         <div class="exp-bg-num">06</div>
-        <div class="exp-tag">Intelligence artificielle</div>
-        <h3>Intelligence artificielle</h3>
-        <p>Feuilles de route IA et accompagnement stratégique de bout en bout.</p>
-        <span class="exp-arrow">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <div class="exp-tag" data-en="Artificial Intelligence">Intelligence artificielle</div>
+        <h3 data-en="Artificial Intelligence">Intelligence artificielle</h3>
+        <p data-en="AI roadmaps and end-to-end strategic advisory.">Feuilles de route IA et accompagnement stratégique de bout en bout.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
       <div class="exp-card exp-card-diag fade" onclick="window.location.href='diagnostic/index.html'" style="cursor:pointer;grid-column:span 3;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:40px">
         <div class="exp-diag-inner" style="grid-column:1">
           <div class="exp-bg-num" style="position:static;font-size:48px;opacity:.06;margin-bottom:8px">07</div>
-          <div class="exp-tag">Service exclusif</div>
-          <h3>Évaluation de la maturité IA</h3>
+          <div class="exp-tag" data-en="Exclusive Service">Service exclusif</div>
+          <h3 data-en="AI Maturity Assessment">Évaluation de la maturité IA</h3>
         </div>
         <div style="grid-column:2">
-          <p style="font-size:15px;color:var(--gray);line-height:1.75">Litus Partners vous accompagne dans une démarche structurée d'évaluation sur 6 dimensions clés : Stratégie, Technologie, Données, Employés, Processus, Gouvernance, pour mesurer votre niveau de préparation à l'IA et identifier des axes d'amélioration concrets.</p>
+          <p style="font-size:15px;color:var(--gray);line-height:1.75" data-en="Litus Partners guides you through a structured assessment across 6 key dimensions: Strategy, Technology, Data, People, Processes, Governance — to measure your AI readiness and identify concrete improvement areas.">Litus Partners vous accompagne dans une démarche structurée d'évaluation sur 6 dimensions clés : Stratégie, Technologie, Données, Employés, Processus, Gouvernance, pour mesurer votre niveau de préparation à l'IA et identifier des axes d'amélioration concrets.</p>
         </div>
         <div class="exp-diag-arrow" style="grid-column:3;display:flex;justify-content:flex-end;align-items:center">
-          <span class="exp-arrow" style="font-size:14px">Explorer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          <span class="exp-arrow" style="font-size:14px"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
         </div>
       </div>
     </div>
@@ -433,12 +450,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   </div>
   <div class="form-overlay"></div>
   <div class="form-content">
-    <div class="form-kicker fade">Nos programmes</div>
-    <div class="form-title fade">Centre d&rsquo;excellence en formation</div>
-    <div class="form-subtitle fade">Au c&oelig;ur de votre<br>d&eacute;veloppement</div>
+    <div class="form-kicker fade" data-en="Our Programs">Nos programmes</div>
+    <div class="form-title fade" data-en="Centre of Excellence in Training">Centre d&rsquo;excellence en formation</div>
+    <div class="form-subtitle fade" data-en="At the Heart of&lt;br&gt;Your Development">Au c&oelig;ur de votre<br>d&eacute;veloppement</div>
     <div class="form-cards">
-      <a href="formation/offre.html" class="form-card form-card-1 fade">Consultez notre offre<br>de formation</a>
-      <a href="formation/equipe.html" class="form-card form-card-2 fade">Contactez notre<br>&eacute;quipe de formateurs</a>
+      <a href="formation/offre.html" class="form-card form-card-1 fade" data-en="View our&lt;br&gt;training programs">Consultez notre offre<br>de formation</a>
+      <a href="formation/equipe.html" class="form-card form-card-2 fade" data-en="Contact our&lt;br&gt;training team">Contactez notre<br>&eacute;quipe de formateurs</a>
     </div>
   </div>
 </section>
@@ -451,39 +468,39 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&auto=format&fit=crop&q=70" alt="Litus Partner">
     </div>
     <div class="about-text">
-      <div class="kicker">À propos</div>
-      <h2 class="s-title">Bâti sur l'expertise.<br>Axé sur l'impact.</h2>
-      <p class="s-sub">Litus Partner mobilise une expertise de premier plan pour accompagner la transformation numérique des organisations, quel que soit leur secteur ou leur localisation.</p>
+      <div class="kicker" data-en="About">À propos</div>
+      <h2 class="s-title" data-en="Built on Expertise.&lt;br&gt;Focused on Impact.">Bâti sur l'expertise.<br>Axé sur l'impact.</h2>
+      <p class="s-sub" data-en="Litus Partners brings world-class expertise to support the digital transformation of organizations, regardless of their sector or location.">Litus Partner mobilise une expertise de premier plan pour accompagner la transformation numérique des organisations, quel que soit leur secteur ou leur localisation.</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:32px 0;border-top:2px solid var(--border);border-bottom:2px solid var(--border);padding:28px 0">
         <div style="text-align:center;border-right:1px solid var(--border);padding:0 16px">
           <div style="font-size:40px;font-weight:800;color:var(--accent);line-height:1">20<span style="font-size:.6em">+</span></div>
-          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:600;letter-spacing:.05em;text-transform:uppercase">Ans de savoir-faire</div>
+          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:600;letter-spacing:.05em;text-transform:uppercase" data-en="Years of expertise">Ans de savoir-faire</div>
         </div>
         <div style="text-align:center;padding:0 16px">
           <div style="font-size:40px;font-weight:800;color:var(--accent);line-height:1">10<span style="font-size:.6em">+</span></div>
-          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:600;letter-spacing:.05em;text-transform:uppercase">Ans d'expertise en architecture d'entreprise</div>
+          <div style="font-size:12px;color:var(--gray);margin-top:6px;font-weight:600;letter-spacing:.05em;text-transform:uppercase" data-en="Years of enterprise architecture expertise">Ans d'expertise en architecture d'entreprise</div>
         </div>
       </div>
       <div class="vals">
         <div class="val">
-          <h4>Rigueur</h4>
-          <p>Conseils fondés sur les données probantes et les meilleures pratiques internationales.</p>
+          <h4 data-en="Excellence">Rigueur</h4>
+          <p data-en="Advice grounded in evidence and international best practices.">Conseils fondés sur les données probantes et les meilleures pratiques internationales.</p>
         </div>
         <div class="val">
-          <h4>Impact</h4>
-          <p>Résultats concrets, mesurables et durables à chaque engagement.</p>
+          <h4 data-en="Impact">Impact</h4>
+          <p data-en="Concrete, measurable and lasting results at every engagement.">Résultats concrets, mesurables et durables à chaque engagement.</p>
         </div>
         <div class="val">
-          <h4>Intégrité</h4>
-          <p>Transparence totale dans les engagements et la tarification.</p>
+          <h4 data-en="Integrity">Intégrité</h4>
+          <p data-en="Full transparency in our commitments and pricing.">Transparence totale dans les engagements et la tarification.</p>
         </div>
         <div class="val">
-          <h4>Inclusion</h4>
-          <p>Adoption du numérique accessible à toutes les organisations.</p>
+          <h4 data-en="Inclusion">Inclusion</h4>
+          <p data-en="Digital adoption made accessible to all organizations.">Adoption du numérique accessible à toutes les organisations.</p>
         </div>
       </div>
       <a href="apropos/index.html" class="btn-about-more">
-        En savoir plus
+        <span data-en="Learn more">En savoir plus</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -495,14 +512,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="ref-header">
       <div class="ref-header-left">
-        <div class="kicker">Publications</div>
-        <h2 class="s-title" style="margin-top:8px">Nos points de vue</h2>
+        <div class="kicker" data-en="Publications">Publications</div>
+        <h2 class="s-title" style="margin-top:8px" data-en="Our Perspectives">Nos points de vue</h2>
       </div>
-      <a href="reflexions.html" class="ref-see-all">Tous les articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="reflexions.html" class="ref-see-all"><span data-en="All Articles">Tous les articles</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
 
     <div class="ref-editorial" id="homeRefGrid">
-      <p style="color:var(--gray);font-size:15px;padding:32px 0">Chargement des publications…</p>
+      <p style="color:var(--gray);font-size:15px;padding:32px 0" data-en="Loading publications…">Chargement des publications…</p>
     </div>
   </div>
 </section>
@@ -513,11 +530,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <img class="car-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="">
   <div class="car-overlay"></div>
   <div class="s-in car-inner">
-    <p class="car-kicker">Carrières</p>
-    <h2 class="car-title">Construisez votre avenir avec nous</h2>
-    <p class="car-sub">Rejoignez une équipe qui valorise votre expertise, votre ambition et votre impact. Litus Partners recrute des professionnels engagés au Québec et en Afrique.</p>
+    <p class="car-kicker" data-en="Careers">Carrières</p>
+    <h2 class="car-title" data-en="Build Your Future With Us">Construisez votre avenir avec nous</h2>
+    <p class="car-sub" data-en="Join a team that values your expertise, your ambition and your impact. Litus Partners recruits committed professionals in Quebec and Africa.">Rejoignez une équipe qui valorise votre expertise, votre ambition et votre impact. Litus Partners recrute des professionnels engagés au Québec et en Afrique.</p>
     <a href="carrieres/index.html" class="btn-car-cta">
-      Découvrez nos opportunités
+      <span data-en="Discover our opportunities">Découvrez nos opportunités</span>
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -526,38 +543,38 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- CONTACT -->
 <section id="contact">
   <div class="s-in">
-    <div class="kicker">Contact</div>
-    <h2 class="s-title" style="margin-bottom:48px;font-size:clamp(26px,2.4vw,34px);font-weight:800;letter-spacing:-.5px">Parlons de vos enjeux</h2>
+    <div class="kicker" data-en="Contact">Contact</div>
+    <h2 class="s-title" style="margin-bottom:48px;font-size:clamp(26px,2.4vw,34px);font-weight:800;letter-spacing:-.5px" data-en="Let&#39;s Discuss Your Challenges">Parlons de vos enjeux</h2>
     <div class="contact-layout">
       <div class="contact-form-only">
         <div id="cform">
-          <div class="fg"><label class="fl">Nom complet *</label><input class="fi" id="f1" type="text" placeholder="Votre nom complet"></div>
-          <div class="fg"><label class="fl">Organisation *</label><input class="fi" id="f3" type="text" placeholder="Nom de votre organisation"></div>
+          <div class="fg"><label class="fl" data-en="Full Name *">Nom complet *</label><input class="fi" id="f1" type="text" placeholder="Votre nom complet" data-placeholder-en="Your full name"></div>
+          <div class="fg"><label class="fl" data-en="Organization *">Organisation *</label><input class="fi" id="f3" type="text" placeholder="Nom de votre organisation" data-placeholder-en="Your organization name"></div>
           <div class="form-row">
-            <div class="fg"><label class="fl">Courriel *</label><input class="fi" id="f4" type="email" placeholder="vous@exemple.com"></div>
-            <div class="fg"><label class="fl">Service d'intérêt</label>
+            <div class="fg"><label class="fl" data-en="Email *">Courriel *</label><input class="fi" id="f4" type="email" placeholder="vous@exemple.com" data-placeholder-en="you@example.com"></div>
+            <div class="fg"><label class="fl" data-en="Service of Interest">Service d'intérêt</label>
               <select class="fs" id="f5">
-                <option value="">Sélectionner...</option>
-                <option>Consultation et Conseil</option>
-                <option>Stratégie Litus Partner</option>
-                <option>Technologies et Numérique</option>
-                <option>Gestion des risques</option>
-                <option>Gouvernance et Administration</option>
-                <option>Intelligence artificielle</option>
-                <option>Diagnostic de maturité IA</option>
-                <option>Autre</option>
+                <option value="" data-en="Select...">Sélectionner...</option>
+                <option data-en="Consulting and Advisory">Consultation et Conseil</option>
+                <option data-en="Litus Partners Strategy">Stratégie Litus Partner</option>
+                <option data-en="Technology and Digital">Technologies et Numérique</option>
+                <option data-en="Risk Management">Gestion des risques</option>
+                <option data-en="Governance and Administration">Gouvernance et Administration</option>
+                <option data-en="Artificial Intelligence">Intelligence artificielle</option>
+                <option data-en="AI Maturity Diagnostic">Diagnostic de maturité IA</option>
+                <option data-en="Other">Autre</option>
               </select>
             </div>
           </div>
-          <div class="fg"><label class="fl">Message *</label><textarea class="ft" id="f6" placeholder="Décrivez votre projet..."></textarea></div>
+          <div class="fg"><label class="fl" data-en="Message *">Message *</label><textarea class="ft" id="f6" placeholder="Décrivez votre projet..." data-placeholder-en="Describe your project..."></textarea></div>
           <button class="btn-send" onclick="sendForm()">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Envoyer le message
+            <span data-en="Send Message">Envoyer le message</span>
           </button>
         </div>
         <div class="form-ok" id="fok">
-          <h4>✓ Message envoyé</h4>
-          <p>Notre équipe vous contactera sous 48 heures ouvrables.</p>
+          <h4 data-en="✓ Message Sent">✓ Message envoyé</h4>
+          <p data-en="Our team will get back to you soon.">Notre équipe vous contactera sous 48 heures ouvrables.</p>
         </div>
       </div>
     </div>
@@ -573,9 +590,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting &middot; Strategy &middot; Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -584,31 +601,31 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="expertises/conseil.html">Conseil en gestion</a>
-        <a href="expertises/gouvernance.html">Gouvernance</a>
-        <a href="expertises/ia.html">Intelligence artificielle</a>
-        <a href="expertises/innovation.html">Innovation</a>
-        <a href="technologies/index.html">Technologies</a>
+        <h5 data-en="Expertise">Expertises</h5>
+        <a href="expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="expertises/innovation.html" data-en="Innovation">Innovation</a>
+        <a href="technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="formation/offre.html">Formation</a>
-        <a href="index.html#apropos">&Agrave; propos</a>
-        <a href="reflexions.html">Publications</a>
-        <a href="index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="formation/offre.html" data-en="Training">Formation</a>
+        <a href="index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="reflexions.html" data-en="Publications">Publications</a>
+        <a href="index.html#carrieres" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="&copy; 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
+        <a data-en="Privacy">Confidentialit&eacute;</a>
+        <a data-en="Terms">Conditions</a>
       </div>
     </div>
   </div>
@@ -638,7 +655,7 @@ function sendForm(){
   const org=document.getElementById('f3').value.trim();
   const em=document.getElementById('f4').value.trim();
   const mg=document.getElementById('f6').value.trim();
-  if(!nom||!org||!em||!mg){alert('Veuillez remplir les champs obligatoires (*).');return;}
+  if(!nom||!org||!em||!mg){alert(getLang()==='en'?'Please fill in all required fields (*).':'Veuillez remplir les champs obligatoires (*).');return;}
   const svc=document.getElementById('f5').value;
   const sub=encodeURIComponent('Contact LP — '+org+(svc?' — '+svc:''));
   const body=encodeURIComponent('Nom : '+nom+'\nOrganisation : '+org+'\nCourriel : '+em+'\nService : '+svc+'\n\n'+mg);
@@ -655,18 +672,17 @@ function sendForm(){
   if(!grid) return;
   var CAT_CLASS={'gouvernance':'cat-gouv','intelligence artificielle':'cat-ia','transformation numérique':'cat-transfo','transformation numerique':'cat-transfo'};
   var DEFAULT_IMGS={'gouvernance':'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&auto=format&fit=crop&q=80','intelligence artificielle':'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&auto=format&fit=crop&q=80','transformation numérique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80','transformation numerique':'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&auto=format&fit=crop&q=80'};
-  function fmtDate(d){if(!d)return '';return new Date(d).toLocaleDateString('fr-CA',{year:'numeric',month:'long'});}
+  function fmtDate(d){if(!d)return '';var loc=getLang&&getLang()==='en'?'en-CA':'fr-CA';return new Date(d).toLocaleDateString(loc,{year:'numeric',month:'long'});}
   function artUrl(a){return 'reflexions/'+(a.cleanSlug||encodeURIComponent(a.slug));}
+  var fallbackMsg=function(){var en=getLang&&getLang()==='en';return '<p style="color:var(--gray);font-size:15px;padding:32px 0">'+(en?'Our first publications are coming soon. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">View Publications →</a>':'Nos premières publications arrivent bientôt. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">Voir la page Publications →</a>')+'</p>';};
   try{
     var res=await fetch('/reflexions/articles.json?_='+Date.now());
     if(!res.ok) throw new Error('fetch failed');
     var arts=await res.json();
-    if(!arts||!arts.length){
-      grid.innerHTML='<p style="color:var(--gray);font-size:15px;padding:32px 0">Nos premières publications arrivent bientôt. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">Voir la page Publications →</a></p>';
-      return;
-    }
+    if(!arts||!arts.length){grid.innerHTML=fallbackMsg();return;}
     arts=arts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,3);
     var html='';
+    var isEn=getLang&&getLang()==='en';
     arts.forEach(function(a){
       var catKey=(a.category||'').toLowerCase();
       var img=a.image||(DEFAULT_IMGS[catKey]||'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&auto=format&fit=crop&q=80');
@@ -677,16 +693,17 @@ function sendForm(){
         +'<h3>'+a.title+'</h3>'
         +'<p>'+(a.summary||'')+'</p>'
         +'<div class="ref-card-v-footer"><span class="ref-card-v-date">'+fmtDate(a.date)+' · '+(a.readtime||5)+' min</span>'
-        +'<span class="ref-lire">Lire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>'
+        +'<span class="ref-lire">'+(isEn?'Read':'Lire')+' <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>'
         +'</div></div>';
     });
     grid.innerHTML=html;
     grid.querySelectorAll('.fade').forEach(function(el){el.classList.add('in');});
   }catch(e){
-    grid.innerHTML='<p style="color:var(--gray);font-size:15px;padding:32px 0">Nos premières publications arrivent bientôt. <a href="reflexions.html" style="color:var(--navy);font-weight:700;text-decoration:underline">Voir la page Publications →</a></p>';
+    grid.innerHTML=fallbackMsg();
   }
 })();
 </script>
+<script src="lang.js"></script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
 if(window.netlifyIdentity){

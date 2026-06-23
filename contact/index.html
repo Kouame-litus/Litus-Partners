@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Réserver une consultation — Litus Partners</title>
+<title>R&eacute;server une consultation &mdash; Litus Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
 <style>
@@ -13,7 +13,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .nav-in{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;display:flex;align-items:center;justify-content:space-between}
@@ -26,37 +25,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nav-a:hover{color:#fff;background:rgba(255,255,255,.1)}
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:700;font-size:13.5px;margin-left:8px}
 .nav-btn:hover{background:#a84d18!important}
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
-
 /* MOBILE MENU */
 .mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .3s}
 .mob.open{opacity:1;pointer-events:all}
 .mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
 .mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
-
 /* PAGE LAYOUT */
 .page{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:72px}
-
-/* PANNEAU GAUCHE */
+/* LEFT PANEL */
 .panel-left{background:linear-gradient(160deg,#0F2340 0%,#1B3D6F 60%,#C05C1E 150%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:sticky;top:72px;height:calc(100vh - 72px);overflow:hidden}
-.panel-kicker{font-size:10px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:flex;align-items:center;gap:12px;position:relative}
-.panel-kicker::before{content:"";display:block;width:28px;height:2px;background:var(--accent)}
 .panel-title{font-size:clamp(28px,2.8vw,44px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:24px;position:relative}
 .panel-title em{font-style:normal;color:rgba(255,255,255,.35)}
-.panel-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;max-width:380px;margin-bottom:48px;position:relative}
-.panel-steps{display:flex;flex-direction:column;gap:20px;position:relative}
-.panel-step{display:flex;align-items:flex-start;gap:16px}
-.step-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:800;color:rgba(255,255,255,.7);letter-spacing:.05em}
-.step-info{flex:1}
-.step-title{font-size:14px;font-weight:700;color:#fff;line-height:1.2}
-.step-desc{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px;line-height:1.5}
-
-/* PANNEAU DROIT */
+/* RIGHT PANEL */
 .panel-right{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
 .form-title{font-size:clamp(22px,2vw,30px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:8px}
 .form-subtitle{font-size:14px;color:var(--gray);margin-bottom:40px;line-height:1.6}
-
 .form-group{margin-bottom:24px}
 .form-label{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
 .form-label span{color:var(--accent)}
@@ -70,7 +61,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .form-submit{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:14px 48px;font-family:'Nunito Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:background .2s,transform .2s;margin-top:8px;display:inline-flex;align-items:center;gap:10px}
 .form-submit:hover{background:var(--blue);transform:translateY(-1px)}
 .form-note{font-size:12px;color:var(--gray);text-align:center;margin-top:16px;line-height:1.6}
-
 /* SUCCESS */
 .success-screen{display:none;text-align:center;padding:48px 0}
 .success-icon{width:72px;height:72px;background:rgba(192,92,30,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
@@ -79,12 +69,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .success-desc{font-size:15px;color:var(--gray);line-height:1.7;max-width:380px;margin:0 auto 32px}
 .success-back{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:3px;padding:14px 28px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:background .2s}
 .success-back:hover{background:var(--blue)}
-
-/* ANIMATIONS */
 .fu{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 .fu.v{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-
 @media(max-width:900px){
   .page{grid-template-columns:1fr}
   .panel-left{position:static;height:auto;padding:56px 32px}
@@ -93,7 +80,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
   .nav-links{display:none}
   .hamburger{display:flex}
 }
-
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -116,7 +102,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-in">
     <a href="../index.html" class="nav-logo">
@@ -135,118 +120,125 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a href="../index.html#expertises" class="nav-a">Expertises</a>
-      <a href="../index.html#formation" class="nav-a">Formation</a>
-      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
-      <a href="../reflexions.html" class="nav-a">Publications</a>
-      <a href="../index.html#contact" class="nav-a nav-btn">Nous contacter</a>
+      <a href="../index.html#expertises" class="nav-a" data-en="Expertises">Expertises</a>
+      <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
+      <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
+      <a href="../index.html#contact" class="nav-a nav-btn" data-en="Contact us">Nous contacter</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
-    <button class="hamburger" onclick="document.querySelector('.mob').classList.toggle('open')">
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mob">
-  <button class="mob-close" onclick="document.querySelector('.mob').classList.remove('open')">&times;</button>
-  <a href="../index.html#expertises">Expertises</a>
-  <a href="../index.html#formation">Formation</a>
-  <a href="../index.html#apropos">&Agrave; propos</a>
-  <a href="../reflexions.html">Publications</a>
-  <a href="../index.html#contact">Nous contacter</a>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
 </div>
 
-<!-- PAGE -->
 <div class="page">
-
-  <!-- PANNEAU GAUCHE -->
+  <!-- LEFT PANEL -->
   <div class="panel-left">
-    <h1 class="panel-title fu d1">
+    <h1 class="panel-title fu d1" data-en="Your consultation&lt;br&gt;starts&lt;br&gt;&lt;em&gt;here.&lt;/em&gt;">
       Votre consultation<br>
       commence<br>
       <em>ici.</em>
     </h1>
   </div>
 
-  <!-- PANNEAU DROIT — FORMULAIRE -->
+  <!-- RIGHT PANEL — FORM -->
   <div class="panel-right">
-
     <div id="form-section">
-      <h2 class="form-title fu">R&eacute;server une consultation</h2>
-      <p class="form-subtitle fu d1">Tous les champs marqu&eacute;s d&rsquo;un <span style="color:var(--accent)">*</span> sont obligatoires.</p>
+      <h2 class="form-title fu" data-en="Book a consultation">R&eacute;server une consultation</h2>
+      <p class="form-subtitle fu d1">
+        <span data-en="All fields marked with a">Tous les champs marqu&eacute;s d&rsquo;un</span>
+        <span style="color:var(--accent)"> *</span>
+        <span data-en="are required."> sont obligatoires.</span>
+      </p>
 
       <form id="consultationForm" novalidate>
-
         <div class="form-group fu d1">
-          <label class="form-label" for="service">Service concern&eacute; <span>*</span></label>
+          <label class="form-label" for="service"><span data-en="Service">Service concern&eacute;</span> <span>*</span></label>
           <select class="form-select" id="service" name="service" required>
-            <option value="">— S&eacute;lectionnez un service</option>
-            <option value="Conseil en gestion">Conseil en gestion</option>
-            <option value="Soutien aux op&eacute;rations">Soutien aux op&eacute;rations</option>
-            <option value="Gouvernance">Gouvernance</option>
-            <option value="Intelligence artificielle">Intelligence artificielle</option>
-            <option value="Innovation">Innovation</option>
-            <option value="Technologies">Technologies</option>
-            <option value="&Eacute;valuation de la maturit&eacute; IA">&Eacute;valuation de la maturit&eacute; IA</option>
-            <option value="Autre">Autre</option>
+            <option value="" data-en="— Select a service">— S&eacute;lectionnez un service</option>
+            <option value="Conseil en gestion" data-en="Management Consulting">Conseil en gestion</option>
+            <option value="Soutien aux op&eacute;rations" data-en="Operations Support">Soutien aux op&eacute;rations</option>
+            <option value="Gouvernance" data-en="Governance">Gouvernance</option>
+            <option value="Intelligence artificielle" data-en="Artificial Intelligence">Intelligence artificielle</option>
+            <option value="Innovation" data-en="Innovation">Innovation</option>
+            <option value="Technologies" data-en="Technologies">Technologies</option>
+            <option value="&Eacute;valuation de la maturit&eacute; IA" data-en="AI Maturity Assessment">&Eacute;valuation de la maturit&eacute; IA</option>
+            <option value="Autre" data-en="Other">Autre</option>
           </select>
         </div>
 
         <div class="form-row">
           <div class="form-group fu d2">
-            <label class="form-label" for="prenom">Pr&eacute;nom <span>*</span></label>
-            <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Votre pr&eacute;nom" required>
+            <label class="form-label" for="prenom"><span data-en="First name">Pr&eacute;nom</span> <span>*</span></label>
+            <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Votre pr&eacute;nom" data-placeholder-en="Your first name" required>
           </div>
           <div class="form-group fu d2">
-            <label class="form-label" for="nom">Nom <span>*</span></label>
-            <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            <label class="form-label" for="nom"><span data-en="Last name">Nom</span> <span>*</span></label>
+            <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" data-placeholder-en="Your last name" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group fu d2">
-            <label class="form-label" for="email">Courriel <span>*</span></label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="votre@courriel.com" required>
+            <label class="form-label" for="email"><span data-en="Email">Courriel</span> <span>*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="votre@courriel.com" data-placeholder-en="your@email.com" required>
           </div>
           <div class="form-group fu d2">
-            <label class="form-label" for="telephone">T&eacute;l&eacute;phone</label>
+            <label class="form-label" for="telephone" data-en="Phone">T&eacute;l&eacute;phone</label>
             <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="+1 (514) 000-0000">
           </div>
         </div>
 
         <div class="form-group fu d3">
-          <label class="form-label" for="organisation">Organisation <span>*</span></label>
-          <input class="form-input" type="text" id="organisation" name="organisation" placeholder="Nom de votre organisation" required>
+          <label class="form-label" for="organisation"><span data-en="Organization">Organisation</span> <span>*</span></label>
+          <input class="form-input" type="text" id="organisation" name="organisation" placeholder="Nom de votre organisation" data-placeholder-en="Your organization name" required>
         </div>
 
         <div class="form-group fu d3">
-          <label class="form-label" for="message">D&eacute;crivez votre besoin <span>*</span></label>
-          <textarea class="form-textarea" id="message" name="message" placeholder="Quel est le d&eacute;fi ou l&rsquo;objectif que vous souhaitez aborder lors de cette consultation&nbsp;?" required></textarea>
+          <label class="form-label" for="message"><span data-en="Describe your need">D&eacute;crivez votre besoin</span> <span>*</span></label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Quel est le d&eacute;fi ou l&rsquo;objectif que vous souhaitez aborder lors de cette consultation&nbsp;?" data-placeholder-en="What is the challenge or objective you would like to address during this consultation?" required></textarea>
         </div>
 
-        <button type="submit" class="form-submit fu d4">Envoyer ma demande</button>
-        <p class="form-note fu">Vos informations sont confidentielles et ne seront jamais partag&eacute;es avec des tiers.</p>
-
+        <button type="submit" class="form-submit fu d4" id="submitBtn" data-en="Send my request">Envoyer ma demande</button>
+        <p class="form-note fu" data-en="Your information is confidential and will never be shared with third parties.">Vos informations sont confidentielles et ne seront jamais partag&eacute;es avec des tiers.</p>
       </form>
     </div>
 
-    <!-- ÉCRAN SUCCÈS -->
+    <!-- SUCCESS SCREEN -->
     <div class="success-screen" id="success-screen">
       <div class="success-icon">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3 class="success-title">Demande envoy&eacute;e !</h3>
-      <p class="success-desc">
+      <h3 class="success-title" data-en="Request sent!">Demande envoy&eacute;e&nbsp;!</h3>
+      <p class="success-desc" data-en="Thank you for your trust. One of our experts will contact you within &lt;strong&gt;48 hours&lt;/strong&gt; to confirm your session.">
         Merci pour votre confiance. L&rsquo;un de nos experts vous contactera
         dans les <strong>48 heures</strong> pour confirmer votre s&eacute;ance.
       </p>
       <a href="../index.html" class="success-back">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Retour &agrave; l&rsquo;accueil
+        <span data-en="Back to home">Retour &agrave; l&rsquo;accueil</span>
       </a>
     </div>
-
   </div>
 </div>
 
@@ -259,9 +251,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -270,40 +262,37 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="../expertises/conseil.html">Conseil en gestion</a>
-        <a href="../expertises/gouvernance.html">Gouvernance</a>
-        <a href="../expertises/ia.html">Intelligence artificielle</a>
-        <a href="../expertises/innovation.html">Innovation</a>
-        <a href="../technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="../expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="../expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html" data-en="Innovation">Innovation</a>
+        <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="../formation/offre.html">Formation</a>
-        <a href="../index.html#apropos">&Agrave; propos</a>
-        <a href="../reflexions.html">Publications</a>
-        <a href="../index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="../formation/offre.html" data-en="Training">Formation</a>
+        <a href="../index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="../reflexions.html" data-en="Publications">Publications</a>
+        <a href="../carrieres/index.html" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
-      <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
-      </div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links"><a data-en="Privacy">Confidentialit&eacute;</a><a data-en="Terms">Conditions</a></div>
     </div>
   </div>
 </footer>
 
+<script src="../lang.js"></script>
 <script>
 const LITUS_EMAIL = 'contact@lituspartners.com';
 
-// Pré-remplir le service depuis l'URL (?service=conseil)
 const SERVICE_MAP = {
   'conseil':      'Conseil en gestion',
   'soutien':      'Soutien aux opérations',
@@ -324,6 +313,7 @@ if(sParam && SERVICE_MAP[sParam]){
 
 document.getElementById('consultationForm').addEventListener('submit', async function(e){
   e.preventDefault();
+  var lang = getLang();
   const data = {
     service:      document.getElementById('service').value,
     prenom:       document.getElementById('prenom').value,
@@ -333,16 +323,16 @@ document.getElementById('consultationForm').addEventListener('submit', async fun
     organisation: document.getElementById('organisation').value,
     message:      document.getElementById('message').value,
     _replyto:     document.getElementById('email').value,
-    _subject:     'Demande de consultation — ' + document.getElementById('service').value
+    _subject:     (lang==='en'?'Consultation request — ':'Demande de consultation — ') + document.getElementById('service').value
   };
 
   if(!data.service || !data.prenom || !data.nom || !data.email || !data.organisation || !data.message){
-    alert('Veuillez remplir tous les champs obligatoires.');
+    alert(lang==='en'?'Please fill in all required fields.':'Veuillez remplir tous les champs obligatoires.');
     return;
   }
 
-  const btn = document.querySelector('.form-submit');
-  btn.textContent = 'Envoi en cours…';
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = lang==='en'?'Sending…':'Envoi en cours…';
   btn.disabled = true;
 
   try {
@@ -357,9 +347,10 @@ document.getElementById('consultationForm').addEventListener('submit', async fun
 
     setTimeout(showSuccess, 800);
   } catch(err){
-    btn.textContent = 'Envoyer ma demande';
+    var lang2 = getLang();
+    btn.textContent = lang2==='en'?'Send my request':'Envoyer ma demande';
     btn.disabled = false;
-    alert('Une erreur est survenue. Veuillez réessayer.');
+    alert(lang2==='en'?'An error occurred. Please try again.':'Une erreur est survenue. Veuillez réessayer.');
   }
 });
 

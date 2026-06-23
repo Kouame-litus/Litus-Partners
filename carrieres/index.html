@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrières — Litus Partners</title>
+<title>Carri&egrave;res &mdash; Litus Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
 <style>
@@ -13,7 +13,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:transparent;transition:background .3s,box-shadow .3s}
 nav.solid{background:var(--white);box-shadow:0 1px 0 var(--border)}
@@ -32,7 +31,25 @@ nav.solid .nav-home:hover{background:var(--light)}
 .nav-home svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .nav-cta{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:10px 24px;border-radius:50px;transition:all .2s}
 .nav-cta:hover{background:#a84d18;transform:translateY(-1px)}
-
+/* Lang switch adapts to scroll state */
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:8px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1;color:rgba(255,255,255,.8)}
+nav.solid .lang-switch button{color:var(--gray)}
+.lang-switch button[data-active="true"]{color:#fff}
+nav.solid .lang-switch button[data-active="true"]{color:var(--navy)}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+nav.solid .lang-switch button[data-active="false"]{color:var(--gray);opacity:.5}
+.lang-switch button:hover{color:#fff}
+nav.solid .lang-switch button:hover{color:var(--navy)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
+nav.solid .lang-sep{color:var(--border)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
+nav.solid .hamburger span{background:var(--navy)}
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
 /* HERO */
 .hero{position:relative;min-height:520px;display:flex;align-items:center}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
@@ -41,10 +58,8 @@ nav.solid .nav-home:hover{background:var(--light)}
 .hero-kicker{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
 .hero h1{font-size:clamp(36px,4vw,56px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px;max-width:680px}
 .hero p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.85;max-width:500px}
-
 /* SECTIONS */
 .s-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%}
-
 /* CTA CARDS */
 .cta-section{padding:80px 0;background:var(--white)}
 .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -55,7 +70,6 @@ nav.solid .nav-home:hover{background:var(--light)}
 .btn-card{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:16px 28px;border-radius:4px;transition:all .2s;width:100%}
 .btn-card:hover{background:var(--accent);transform:translateY(-1px)}
 .btn-card svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
 /* OFFRES */
 .jobs-section{padding:80px 0;background:var(--white);border-top:1px solid var(--border)}
 .section-head{margin-bottom:48px}
@@ -74,7 +88,6 @@ nav.solid .nav-home:hover{background:var(--light)}
 .no-jobs{text-align:center;padding:56px 32px;border:1.5px dashed var(--border);border-radius:12px}
 .no-jobs p{font-size:14px;color:var(--gray);margin-top:10px}
 .no-jobs strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
-
 /* CULTURE */
 .culture-section{padding:96px 0;background:var(--navy)}
 .culture-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -84,7 +97,6 @@ nav.solid .nav-home:hover{background:var(--light)}
 .culture-avantages{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .avantage{border-left:2px solid var(--accent);padding:18px 24px}
 .avantage span{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);line-height:1.5}
-
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;border-top:1px solid rgba(255,255,255,.08)}
 .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -101,7 +113,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
 .foot-col a:hover{color:#fff}
 .foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
 .foot-btm-links{display:flex;gap:20px}
-
 @media(max-width:768px){
   .cta-grid,.culture-grid{grid-template-columns:1fr}
   .culture-avantages{grid-template-columns:1fr}
@@ -109,39 +120,60 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
   .foot-brand{grid-column:1/-1}
   .job-card{flex-direction:column;align-items:flex-start}
   .cta-card{padding:32px 24px}
+  .nav-right .nav-home,.nav-right .nav-cta{display:none}
+  .hamburger{display:flex}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-in">
     <a class="nav-logo" href="../index.html">
       <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
       <div class="logo-text-group">
         <span class="logo-name">Litus Partners</span>
-        <span class="logo-tagline">Conseil · Stratégie · Transformation</span>
+        <span class="logo-tagline" data-en="Consulting · Strategy · Transformation">Conseil &middot; Strat&eacute;gie &middot; Transformation</span>
       </div>
     </a>
     <div class="nav-right">
       <a class="nav-home" href="../index.html">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Accueil
+        <span data-en="Home">Accueil</span>
       </a>
-      <a class="nav-cta" href="/carrieres/postuler">Postuler</a>
+      <a class="nav-cta" href="/carrieres/postuler" data-en="Apply">Postuler</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="../index.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Home">Accueil</a>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="#offres" onclick="document.getElementById('mob').classList.remove('open')" data-en="Open positions">Postes ouverts</a>
+  <a href="/carrieres/postuler" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Apply →">Postuler &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
   <img class="hero-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <p class="hero-kicker">Carrières</p>
-    <h1>Propulsez votre carrière chez Litus Partners</h1>
-    <p>Des missions à fort impact, une culture d'excellence et une équipe senior qui investit dans votre développement.</p>
+    <p class="hero-kicker" data-en="Careers">Carri&egrave;res</p>
+    <h1 data-en="Accelerate your career at Litus Partners">Propulsez votre carri&egrave;re chez Litus Partners</h1>
+    <p data-en="High-impact mandates, a culture of excellence and a senior team invested in your development.">Des missions &agrave; fort impact, une culture d&rsquo;excellence et une &eacute;quipe senior qui investit dans votre d&eacute;veloppement.</p>
   </div>
 </div>
 
@@ -150,18 +182,18 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
   <div class="s-in">
     <div class="cta-grid">
       <div class="cta-card">
-        <h3>Offres d'emploi</h3>
-        <p>Consultez nos postes ouverts et rejoignez une équipe de conseil en pleine croissance au Québec et en Afrique subsaharienne.</p>
+        <h3 data-en="Job openings">Offres d&rsquo;emploi</h3>
+        <p data-en="Browse our open positions and join a growing consulting team in Quebec and sub-Saharan Africa.">Consultez nos postes ouverts et rejoignez une &eacute;quipe de conseil en pleine croissance au Qu&eacute;bec et en Afrique subsaharienne.</p>
         <a href="#offres" class="btn-card">
-          Voir les postes
+          <span data-en="View positions">Voir les postes</span>
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
       <div class="cta-card">
-        <h3>Candidature spontanée</h3>
-        <p>Votre profil ne correspond pas à un poste affiché ? Soumettez votre dossier : nous sommes toujours à la recherche de talent exceptionnel.</p>
+        <h3 data-en="Unsolicited application">Candidature spontan&eacute;e</h3>
+        <p data-en="Your profile doesn't match a listed position? Submit your file: we are always looking for exceptional talent.">Votre profil ne correspond pas &agrave; un poste affich&eacute;&nbsp;? Soumettez votre dossier&nbsp;: nous sommes toujours &agrave; la recherche de talent exceptionnel.</p>
         <a href="/carrieres/postuler" class="btn-card">
-          Soumettre ma candidature
+          <span data-en="Submit my application">Soumettre ma candidature</span>
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -173,15 +205,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
 <div class="jobs-section" id="offres">
   <div class="s-in">
     <div class="section-head">
-      <p class="section-kicker">Postes ouverts</p>
-      <h2 class="section-title">Nos opportunités actuelles</h2>
+      <p class="section-kicker" data-en="Open positions">Postes ouverts</p>
+      <h2 class="section-title" data-en="Our current opportunities">Nos opportunit&eacute;s actuelles</h2>
     </div>
     <div class="jobs-list" id="jobsList">
-      <!-- Postes publiés via CMS apparaîtront ici -->
       <div class="no-jobs">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 12px"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-        <strong>Aucun poste affiché pour le moment</strong>
-        <p>Revenez bientôt ou soumettez une candidature spontanée, nous recrutons en continu.</p>
+        <strong data-en="No positions listed at this time">Aucun poste affich&eacute; pour le moment</strong>
+        <p data-en="Check back soon or submit an unsolicited application — we recruit continuously.">Revenez bient&ocirc;t ou soumettez une candidature spontan&eacute;e, nous recrutons en continu.</p>
       </div>
     </div>
   </div>
@@ -192,17 +223,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
   <div class="s-in">
     <div class="culture-grid">
       <div class="culture-text">
-        <p class="section-kicker">Notre culture</p>
-        <h2 class="section-title">Un environnement qui vous élève</h2>
-        <p>Chez Litus Partners, chaque consultant est un acteur stratégique. Nous cultivons une culture d'excellence, de rigueur et d'impact réel — où votre contribution compte dès le premier jour.</p>
+        <p class="section-kicker" data-en="Our culture">Notre culture</p>
+        <h2 class="section-title" data-en="An environment that elevates you">Un environnement qui vous &eacute;l&egrave;ve</h2>
+        <p data-en="At Litus Partners, every consultant is a strategic actor. We cultivate a culture of excellence and real impact — where your contribution matters from day one.">Chez Litus Partners, chaque consultant est un acteur strat&eacute;gique. Nous cultivons une culture d&rsquo;excellence, de rigueur et d&rsquo;impact r&eacute;el &mdash; o&ugrave; votre contribution compte d&egrave;s le premier jour.</p>
       </div>
       <div class="culture-avantages">
-        <div class="avantage"><span>Missions à impact direct sur les organisations</span></div>
-        <div class="avantage"><span>Horaires flexibles</span></div>
-        <div class="avantage"><span>Équipe senior et mentors expérimentés</span></div>
-        <div class="avantage"><span>Développement professionnel continu</span></div>
-        <div class="avantage"><span>Présence internationale — Canada et Afrique</span></div>
-        <div class="avantage"><span>Culture de respect, d'intégrité et de rigueur</span></div>
+        <div class="avantage"><span data-en="Mandates with direct organizational impact">Missions &agrave; impact direct sur les organisations</span></div>
+        <div class="avantage"><span data-en="Flexible hours">Horaires flexibles</span></div>
+        <div class="avantage"><span data-en="Senior team and experienced mentors">&Eacute;quipe senior et mentors exp&eacute;riment&eacute;s</span></div>
+        <div class="avantage"><span data-en="Continuous professional development">D&eacute;veloppement professionnel continu</span></div>
+        <div class="avantage"><span data-en="International presence — Canada and Africa">Pr&eacute;sence internationale &mdash; Canada et Afrique</span></div>
+        <div class="avantage"><span data-en="Culture of respect, integrity and excellence">Culture de respect, d&rsquo;int&eacute;grit&eacute; et de rigueur</span></div>
       </div>
     </div>
   </div>
@@ -217,9 +248,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -228,39 +259,38 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="../expertises/conseil.html">Conseil en gestion</a>
-        <a href="../expertises/gouvernance.html">Gouvernance</a>
-        <a href="../expertises/ia.html">Intelligence artificielle</a>
-        <a href="../expertises/innovation.html">Innovation</a>
-        <a href="../technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="../expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="../expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html" data-en="Innovation">Innovation</a>
+        <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="../formation/offre.html">Formation</a>
-        <a href="../index.html#apropos">&Agrave; propos</a>
-        <a href="../reflexions.html">Publications</a>
-        <a href="../index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="../formation/offre.html" data-en="Training">Formation</a>
+        <a href="../index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="../reflexions.html" data-en="Publications">Publications</a>
+        <a href="index.html" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
-      <div class="foot-btm-links"><a>Confidentialit&eacute;</a><a>Conditions</a></div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links"><a data-en="Privacy">Confidentialit&eacute;</a><a data-en="Terms">Conditions</a></div>
     </div>
   </div>
 </footer>
 
+<script src="../lang.js"></script>
 <script>
-// Nav scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60));
 
-// Chargement des postes depuis le CMS
 (async function(){
   try {
     const res = await fetch('/carrieres/postes.json?_=' + Date.now());
@@ -268,29 +298,28 @@ window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 
     const postes = await res.json();
     const actifs = postes.filter(p => p.actif !== false);
     if (!actifs || actifs.length === 0) return;
-
     const list = document.getElementById('jobsList');
     list.innerHTML = '';
-
+    const lang = getLang();
     actifs.forEach(p => {
       const card = document.createElement('div');
       card.className = 'job-card';
       card.innerHTML = `
         <div class="job-info">
-          <h4>${p.titre}</h4>
+          <h4>${lang === 'en' && p.titre_en ? p.titre_en : p.titre}</h4>
           <div class="job-tags">
             <span class="job-tag">${p.lieu || 'Québec, Canada'}</span>
-            <span class="job-tag">${p.type_contrat || 'Temps plein'}</span>
-            <span class="job-tag accent">${p.mode || 'Hybride'}</span>
+            <span class="job-tag">${p.type_contrat || (lang === 'en' ? 'Full time' : 'Temps plein')}</span>
+            <span class="job-tag accent">${p.mode || (lang === 'en' ? 'Hybrid' : 'Hybride')}</span>
           </div>
         </div>
         <a href="/carrieres/postuler?poste=${encodeURIComponent(p.titre)}" class="btn-job">
-          Postuler
+          ${lang === 'en' ? 'Apply' : 'Postuler'}
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>`;
       list.appendChild(card);
     });
-  } catch(e) { /* garde le message "aucun poste" */ }
+  } catch(e) {}
 })();
 </script>
 </body>

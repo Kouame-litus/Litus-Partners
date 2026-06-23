@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -31,6 +31,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
 .nav-btn:hover{background:#a84d18!important}
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 
 /* HERO */
 .exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
@@ -116,22 +122,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .art-link-circle{width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;transition:background .2s}
 .art-link-btn:hover .art-link-circle{background:var(--accent)}
 .art-link-circle svg{color:#fff}
-.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.art-card{cursor:pointer;transition:transform .3s}
-.art-card:hover{transform:translateY(-4px)}
-.art-card-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
-.art-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.art-card:hover .art-card-img img{transform:scale(1.05)}
-.art-badge{position:absolute;bottom:16px;left:16px;padding:16px 18px;border-radius:8px;max-width:210px}
-.art-badge .art-date{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-bottom:4px}
-.art-badge .art-cat-label{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;line-height:1.4;margin-bottom:8px}
-.art-badge .art-read{font-size:12px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:3px}
-.art-card-body{padding:16px 4px 0}
-.art-card-body h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px}
-.art-card-body p{font-size:13px;color:var(--gray);line-height:1.6}
-.badge-orange{background:var(--accent)}
-.badge-purple{background:#4a2080}
-.badge-teal{background:#0d7a75}
 
 /* CTA SECTION */
 .cta-section{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
@@ -140,7 +130,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .cta-text h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.15;margin-bottom:16px}
 .cta-text p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;max-width:500px}
 .cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:36px;min-width:280px;text-align:center}
-.cta-card p{color:rgba(255,255,255,.7);font-size:13px;margin-bottom:20px;line-height:1.6}
 .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:14px 28px;font-size:15px;font-weight:600;transition:all .2s;border:none;cursor:pointer;width:100%;justify-content:center}
 .btn-cta:hover{background:#a84d18;transform:translateY(-2px)}
 .btn-cta svg{width:16px;height:16px}
@@ -171,7 +160,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 @media(max-width:900px){
   .svc-grid{grid-template-columns:1fr}
   .livraison-grid{grid-template-columns:1fr}
-  .art-grid{grid-template-columns:1fr}
   .cta-in{grid-template-columns:1fr}
   .cta-card{min-width:auto}
   .foot-top{grid-template-columns:1fr 1fr}
@@ -223,11 +211,16 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a href="../index.html#expertises" class="nav-a">Expertises</a>
-      <a href="../index.html#formation" class="nav-a">Formation</a>
-      <a class="nav-a" href="../index.html#apropos">À propos</a>
-      <a class="nav-a" href="../reflexions.html">Publications</a>
-      <a class="nav-a nav-btn" href="../index.html#contact">Nous contacter</a>
+      <a href="../index.html#expertises" class="nav-a" data-en="Expertises">Expertises</a>
+      <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
+      <a class="nav-a" href="../index.html#apropos" data-en="About">À propos</a>
+      <a class="nav-a" href="../reflexions.html" data-en="Publications">Publications</a>
+      <a class="nav-a nav-btn" href="../index.html#contact" data-en="Contact us">Nous contacter</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
     <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -236,27 +229,32 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 </nav>
 <div class="mob" id="mob">
   <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
-  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')">Expertises</a>
-  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')">Formation</a>
-  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')">&Agrave; propos</a>
-  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')">Publications</a>
-  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)">Nous contacter &rarr;</a>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
 </div>
 
 <!-- HERO -->
 <section class="exp-hero">
   <div class="exp-hero-left">
     <div class="exp-breadcrumb">
-      <a href="../index.html">Accueil</a>
+      <a href="../index.html" data-en="Home">Accueil</a>
       <span>/</span>
-      <a href="../index.html#expertises">Expertises</a>
+      <a href="../index.html#expertises" data-en="Expertises">Expertises</a>
       <span>/</span>
-      <span style="color:rgba(255,255,255,.8)">Conseil en gestion</span>
+      <span style="color:rgba(255,255,255,.8)" data-en="Management Consulting">Conseil en gestion</span>
     </div>
-    <h1>Conseil en gestion et accompagnement stratégique</h1>
-    <p class="exp-hero-sub">Des d&eacute;cisions plus &eacute;clair&eacute;es. Une transformation durable. Nous travaillons aux c&ocirc;t&eacute;s de vos &eacute;quipes dirigeantes pour faire de votre strat&eacute;gie un avantage concurrentiel r&eacute;el.</p>
+    <h1 data-en="Management Consulting and Strategic Advisory">Conseil en gestion et accompagnement stratégique</h1>
+    <p class="exp-hero-sub" data-en="Clearer decisions. Lasting transformation. We work alongside your leadership teams to make your strategy a real competitive advantage.">Des d&eacute;cisions plus &eacute;clair&eacute;es. Une transformation durable. Nous travaillons aux c&ocirc;t&eacute;s de vos &eacute;quipes dirigeantes pour faire de votre strat&eacute;gie un avantage concurrentiel r&eacute;el.</p>
     <a class="exp-hero-cta" href="/contact/conseil">
-      Réservez votre consultation
+      <span data-en="Book your consultation">Réservez votre consultation</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -269,9 +267,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="section section-dark">
   <div class="s-in">
     <div class="fade">
-      <div class="kicker kicker-light">Notre approche</div>
-      <h2 class="s-title s-title-light">Une expertise au service<br>de votre transformation</h2>
-      <p class="s-sub s-sub-light">Nos conseillers s&rsquo;int&egrave;grent directement dans vos &eacute;quipes pour transformer votre strat&eacute;gie en r&eacute;sultats concrets &mdash; avec la rigueur et la proximit&eacute; que les grands mandats exigent.</p>
+      <div class="kicker kicker-light" data-en="Our approach">Notre approche</div>
+      <h2 class="s-title s-title-light" data-en="Expertise at the service&lt;br&gt;of your transformation">Une expertise au service<br>de votre transformation</h2>
+      <p class="s-sub s-sub-light" data-en="Our consultants integrate directly into your teams to transform your strategy into concrete results — with the excellence and proximity that major mandates require.">Nos conseillers s&rsquo;int&egrave;grent directement dans vos &eacute;quipes pour transformer votre strat&eacute;gie en r&eacute;sultats concrets &mdash; avec la rigueur et la proximit&eacute; que les grands mandats exigent.</p>
     </div>
 
     <!-- SERVICES GRID -->
@@ -279,20 +277,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <div class="svc-item">
         <span class="svc-num">01</span>
         <div class="svc-divider"></div>
-        <h3>Architecture d'entreprise et d'affaires</h3>
-        <p>Repensez vos processus d'affaires. Nous vous aidons à modéliser, analyser et optimiser l'ensemble de votre architecture organisationnelle et technologique.</p>
+        <h3 data-en="Enterprise and Business Architecture">Architecture d'entreprise et d'affaires</h3>
+        <p data-en="Rethink your business processes. We help you model, analyze and optimize your entire organizational and technological architecture.">Repensez vos processus d'affaires. Nous vous aidons à modéliser, analyser et optimiser l'ensemble de votre architecture organisationnelle et technologique.</p>
       </div>
       <div class="svc-item">
         <span class="svc-num">02</span>
         <div class="svc-divider"></div>
-        <h3>Conseil stratégique</h3>
-        <p>Alignez stratégie et technologies. Nos experts vous accompagnent dans la définition de vos orientations stratégiques et la mise en œuvre de vos initiatives de transformation.</p>
+        <h3 data-en="Strategic Consulting">Conseil stratégique</h3>
+        <p data-en="Align strategy and technology. Our experts guide you through defining your strategic directions and implementing your transformation initiatives.">Alignez stratégie et technologies. Nos experts vous accompagnent dans la définition de vos orientations stratégiques et la mise en œuvre de vos initiatives de transformation.</p>
       </div>
       <div class="svc-item">
         <span class="svc-num">03</span>
         <div class="svc-divider"></div>
-        <h3>Gestion de projets et programmes</h3>
-        <p>Mobilisez vos équipes. Nous assurons la gouvernance, le pilotage et la livraison de vos projets complexes avec une approche rigoureuse et adaptée à votre contexte.</p>
+        <h3 data-en="Project and Program Management">Gestion de projets et programmes</h3>
+        <p data-en="Mobilize your teams. We ensure the governance, steering and delivery of your complex projects with a rigorous approach adapted to your context.">Mobilisez vos équipes. Nous assurons la gouvernance, le pilotage et la livraison de vos projets complexes avec une approche rigoureuse et adaptée à votre contexte.</p>
       </div>
     </div>
   </div>
@@ -300,21 +298,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 
 <!-- NEWSLETTER BANNER -->
 <div class="newsletter-banner" onclick="document.getElementById('nlModal').classList.add('open')">
-  <span>S'inscrire à l'infolettre →</span>
+  <span data-en="Subscribe to our newsletter →">S'inscrire à l'infolettre →</span>
 </div>
 
 <!-- NEWSLETTER MODAL -->
 <div class="nl-modal" id="nlModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="nl-box">
     <button class="nl-close" onclick="document.getElementById('nlModal').classList.remove('open')">✕</button>
-    <h2>Inscription à l'infolettre</h2>
-    <span class="nl-label">Courriel <span style="color:rgba(255,100,100,.8)">*</span></span>
-    <input class="nl-input" id="nlEmail" type="email" placeholder="votre@courriel.com">
+    <h2 data-en="Newsletter subscription">Inscription à l'infolettre</h2>
+    <span class="nl-label" data-en="Email *">Courriel <span style="color:rgba(255,100,100,.8)">*</span></span>
+    <input class="nl-input" id="nlEmail" type="email" placeholder="votre@courriel.com" data-placeholder-en="your@email.com">
     <div class="nl-check">
       <input type="checkbox" id="nlConsent">
-      <label for="nlConsent">En soumettant ce formulaire, vous consentez à la collecte et à l'utilisation de vos renseignements personnels conformément à notre politique de confidentialité. <span>*</span></label>
+      <label for="nlConsent" data-en="By submitting this form, you consent to the collection and use of your personal information in accordance with our privacy policy. *">En soumettant ce formulaire, vous consentez à la collecte et à l'utilisation de vos renseignements personnels conformément à notre politique de confidentialité. <span>*</span></label>
     </div>
-    <button class="nl-submit" onclick="submitNewsletter()">S'inscrire</button>
+    <button class="nl-submit" onclick="submitNewsletter()" data-en="Subscribe">S'inscrire</button>
   </div>
 </div>
 
@@ -322,22 +320,22 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="section section-light">
   <div class="s-in">
     <div class="livraison-intro fade">
-      <div class="kicker">Notre approche de livraison</div>
-      <h2>Trois fa&ccedil;ons de travailler ensemble.</h2>
-      <p>Chaque engagement est structur&eacute; pour s&rsquo;adapter &agrave; votre situation &mdash; qu&rsquo;elle soit strat&eacute;gique, op&eacute;rationnelle ou en pleine transformation.</p>
+      <div class="kicker" data-en="Our delivery approach">Notre approche de livraison</div>
+      <h2 data-en="Three ways to work together.">Trois fa&ccedil;ons de travailler ensemble.</h2>
+      <p data-en="Each engagement is structured to adapt to your situation — whether strategic, operational or in full transformation.">Chaque engagement est structur&eacute; pour s&rsquo;adapter &agrave; votre situation &mdash; qu&rsquo;elle soit strat&eacute;gique, op&eacute;rationnelle ou en pleine transformation.</p>
     </div>
     <div class="livraison-grid fade">
       <div class="livraison-card">
-        <h3>Consultation stratégique</h3>
-        <p>Un partenaire stratégique dans vos réflexions d'affaires. Nous vous aidons à clarifier vos enjeux, structurer vos priorités et définir un cap clair.</p>
+        <h3 data-en="Strategic Consulting">Consultation stratégique</h3>
+        <p data-en="A strategic partner in your business thinking. We help you clarify your challenges, structure your priorities and define a clear direction.">Un partenaire stratégique dans vos réflexions d'affaires. Nous vous aidons à clarifier vos enjeux, structurer vos priorités et définir un cap clair.</p>
       </div>
       <div class="livraison-card">
-        <h3>Services professionnels</h3>
-        <p>Les meilleurs experts disponibles dès que vous en avez besoin. Nos conseillers s'intègrent à vos équipes pour accélérer vos projets de transformation.</p>
+        <h3 data-en="Professional Services">Services professionnels</h3>
+        <p data-en="The best experts available when you need them. Our consultants integrate into your teams to accelerate your transformation projects.">Les meilleurs experts disponibles dès que vous en avez besoin. Nos conseillers s'intègrent à vos équipes pour accélérer vos projets de transformation.</p>
       </div>
       <div class="livraison-card">
-        <h3>Solutions et projets</h3>
-        <p>Engagés avec vous dans le succès de vos projets. Nous prenons en charge la livraison complète, de la conception à la mise en production.</p>
+        <h3 data-en="Solutions and Projects">Solutions et projets</h3>
+        <p data-en="Engaged with you in the success of your projects. We take charge of the complete delivery, from design to production.">Engagés avec vous dans le succès de vos projets. Nous prenons en charge la livraison complète, de la conception à la mise en production.</p>
       </div>
     </div>
   </div>
@@ -348,9 +346,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="art-header fade">
       <div class="art-header-left">
-        <h2>Nos r&eacute;flexions sur le conseil en gestion.</h2>
+        <h2 data-en="Our insights on management consulting.">Nos r&eacute;flexions sur le conseil en gestion.</h2>
         <button class="art-link-btn" onclick="window.location.href='../reflexions.html'">
-          <span>Consultez nos derni&egrave;res r&eacute;flexions</span>
+          <span data-en="Read our latest insights">Consultez nos derni&egrave;res r&eacute;flexions</span>
           <div class="art-link-circle">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
@@ -364,12 +362,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="cta-section" id="consultation">
   <div class="cta-in">
     <div class="cta-text fade">
-      <h2>Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
-      <p>D&eacute;couvrez comment transformer votre strat&eacute;gie en avantage concurrentiel r&eacute;el, avec l&rsquo;appui de conseillers qui s&rsquo;engagent sur les r&eacute;sultats.</p>
+      <h2 data-en="Schedule a consultation with one of our experts.">Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p data-en="Discover how to transform your strategy into a real competitive advantage, with the support of consultants committed to results.">D&eacute;couvrez comment transformer votre strat&eacute;gie en avantage concurrentiel r&eacute;el, avec l&rsquo;appui de conseillers qui s&rsquo;engagent sur les r&eacute;sultats.</p>
     </div>
     <div class="cta-card fade">
       <a class="btn-cta" href="/contact/conseil">
-        Réservez votre consultation
+        <span data-en="Book your consultation">Réservez votre consultation</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -385,9 +383,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -396,36 +394,37 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="conseil.html">Conseil en gestion</a>
-        <a href="gouvernance.html">Gouvernance</a>
-        <a href="ia.html">Intelligence artificielle</a>
-        <a href="innovation.html">Innovation</a>
-        <a href="../technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="innovation.html" data-en="Innovation">Innovation</a>
+        <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="../formation/offre.html">Formation</a>
-        <a href="../index.html#apropos">&Agrave; propos</a>
-        <a href="../reflexions.html">Publications</a>
-        <a href="../index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="../formation/offre.html" data-en="Training">Formation</a>
+        <a href="../index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="../reflexions.html" data-en="Publications">Publications</a>
+        <a href="../index.html#carrieres" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
+        <a data-en="Privacy">Confidentialit&eacute;</a>
+        <a data-en="Terms">Conditions</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="../lang.js"></script>
 <script>
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
@@ -435,7 +434,7 @@ document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 function submitNewsletter(){
   const em=document.getElementById('nlEmail').value.trim();
   const ok=document.getElementById('nlConsent').checked;
-  if(!em||!ok){alert('Veuillez entrer votre courriel et accepter les conditions.');return;}
+  if(!em||!ok){alert(getLang()==='en'?'Please fill in all required fields (*).':'Veuillez entrer votre courriel et accepter les conditions.');return;}
   window.location.href='mailto:contact@lituspartners.com?subject=Inscription infolettre&body=Inscription à l\'infolettre : '+em;
   document.getElementById('nlModal').classList.remove('open');
 }

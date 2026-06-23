@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nos réflexions — Litus Partners</title>
+<title>Publications &mdash; Litus Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
 <style>
@@ -17,7 +17,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;background:var(--navy)}
 .nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
@@ -30,7 +29,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;transition:all .2s;white-space:nowrap}
 .nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
-
+.nav-btn:hover{background:#a84d18!important}
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
 /* HERO */
 .page-hero{position:relative;padding:120px 0 64px;overflow:hidden;background:#0F2340}
 .page-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0}
@@ -42,26 +53,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .breadcrumb span{color:rgba(255,255,255,.25)}
 .page-hero h1{font-size:clamp(32px,4vw,52px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
 .page-hero p{font-size:clamp(15px,1.4vw,18px);color:rgba(255,255,255,.65);max-width:560px;line-height:1.7}
-
-/* FEATURED ARTICLE */
-.featured{padding:64px 0 0}
-.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
-.featured-card{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;background:var(--light);cursor:pointer;transition:box-shadow .3s}
-.featured-card:hover{box-shadow:0 16px 48px rgba(15,35,64,.12)}
-.featured-img{position:relative;min-height:380px;overflow:hidden}
-.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.featured-card:hover .featured-img img{transform:scale(1.04)}
-.featured-badge{position:absolute;bottom:24px;left:24px;background:var(--accent);padding:20px 24px;max-width:260px;border-radius:8px}
-.featured-badge .art-date{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.08em;margin-bottom:6px}
-.featured-badge .art-cat-label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.4}
-.featured-badge .art-read{font-size:13px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:3px}
-.featured-body{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
-.featured-body .kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.featured-body h2{font-size:clamp(22px,2.2vw,30px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:16px;letter-spacing:-.3px}
-.featured-body p{font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:24px}
-.featured-body .read-more{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--navy);border-bottom:1.5px solid var(--navy);padding-bottom:2px;transition:all .2s}
-.featured-body .read-more:hover{color:var(--accent);border-color:var(--accent)}
-
 /* FILTERS */
 .filters-bar{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:48px}
 .filters-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -70,9 +61,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .filter-sep{width:1px;height:24px;background:var(--border);margin:0 4px}
 .sort-select{padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);font-size:13px;color:var(--gray);cursor:pointer;background:#fff;font-family:'Nunito Sans',sans-serif;outline:none}
-
 /* ARTICLES GRID */
 .articles-section{padding:0 0 80px}
+.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
 .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .art-card{cursor:pointer;transition:transform .3s}
 .art-card:hover{transform:translateY(-4px)}
@@ -86,14 +77,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .art-card-body{padding:20px 4px 0}
 .art-card-body h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
 .art-card-body p{font-size:13px;color:var(--gray);line-height:1.65}
-
-/* badge colors */
 .badge-orange{background:var(--accent)}
 .badge-teal{background:#0d7a75}
 .badge-purple{background:#4a2080}
 .badge-navy{background:var(--navy)}
 .badge-blue{background:#1B3D6F}
-
 /* NEWSLETTER */
 .newsletter-section{background:linear-gradient(90deg,#ffffff 0%,#e8f4fb 50%,#b8dff0 100%);padding:64px 0}
 .nl-wrap{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
@@ -104,7 +92,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nl-form input:focus{border-color:var(--navy)}
 .nl-form button{background:var(--accent);color:#fff;border:none;border-radius:50px;padding:13px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Nunito Sans',sans-serif;white-space:nowrap;transition:background .2s}
 .nl-form button:hover{background:#a84d18}
-
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -122,48 +109,33 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
 .foot-btm-links{display:flex;gap:20px}
 .foot-btm a:hover{color:rgba(255,255,255,.6)}
-@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
-
-/* FADE */
 .fade{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .fade.in{opacity:1;transform:none}
-
 @media(max-width:900px){
-  .featured-card{grid-template-columns:1fr}
   .art-grid{grid-template-columns:1fr 1fr}
   .nl-wrap{grid-template-columns:1fr}
   .nl-form{flex-direction:column;align-items:stretch}
   .nl-form input{min-width:auto}
   .foot-top{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
+  .hamburger{display:flex}
 }
-@media(max-width:600px){
-  .art-grid{grid-template-columns:1fr}
-}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media(max-width:600px){.art-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-in">
     <a class="nav-logo" href="index.html">
-            <div class="logo-chip">
+      <div class="logo-chip">
         <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
-          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
           <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
         </svg>
       </div>
@@ -172,17 +144,35 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a class="nav-a" href="index.html#expertises">Expertises</a>
-      <a class="nav-a" href="index.html#formation">Formation</a>
-    </div></div></div></div>
-    </div></a></div></a></div></a></div></a></div></div>
+      <a class="nav-a" href="index.html#expertises" data-en="Expertises">Expertises</a>
+      <a class="nav-a" href="index.html#formation" data-en="Training">Formation</a>
+      <a class="nav-a" href="index.html#apropos" data-en="About">&Agrave; propos</a>
+      <a class="nav-a" href="reflexions.html" style="color:#fff" data-en="Publications">Publications</a>
+      <a class="nav-a nav-btn" href="index.html#contact" data-en="Contact us">Nous contacter</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
-      <a class="nav-a" href="index.html#apropos">À propos</a>
-      <a class="nav-a" href="reflexions.html" style="color:#fff">Publications</a>
-      <a class="nav-a nav-btn" href="index.html#contact">Nous contacter</a>
-    </div>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
+  <a href="index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
+  <a href="reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -190,12 +180,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="page-hero-overlay"></div>
   <div class="page-hero-in">
     <div class="breadcrumb">
-      <a href="index.html">Accueil</a>
+      <a href="index.html" data-en="Home">Accueil</a>
       <span>/</span>
-      <span style="color:rgba(255,255,255,.8)">Publications</span>
+      <span style="color:rgba(255,255,255,.8)" data-en="Publications">Publications</span>
     </div>
-    <h1>Publications</h1>
-    <p>Explorez nos articles, études de cas et points de vue sur la transformation numérique, l'intelligence artificielle et la stratégie d'affaires.</p>
+    <h1 data-en="Publications">Publications</h1>
+    <p data-en="Explore our articles, case studies and perspectives on digital transformation, artificial intelligence and business strategy.">Explorez nos articles, &eacute;tudes de cas et points de vue sur la transformation num&eacute;rique, l&rsquo;intelligence artificielle et la strat&eacute;gie d&rsquo;affaires.</p>
   </div>
 </section>
 
@@ -204,23 +194,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="filters-bar fade">
       <div class="filters-inner">
-        <span class="filter-label">Trier par :</span>
-        <button class="filter-btn active" onclick="filterArticles('all',this)">Tous</button>
-        <button class="filter-btn" onclick="filterArticles('gouvernance',this)">Gouvernance</button>
-        <button class="filter-btn" onclick="filterArticles('ia',this)">Intelligence artificielle</button>
-        <button class="filter-btn" onclick="filterArticles('transformation',this)">Transformation numérique</button>
-        <button class="filter-btn" onclick="filterArticles('conseil',this)">Conseil en gestion</button>
+        <span class="filter-label" id="filterLabel">Trier par :</span>
+        <button class="filter-btn active" onclick="filterArticles('all',this)" id="filterAll">Tous</button>
+        <button class="filter-btn" onclick="filterArticles('gouvernance',this)" id="filterGouv">Gouvernance</button>
+        <button class="filter-btn" onclick="filterArticles('ia',this)" id="filterIA">Intelligence artificielle</button>
+        <button class="filter-btn" onclick="filterArticles('transformation',this)" id="filterTrans">Transformation num&eacute;rique</button>
+        <button class="filter-btn" onclick="filterArticles('conseil',this)" id="filterConseil">Conseil en gestion</button>
         <div class="filter-sep"></div>
-        <select class="sort-select" onchange="sortArticles(this.value)">
-          <option value="recent">Plus récent</option>
-          <option value="ancien">Plus ancien</option>
+        <select class="sort-select" onchange="sortArticles(this.value)" id="sortSelect">
+          <option value="recent" id="optRecent">Plus r&eacute;cent</option>
+          <option value="ancien" id="optAncien">Plus ancien</option>
         </select>
       </div>
     </div>
-
-    <!-- GRILLE D'ARTICLES — alimentée uniquement par les vraies publications (CMS) -->
     <div class="art-grid" id="artGrid"></div>
-    <p id="noArticles" style="display:none;color:var(--gray);font-size:15px;padding:24px 0">Aucune publication pour le moment. Revenez bientôt, nos premiers articles arrivent.</p>
+    <p id="noArticles" style="display:none;color:var(--gray);font-size:15px;padding:24px 0" data-en="No publications at this time. Check back soon — our first articles are on their way.">Aucune publication pour le moment. Revenez bient&ocirc;t, nos premiers articles arrivent.</p>
   </div>
 </section>
 
@@ -229,12 +217,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="s-in">
     <div class="nl-wrap fade">
       <div class="nl-text">
-        <h2>Restez à l'affût de nos dernières réflexions.</h2>
-        <p>Recevez nos articles directement dans votre boîte courriel.</p>
+        <h2 data-en="Stay up to date with our latest insights.">Restez &agrave; l&rsquo;aff&ucirc;t de nos derni&egrave;res r&eacute;flexions.</h2>
+        <p data-en="Receive our articles directly in your inbox.">Recevez nos articles directement dans votre bo&icirc;te courriel.</p>
       </div>
       <div class="nl-form">
-        <input type="email" id="nlEmail" placeholder="votre@courriel.com">
-        <button onclick="subscribeNewsletter()">S'inscrire à l'infolettre</button>
+        <input type="email" id="nlEmail" placeholder="votre@courriel.com" data-placeholder-en="your@email.com">
+        <button onclick="subscribeNewsletter()" data-en="Subscribe to newsletter">S&rsquo;inscrire &agrave; l&rsquo;infolettre</button>
       </div>
     </div>
   </div>
@@ -249,9 +237,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -260,41 +248,59 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="expertises/conseil.html">Conseil en gestion</a>
-        <a href="expertises/gouvernance.html">Gouvernance</a>
-        <a href="expertises/ia.html">Intelligence artificielle</a>
-        <a href="expertises/innovation.html">Innovation</a>
-        <a href="technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="expertises/innovation.html" data-en="Innovation">Innovation</a>
+        <a href="technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="formation/offre.html">Formation</a>
-        <a href="index.html#apropos">&Agrave; propos</a>
-        <a href="reflexions.html">Publications</a>
-        <a href="index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="formation/offre.html" data-en="Training">Formation</a>
+        <a href="index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="reflexions.html" data-en="Publications">Publications</a>
+        <a href="carrieres/index.html" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
+        <a data-en="Privacy">Confidentialit&eacute;</a>
+        <a data-en="Terms">Conditions</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="lang.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 // FADE
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+// Update filter UI labels on lang change
+function updateFilterLabels(){
+  var lang=getLang();
+  document.getElementById('filterLabel').textContent=lang==='en'?'Filter by:':'Trier par :';
+  document.getElementById('filterAll').textContent=lang==='en'?'All':'Tous';
+  document.getElementById('filterGouv').textContent=lang==='en'?'Governance':'Gouvernance';
+  document.getElementById('filterIA').textContent=lang==='en'?'Artificial Intelligence':'Intelligence artificielle';
+  document.getElementById('filterTrans').textContent=lang==='en'?'Digital Transformation':'Transformation numérique';
+  document.getElementById('filterConseil').textContent=lang==='en'?'Management Consulting':'Conseil en gestion';
+  document.getElementById('optRecent').textContent=lang==='en'?'Most recent':'Plus récent';
+  document.getElementById('optAncien').textContent=lang==='en'?'Oldest first':'Plus ancien';
+}
+
+// Hook into setLang
+var _origSetLang=window.setLang;
+window.setLang=function(lang){_origSetLang(lang);updateFilterLabels();rebuildCards();};
 
 // FILTER
 let currentFilter='all';
@@ -320,78 +326,78 @@ function sortArticles(order){
 
 // NEWSLETTER
 function subscribeNewsletter(){
+  var lang=getLang();
   const em=document.getElementById('nlEmail').value.trim();
-  if(!em){alert('Veuillez entrer votre courriel.');return;}
-  window.location.href='mailto:contact@lituspartners.com?subject=Inscription infolettre&body=Inscription à l\'infolettre : '+em;
+  if(!em){alert(lang==='en'?'Please enter your email.':'Veuillez entrer votre courriel.');return;}
+  window.location.href='mailto:contact@lituspartners.com?subject='+(lang==='en'?'Newsletter subscription':'Inscription infolettre')+'&body='+(lang==='en'?'Newsletter subscription: ':'Inscription à l\'infolettre : ')+em;
 }
 
-// ── CHARGEMENT DES ARTICLES DU CMS ─────────────────────────────────────────
+// CMS ARTICLE LOADING
 const CAT_MAP={
-  'gouvernance':         {key:'gouvernance',         cls:'badge-navy',   label:'Gouvernance'},
-  'intelligence artificielle':{key:'ia',             cls:'badge-teal',   label:'Intelligence artificielle'},
-  'transformation numérique': {key:'transformation', cls:'badge-purple', label:'Transformation numérique'},
-  'conseil en gestion': {key:'conseil',              cls:'badge-orange', label:'Conseil en gestion'}
+  'gouvernance':              {key:'gouvernance',     cls:'badge-navy',   label:'Gouvernance',              label_en:'Governance'},
+  'intelligence artificielle':{key:'ia',             cls:'badge-teal',   label:'Intelligence artificielle', label_en:'Artificial Intelligence'},
+  'transformation numérique': {key:'transformation', cls:'badge-purple', label:'Transformation numérique',  label_en:'Digital Transformation'},
+  'conseil en gestion':       {key:'conseil',        cls:'badge-orange', label:'Conseil en gestion',        label_en:'Management Consulting'}
 };
 const DEFAULT_IMG='https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=70';
 
 function catInfo(category){
-  const c=CAT_MAP[(category||'').toLowerCase()]||{key:'autre',cls:'badge-orange',label:category||''};
-  return c;
+  return CAT_MAP[(category||'').toLowerCase()]||{key:'autre',cls:'badge-orange',label:category||'',label_en:category||''};
 }
 
 function fmtDate(d){
   if(!d) return '';
-  const dt=new Date(d);
-  return dt.toLocaleDateString('fr-CA',{year:'numeric',month:'2-digit',day:'2-digit'}).replace(/-/g,'.');
+  var lang=getLang();
+  return new Date(d).toLocaleDateString(lang==='en'?'en-CA':'fr-CA',{year:'numeric',month:'2-digit',day:'2-digit'}).replace(/-/g,'.');
 }
 
 function openArticle(slug,cleanSlug){
   window.location.href='/reflexions/'+(cleanSlug||encodeURIComponent(slug));
 }
 
+var allArticles=[];
+
 function buildCard(a){
+  var lang=getLang();
+  var cat=catInfo(a.category);
+  var title=lang==='en'&&a.title_en?a.title_en:a.title;
+  var summary=lang==='en'&&a.summary_en?a.summary_en:a.summary||'';
+  var catLabel=lang==='en'?cat.label_en:cat.label;
+  var readLabel=lang==='en'?((a.readtime||5)+' min read'):((a.readtime||5)+' min de lecture');
   const div=document.createElement('div');
-  const cat=catInfo(a.category);
   div.className='art-card fade cms-card';
   div.dataset.cat=cat.key;
   div.dataset.date=a.date||'';
   div.onclick=()=>openArticle(a.slug,a.cleanSlug);
   div.innerHTML=`
     <div class="art-card-img">
-      <img src="${a.image||DEFAULT_IMG}" alt="${a.title}" loading="lazy">
+      <img src="${a.image||DEFAULT_IMG}" alt="${title}" loading="lazy">
       <div class="art-badge ${cat.cls}">
         <div class="art-date">${fmtDate(a.date)}</div>
-        <div class="art-cat-label">${cat.label}</div>
-        <span class="art-read">${a.readtime||5} min de lecture</span>
+        <div class="art-cat-label">${catLabel}</div>
+        <span class="art-read">${readLabel}</span>
       </div>
     </div>
     <div class="art-card-body">
-      <h3>${a.title}</h3>
-      <p>${a.summary||''}</p>
+      <h3>${title}</h3>
+      <p>${summary}</p>
     </div>`;
   return div;
 }
 
-function buildFeatured(a){
-  const cat=catInfo(a.category);
-  const card=document.getElementById('featuredCard');
-  card.onclick=()=>openArticle(a.slug);
-  card.innerHTML=`
-    <div class="featured-img">
-      <img src="${a.image||DEFAULT_IMG}" alt="${a.title}">
-      <div class="featured-badge ${cat.cls}">
-        <div class="art-date">${fmtDate(a.date)}</div>
-        <div class="art-cat-label">${cat.label}</div>
-        <span class="art-read">Lire l'article</span>
-      </div>
-    </div>
-    <div class="featured-body">
-      <div class="kicker">Article vedette</div>
-      <h2>${a.title}</h2>
-      <p>${a.summary||''}</p>
-      <span class="read-more">Lire l'article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-    </div>`;
-  document.getElementById('featuredSection').style.display='';
+function rebuildCards(){
+  if(!allArticles.length) return;
+  const grid=document.getElementById('artGrid');
+  grid.innerHTML='';
+  const frag=document.createDocumentFragment();
+  allArticles.forEach(a=>frag.appendChild(buildCard(a)));
+  grid.appendChild(frag);
+  grid.querySelectorAll('.cms-card').forEach(el=>obs.observe(el));
+  if(currentFilter!=='all'){
+    document.querySelectorAll('.art-card').forEach(card=>{
+      card.style.display=(card.dataset.cat===currentFilter)?'':'none';
+    });
+  }
 }
 
 async function loadCMSArticles(){
@@ -402,20 +408,12 @@ async function loadCMSArticles(){
     if(!res.ok) throw new Error('fetch failed');
     let articles=await res.json();
     if(!articles||!articles.length){ noArt.style.display=''; return; }
-    // tri du plus récent au plus ancien
-    articles=[...articles].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-    const frag=document.createDocumentFragment();
-    articles.forEach(a=>frag.appendChild(buildCard(a)));
-    grid.appendChild(frag);
-    grid.querySelectorAll('.cms-card').forEach(el=>obs.observe(el));
-    if(currentFilter!=='all'){
-      document.querySelectorAll('.art-card').forEach(card=>{
-        card.style.display=(card.dataset.cat===currentFilter)?'':'none';
-      });
-    }
+    allArticles=[...articles].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+    rebuildCards();
   }catch(e){ noArt.style.display=''; }
 }
 
+updateFilterLabels();
 loadCMSArticles();
 </script>
 </body>

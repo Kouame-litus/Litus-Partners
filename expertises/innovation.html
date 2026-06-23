@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -20,14 +20,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .logo-chip{display:inline-flex;flex-shrink:0}
 .logo-text-group{display:flex;flex-direction:column;gap:1px}
 .logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
-.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:4px}
 .nav-a{font-size:14px;font-weight:600;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:700;font-size:14px;margin-left:8px}
 .nav-btn:hover{background:#a84d18!important}
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 
-/* HERO — plein écran avec photo */
+/* HERO */
 .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:72px;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
@@ -38,16 +43,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .hero-breadcrumb a:hover{color:#fff}
 .hero-breadcrumb span{color:rgba(255,255,255,.35)}
 .hero-breadcrumb span:last-child{color:#fff;font-weight:600}
-.hero-tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 18px;border-radius:4px;margin-bottom:24px}
 .hero h1{font-size:clamp(40px,5.5vw,80px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-2px;max-width:800px;margin-bottom:28px}
 .hero h1 em{font-style:normal;color:rgba(255,255,255,.5);font-weight:300}
 .hero-sub{font-size:clamp(16px,1.4vw,20px);color:rgba(255,255,255,.65);max-width:580px;line-height:1.75;margin-bottom:48px;font-weight:400}
 .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 36px;font-size:15px;font-weight:700;transition:all .25s}
 .hero-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 12px 32px rgba(192,92,30,.4)}
-.hero-scroll{font-size:13px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.hero-scroll svg{animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 @media(max-width:900px){.hero{min-height:70vh}.hero-in{padding:0 24px 64px}}
 
 /* INTRO STATEMENT */
@@ -67,48 +68,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nl-banner-btn{flex-shrink:0;background:#fff;color:var(--accent);border-radius:50px;padding:8px 22px;font-size:13px;font-weight:700;white-space:nowrap;transition:all .2s}
 .nl-banner:hover .nl-banner-btn{background:var(--navy);color:#fff}
 
-/* SERVICES — accordion avec image */
+/* SERVICES */
 .services-s{background:var(--light);padding:88px 0}
 .s-in{max-width:1160px;margin:0 auto;padding:0 32px}
 .kicker{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .s-title{font-size:clamp(28px,3.2vw,44px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
 .s-sub{font-size:clamp(15px,1.3vw,17px);color:var(--gray);line-height:1.8;max-width:600px}
-
 .svc-list{display:flex;flex-direction:column;gap:12px;margin-top:56px}
-
-/* Carte : photo fixe à gauche, tout le contenu à droite */
 .svc-card{display:grid;grid-template-columns:280px 1fr;background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 16px rgba(15,35,64,.06);transition:box-shadow .3s}
 .svc-card.open{box-shadow:0 16px 48px rgba(15,35,64,.13);border-color:rgba(192,92,30,.2)}
-
-/* Photo latérale — hauteur auto, s'étire avec le contenu */
 .svc-photo{position:relative;overflow:hidden;min-height:110px}
 .svc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .svc-card.open .svc-photo img{transform:scale(1.04)}
-
-/* Partie droite */
 .svc-right{display:flex;flex-direction:column}
-
-/* Ligne titre + toggle */
 .svc-row{display:flex;align-items:center;justify-content:space-between;padding:28px 36px;cursor:pointer;gap:20px}
 .svc-row h3{font-size:19px;font-weight:800;color:var(--navy);line-height:1.25;margin:0}
 .svc-btn{width:36px;height:36px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400;color:var(--accent);flex-shrink:0;transition:background .2s,color .2s;line-height:1}
 .svc-card.open .svc-btn{background:var(--accent);color:#fff}
-
-/* Corps expansible */
 .svc-body{display:none;padding:0 36px 32px;flex-direction:column;gap:18px;border-top:1px solid var(--border);margin:0 36px;padding-top:24px}
 .svc-card.open .svc-body{display:flex}
 .svc-body p{font-size:15px;color:var(--gray);line-height:1.85;margin:0}
 .svc-tags{display:flex;flex-wrap:wrap;gap:8px}
 .svc-tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--blue);background:rgba(27,61,111,.06);padding:6px 14px;border-radius:50px;border:1px solid rgba(27,61,111,.1)}
 .svc-tag::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@media(max-width:900px){.svc-card{grid-template-columns:1fr}.svc-photo{min-height:200px;position:relative}.svc-photo img{position:absolute}}
 
-@media(max-width:900px){
-  .svc-card{grid-template-columns:1fr}
-  .svc-photo{min-height:200px;position:relative}
-  .svc-photo img{position:absolute}
-}
-
-/* FEATURE DARK SECTION */
+/* FEATURE DARK */
 .feature-s{position:relative;background:var(--navy);padding:0;overflow:hidden;min-height:480px;display:flex;align-items:center}
 .feature-bg{position:absolute;right:0;top:0;width:50%;height:100%}
 .feature-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
@@ -120,7 +105,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .feature-content p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8}
 @media(max-width:900px){.feature-bg{display:none}}
 
-/* APPROACH — steps */
+/* APPROACH STEPS */
 .approach-s{background:linear-gradient(160deg,#ffffff 0%,#e8f4fb 50%,#b8dff0 100%);padding:88px 0}
 .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;position:relative}
 .steps-grid::before{content:"";position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--border) 0%,var(--accent) 50%,var(--border) 100%);z-index:0}
@@ -131,17 +116,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .step p{font-size:13px;color:var(--gray);line-height:1.7}
 @media(max-width:900px){.steps-grid{grid-template-columns:1fr 1fr;gap:32px}.steps-grid::before{display:none}}
 
-
 /* CTA */
 .cta-s{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
 .cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
 .cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
-.cta-left .cta-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
 .cta-left h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
 .cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
 .cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
-.cta-card-info{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;text-align:center;margin-bottom:24px}
-.cta-card-info strong{color:#fff;font-weight:700}
 .btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;transition:all .25s;width:100%}
 .btn-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 32px rgba(192,92,30,.4)}
 @media(max-width:900px){.cta-in{grid-template-columns:1fr}.cta-card{max-width:420px}}
@@ -192,27 +173,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <a href="../index.html" class="nav-logo">
       <div class="logo-chip">
         <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- pins top -->
           <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
           <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
           <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins bottom -->
           <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
           <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
           <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins left -->
           <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
           <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
           <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins right -->
           <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
           <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
           <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <!-- chip body -->
           <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
-          <!-- chip inner -->
           <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
-          <!-- LP text -->
           <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
         </svg>
       </div>
@@ -221,11 +195,16 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a href="../index.html#expertises" class="nav-a">Expertises</a>
-      <a href="../index.html#formation" class="nav-a">Formation</a>
-      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
-      <a href="../reflexions.html" class="nav-a">Publications</a>
-      <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
+      <a href="../index.html#expertises" class="nav-a" data-en="Expertises">Expertises</a>
+      <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
+      <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
+      <a href="../index.html#contact" class="nav-btn nav-a" data-en="Contact us">Nous contacter</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
     <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -234,14 +213,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 </nav>
 <div class="mob" id="mob">
   <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
-  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')">Expertises</a>
-  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')">Formation</a>
-  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')">&Agrave; propos</a>
-  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')">Publications</a>
-  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)">Nous contacter &rarr;</a>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
 </div>
 
-<!-- HERO plein écran -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
     <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=85" alt="Innovation en entreprise">
@@ -249,15 +233,15 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="hero-overlay"></div>
   <div class="hero-in">
     <p class="hero-breadcrumb fu">
-      <a href="../index.html">Accueil</a><span>/</span>
-      <a href="../index.html#expertises">Expertises</a><span>/</span>
-      <span>Innovation en entreprise</span>
+      <a href="../index.html" data-en="Home">Accueil</a><span>/</span>
+      <a href="../index.html#expertises" data-en="Expertises">Expertises</a><span>/</span>
+      <span data-en="Business Innovation">Innovation en entreprise</span>
     </p>
-    <h1 class="fu">L&rsquo;innovation,<br><em>votre prochain avantage</em><br>sur le march&eacute;.</h1>
-    <p class="hero-sub fu">Vos &eacute;quipes ont les id&eacute;es. Nous leur donnons la structure, les outils et la m&eacute;thode pour les transformer en valeur r&eacute;elle.</p>
+    <h1 class="fu" data-en="Innovation,&lt;br&gt;&lt;em&gt;your next competitive advantage&lt;/em&gt;&lt;br&gt;in the market.">L&rsquo;innovation,<br><em>votre prochain avantage</em><br>sur le march&eacute;.</h1>
+    <p class="hero-sub fu" data-en="Your teams have the ideas. We give them the structure, the tools and the method to transform them into real value.">Vos &eacute;quipes ont les id&eacute;es. Nous leur donnons la structure, les outils et la m&eacute;thode pour les transformer en valeur r&eacute;elle.</p>
     <div class="hero-actions fu">
       <a href="/contact/innovation" class="hero-cta">
-        D&eacute;marrer votre projet
+        <span data-en="Start your project">D&eacute;marrer votre projet</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -268,12 +252,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="intro-s">
   <div class="intro-in">
     <div class="intro-left fu">
-      <div class="eyebrow">Notre vision</div>
-      <h2>L&rsquo;innovation est une <span>n&eacute;cessit&eacute;</span> strat&eacute;gique.</h2>
+      <div class="eyebrow" data-en="Our vision">Notre vision</div>
+      <h2 data-en="Innovation is a strategic &lt;span&gt;imperative&lt;/span&gt;.">L&rsquo;innovation est une <span>n&eacute;cessit&eacute;</span> strat&eacute;gique.</h2>
     </div>
     <div class="intro-right fu">
-      <p>L&rsquo;innovation ne cr&eacute;e de la valeur que si elle se traduit en r&eacute;sultats mesurables. C&rsquo;est pr&eacute;cis&eacute;ment ce que nous construisons avec vous&nbsp;: des initiatives concr&egrave;tes, ancr&eacute;es dans votre r&eacute;alit&eacute; op&eacute;rationnelle.</p>
-      <p>Notre r&ocirc;le&nbsp;: transformer votre ambition d&rsquo;innover en avantage concurrentiel que vous pouvez d&eacute;fendre, mesurer et faire cro&icirc;tre.</p>
+      <p data-en="Innovation only creates value when it translates into measurable results. That is precisely what we build with you: concrete initiatives, grounded in your operational reality.">L&rsquo;innovation ne cr&eacute;e de la valeur que si elle se traduit en r&eacute;sultats mesurables. C&rsquo;est pr&eacute;cis&eacute;ment ce que nous construisons avec vous&nbsp;: des initiatives concr&egrave;tes, ancr&eacute;es dans votre r&eacute;alit&eacute; op&eacute;rationnelle.</p>
+      <p data-en="Our role: transform your ambition to innovate into a competitive advantage you can defend, measure and grow.">Notre r&ocirc;le&nbsp;: transformer votre ambition d&rsquo;innover en avantage concurrentiel que vous pouvez d&eacute;fendre, mesurer et faire cro&icirc;tre.</p>
     </div>
   </div>
 </section>
@@ -281,103 +265,99 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- NEWSLETTER BANNER -->
 <div class="nl-banner">
   <div class="nl-banner-in">
-    <p>Restez inform&eacute; des tendances en innovation, inscrivez-vous &agrave; notre infolettre.</p>
-    <a href="../index.html#contact" class="nl-banner-btn">S&rsquo;inscrire &agrave; l&rsquo;infolettre</a>
+    <p data-en="Stay informed on innovation trends — subscribe to our newsletter.">Restez inform&eacute; des tendances en innovation, inscrivez-vous &agrave; notre infolettre.</p>
+    <a href="../index.html#contact" class="nl-banner-btn" data-en="Subscribe to our newsletter">S&rsquo;inscrire &agrave; l&rsquo;infolettre</a>
   </div>
 </div>
 
-<!-- SERVICES — liste éditoriale -->
+<!-- SERVICES -->
 <section class="services-s">
   <div class="s-in">
-    <div class="kicker fu">Nos services</div>
-    <h2 class="s-title fu">Quatre leviers pour acc&eacute;l&eacute;rer votre innovation</h2>
-    <p class="s-sub fu">Des services concrets, adapt&eacute;s &agrave; votre r&eacute;alit&eacute; organisationnelle, pour transformer votre capacit&eacute; &agrave; innover.</p>
+    <div class="kicker fu" data-en="Our services">Nos services</div>
+    <h2 class="s-title fu" data-en="Four levers to accelerate your innovation">Quatre leviers pour acc&eacute;l&eacute;rer votre innovation</h2>
+    <p class="s-sub fu" data-en="Concrete services, adapted to your organizational reality, to transform your capacity to innovate.">Des services concrets, adapt&eacute;s &agrave; votre r&eacute;alit&eacute; organisationnelle, pour transformer votre capacit&eacute; &agrave; innover.</p>
 
     <div class="svc-list">
 
-      <!-- CARTE 01 -->
       <div class="svc-card fu" id="svc1">
         <div class="svc-photo">
-          <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80" alt="Strat&eacute;gie d'innovation">
+          <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80" alt="Innovation Strategy">
         </div>
         <div class="svc-right">
           <div class="svc-row" onclick="toggleSvc('svc1')">
-            <h3>Strat&eacute;gie d&rsquo;innovation</h3>
+            <h3 data-en="Innovation Strategy">Strat&eacute;gie d&rsquo;innovation</h3>
             <div class="svc-btn">+</div>
           </div>
           <div class="svc-body">
-            <p>D&eacute;finir une vision claire et une feuille de route actionnable pour structurer durablement votre capacit&eacute; d&rsquo;innovation, align&eacute;e sur vos priorit&eacute;s strat&eacute;giques et vos ressources disponibles.</p>
+            <p data-en="Define a clear vision and an actionable roadmap to sustainably structure your innovation capacity, aligned with your strategic priorities and available resources.">D&eacute;finir une vision claire et une feuille de route actionnable pour structurer durablement votre capacit&eacute; d&rsquo;innovation, align&eacute;e sur vos priorit&eacute;s strat&eacute;giques et vos ressources disponibles.</p>
             <div class="svc-tags">
-              <span class="svc-tag">Diagnostic organisationnel</span>
-              <span class="svc-tag">Feuille de route</span>
-              <span class="svc-tag">Vision et objectifs</span>
-              <span class="svc-tag">Positionnement</span>
+              <span class="svc-tag" data-en="Organizational Diagnostic">Diagnostic organisationnel</span>
+              <span class="svc-tag" data-en="Roadmap">Feuille de route</span>
+              <span class="svc-tag" data-en="Vision and Objectives">Vision et objectifs</span>
+              <span class="svc-tag" data-en="Positioning">Positionnement</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CARTE 02 -->
       <div class="svc-card fu" id="svc2">
         <div class="svc-photo">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Culture organisationnelle">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Culture and Transformation">
         </div>
         <div class="svc-right">
           <div class="svc-row" onclick="toggleSvc('svc2')">
-            <h3>Culture et transformation organisationnelle</h3>
+            <h3 data-en="Culture and Organizational Transformation">Culture et transformation organisationnelle</h3>
             <div class="svc-btn">+</div>
           </div>
           <div class="svc-body">
-            <p>Cr&eacute;er les conditions culturelles et organisationnelles qui permettent &agrave; l&rsquo;innovation d&rsquo;&eacute;merger. Nous accompagnons vos &eacute;quipes dans l&rsquo;adoption des comportements, pratiques et mentalit&eacute;s qui font la diff&eacute;rence.</p>
+            <p data-en="Create the cultural and organizational conditions that allow innovation to emerge. We support your teams in adopting the behaviors, practices and mindsets that make the difference.">Cr&eacute;er les conditions culturelles et organisationnelles qui permettent &agrave; l&rsquo;innovation d&rsquo;&eacute;merger. Nous accompagnons vos &eacute;quipes dans l&rsquo;adoption des comportements, pratiques et mentalit&eacute;s qui font la diff&eacute;rence.</p>
             <div class="svc-tags">
-              <span class="svc-tag">Leadership innovant</span>
-              <span class="svc-tag">Agilit&eacute; organisationnelle</span>
-              <span class="svc-tag">Gestion du changement</span>
-              <span class="svc-tag">Mobilisation des &eacute;quipes</span>
+              <span class="svc-tag" data-en="Innovative Leadership">Leadership innovant</span>
+              <span class="svc-tag" data-en="Organizational Agility">Agilit&eacute; organisationnelle</span>
+              <span class="svc-tag" data-en="Change Management">Gestion du changement</span>
+              <span class="svc-tag" data-en="Team Mobilization">Mobilisation des &eacute;quipes</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CARTE 03 -->
       <div class="svc-card fu" id="svc3">
         <div class="svc-photo">
-          <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=600&q=80" alt="Gestion de projets">
+          <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=600&q=80" alt="Innovation Project Management">
         </div>
         <div class="svc-right">
           <div class="svc-row" onclick="toggleSvc('svc3')">
-            <h3>Gestion de projets d&rsquo;innovation</h3>
+            <h3 data-en="Innovation Project Management">Gestion de projets d&rsquo;innovation</h3>
             <div class="svc-btn">+</div>
           </div>
           <div class="svc-body">
-            <p>Piloter vos projets d&rsquo;innovation avec des m&eacute;thodologies &eacute;prouv&eacute;es : design thinking, sprints agiles, prototypage rapide, pour r&eacute;duire les risques et acc&eacute;l&eacute;rer le passage de l&rsquo;id&eacute;e au march&eacute;.</p>
+            <p data-en="Steer your innovation projects with proven methodologies — design thinking, agile sprints, rapid prototyping — to reduce risks and accelerate the journey from idea to market.">Piloter vos projets d&rsquo;innovation avec des m&eacute;thodologies &eacute;prouv&eacute;es : design thinking, sprints agiles, prototypage rapide, pour r&eacute;duire les risques et acc&eacute;l&eacute;rer le passage de l&rsquo;id&eacute;e au march&eacute;.</p>
             <div class="svc-tags">
-              <span class="svc-tag">Design thinking</span>
-              <span class="svc-tag">Sprints agiles</span>
-              <span class="svc-tag">MVP et prototypage</span>
-              <span class="svc-tag">Gestion des risques</span>
+              <span class="svc-tag" data-en="Design Thinking">Design thinking</span>
+              <span class="svc-tag" data-en="Agile Sprints">Sprints agiles</span>
+              <span class="svc-tag" data-en="MVP and Prototyping">MVP et prototypage</span>
+              <span class="svc-tag" data-en="Risk Management">Gestion des risques</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CARTE 04 -->
       <div class="svc-card fu" id="svc4">
         <div class="svc-photo">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Formation">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Training and Skills Development">
         </div>
         <div class="svc-right">
           <div class="svc-row" onclick="toggleSvc('svc4')">
-            <h3>Formation et d&eacute;veloppement des comp&eacute;tences</h3>
+            <h3 data-en="Training and Skills Development">Formation et d&eacute;veloppement des comp&eacute;tences</h3>
             <div class="svc-btn">+</div>
           </div>
           <div class="svc-body">
-            <p>Renforcer les comp&eacute;tences en innovation &agrave; tous les niveaux de votre organisation &agrave; travers des programmes de formation sur mesure, des ateliers cr&eacute;atifs et des acc&eacute;l&eacute;rateurs internes adapt&eacute;s &agrave; vos &eacute;quipes.</p>
+            <p data-en="Strengthen innovation capabilities at every level of your organization through tailored training programs, creative workshops and internal accelerators adapted to your teams.">Renforcer les comp&eacute;tences en innovation &agrave; tous les niveaux de votre organisation &agrave; travers des programmes de formation sur mesure, des ateliers cr&eacute;atifs et des acc&eacute;l&eacute;rateurs internes adapt&eacute;s &agrave; vos &eacute;quipes.</p>
             <div class="svc-tags">
-              <span class="svc-tag">Ateliers cr&eacute;atifs</span>
-              <span class="svc-tag">Formations sur mesure</span>
-              <span class="svc-tag">Coaching ex&eacute;cutif</span>
-              <span class="svc-tag">Acc&eacute;l&eacute;rateurs internes</span>
+              <span class="svc-tag" data-en="Creative Workshops">Ateliers cr&eacute;atifs</span>
+              <span class="svc-tag" data-en="Tailored Programs">Formations sur mesure</span>
+              <span class="svc-tag" data-en="Executive Coaching">Coaching ex&eacute;cutif</span>
+              <span class="svc-tag" data-en="Internal Accelerators">Acc&eacute;l&eacute;rateurs internes</span>
             </div>
           </div>
         </div>
@@ -394,49 +374,49 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   </div>
   <div class="feature-in">
     <div class="feature-content fu">
-      <span class="eyebrow">Notre conviction</span>
-      <blockquote>L&rsquo;innovation est le r&eacute;sultat d&rsquo;une m&eacute;thode, d&rsquo;une culture et d&rsquo;un leadership d&eacute;lib&eacute;r&eacute;s.</blockquote>
-      <p>Chaque organisation poss&egrave;de un potentiel d&rsquo;innovation inexploit&eacute;. Notre travail&nbsp;: le transformer en croissance r&eacute;elle, pas en projets qui s&rsquo;essoufflent.</p>
+      <span class="eyebrow" data-en="Our conviction">Notre conviction</span>
+      <blockquote data-en="Innovation is the result of deliberate method, culture and leadership.">L&rsquo;innovation est le r&eacute;sultat d&rsquo;une m&eacute;thode, d&rsquo;une culture et d&rsquo;un leadership d&eacute;lib&eacute;r&eacute;s.</blockquote>
+      <p data-en="Every organization holds untapped innovation potential. Our work: transform it into real growth, not projects that run out of steam.">Chaque organisation poss&egrave;de un potentiel d&rsquo;innovation inexploit&eacute;. Notre travail&nbsp;: le transformer en croissance r&eacute;elle, pas en projets qui s&rsquo;essoufflent.</p>
     </div>
   </div>
 </section>
 
-<!-- APPROACH — steps -->
+<!-- APPROACH STEPS -->
 <section class="approach-s">
   <div class="s-in">
-    <div class="kicker fu">Notre approche</div>
-    <h2 class="s-title fu">Cinq &eacute;tapes vers l&rsquo;excellence en innovation</h2>
-    <p class="s-sub fu">Un processus structur&eacute;, ancr&eacute; dans le cadre du Barom&egrave;tre de l&rsquo;innovation du Qu&eacute;bec et le Manuel d&rsquo;Oslo, pour transformer votre capacit&eacute; d&rsquo;innovation en r&eacute;sultats concrets.</p>
+    <div class="kicker fu" data-en="Our approach">Notre approche</div>
+    <h2 class="s-title fu" data-en="Five steps toward excellence in innovation">Cinq &eacute;tapes vers l&rsquo;excellence en innovation</h2>
+    <p class="s-sub fu" data-en="A structured process, grounded in the Quebec Innovation Barometer and the Oslo Manual, to transform your innovation capacity into concrete results.">Un processus structur&eacute;, ancr&eacute; dans le cadre du Barom&egrave;tre de l&rsquo;innovation du Qu&eacute;bec et le Manuel d&rsquo;Oslo, pour transformer votre capacit&eacute; d&rsquo;innovation en r&eacute;sultats concrets.</p>
     <div class="steps-grid">
 
       <div class="step fu">
         <div class="step-num">1</div>
-        <h4>Diagnostic</h4>
-        <p>&Eacute;valuation de la maturit&eacute; en innovation&nbsp;: intrants (R&amp;D, ressources) et extrants actuels (brevets, productivit&eacute;).</p>
+        <h4 data-en="Diagnostic">Diagnostic</h4>
+        <p data-en="Assessment of innovation maturity: current inputs (R&amp;D, resources) and outputs (patents, productivity).">&#201;valuation de la maturit&eacute; en innovation&nbsp;: intrants (R&amp;D, ressources) et extrants actuels (brevets, productivit&eacute;).</p>
       </div>
 
       <div class="step fu">
         <div class="step-num">2</div>
-        <h4>Id&eacute;ation et Co-cr&eacute;ation</h4>
-        <p>Mobilisation des acteurs internes et externes : fournisseurs, clients, partenaires, pour g&eacute;n&eacute;rer des id&eacute;es &agrave; fort potentiel.</p>
+        <h4 data-en="Ideation and Co-creation">Id&eacute;ation et Co-cr&eacute;ation</h4>
+        <p data-en="Mobilization of internal and external stakeholders — suppliers, clients, partners — to generate high-potential ideas.">Mobilisation des acteurs internes et externes : fournisseurs, clients, partenaires, pour g&eacute;n&eacute;rer des id&eacute;es &agrave; fort potentiel.</p>
       </div>
 
       <div class="step fu">
         <div class="step-num">3</div>
-        <h4>D&eacute;veloppement et Prototypage</h4>
-        <p>Cycles courts avec boucles de r&eacute;troaction&nbsp;: tester, apprendre et ajuster pour r&eacute;duire les risques.</p>
+        <h4 data-en="Development and Prototyping">D&eacute;veloppement et Prototypage</h4>
+        <p data-en="Short cycles with feedback loops: test, learn and adjust to reduce risks.">Cycles courts avec boucles de r&eacute;troaction&nbsp;: tester, apprendre et ajuster pour r&eacute;duire les risques.</p>
       </div>
 
       <div class="step fu">
         <div class="step-num">4</div>
-        <h4>Mise en march&eacute;</h4>
-        <p>Introduction du produit ou processus nouveau&nbsp;: int&eacute;gration dans l&rsquo;organisation et adoption par les utilisateurs.</p>
+        <h4 data-en="Go to Market">Mise en march&eacute;</h4>
+        <p data-en="Introduction of the new product or process: integration into the organization and adoption by users.">Introduction du produit ou processus nouveau&nbsp;: int&eacute;gration dans l&rsquo;organisation et adoption par les utilisateurs.</p>
       </div>
 
       <div class="step fu">
         <div class="step-num">5</div>
-        <h4>Mesure d&rsquo;impact</h4>
-        <p>&Eacute;valuation des r&eacute;sultats concrets (productivit&eacute;, nouvelles ventes, impact) et r&eacute;orientation continue de la strat&eacute;gie.</p>
+        <h4 data-en="Impact Measurement">Mesure d&rsquo;impact</h4>
+        <p data-en="Evaluation of concrete results (productivity, new sales, impact) and continuous strategy refinement.">&#201;valuation des r&eacute;sultats concrets (productivit&eacute;, nouvelles ventes, impact) et r&eacute;orientation continue de la strat&eacute;gie.</p>
       </div>
 
     </div>
@@ -447,18 +427,19 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="cta-s">
   <div class="cta-in">
     <div class="cta-left fu">
-      <h2>Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
-      <p>D&eacute;couvrez comment transformer vos id&eacute;es en initiatives concr&egrave;tes qui g&eacute;n&egrave;rent un impact mesurable d&egrave;s les premiers mois.</p>
+      <h2 data-en="Schedule a consultation with one of our experts.">Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p data-en="Discover how to transform your ideas into concrete initiatives that generate measurable impact from the very first months.">D&eacute;couvrez comment transformer vos id&eacute;es en initiatives concr&egrave;tes qui g&eacute;n&egrave;rent un impact mesurable d&egrave;s les premiers mois.</p>
     </div>
     <div class="cta-card fu">
       <a href="/contact/innovation" class="btn-cta">
-        R&eacute;servez votre consultation
+        <span data-en="Book your consultation">R&eacute;servez votre consultation</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
+<script src="../lang.js"></script>
 <script>
 const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("v")})},{threshold:.1});
 document.querySelectorAll(".fu").forEach(el=>o.observe(el));
@@ -485,9 +466,9 @@ function toggleSvc(id){
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -496,31 +477,31 @@ function toggleSvc(id){
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="conseil.html">Conseil en gestion</a>
-        <a href="gouvernance.html">Gouvernance</a>
-        <a href="ia.html">Intelligence artificielle</a>
-        <a href="innovation.html">Innovation</a>
-        <a href="../technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="innovation.html" data-en="Innovation">Innovation</a>
+        <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="../formation/offre.html">Formation</a>
-        <a href="../index.html#apropos">&Agrave; propos</a>
-        <a href="../reflexions.html">Publications</a>
-        <a href="../index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="../formation/offre.html" data-en="Training">Formation</a>
+        <a href="../index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="../reflexions.html" data-en="Publications">Publications</a>
+        <a href="../index.html#carrieres" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
+        <a data-en="Privacy">Confidentialit&eacute;</a>
+        <a data-en="Terms">Conditions</a>
       </div>
     </div>
   </div>

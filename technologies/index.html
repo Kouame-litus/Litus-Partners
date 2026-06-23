@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -19,13 +19,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .logo-chip{display:inline-flex;flex-shrink:0}
 .logo-text-group{display:flex;flex-direction:column;gap:1px}
 .logo-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
-.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:4px}
 .nav-a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .nav-a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .nav-btn{background:var(--accent);color:#fff!important;border-radius:50px;padding:10px 24px;font-weight:600;font-size:14px;margin-left:8px}
 .nav-btn:hover{background:#a84d18!important}
-/* HERO — split */
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
+.lang-switch button[data-active="true"]{color:#fff}
+.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
+.lang-switch button:hover{color:rgba(255,255,255,.8)}
+.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+/* HERO */
 .hero{position:relative;min-height:72vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
 .hero-left{background:linear-gradient(150deg,#0d2444 0%,#1B3D6F 50%,#0d2444 100%);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;overflow:hidden}
 .hero-right{position:relative;overflow:hidden}
@@ -68,22 +79,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .cta-s{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
 .cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
 .cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
-.cta-left .cta-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
 .cta-left h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
 .cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
 .cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
-.cta-card-info{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;text-align:center;margin-bottom:24px}
-.cta-card-info strong{color:#fff;font-weight:700}
 .btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;transition:all .25s;width:100%}
 .btn-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 32px rgba(192,92,30,.4)}
 @media(max-width:900px){.cta-in{grid-template-columns:1fr}.cta-card{max-width:420px}}
-.btn-w{background:#fff;color:var(--navy);border-radius:50px;padding:16px 36px;font-size:15px;font-weight:700;transition:all .2s;display:inline-flex;align-items:center;gap:10px}
-.btn-w:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,92,30,.35)}
 /* FADE */
 .fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .fu.v{opacity:1;transform:none}
-@media(max-width:900px){.tech-grid{grid-template-columns:1fr}.tc{padding:36px 28px}}
-
+@media(max-width:900px){.tech-grid{grid-template-columns:1fr}.tc{padding:36px 28px}.nav-links{display:none}.hamburger{display:flex}}
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -110,27 +115,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <a href="../index.html" class="nav-logo">
       <div class="logo-chip">
         <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- pins top -->
-          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins bottom -->
-          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/>
-          <rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins left -->
-          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <!-- pins right -->
-          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
-          <rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
-          <!-- chip body -->
-          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/>
-          <!-- chip inner -->
-          <rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
-          <!-- LP text -->
+          <rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/>
+          <rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/>
+          <rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/>
+          <rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/>
           <text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text>
         </svg>
       </div>
@@ -139,21 +128,42 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a href="../index.html#expertises" class="nav-a">Expertises</a>
-      <a href="../index.html#formation" class="nav-a">Formation</a>
-      <a href="../index.html#apropos" class="nav-a">&Agrave; propos</a>
-      <a href="../reflexions.html" class="nav-a">Publications</a>
-      <a href="../index.html#contact" class="nav-btn nav-a">Nous contacter</a>
+      <a href="../index.html#expertises" class="nav-a" data-en="Expertises">Expertises</a>
+      <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
+      <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
+      <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
+      <a href="../index.html#contact" class="nav-btn nav-a" data-en="Contact us">Nous contacter</a>
+      <div class="lang-switch">
+        <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button data-lang="en" data-active="false" onclick="setLang('en')">EN</button>
+      </div>
     </div>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
+  <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
+  <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <div class="lang-switch" style="margin-top:24px">
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <span class="lang-sep" style="font-size:14px">|</span>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-left">
-    <h1 class="fu">Technologies</h1>
-    <p class="hero-sub fu">Des technologies au service de votre transformation num&eacute;rique.</p>
+    <h1 class="fu" data-en="Technologies">Technologies</h1>
+    <p class="hero-sub fu" data-en="Technologies that power your digital transformation.">Des technologies au service de votre transformation num&eacute;rique.</p>
     <a href="/contact/technologies" class="hero-cta fu">
-      R&eacute;server une consultation
+      <span data-en="Book a consultation">R&eacute;server une consultation</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -167,19 +177,18 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <div class="ib-icon">
       <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
     </div>
-    <p><strong>Expertise technologique</strong> : Nos conseillers ma&icirc;trisent les &eacute;cosyst&egrave;mes Microsoft et AWS pour vous accompagner de la strat&eacute;gie &agrave; l&rsquo;impl&eacute;mentation, avec une approche centr&eacute;e sur vos objectifs d&rsquo;affaires.</p>
-    <a href="../index.html#contact" class="ib-btn">S&rsquo;inscrire &agrave; l&rsquo;infolettre</a>
+    <p data-en="&lt;strong&gt;Technology expertise&lt;/strong&gt;: Our consultants master the Microsoft and AWS ecosystems to guide you from strategy to implementation, with an approach centred on your business objectives."><strong>Expertise technologique</strong> : Nos conseillers ma&icirc;trisent les &eacute;cosyst&egrave;mes Microsoft et AWS pour vous accompagner de la strat&eacute;gie &agrave; l&rsquo;impl&eacute;mentation, avec une approche centr&eacute;e sur vos objectifs d&rsquo;affaires.</p>
+    <a href="../index.html#contact" class="ib-btn" data-en="Subscribe to newsletter">S&rsquo;inscrire &agrave; l&rsquo;infolettre</a>
   </div>
 </div>
 
 <section class="section-tech">
   <div class="s-in">
-    <div class="kicker fu">Nos technologies</div>
-    <h2 class="s-title fu">Les plateformes que nous ma&icirc;trisons</h2>
-    <p class="s-sub fu">Chaque technologie est s&eacute;lectionn&eacute;e pour sa capacit&eacute; &agrave; r&eacute;pondre aux d&eacute;fis r&eacute;els des organisations en transformation.</p>
+    <div class="kicker fu" data-en="Our technologies">Nos technologies</div>
+    <h2 class="s-title fu" data-en="Platforms we master">Les plateformes que nous ma&icirc;trisons</h2>
+    <p class="s-sub fu" data-en="Every technology is selected for its capacity to address real challenges of organizations in transformation.">Chaque technologie est s&eacute;lectionn&eacute;e pour sa capacit&eacute; &agrave; r&eacute;pondre aux d&eacute;fis r&eacute;els des organisations en transformation.</p>
 
     <div class="tech-grid">
-
       <!-- Azure -->
       <div class="tc fu">
         <div class="tlogo">
@@ -199,12 +208,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           Microsoft Azure
         </div>
         <div class="tdiv"></div>
-        <h3>Infrastructure cloud et services manag&eacute;s</h3>
-        <p>Microsoft Azure est la plateforme cloud de r&eacute;f&eacute;rence pour h&eacute;berger vos applications, donn&eacute;es et services dans un environnement s&eacute;curis&eacute;, &eacute;volutif et conforme aux normes les plus exigeantes. Nous accompagnons votre migration et votre architecture cloud sur Azure.</p>
+        <h3 data-en="Cloud infrastructure and managed services">Infrastructure cloud et services manag&eacute;s</h3>
+        <p data-en="Microsoft Azure is the reference cloud platform for hosting your applications, data and services in a secure, scalable environment that meets the most demanding standards. We support your cloud migration and Azure architecture.">Microsoft Azure est la plateforme cloud de r&eacute;f&eacute;rence pour h&eacute;berger vos applications, donn&eacute;es et services dans un environnement s&eacute;curis&eacute;, &eacute;volutif et conforme aux normes les plus exigeantes. Nous accompagnons votre migration et votre architecture cloud sur Azure.</p>
         <div class="tags">
-          <span class="tag">Migration cloud</span>
-          <span class="tag">Architecture</span>
-          <span class="tag">S&eacute;curit&eacute;</span>
+          <span class="tag" data-en="Cloud migration">Migration cloud</span>
+          <span class="tag" data-en="Architecture">Architecture</span>
+          <span class="tag" data-en="Security">S&eacute;curit&eacute;</span>
           <span class="tag">DevOps</span>
         </div>
         <div class="cnum">01</div>
@@ -224,13 +233,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           Microsoft 365
         </div>
         <div class="tdiv"></div>
-        <h3>Productivit&eacute; et collaboration d&rsquo;entreprise</h3>
-        <p>Microsoft 365 centralise la communication, la collaboration et la productivit&eacute; au sein de votre organisation. De Teams &agrave; SharePoint en passant par Power Automate, nous optimisons votre d&eacute;ploiement pour maximiser l&rsquo;adoption et l&rsquo;efficacit&eacute; de vos &eacute;quipes.</p>
+        <h3 data-en="Enterprise productivity and collaboration">Productivit&eacute; et collaboration d&rsquo;entreprise</h3>
+        <p data-en="Microsoft 365 centralizes communication, collaboration and productivity within your organization. From Teams to SharePoint and Power Automate, we optimize your deployment to maximize adoption and team efficiency.">Microsoft 365 centralise la communication, la collaboration et la productivit&eacute; au sein de votre organisation. De Teams &agrave; SharePoint en passant par Power Automate, nous optimisons votre d&eacute;ploiement pour maximiser l&rsquo;adoption et l&rsquo;efficacit&eacute; de vos &eacute;quipes.</p>
         <div class="tags">
           <span class="tag">Teams</span>
           <span class="tag">SharePoint</span>
           <span class="tag">Power Platform</span>
-          <span class="tag">Gouvernance</span>
+          <span class="tag" data-en="Governance">Gouvernance</span>
         </div>
         <div class="cnum">02</div>
       </div>
@@ -246,10 +255,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           Power BI
         </div>
         <div class="tdiv"></div>
-        <h3>Analytique et intelligence d&rsquo;affaires</h3>
-        <p>Power BI transforme vos donn&eacute;es brutes en tableaux de bord interactifs et en insights actionnables. Nous concevons des solutions de reporting sur mesure qui permettent &agrave; vos dirigeants et &eacute;quipes de prendre des d&eacute;cisions &eacute;clair&eacute;es, en temps r&eacute;el.</p>
+        <h3 data-en="Analytics and business intelligence">Analytique et intelligence d&rsquo;affaires</h3>
+        <p data-en="Power BI transforms your raw data into interactive dashboards and actionable insights. We design custom reporting solutions that enable your leaders and teams to make informed decisions, in real time.">Power BI transforme vos donn&eacute;es brutes en tableaux de bord interactifs et en insights actionnables. Nous concevons des solutions de reporting sur mesure qui permettent &agrave; vos dirigeants et &eacute;quipes de prendre des d&eacute;cisions &eacute;clair&eacute;es, en temps r&eacute;el.</p>
         <div class="tags">
-          <span class="tag">Tableaux de bord</span>
+          <span class="tag" data-en="Dashboards">Tableaux de bord</span>
           <span class="tag">Reporting</span>
           <span class="tag">Data modeling</span>
           <span class="tag">KPI</span>
@@ -270,8 +279,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           Amazon Web Services
         </div>
         <div class="tdiv"></div>
-        <h3>Cloud infrastructure et services AWS</h3>
-        <p>Amazon Web Services est le leader mondial du cloud computing. Nous vous accompagnons dans l&rsquo;architecture, le d&eacute;ploiement et l&rsquo;optimisation de vos solutions sur AWS : h&eacute;bergement, machine learning, stockage ou automatisation de vos processus m&eacute;tiers.</p>
+        <h3 data-en="Cloud infrastructure and AWS services">Cloud infrastructure et services AWS</h3>
+        <p data-en="Amazon Web Services is the global leader in cloud computing. We support you in the architecture, deployment and optimization of your solutions on AWS: hosting, machine learning, storage or automation of your business processes.">Amazon Web Services est le leader mondial du cloud computing. Nous vous accompagnons dans l&rsquo;architecture, le d&eacute;ploiement et l&rsquo;optimisation de vos solutions sur AWS : h&eacute;bergement, machine learning, stockage ou automatisation de vos processus m&eacute;tiers.</p>
         <div class="tags">
           <span class="tag">EC2 / S3</span>
           <span class="tag">Lambda</span>
@@ -280,7 +289,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
         <div class="cnum">04</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -288,23 +296,24 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <section class="cta-s">
   <div class="cta-in">
     <div class="cta-left fu">
-      <h2>Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
-      <p>D&eacute;couvrez comment moderniser votre infrastructure technologique et aligner vos outils num&eacute;riques avec vos ambitions strat&eacute;giques.</p>
+      <h2 data-en="Schedule a consultation with one of our experts.">Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p data-en="Discover how to modernize your technology infrastructure and align your digital tools with your strategic ambitions.">D&eacute;couvrez comment moderniser votre infrastructure technologique et aligner vos outils num&eacute;riques avec vos ambitions strat&eacute;giques.</p>
     </div>
     <div class="cta-card fu">
       <a href="/contact/technologies" class="btn-cta">
-        R&eacute;servez votre consultation
+        <span data-en="Book your consultation">R&eacute;servez votre consultation</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
+<script src="../lang.js"></script>
 <script>
 const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("v")})},{threshold:.1});
 document.querySelectorAll(".fu").forEach(el=>o.observe(el));
 </script>
-<!-- FOOTER -->
+
 <footer>
   <div class="s-in">
     <div class="foot-top">
@@ -313,9 +322,9 @@ document.querySelectorAll(".fu").forEach(el=>o.observe(el));
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p>Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
-          <span class="foot-social-label">Suivez-nous</span>
+          <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
             <a href="#" class="foot-si" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" class="foot-si" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -324,32 +333,29 @@ document.querySelectorAll(".fu").forEach(el=>o.observe(el));
         </div>
       </div>
       <div class="foot-col">
-        <h5>Expertises</h5>
-        <a href="../expertises/conseil.html">Conseil en gestion</a>
-        <a href="../expertises/gouvernance.html">Gouvernance</a>
-        <a href="../expertises/ia.html">Intelligence artificielle</a>
-        <a href="../expertises/innovation.html">Innovation</a>
-        <a href="../technologies/index.html">Technologies</a>
+        <h5 data-en="Expertises">Expertises</h5>
+        <a href="../expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
+        <a href="../expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
+        <a href="../expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
+        <a href="../expertises/innovation.html" data-en="Innovation">Innovation</a>
+        <a href="index.html" data-en="Technologies">Technologies</a>
       </div>
       <div class="foot-col">
-        <h5>Entreprise</h5>
-        <a href="../formation/offre.html">Formation</a>
-        <a href="../index.html#apropos">&Agrave; propos</a>
-        <a href="../reflexions.html">Publications</a>
-        <a href="../index.html#carrieres">Carri&egrave;res</a>
+        <h5 data-en="Company">Entreprise</h5>
+        <a href="../formation/offre.html" data-en="Training">Formation</a>
+        <a href="../index.html#apropos" data-en="About">&Agrave; propos</a>
+        <a href="../reflexions.html" data-en="Publications">Publications</a>
+        <a href="../carrieres/index.html" data-en="Careers">Carri&egrave;res</a>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
-        <a>Qu&eacute;bec, Canada</a>
+        <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
       </div>
     </div>
     <div class="foot-btm">
-      <div>&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
-      <div class="foot-btm-links">
-        <a>Confidentialit&eacute;</a>
-        <a>Conditions</a>
-      </div>
+      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div class="foot-btm-links"><a data-en="Privacy">Confidentialit&eacute;</a><a data-en="Terms">Conditions</a></div>
     </div>
   </div>
 </footer>
