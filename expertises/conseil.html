@@ -65,8 +65,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .exp-hero-cta svg{width:18px;height:18px}
 @media(max-width:900px){
   .exp-hero{grid-template-columns:1fr;min-height:auto}
-  .exp-hero-right{height:300px}
-  .exp-hero-left{padding:80px 32px 56px}
+  .exp-hero-left{padding:80px 32px 48px}
+  .exp-hero-right{height:320px;position:relative}
+  .exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:100%;height:80px;background:linear-gradient(to bottom,#0a1e38 0%,transparent 100%);z-index:1}
 }
 
 /* INTRO SECTION */
