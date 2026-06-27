@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -107,7 +107,7 @@ nav.solid .hamburger span{background:var(--navy)}
 .avantage span{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);line-height:1.5}
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;border-top:1px solid rgba(255,255,255,.08)}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
 .foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
 .foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
@@ -164,7 +164,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
 <div class="mob" id="mob">
   <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
   <a href="../index.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Home">Accueil</a>
-  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Services">Services</a>
   <a href="#offres" onclick="document.getElementById('mob').classList.remove('open')" data-en="Open positions">Postes ouverts</a>
   <a href="/carrieres/postuler" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Apply →">Postuler &rarr;</a>
   <div class="lang-switch" style="margin-top:24px">
@@ -267,12 +267,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
         </div>
       </div>
       <div class="foot-col">
-        <h5 data-en="Expertises">Expertises</h5>
+        <h5 data-en="Services">Services</h5>
         <a href="../expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
         <a href="../expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
         <a href="../expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
         <a href="../expertises/innovation.html" data-en="Innovation">Innovation</a>
         <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
+        <a href="../expertises/soutien.html" data-en="Operations Support">Soutien aux op&eacute;rations</a>
+        <a href="../diagnostic/index.html" data-en="AI Diagnostic">Diagnostic IA</a>
       </div>
       <div class="foot-col">
         <h5 data-en="Company">Entreprise</h5>
@@ -285,7 +287,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;bor
         <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
         <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
-      </div>
     </div>
     <div class="foot-btm">
       <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>

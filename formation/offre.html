@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -156,7 +156,7 @@ nav.solid{background:rgba(15,35,64,.98);backdrop-filter:blur(20px);box-shadow:0 
 }
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
 .foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
 .foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
@@ -195,7 +195,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       </div>
     </a>
     <div class="nav-links">
-      <a href="../index.html#expertises" class="nav-a" data-en="Expertises">Expertises</a>
+      <a href="../index.html#expertises" class="nav-a" data-en="Services">Services</a>
       <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
       <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
       <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
@@ -215,7 +215,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- MOBILE MENU -->
 <div class="mob" id="mob">
   <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&times;</button>
-  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Expertises">Expertises</a>
+  <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Services">Services</a>
   <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
   <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
   <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
@@ -241,7 +241,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     </h1>
     <div class="hero-actions fu d4">
       <a href="#catalogue" class="btn-primary" data-en="Explore our training programs">Consultez notre offre de formation</a>
-    </div>
   </div>
 </section>
 
@@ -358,7 +357,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <div class="cat-title" data-en="Custom training&lt;br&gt;program">Offre de formation<br>sur mesure</div>
         <p class="cat-desc" data-en="Does your organization have specific needs? We co-design a fully customized program with you: content, format, duration and deliverables adapted to your context and objectives.">Votre organisation a des besoins sp&eacute;cifiques&nbsp;? Nous concevons avec vous un programme enti&egrave;rement sur mesure&nbsp;: contenu, format, dur&eacute;e et livrables adapt&eacute;s &agrave; vos enjeux et &agrave; vos objectifs.</p>
         <a href="reservation.html?formation=sur-mesure" class="cat-btn" data-en="Request information">Demande d&rsquo;information</a>
-      </div>
 
     </div>
   </div>
@@ -378,7 +376,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <p data-en="Share your training project with us. Our team will assess your needs and propose a program tailored to your organizational reality as quickly as possible.">Partagez-nous votre projet de formation. Notre &eacute;quipe &eacute;value vos besoins et vous propose un programme adapt&eacute; &agrave; votre r&eacute;alit&eacute; organisationnelle dans les meilleurs d&eacute;lais.</p>
       <div class="cta-btns">
         <a href="equipe.html" class="btn-primary" data-en="Contact our team">Contacter notre &eacute;quipe</a>
-      </div>
     </div>
   </div>
 </div>
@@ -403,12 +400,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         </div>
       </div>
       <div class="foot-col">
-        <h5 data-en="Expertises">Expertises</h5>
+        <h5 data-en="Services">Services</h5>
         <a href="../expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
         <a href="../expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
         <a href="../expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
         <a href="../expertises/innovation.html" data-en="Innovation">Innovation</a>
         <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
+        <a href="../expertises/soutien.html" data-en="Operations Support">Soutien aux op&eacute;rations</a>
+        <a href="../diagnostic/index.html" data-en="AI Diagnostic">Diagnostic IA</a>
       </div>
       <div class="foot-col">
         <h5 data-en="Company">Entreprise</h5>
@@ -421,14 +420,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <h5 data-en="Contact">Contact</h5>
         <a href="mailto:contact@lituspartners.com">contact@lituspartners.com</a>
         <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
-      </div>
     </div>
     <div class="foot-btm">
       <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
         <a data-en="Privacy">Confidentialit&eacute;</a>
         <a data-en="Terms">Conditions</a>
-      </div>
     </div>
   </div>
 </footer>
