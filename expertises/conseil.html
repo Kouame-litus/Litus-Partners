@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 
 /* HERO */
-.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px;background:#c05000}
+.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
 .exp-hero-left{background:linear-gradient(150deg,#c05000 0%,#8a3200 25%,#1a3d70 60%,#0a1e38 100%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
 .exp-hero-right{position:relative;overflow:hidden}
 .exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
@@ -64,10 +64,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .exp-hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
 .exp-hero-cta svg{width:18px;height:18px}
 @media(max-width:900px){
-  .exp-hero{grid-template-columns:1fr;min-height:auto}
-  .exp-hero-left{padding:80px 32px 48px}
-  .exp-hero-right{height:320px;position:relative}
-  .exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:100%;height:160px;background:linear-gradient(to bottom,#0a1e38 0%,rgba(10,30,56,.0) 100%);z-index:1}
+  .exp-hero{grid-template-columns:1fr;min-height:auto;height:85vh;margin-top:0}
+  .exp-hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:70%;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);z-index:1;pointer-events:none}
+  .exp-hero-left{background:transparent;position:absolute;bottom:0;left:0;width:100%;padding:32px 24px 44px;z-index:2;justify-content:flex-end}
+  .exp-hero-right{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+  .exp-hero-right::before{display:none}
+  .exp-breadcrumb{display:none}
+  .exp-hero h1{font-size:28px;margin-bottom:12px;max-width:none}
+  .exp-hero-sub{font-size:14px;margin-bottom:20px;max-width:none;line-height:1.6}
+  .exp-hero-tag{margin-bottom:14px}
+  .exp-hero-cta{padding:12px 24px;font-size:14px}
 }
 
 /* INTRO SECTION */

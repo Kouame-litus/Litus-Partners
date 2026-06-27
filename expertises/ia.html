@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
 
 /* HERO */
-.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px;background:#0d2444}
+.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
 .exp-hero-left{background:linear-gradient(150deg,#060d1a 0%,#0d2444 35%,#1B3D6F 65%,#0d2444 100%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
 .exp-hero-left::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(192,92,30,.08) 0%,transparent 70%);pointer-events:none}
 .exp-hero-right{position:relative;overflow:hidden}
@@ -62,7 +62,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.68);max-width:460px;line-height:1.85;margin-bottom:44px;position:relative;z-index:1}
 .exp-hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:15px 32px;font-size:15px;font-weight:700;transition:all .25s;cursor:pointer;width:fit-content;position:relative;z-index:1;box-shadow:0 8px 24px rgba(192,92,30,.35)}
 .exp-hero-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 12px 32px rgba(192,92,30,.45)}
-@media(max-width:900px){.exp-hero{grid-template-columns:1fr;min-height:auto}.exp-hero-left{padding:80px 32px 48px}.exp-hero-right{height:320px;position:relative}.exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:100%;height:160px;background:linear-gradient(to bottom,#0d2444 0%,rgba(13,36,68,0) 100%);z-index:1}}
+@media(max-width:900px){
+  .exp-hero{grid-template-columns:1fr;min-height:auto;height:85vh;margin-top:0}
+  .exp-hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:70%;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);z-index:1;pointer-events:none}
+  .exp-hero-left{background:transparent;position:absolute;bottom:0;left:0;width:100%;padding:32px 24px 44px;z-index:2;justify-content:flex-end}
+  .exp-hero-left::after{display:none}
+  .exp-hero-right{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+  .exp-hero-right::before{display:none}
+  .exp-breadcrumb{display:none}
+  .exp-hero h1{font-size:26px;margin-bottom:12px;max-width:none}
+  .exp-hero-sub{font-size:14px;margin-bottom:20px;max-width:none;line-height:1.6}
+  .exp-hero-badge{margin-bottom:14px}
+  .exp-hero-cta{padding:12px 24px;font-size:14px}
+}
 
 /* NEWSLETTER BANNER */
 .nl-banner{background:linear-gradient(90deg,#ffffff 0%,#e8884a 40%,#C05C1E 100%);padding:18px 0;cursor:pointer}
