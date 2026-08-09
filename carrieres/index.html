@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0F2340;--blue:#1B3D6F;--accent:#C05C1E;--light:#F7F8FA;--white:#fff;--gray:#64748B;--border:#E2E8F0;--text:#0F2340}
+:root{--navy:#002147;--blue:#1B6CA8;--accent:#C05C1E;--light:#F5F5F5;--white:#fff;--gray:#6B6B6B;--border:#E2E8F0;--text:#333333}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
@@ -55,10 +55,10 @@ nav.solid .lang-sep{color:var(--border)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
 nav.solid .hamburger span{background:var(--navy)}
-.mob{position:fixed;inset:0;background:var(--navy);z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob{position:fixed;inset:0;background:#fff;z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
 .mob.open{opacity:1;pointer-events:all}
-.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
-.mob a{font-size:22px;font-weight:700;color:#fff;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#1A1A1A;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#1A1A1A;padding:18px 0;border-bottom:1px solid #E2E8F0;display:block}
 /* HERO */
 .hero{position:relative;min-height:520px;display:flex;align-items:center}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
@@ -108,7 +108,7 @@ nav.solid .hamburger span{background:var(--navy)}
 .avantage span{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);line-height:1.5}
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px;border-top:1px solid rgba(255,255,255,.08)}
-.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid #E2E8F0}
 .foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
 .foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
