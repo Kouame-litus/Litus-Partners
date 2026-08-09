@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -128,7 +128,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
   <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
   <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
-  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us ?">Nous contacter &rarr;</a>
+  <a href="../index.html#contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us ‚Üí">Nous contacter &rarr;</a>
   <div class="lang-switch" style="margin-top:24px">
     <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
     <span class="lang-sep" style="font-size:14px">|</span>
@@ -182,7 +182,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p data-en="Consulting ∑ Strategy ∑ Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting ¬∑ Strategy ¬∑ Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
           <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
@@ -215,7 +215,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
         <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
     </div>
     <div class="foot-btm">
-      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="¬© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links"><a data-en="Privacy">Confidentialit&eacute;</a><a data-en="Terms">Conditions</a></div>
     </div>
   </div>
@@ -228,13 +228,13 @@ var CAT_CSS={
   'gouvernance':'cat-gouvernance',
   'intelligence artificielle':'cat-ia',
   'transformation numerique':'cat-transformation',
-  'transformation numÈrique':'cat-transformation'
+  'transformation num√©rique':'cat-transformation'
 };
 
 var CAT_EN={
   'gouvernance':'Governance',
   'intelligence artificielle':'Artificial Intelligence',
-  'transformation numÈrique':'Digital Transformation',
+  'transformation num√©rique':'Digital Transformation',
   'transformation numerique':'Digital Transformation',
   'conseil en gestion':'Management Consulting'
 };
@@ -247,7 +247,7 @@ function fmtDate(d){
 
 function showError(msg){
   var lang=getLang();
-  document.getElementById('artContent').innerHTML='<div class="error-msg"><h2>'+(lang==='en'?'Article not available':'Article non disponible')+'</h2><p>'+msg+'</p><p style="margin-top:24px"><a href="../reflexions.html" style="color:var(--accent);font-weight:600">? '+(lang==='en'?'Back to publications':'Retour aux publications')+'</a></p></div>';
+  document.getElementById('artContent').innerHTML='<div class="error-msg"><h2>'+(lang==='en'?'Article not available':'Article non disponible')+'</h2><p>'+msg+'</p><p style="margin-top:24px"><a href="../reflexions.html" style="color:var(--accent);font-weight:600">‚Üê '+(lang==='en'?'Back to publications':'Retour aux publications')+'</a></p></div>';
   document.getElementById('artTitle').textContent=lang==='en'?'Article not available':'Article non disponible';
   document.getElementById('artCat').textContent='';
 }
@@ -255,9 +255,9 @@ function showError(msg){
 async function loadArticle(){
   var lang=getLang();
   document.getElementById('backLabel').textContent=lang==='en'?'Back to publications':'Retour aux publications';
-  document.getElementById('artLoader').textContent=lang==='en'?'Loading articleÖ':'Chargement de líarticleÖ';
+  document.getElementById('artLoader').textContent=lang==='en'?'Loading article‚Ä¶':'Chargement de l‚Äôarticle‚Ä¶';
   var slug=window.ARTICLE_SLUG||(new URLSearchParams(window.location.search).get('slug'));
-  if(!slug){showError(lang==='en'?'No article specified.':'Aucun article spÈcifiÈ.');return;}
+  if(!slug){showError(lang==='en'?'No article specified.':'Aucun article sp√©cifi√©.');return;}
   try{
     var res=await fetch('/reflexions/articles.json?_='+Date.now());
     if(!res.ok) throw new Error('fetch failed');
@@ -266,7 +266,7 @@ async function loadArticle(){
     if(!art){showError(lang==='en'?'Article not found.':'Article introuvable.');return;}
     var title=lang==='en'&&art.title_en?art.title_en:art.title;
     var body=lang==='en'&&art.body_en?art.body_en:art.body||'';
-    document.getElementById('page-title').textContent=title+' ó Litus Partners';
+    document.getElementById('page-title').textContent=title+' ‚Äî Litus Partners';
     document.getElementById('artTitle').textContent=title;
     document.getElementById('artAuthor').textContent=art.author||'Litus Partners';
     document.getElementById('artDate').textContent=fmtDate(art.date);
