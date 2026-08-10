@@ -705,11 +705,24 @@ function sendForm(){
   const mg=document.getElementById('f6').value.trim();
   if(!nom||!org||!em||!mg){alert(getLang()==='en'?'Please fill in all required fields (*).':'Veuillez remplir les champs obligatoires (*).');return;}
   const svc=document.getElementById('f5').value;
-  const sub=encodeURIComponent('Contact LP — '+org+(svc?' — '+svc:''));
-  const body=encodeURIComponent('Nom : '+nom+'\nOrganisation : '+org+'\nCourriel : '+em+'\nService : '+svc+'\n\n'+mg);
-  window.location.href='mailto:info@lituspartners.com?subject='+sub+'&body='+body;
-  document.getElementById('cform').style.display='none';
-  document.getElementById('fok').style.display='block';
+  const btn=document.querySelector('.btn-send');
+  btn.disabled=true;
+  fetch('https://formspree.io/f/mwlelqkd',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name:nom,organization:org,email:em,service:svc,message:mg})
+  }).then(r=>{
+    if(r.ok){
+      document.getElementById('cform').style.display='none';
+      document.getElementById('fok').style.display='block';
+    } else {
+      alert(getLang()==='en'?'An error occurred. Please try again.':'Une erreur est survenue. Veuillez réessayer.');
+      btn.disabled=false;
+    }
+  }).catch(()=>{
+    alert(getLang()==='en'?'An error occurred. Please try again.':'Une erreur est survenue. Veuillez réessayer.');
+    btn.disabled=false;
+  });
 }
 </script>
 <script>
