@@ -351,7 +351,7 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
       <span class="nav-a" data-en="About" onclick="go('apropos')">&Agrave; propos</span>
       <span class="nav-a" onclick="go('reflexions')">Publications</span>
       <span class="nav-a" data-en="Careers" onclick="go('carrieres')">Carri&egrave;res</span>
-      <span class="nav-a nav-btn" data-en="Contact Us" onclick="go('contact')">Nous contacter</span>
+      <a class="nav-a nav-btn" data-en="Contact Us" href="/contact">Nous contacter</a>
       <div class="lang-switch">
         <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
         <span class="lang-sep">|</span>
@@ -372,7 +372,7 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
   <a data-en="About" onclick="go('apropos');toggleMob()">À propos</a>
   <a onclick="go('reflexions');toggleMob()">Publications</a>
   <a data-en="Careers" onclick="go('carrieres');toggleMob()">Carrières</a>
-  <a data-en="Contact Us →" onclick="go('contact');toggleMob()" style="color:var(--accent)">Nous contacter →</a>
+  <a data-en="Contact Us →" href="/contact" onclick="toggleMob()" style="color:var(--accent)">Nous contacter →</a>
   <div class="lang-switch" style="margin-top:24px">
     <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
     <span class="lang-sep" style="font-size:14px">|</span>
