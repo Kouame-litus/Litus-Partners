@@ -1,22 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gouvernance du num&eacute;rique | Litus Partners</title>
-<meta name="description" content="Litus Partners accompagne les organisations dans la compr&eacute;hension et la ma&icirc;trise des enjeux li&eacute;s au num&eacute;rique, afin d&rsquo;am&eacute;liorer leurs services, renforcer leur prise de d&eacute;cision et moderniser leurs processus administratifs.">
+<meta name="description" content="Litus Partners accompagne les organisations dans la conception et l&rsquo;op&eacute;rationnalisation d&rsquo;une gouvernance num&eacute;rique rigoureuse. Diagnostic, architecture et mise en oeuvre.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lituspartners.com/expertises/gouvernance">
 <meta property="og:title" content="Gouvernance du num&eacute;rique | Litus Partners">
-<meta property="og:description" content="Litus Partners accompagne les organisations dans la compr&eacute;hension et la ma&icirc;trise des enjeux li&eacute;s au num&eacute;rique, afin d&rsquo;am&eacute;liorer leurs services, renforcer leur prise de d&eacute;cision et moderniser leurs processus administratifs.">
+<meta property="og:description" content="Litus Partners accompagne les organisations dans la conception et l&rsquo;op&eacute;rationnalisation d&rsquo;une gouvernance num&eacute;rique rigoureuse. Diagnostic, architecture et mise en oeuvre.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gouvernance du num&eacute;rique | Litus Partners">
-<meta name="twitter:description" content="Litus Partners accompagne les organisations dans la compr&eacute;hension et la ma&icirc;trise des enjeux li&eacute;s au num&eacute;rique, afin d&rsquo;am&eacute;liorer leurs services, renforcer leur prise de d&eacute;cision et moderniser leurs processus administratifs.">
+<meta name="twitter:description" content="Litus Partners accompagne les organisations dans la conception et l&rsquo;op&eacute;rationnalisation d&rsquo;une gouvernance num&eacute;rique rigoureuse. Diagnostic, architecture et mise en oeuvre.">
 <link rel="canonical" href="https://lituspartners.com/expertises/gouvernance">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#002147;--blue:#1B6CA8;--accent:#C05C1E;--light:#F5F5F5;--white:#fff;--gray:#6B6B6B;--border:#E2E8F0;--text:#333333}
+:root{--navy:#002147;--blue:#1B6CA8;--accent:#C05C1E;--light:#F5F5F5;--white:#fff;--gray:#6B6B6B;--border:#E2E8F0;--text:#333333;--bg:#F4F4F4}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
@@ -30,7 +30,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .logo-chip{display:inline-flex;flex-shrink:0}
 .logo-text-group{display:flex;flex-direction:column;gap:1px}
 .logo-name{font-size:17px;font-weight:700;color:var(--navy);letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
-.logo-tagline{font-size:8.5px;font-weight:700;color:#fff;letter-spacing:.13em;text-transform:uppercase;line-height:1.3;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:4px}
 .nav-a{font-size:14px;font-weight:600;color:var(--gray);padding:8px 16px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .nav-a:hover{color:var(--navy);background:rgba(0,0,0,.04)}
@@ -38,105 +37,132 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .nav-btn:hover{background:#a84d18!important}
 .lang-switch{display:flex;align-items:center;gap:0;margin-left:16px}
 .lang-switch button{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;padding:4px 7px;transition:color .2s;line-height:1}
-.lang-switch button[data-active="true"]{color:#fff}
-.lang-switch button[data-active="false"]{color:rgba(255,255,255,.35)}
-.lang-switch button:hover{color:rgba(255,255,255,.8)}
-.lang-sep{color:rgba(255,255,255,.2);font-size:11px;line-height:1;user-select:none}
+.lang-switch button[data-active="true"]{color:var(--navy)}
+.lang-switch button[data-active="false"]{color:rgba(0,33,71,.3)}
+.lang-switch button:hover{color:var(--navy)}
+.lang-sep{color:rgba(0,33,71,.2);font-size:11px;line-height:1;user-select:none}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px}
+.mob{position:fixed;inset:0;background:#fff;z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#1A1A1A;font-size:22px;cursor:pointer}
+.mob a{font-size:22px;font-weight:700;color:#1A1A1A;padding:18px 0;border-bottom:1px solid #E2E8F0;display:block}
 
 /* HERO */
-.exp-hero{position:relative;min-height:88vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;margin-top:72px}
-.exp-hero-left{background:linear-gradient(150deg,#0d2444 0%,#1B3D6F 50%,#1a5f8f 80%,#0d2444 100%);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
-.exp-hero-right{position:relative;overflow:hidden}
-.exp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
-.exp-hero-right::before{content:"";position:absolute;left:0;top:0;width:140px;height:100%;background:linear-gradient(to right,#0d2444 0%,transparent 100%);z-index:1}
-.exp-breadcrumb{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:28px;display:flex;align-items:center;gap:8px}
-.exp-breadcrumb a{color:rgba(255,255,255,.6);transition:color .2s}
-.exp-breadcrumb a:hover{color:#fff}
-.exp-breadcrumb span{color:rgba(255,255,255,.35)}
-.exp-breadcrumb span:last-child{color:#fff;font-weight:600}
-.exp-hero h1{font-size:clamp(32px,3.8vw,56px);font-weight:300;color:#fff;line-height:1.1;letter-spacing:-.3px;max-width:520px;margin-bottom:24px}
-.exp-hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.72);max-width:460px;line-height:1.8;margin-bottom:44px}
-.exp-hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:14px 30px;font-size:15px;font-weight:700;transition:all .2s;cursor:pointer;width:fit-content}
-.exp-hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
-@media(max-width:900px){
-  .exp-hero{grid-template-columns:1fr;min-height:auto;height:85vh;margin-top:0}
-  .exp-hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:70%;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);z-index:1;pointer-events:none}
-  .exp-hero-left{background:transparent;position:absolute;bottom:0;left:0;width:100%;padding:32px 24px 44px;z-index:2;justify-content:flex-end}
-  .exp-hero-right{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
-  .exp-hero-right::before{display:none}
-  .exp-breadcrumb{display:none}
-  .exp-hero h1{font-size:28px;margin-bottom:12px;max-width:none}
-  .exp-hero-sub{font-size:14px;margin-bottom:20px;max-width:none;line-height:1.6}
-  .exp-hero-cta{padding:12px 24px;font-size:14px}
-}
+.hero{position:relative;min-height:88vh;margin-top:72px;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:55% center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,33,71,.92) 0%,rgba(0,33,71,.72) 42%,rgba(0,33,71,.22) 70%,rgba(0,33,71,.04) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:96px 40px;width:100%}
+.hero-breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:32px;display:flex;align-items:center;gap:8px}
+.hero-breadcrumb a{color:rgba(255,255,255,.5)}
+.hero-breadcrumb a:hover{color:#fff}
+.hero-breadcrumb span{color:rgba(255,255,255,.2)}
+.hero-breadcrumb .cur{color:#fff;font-weight:600}
+.hero h1{font-size:clamp(36px,4.5vw,64px);font-weight:300;color:#fff;line-height:1.08;letter-spacing:-.5px;max-width:560px;margin-bottom:28px}
+.hero-sub{font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.88);font-weight:600;max-width:460px;line-height:1.85;margin-bottom:48px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:15px 32px;font-size:15px;font-weight:700;transition:all .25s}
+.hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.2)}
+.hero-cta svg{width:18px;height:18px}
 
-/* NEWSLETTER BANNER */
-.nl-banner{background:linear-gradient(90deg,#ffffff 0%,#e8884a 40%,#C05C1E 100%);padding:18px 0;cursor:pointer}
-.nl-banner-in{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nl-banner p{font-size:15px;font-weight:600;color:var(--navy)}
-.nl-banner-btn{flex-shrink:0;background:#fff;color:var(--accent);border-radius:50px;padding:8px 22px;font-size:13px;font-weight:700;white-space:nowrap;transition:all .2s}
-.nl-banner:hover .nl-banner-btn{background:var(--navy);color:#fff}
+/* EXPLORER */
+.explore-section{background:var(--bg);padding:80px 40px;text-align:center}
+.explore-section h2{font-size:clamp(28px,3.2vw,46px);font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.1;margin-bottom:20px}
+.explore-section p{font-size:17px;color:var(--gray);max-width:680px;margin:0 auto;line-height:1.85}
 
-/* SECTIONS */
-.section{padding:88px 0}
-.section-teal{background:linear-gradient(160deg,#ffffff 0%,#e4f5f8 45%,#a8dde6 100%)}
-.s-in{max-width:1160px;margin:0 auto;padding:0 32px}
-.kicker{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.s-title{font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
-.s-sub{font-size:clamp(15px,1.4vw,18px);color:var(--gray);line-height:1.75;max-width:680px;margin-bottom:48px}
+/* CARDS */
+.cards-section{background:var(--bg);padding:0 40px 80px}
+.cards-wrap{max-width:1200px;margin:0 auto}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.cards-grid{grid-template-columns:1fr}}
+.svc-card{background:#fff;padding:48px 40px;display:flex;flex-direction:column;border-left:4px solid transparent;transition:border-color .3s;border-top:1px solid #e8e8e8}
+.svc-card:not(:last-child){border-right:1px solid #e8e8e8}
+.svc-card:hover{border-left-color:var(--accent)}
+.svc-card h3{font-size:22px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:18px}
+.svc-card p{font-size:15px;color:var(--gray);line-height:1.9;flex-grow:1;margin-bottom:32px}
+.svc-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:3px;transition:all .2s;width:fit-content}
+.svc-link:hover{color:var(--accent);border-color:var(--accent)}
+.svc-link:hover svg{transform:translateX(4px)}
+.svc-link svg{width:16px;height:16px;transition:transform .2s}
 
-/* PHOTO CARDS */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:16px}
-.svc-item{background:#fff;border-radius:16px;overflow:hidden;transition:all .3s;box-shadow:0 2px 20px rgba(15,35,64,.08);display:flex;flex-direction:column}
-.svc-item:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(15,35,64,.14)}
-.svc-img-wrap{overflow:hidden;position:relative}
-.svc-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(15,35,64,.22) 100%)}
-.svc-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .5s ease}
-.svc-item:hover .svc-img{transform:scale(1.05)}
-.svc-body{padding:30px 28px 36px;flex-grow:1;display:flex;flex-direction:column;gap:10px;border-top:3px solid transparent;transition:border-color .3s}
-.svc-item:hover .svc-body{border-top-color:var(--accent)}
-.svc-item h3{font-size:20px;font-weight:800;color:var(--navy);line-height:1.2;margin:0}
-.svc-item p{font-size:14px;color:var(--gray);line-height:1.8;margin:0;flex-grow:1}
-.svc-cta{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--accent);margin-top:6px;transition:gap .2s}
-.svc-cta svg{transition:transform .2s}
-.svc-item:hover .svc-cta{gap:10px}
-.svc-item:hover .svc-cta svg{transform:translateX(3px)}
-@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}
+/* DETAIL PANELS */
+.detail-panel{display:none;background:linear-gradient(135deg,#08142a 0%,#0d2444 40%,#163d6b 75%,#0d2444 100%);padding:72px 40px;position:relative;overflow:hidden}
+.detail-panel::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(27,108,168,.18) 0%,transparent 65%);top:-250px;right:-150px;pointer-events:none}
+.detail-panel.open{display:block}
+.dp-in{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.dp-title{font-size:clamp(22px,2.5vw,36px);font-weight:800;color:#fff;margin-bottom:52px;line-height:1.1;letter-spacing:-.3px}
 
-/* VALEUR */
-.section-approach{background:linear-gradient(160deg,#ffffff 0%,#e8f4fb 40%,#b8dff0 100%)}
-.approach-wrap{display:grid;grid-template-columns:360px 1fr;gap:72px;align-items:start;margin-top:0}
-.approach-left .s-title{margin-bottom:20px}
-.approach-left .s-sub{margin-bottom:32px}
-.approach-divider{width:48px;height:4px;background:var(--accent);border-radius:2px;margin-bottom:32px}
-.val-grid{display:grid;grid-template-columns:1fr;gap:20px}
-.val-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:16px;padding:32px 32px 32px 36px;transition:all .35s;box-shadow:0 4px 24px rgba(15,35,64,.08);display:flex;gap:24px;align-items:flex-start;position:relative;overflow:hidden}
-.val-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,92,30,.02) 0%,transparent 60%);pointer-events:none}
-.val-card:hover{box-shadow:0 12px 40px rgba(15,35,64,.13);transform:translateX(6px);border-left-color:#a84d18}
-.val-icon{width:56px;height:56px;flex-shrink:0;background:linear-gradient(145deg,rgba(30,41,59,.1) 0%,rgba(30,41,59,.04) 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(30,41,59,.12),inset 0 1px 0 rgba(255,255,255,.6)}
-.val-icon svg{width:26px;height:26px}
-.val-body h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px;line-height:1.25}
-.val-body p{font-size:14px;color:var(--gray);line-height:1.8}
-@media(max-width:900px){.approach-wrap{grid-template-columns:1fr}}
+/* DIAGNOSTIC rectangles + fleches + palette bleue + glass */
+.diag-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;position:relative}
+@media(max-width:900px){.diag-flow{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.diag-flow{grid-template-columns:repeat(2,1fr)}}
+.diag-item{display:flex;flex-direction:column;align-items:center;position:relative}
+.diag-item:not(:last-child)::after{content:"";position:absolute;right:-13px;top:44px;width:12px;height:2px;background:rgba(255,255,255,.35)}
+.diag-item:not(:last-child)::before{content:"";position:absolute;right:-6px;top:39px;width:0;height:0;border-left:7px solid rgba(255,255,255,.35);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.diag-rect{width:100%;padding:22px 16px;min-height:90px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;margin-bottom:14px;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.15);transition:transform .25s,box-shadow .25s}
+.diag-item:hover .diag-rect{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.2)}
+.dr1{background:rgba(123,159,196,.75)}
+.dr2{background:rgba(95,138,181,.78)}
+.dr3{background:rgba(70,118,168,.82)}
+.dr4{background:rgba(46,97,154,.85)}
+.dr5{background:rgba(24,78,143,.88)}
+.dr6{background:rgba(10,59,132,.92)}
+.diag-rect h4{font-size:13px;font-weight:800;color:#fff;line-height:1.3;letter-spacing:.01em}
+.diag-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.75;text-align:center;padding:0 4px}
 
-/* CTA */
-.cta-s{background:linear-gradient(135deg,#0d2444 0%,#1B3D6F 60%,#1a5f8f 100%);padding:88px 0;position:relative;overflow:hidden}
-.cta-s::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(192,92,30,.1) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
-.cta-in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
-.cta-left h2{font-size:clamp(24px,2.6vw,38px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
-.cta-left p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px}
-.cta-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:36px 32px;backdrop-filter:blur(12px)}
-.btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:16px 32px;font-size:15px;font-weight:700;transition:all .25s;width:100%}
-.btn-cta:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 32px rgba(192,92,30,.4)}
-@media(max-width:900px){.cta-in{grid-template-columns:1fr}.cta-card{max-width:420px}}
+/* STEP BOXES (architecture, operationnalisation) */
+.steps-flow{display:grid;gap:2px}
+.steps-flow.s4{grid-template-columns:repeat(4,1fr)}
+.steps-flow.s3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.steps-flow.s4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.steps-flow.s4,.steps-flow.s3{grid-template-columns:1fr}}
+.step-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:32px 28px;display:flex;flex-direction:column;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s}
+.step-box:hover{background:rgba(255,255,255,.12)}
+.step-box h4{font-size:15px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:14px}
+.step-box p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.8}
+.tool-glass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+@media(max-width:900px){.tool-glass-grid{grid-template-columns:1fr}}
+.tool-glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:40px 36px;display:flex;flex-direction:column;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s}
+.tool-glass:hover{background:rgba(255,255,255,.12)}
+.tool-glass h4{font-size:18px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:16px}
+.tool-glass p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.85;flex-grow:1}
+.dp-close{display:inline-flex;align-items:center;gap:8px;margin-top:52px;font-size:13px;font-weight:700;color:rgba(255,255,255,.35);cursor:pointer;border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:9px 22px;transition:all .2s}
+.dp-close:hover{color:#fff;border-color:rgba(255,255,255,.4)}
 
-/* FADE */
-.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.fu.v{opacity:1;transform:none}
+/* SERVICES CONNEXES */
+.connexes-section{background:#EEF4F8;padding:72px 40px}
+.connexes-in{max-width:1200px;margin:0 auto}
+.connexes-in h2{font-size:clamp(22px,2.5vw,34px);font-weight:300;color:var(--navy);letter-spacing:-.3px;margin-bottom:40px}
+.connexes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.connexes-grid{grid-template-columns:1fr}}
+.connexe-card{background:#fff;border-radius:12px;padding:28px 32px;display:flex;align-items:center;box-shadow:0 2px 12px rgba(0,33,71,.06);transition:all .25s;border-left:3px solid transparent}
+.connexe-card:hover{box-shadow:0 8px 28px rgba(0,33,71,.12);border-left-color:var(--accent);transform:translateX(4px)}
+.connexe-card span{font-size:16px;font-weight:700;color:var(--navy)}
+
+/* REFLEXIONS */
+.reflexions-section{background:#fff;padding:72px 40px;border-top:1px solid var(--border)}
+.reflexions-in{max-width:1200px;margin:0 auto}
+.reflexions-in h2{font-size:clamp(26px,3vw,44px);font-weight:800;color:var(--navy);letter-spacing:-.4px;line-height:1.1;margin-bottom:28px;max-width:640px}
+.reflexions-link{display:inline-flex;align-items:center;gap:14px}
+.reflexions-link span{font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:2px;transition:all .2s}
+.reflexions-link:hover span{color:var(--accent);border-color:var(--accent)}
+.reflexions-btn{width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.reflexions-link:hover .reflexions-btn{background:var(--accent)}
+.reflexions-btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* CTA CONSULTATION */
+.cta-section{background:linear-gradient(135deg,#0d2444 0%,#1a3a6b 50%,#0d2444 100%);padding:72px 40px}
+.cta-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center}
+@media(max-width:768px){.cta-in{grid-template-columns:1fr;gap:40px}}
+.cta-in h2{font-size:clamp(24px,2.8vw,38px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px}
+.cta-in p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.85;max-width:580px}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:50px;padding:18px 36px;font-size:15px;font-weight:700;white-space:nowrap;transition:all .25s;flex-shrink:0}
+.cta-btn:hover{background:#a84d18;transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,92,30,.4)}
+.cta-btn svg{width:18px;height:18px}
 
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
-.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid #E2E8F0}
+.foot-top{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
 .foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .foot-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase}
 .foot-brand p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.45)}
@@ -151,21 +177,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 .foot-btm{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
 .foot-btm-links{display:flex;gap:20px}
 .foot-btm a:hover{color:rgba(255,255,255,.6)}
-@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px}
-.mob{position:fixed;inset:0;background:#fff;z-index:99;display:flex;flex-direction:column;justify-content:center;padding:32px;opacity:0;pointer-events:none;transition:opacity .3s}
-.mob.open{opacity:1;pointer-events:all}
-.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#1A1A1A;font-size:22px;cursor:pointer}
-.mob a{font-size:22px;font-weight:700;color:#1A1A1A;padding:18px 0;border-bottom:1px solid #E2E8F0;display:block}
+
+/* FADE */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fu.v{opacity:1;transform:none}
+
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:flex}
-  .s-in{padding:0 20px}
-  section,.section{padding:64px 0}
-  .exp-hero-left{padding:80px 20px 48px}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+  .hero-content{padding:80px 24px}
+  .explore-section,.cards-section,.connexes-section,.reflexions-section,.cta-section{padding-left:20px;padding-right:20px}
+}
+@media(max-width:500px){
   .foot-top{grid-template-columns:1fr}
-  .foot-brand{grid-column:unset}
 }
 </style>
 </head>
@@ -214,208 +240,249 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     </button>
   </div>
 </nav>
+
 <div class="mob" id="mob">
   <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">&#10005;</button>
   <a href="../index.html#expertises" onclick="document.getElementById('mob').classList.remove('open')" data-en="Services">Services</a>
   <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
   <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
   <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
-  <a href="/contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us →">Nous contacter &rarr;</a>
+  <a href="/contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us &rarr;">Nous contacter &rarr;</a>
   <div class="lang-switch" style="margin-top:24px">
-    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
+    <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px;color:var(--navy)">FR</button>
     <span class="lang-sep" style="font-size:14px">|</span>
-    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px">EN</button>
+    <button data-lang="en" data-active="false" onclick="setLang('en')" style="font-size:16px;padding:8px 10px;color:rgba(0,33,71,.3)">EN</button>
   </div>
 </div>
 
 <!-- HERO -->
-<section class="exp-hero">
-  <div class="exp-hero-left">
-    <div class="exp-breadcrumb fu">
-      <a href="../index.html" data-en="Home">Accueil</a><span>/</span><span data-en="Digital Governance">Gouvernance du num&eacute;rique</span>
-    </div>
-    <h1 class="fu" data-en="Digital Governance">Gouvernance du num&eacute;rique</h1>
-    <p class="exp-hero-sub fu" data-en="Litus Partners helps organizations understand and navigate the challenges of digital transformation, in order to improve their services, strengthen decision-making and modernize their administrative processes.">Litus Partners accompagne les organisations dans la compr&eacute;hension et la ma&icirc;trise des enjeux li&eacute;s au num&eacute;rique, afin d&rsquo;am&eacute;liorer leurs services, renforcer leur prise de d&eacute;cision et moderniser leurs processus administratifs.</p>
-    <a href="/contact/gouvernance" class="exp-hero-cta fu">
-      <span data-en="Book a consultation">R&eacute;server une consultation</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+<section class="hero">
+  <div class="hero-bg">
+    <img src="../images/gouvernance-hero.webp" alt="Gouvernance num&eacute;rique et conformit&eacute;">
   </div>
-  <div class="exp-hero-right">
-    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=85" alt="Gouvernance du numérique">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-breadcrumb fu">
+      <a href="../index.html" data-en="Home">Accueil</a><span>/</span><a href="../index.html#expertises" data-en="Services">Services</a><span>/</span><span class="cur" data-en="Digital Governance">Gouvernance du num&eacute;rique</span>
+    </div>
+    <h1 class="fu" data-en="Digital Governance">Gouvernance du<br>num&eacute;rique</h1>
+    <p class="hero-sub fu" data-en="Digital governance is no longer a formality. It is what allows your organization to decide with rigor, act with consistency, and fully assume its digital responsibilities.">La gouvernance num&eacute;rique n&rsquo;est plus une formalit&eacute;. C&rsquo;est ce qui permet &agrave; votre organisation de d&eacute;cider avec rigueur, d&rsquo;agir avec coh&eacute;rence et d&rsquo;assumer pleinement ses responsabilit&eacute;s num&eacute;riques.</p>
+    <a href="#explorer" class="hero-cta fu">
+      <span data-en="Explore our services">Explorer nos services</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- NEWSLETTER BANNER -->
-<div class="nl-banner">
-  <div class="nl-banner-in">
-    <p data-en="Stay informed on best practices in organizational governance — subscribe to our newsletter.">Restez inform&eacute; des meilleures pratiques en gouvernance organisationnelle, inscrivez-vous &agrave; notre infolettre.</p>
-    <span class="nl-banner-btn" data-en="Subscribe to our newsletter">S&rsquo;inscrire &agrave; l&rsquo;infolettre</span>
+<!-- EXPLORER -->
+<section class="explore-section" id="explorer">
+  <h2 class="fu" data-en="Explore our governance services">Explorer nos services de gouvernance</h2>
+  <p class="fu" data-en="Three complementary interventions to build digital governance that works: from diagnosis to implementation, through architecture design.">Trois interventions compl&eacute;mentaires pour b&acirc;tir une gouvernance num&eacute;rique qui fonctionne&nbsp;: du diagnostic &agrave; la mise en oeuvre, en passant par la conception de l&rsquo;architecture.</p>
+</section>
+
+<!-- CARDS -->
+<section class="cards-section">
+  <div class="cards-wrap">
+    <div class="cards-grid">
+
+      <div class="svc-card fu">
+        <h3 data-en="Organizational Diagnostic">Diagnostic organisationnel</h3>
+        <p data-en="A successful digital transformation starts with a rigorous diagnostic. We map your processes, governance and risks to produce a factual analysis that informs your strategic decisions.">Une transformation num&eacute;rique r&eacute;ussie commence par un diagnostic rigoureux. Nous cartographions vos processus, votre gouvernance et vos risques pour produire une analyse factuelle qui &eacute;claire vos d&eacute;cisions strat&eacute;giques.</p>
+        <a href="#detail-diagnostic" class="svc-link" onclick="openDetail('detail-diagnostic');return false;" data-en="Learn more">
+          En savoir plus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="svc-card fu">
+        <h3 data-en="Governance Architecture">Architecture de gouvernance</h3>
+        <p data-en="We design robust and scalable governance architectures, aligned with international standards and calibrated to your organization's reality. Committees, policies, roles and accountability mechanisms: each component is built to last.">Nous concevons des architectures de gouvernance robustes et &eacute;volutives, align&eacute;es sur les standards internationaux et calibr&eacute;es &agrave; la r&eacute;alit&eacute; de votre organisation. Comit&eacute;s, politiques, r&ocirc;les et m&eacute;canismes de reddition de comptes&nbsp;: chaque composante est construite pour durer et r&eacute;sister &agrave; l&rsquo;&eacute;preuve du terrain.</p>
+        <a href="#detail-architecture" class="svc-link" onclick="openDetail('detail-architecture');return false;" data-en="Learn more">
+          En savoir plus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="svc-card fu">
+        <h3 data-en="Operationalization">Op&eacute;rationnalisation</h3>
+        <p data-en="The value of governance is measured by its execution. We support the deployment of your mechanisms with decision analytics tools and dashboards that allow your leadership to steer performance, risks and digital priorities in real time.">La valeur d&rsquo;une gouvernance se mesure &agrave; son ex&eacute;cution. Nous accompagnons le d&eacute;ploiement de vos m&eacute;canismes avec des outils d&rsquo;analyse d&eacute;cisionnelle et des tableaux de bord permettant &agrave; votre direction de piloter la performance, les risques et les priorit&eacute;s num&eacute;riques en temps r&eacute;el.</p>
+        <a href="#detail-operationnalisation" class="svc-link" onclick="openDetail('detail-operationnalisation');return false;" data-en="Learn more">
+          En savoir plus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL : Diagnostic -->
+<div class="detail-panel" id="detail-diagnostic">
+  <div class="dp-in">
+    <div class="dp-title" data-en="The organizational diagnostic approach">La d&eacute;marche du diagnostic organisationnel</div>
+    <div class="diag-flow">
+      <div class="diag-item">
+        <div class="diag-rect dr1"><h4 data-en="Plan">Planifier</h4></div>
+        <p class="diag-desc" data-en="Team, roles and tools. Interview, questionnaire, observation, documentation and timeline.">Équipe, r&ocirc;les et outils. Entrevue, questionnaire, observation, documentation et &eacute;ch&eacute;ancier.</p>
+      </div>
+      <div class="diag-item">
+        <div class="diag-rect dr2"><h4 data-en="Analyze the environment">Analyser l&rsquo;environnement</h4></div>
+        <p class="diag-desc" data-en="Organizational, technical and financial dimensions. Constraints and opportunities.">Dimensions organisationnelle, technique et financi&egrave;re. Contraintes et opportunit&eacute;s.</p>
+      </div>
+      <div class="diag-item">
+        <div class="diag-rect dr3"><h4 data-en="Collect information">Collecter l&rsquo;information</h4></div>
+        <p class="diag-desc" data-en="Data collection, performance, issues. Interviews and field observation.">Collecte des donn&eacute;es, performance, probl&egrave;mes. Entretiens et observation terrain.</p>
+      </div>
+      <div class="diag-item">
+        <div class="diag-rect dr4"><h4 data-en="Model the process">Mod&eacute;liser le processus</h4></div>
+        <p class="diag-desc" data-en="Illustrate to understand and communicate. Avoid analysis paralysis.">Illustrer pour comprendre et communiquer. &Eacute;viter la paralysie par l&rsquo;analyse.</p>
+      </div>
+      <div class="diag-item">
+        <div class="diag-rect dr5"><h4 data-en="Establish the diagnostic">Poser le diagnostic</h4></div>
+        <p class="diag-desc" data-en="Causal analysis: gaps, impacts, synthesis diagram and priority findings.">Analyse causale&nbsp;: &eacute;cart, impacts, diagramme de synth&egrave;se et constats prioritaires.</p>
+      </div>
+      <div class="diag-item">
+        <div class="diag-rect dr6"><h4 data-en="Write and present">R&eacute;diger et pr&eacute;senter</h4></div>
+        <p class="diag-desc" data-en="Decision-oriented report: continue or redirect. Restitution to stakeholders.">Rapport orient&eacute; d&eacute;cision&nbsp;: poursuivre ou r&eacute;orienter. Restitution aux parties prenantes.</p>
+      </div>
+    </div>
+    <div class="dp-close" onclick="closeDetail('detail-diagnostic')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span data-en="Close">Fermer</span>
+    </div>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="section section-teal">
-  <div class="s-in">
-    <div class="kicker fu" data-en="Discover our services">D&eacute;couvrez nos services</div>
-    <h2 class="s-title fu" data-en="A structured framework to govern digital transformation">Un cadre structur&eacute; pour gouverner le num&eacute;rique</h2>
-    <p class="s-sub fu" data-en="We help your organization establish a clear framework to identify the advantages, limitations and risks associated with digital use. From strategy to implementation, Litus Partners guides you through the effective management of your digital projects, whether in service modernization, administrative transformation or electronic service delivery.">Nous aidons votre organisation &agrave; se doter d&rsquo;un cadre de r&eacute;f&eacute;rence clair pour identifier les avantages, les limites et les risques associ&eacute;s &agrave; l&rsquo;utilisation du num&eacute;rique. De la strat&eacute;gie &agrave; la mise en oeuvre, Litus Partners vous accompagne dans la gestion efficace de vos projets num&eacute;riques, qu&rsquo;il s&rsquo;agisse de modernisation des services, de transformation administrative ou de prestation &eacute;lectronique.</p>
-    <div class="svc-grid">
-
-      <div class="svc-item fu">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Audit de gouvernance">
-        </div>
-        <div class="svc-body">
-          <h3 data-en="Governance Audit">Audit de gouvernance</h3>
-          <p data-en="We assess your existing structures and processes to identify areas for improvement and strengthen the effectiveness of your organizational framework.">Nous &eacute;valuons vos structures et processus actuels pour identifier les zones d&rsquo;am&eacute;lioration et renforcer l&rsquo;efficacit&eacute; de votre cadre organisationnel.</p>
-          <a href="/contact/gouvernance" class="svc-cta">
-            <span data-en="Book a consultation">R&eacute;server une consultation</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+<!-- DETAIL : Architecture -->
+<div class="detail-panel" id="detail-architecture">
+  <div class="dp-in">
+    <div class="dp-title" data-en="The four components of governance architecture">Les quatre composantes de l&rsquo;architecture de gouvernance</div>
+    <div class="steps-flow s4">
+      <div class="step-box">
+        <h4 data-en="Reference framework">Cadre de r&eacute;f&eacute;rence</h4>
+        <p data-en="Grounded in international standards (COBIT 2019, ISO/IEC 38500, ITIL 4), adapted to the specific context of your organization and sector.">Ancrage dans les standards internationaux (COBIT&nbsp;2019, ISO/IEC&nbsp;38500, ITIL&nbsp;4), adapt&eacute;s au contexte sp&eacute;cifique de votre organisation et de votre secteur d&rsquo;activit&eacute;.</p>
       </div>
-
-      <div class="svc-item fu">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="D&eacute;veloppement de strat&eacute;gies de gouvernance">
-        </div>
-        <div class="svc-body">
-          <h3 data-en="Strategy Development">D&eacute;veloppement de strat&eacute;gies</h3>
-          <p data-en="Creation of policies and practices that strengthen transparency, accountability and strategic alignment within your organization.">Cr&eacute;ation de politiques et de pratiques qui renforcent la transparence, la responsabilit&eacute; et l&rsquo;alignement strat&eacute;gique au sein de votre organisation.</p>
-          <a href="/contact/gouvernance" class="svc-cta">
-            <span data-en="Book a consultation">R&eacute;server une consultation</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+      <div class="step-box">
+        <h4 data-en="Governance structures">Structures de gouvernance</h4>
+        <p data-en="Design of steering committees, definition of roles and accountability levels. Clear and operational accountability mechanisms.">Conception des comit&eacute;s de pilotage, d&eacute;finition des r&ocirc;les et niveaux de responsabilit&eacute;. M&eacute;canismes de reddition de comptes clairs et op&eacute;rationnels.</p>
       </div>
-
-      <div class="svc-item fu">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80" alt="Formation et impl&eacute;mentation">
-        </div>
-        <div class="svc-body">
-          <h3 data-en="Training and Implementation">Formation et impl&eacute;mentation</h3>
-          <p data-en="We support your teams in adopting and implementing new governance practices, for lasting change embedded in your organizational culture.">Nous accompagnons vos &eacute;quipes dans l&rsquo;adoption et la mise en &oelig;uvre de nouvelles pratiques de gouvernance, pour un changement durable et ancr&eacute; dans la culture organisationnelle.</p>
-          <a href="/contact/gouvernance" class="svc-cta">
-            <span data-en="Book a consultation">R&eacute;server une consultation</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+      <div class="step-box">
+        <h4 data-en="Policies and processes">Politiques et processus</h4>
+        <p data-en="Development of digital policies, internal standards and operational procedures. Actionable documentation for your teams.">&Eacute;laboration des politiques num&eacute;riques, normes internes et proc&eacute;dures op&eacute;rationnelles. Documentation actionnable pour vos &eacute;quipes.</p>
       </div>
-
+      <div class="step-box">
+        <h4 data-en="Control mechanisms">M&eacute;canismes de contr&ocirc;le</h4>
+        <p data-en="Definition of performance indicators, continuous monitoring and periodic audit of the governance in place.">D&eacute;finition des indicateurs de performance, suivi continu et audit p&eacute;riodique de la gouvernance en place.</p>
+      </div>
+    </div>
+    <div class="dp-close" onclick="closeDetail('detail-architecture')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span data-en="Close">Fermer</span>
     </div>
   </div>
-</section>
+</div>
 
-<!-- NOTRE APPROCHE -->
-<section class="section" style="background:linear-gradient(160deg,#ffffff 0%,#EEF2F7 60%,#E4EBF3 100%);padding:80px 0;">
-  <div class="s-in">
-    <div class="kicker fu" data-en="Our approach">Notre approche</div>
-    <h2 class="s-title fu" style="white-space:nowrap;margin-bottom:12px;" data-en="A methodology in four phases">Une m&eacute;thodologie en quatre phases</h2>
-    <p class="s-sub fu" style="max-width:620px;margin-bottom:56px;" data-en="Each engagement follows a proven four-phase process, designed to translate digital governance from concept to operational reality.">Chaque mandat suit un processus structur&eacute;, con&ccedil;u pour faire passer la gouvernance num&eacute;rique du concept &agrave; la r&eacute;alit&eacute; op&eacute;rationnelle.</p>
-
-    <div class="acc-wrap fu">
-
-      <div class="acc-item open">
-        <button class="acc-btn" onclick="toggleAcc(this)">
-          <span class="acc-title" data-en="Diagnosis and scoping">Diagnostic et cadrage</span>
-          <span class="acc-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </button>
-        <div class="acc-body">
-          <p data-en="Assessment of the current situation: digital maturity, regulatory obligations, risk mapping and stakeholder analysis. This step produces a clear picture of the gap between the current situation and governance requirements.">&Eacute;valuation de la situation actuelle&nbsp;: maturit&eacute; num&eacute;rique, obligations r&eacute;glementaires, cartographie des risques et des parties prenantes. Cette &eacute;tape produit une image claire de l&rsquo;&eacute;cart entre la situation actuelle et les exigences de gouvernance.</p>
-        </div>
+<!-- DETAIL : Operationnalisation -->
+<div class="detail-panel" id="detail-operationnalisation">
+  <div class="dp-in">
+    <div class="dp-title" data-en="The digital governance operationalization approach">La d&eacute;marche d&rsquo;op&eacute;rationnalisation de la gouvernance du num&eacute;rique</div>
+    <div class="tool-glass-grid">
+      <div class="tool-glass">
+        <h4 data-en="Assessment of key opportunities">&Eacute;valuation des occasions porteuses</h4>
+        <p data-en="Systematic identification and analysis of high-potential digital opportunities. Each opportunity is assessed on expected impact, feasibility and strategic alignment. Delivered as an executive dashboard.">Identification et analyse syst&eacute;matique des opportunit&eacute;s num&eacute;riques &agrave; fort potentiel. Chaque occasion est &eacute;valu&eacute;e selon son impact attendu, sa faisabilit&eacute; et son alignement avec les priorit&eacute;s strat&eacute;giques de votre organisation. Livr&eacute; sous forme de tableau de bord de direction.</p>
       </div>
-
-      <div class="acc-item">
-        <button class="acc-btn" onclick="toggleAcc(this)">
-          <span class="acc-title" data-en="Governance architecture">Architecture de gouvernance</span>
-          <span class="acc-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </button>
-        <div class="acc-body">
-          <p data-en="Design of the governance framework specific to your organization: decision-making structure, roles and responsibilities (RACI), ethical principles and oversight mechanisms adapted to your context. The model is designed to be applicable, not theoretical.">Conception du cadre de gouvernance propre &agrave; l&rsquo;organisation&nbsp;: structure d&eacute;cisionnelle, r&eacute;partition des r&ocirc;les et responsabilit&eacute;s (RACI), principes &eacute;thiques et m&eacute;canismes d&rsquo;encadrement adapt&eacute;s au contexte. Le mod&egrave;le est con&ccedil;u pour &ecirc;tre applicable, pas th&eacute;orique.</p>
-        </div>
+      <div class="tool-glass">
+        <h4 data-en="Prioritization of key opportunities">Priorisation des occasions porteuses</h4>
+        <p data-en="Rigorous selection of priority initiatives via a multi-criteria analysis method. Focus your resources where the return is highest, with traceable and defensible justifications for your stakeholders. Executive dashboard.">S&eacute;lection rigoureuse des initiatives prioritaires via une m&eacute;thode d&rsquo;analyse multicrit&egrave;res. Concentrez vos ressources l&agrave; o&ugrave; le rendement est le plus &eacute;lev&eacute;, avec des justifications tra&ccedil;ables et d&eacute;fendables devant vos parties prenantes. Tableau de bord de direction.</p>
       </div>
-
-      <div class="acc-item">
-        <button class="acc-btn" onclick="toggleAcc(this)">
-          <span class="acc-title" data-en="Implementation and tooling">Mise en oeuvre et outillage</span>
-          <span class="acc-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </button>
-        <div class="acc-body">
-          <p data-en="Deployment of tools, policies and operational directives: risk management, data classification, prioritized use cases, team training. The framework becomes concrete and integrated into existing processes.">D&eacute;ploiement des outils, politiques et directives op&eacute;rationnelles&nbsp;: gestion des risques, classification des donn&eacute;es, cas d&rsquo;usage prioris&eacute;s, formation des &eacute;quipes. Le cadre devient concret et int&eacute;gr&eacute; aux processus existants.</p>
-        </div>
+      <div class="tool-glass">
+        <h4 data-en="Digital risk management">Gestion des risques num&eacute;riques</h4>
+        <p data-en="Risk mapping for your digital initiatives with integrated monitoring indicators. Clear view of exposures, mitigation measures in place and their evolution over time. Executive dashboard.">Cartographie des risques associ&eacute;s &agrave; vos initiatives num&eacute;riques avec indicateurs de suivi int&eacute;gr&eacute;s. Vue claire sur les expositions, les mesures d&rsquo;att&eacute;nuation en place et leur &eacute;volution dans le temps. Tableau de bord de direction.</p>
       </div>
-
-      <div class="acc-item">
-        <button class="acc-btn" onclick="toggleAcc(this)">
-          <span class="acc-title" data-en="Monitoring and continuous improvement">Pilotage et am&eacute;lioration continue</span>
-          <span class="acc-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </button>
-        <div class="acc-body">
-          <p data-en="Monitoring, auditing and adjustment of the framework over time. Control mechanisms ensure the governance remains aligned with evolving digital practices and regulatory requirements.">Surveillance, audit et ajustement du cadre au fil du temps. Des m&eacute;canismes de contr&ocirc;le assurent que la gouvernance demeure align&eacute;e sur l&rsquo;&eacute;volution des usages num&eacute;riques et des obligations r&eacute;glementaires.</p>
-        </div>
-      </div>
-
+    </div>
+    <div class="dp-close" onclick="closeDetail('detail-operationnalisation')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span data-en="Close">Fermer</span>
     </div>
   </div>
-</section>
+</div>
 
-<style>
-.acc-wrap{position:relative;padding-left:6px;}
-.acc-wrap::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px;background:linear-gradient(180deg,#002147 0%,#1B6CA8 50%,#C05C1E 100%);}
-.acc-item{border-bottom:1px solid #D8DCE5;}
-.acc-item:first-child{border-top:1px solid #D8DCE5;}
-.acc-wrap{max-width:620px;}
-.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 18px 13px 20px;background:#ECEEF2;border:none;cursor:pointer;text-align:left;transition:background .15s;}
-.acc-btn:hover,.acc-item.open .acc-btn{background:#ffffff;}
-.acc-title{font-size:14px;font-weight:700;color:#002147;line-height:1.3;}
-.acc-icon{flex-shrink:0;width:22px;height:22px;border:2px solid #C05C1E;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C05C1E;transition:transform .25s;}
-.acc-item.open .acc-icon{transform:rotate(45deg);}
-.acc-body{display:none;padding:2px 18px 16px 20px;background:#ffffff;}
-.acc-item.open .acc-body{display:block;}
-.acc-body p{font-size:13px;color:#5A6A7E;line-height:1.72;max-width:580px;}
-</style>
-<script>
-function toggleAcc(btn){
-  const item=btn.closest('.acc-item');
-  const isOpen=item.classList.contains('open');
-  document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
-  if(!isOpen)item.classList.add('open');
-}
-</script>
-
-<!-- CTA -->
-<section class="cta-s">
-  <div class="cta-in">
-    <div class="cta-left fu">
-      <h2 data-en="Schedule a consultation with one of our experts.">Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
-      <p data-en="Discover how to strengthen your governance structures to make better decisions, faster.">D&eacute;couvrez comment renforcer vos structures de gouvernance pour prendre de meilleures d&eacute;cisions, plus vite.</p>
-    </div>
-    <div class="cta-card fu">
-      <a href="/contact/gouvernance" class="btn-cta">
-        <span data-en="Book your consultation">R&eacute;servez votre consultation</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<!-- SERVICES CONNEXES -->
+<section class="connexes-section">
+  <div class="connexes-in">
+    <h2 class="fu" data-en="How we can support you">Comment nous pouvons vous accompagner</h2>
+    <div class="connexes-grid">
+      <a href="conseil.html" class="connexe-card fu">
+        <span data-en="Consulting">Conseil</span>
+      </a>
+      <a href="../formation/offre.html" class="connexe-card fu">
+        <span data-en="Training in digital governance">Formation en gouvernance num&eacute;rique</span>
+      </a>
+      <a href="#" class="connexe-card fu">
+        <span data-en="Organizational change management">Gestion du changement organisationnel</span>
       </a>
     </div>
   </div>
 </section>
 
+<!-- REFLEXIONS -->
+<section class="reflexions-section">
+  <div class="reflexions-in">
+    <h2 class="fu" data-en="Our insights on digital governance.">Nos r&eacute;flexions sur la gouvernance num&eacute;rique.</h2>
+    <a href="../reflexions.html" class="reflexions-link fu">
+      <span data-en="Browse our publications">Consulter nos publications</span>
+      <div class="reflexions-btn">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA CONSULTATION -->
+<section class="cta-section">
+  <div class="cta-in">
+    <div class="fu">
+      <h2 data-en="Schedule a consultation with one of our experts.">Planifier une s&eacute;ance de consultation avec l&rsquo;un de nos experts.</h2>
+      <p data-en="Discover how to strengthen your digital governance and transform your decision-making mechanisms into a real competitive advantage, with the support of consultants who commit to results.">D&eacute;couvrez comment renforcer votre gouvernance num&eacute;rique et transformer vos m&eacute;canismes de d&eacute;cision en avantage concurrentiel r&eacute;el, avec l&rsquo;appui de conseillers qui s&rsquo;engagent sur les r&eacute;sultats.</p>
+    </div>
+    <a href="/contact" class="cta-btn fu">
+      <span data-en="Book your consultation">R&eacute;servez votre consultation</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
 <script src="../lang.js"></script>
 <script>
-const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("v")})},{threshold:.1});
-document.querySelectorAll(".fu").forEach(el=>o.observe(el));
+function openDetail(id){
+  var panel=document.getElementById(id);
+  var wasOpen=panel.classList.contains('open');
+  document.querySelectorAll('.detail-panel.open').forEach(function(p){p.classList.remove('open');});
+  if(!wasOpen){
+    panel.classList.add('open');
+    setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'start'});},50);
+  }
+}
+function closeDetail(id){
+  document.getElementById(id).classList.remove('open');
+  document.querySelector('.cards-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.fu').forEach(function(el){obs.observe(el);});
 </script>
+
 <!-- FOOTER -->
 <footer>
-  <div class="s-in">
+  <div class="s-in" style="max-width:1160px;margin:0 auto;padding:0 32px">
     <div class="foot-top">
       <div class="foot-brand">
         <div class="foot-logo">
           <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="4" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="4" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="28" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="42" y="80" width="7" height="16" rx="3.5" fill="#C05C1E"/><rect x="56" y="80" width="7" height="16" rx="3.5" fill="#1B6CA8"/><rect x="4" y="28" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="4" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="4" y="56" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="28" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="42" width="16" height="7" rx="3.5" fill="#1B6CA8"/><rect x="80" y="56" width="16" height="7" rx="3.5" fill="#C05C1E"/><rect x="18" y="18" width="64" height="64" rx="8" fill="#1B6CA8"/><rect x="26" y="26" width="48" height="48" rx="5" fill="#0F2340"/><text x="50" y="58" font-family="Arial,sans-serif" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1">LP</text></svg>
           <span class="foot-logo-name">Litus Partners</span>
         </div>
-        <p data-en="Consulting · Strategy · Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
+        <p data-en="Consulting &middot; Strategy &middot; Transformation&lt;br&gt;Quebec, Canada">Conseil &middot; Strat&eacute;gie &middot; Transformation<br>Qu&eacute;bec, Canada</p>
         <div class="foot-social">
           <span class="foot-social-label" data-en="Follow us">Suivez-nous</span>
           <div class="foot-social-icons">
@@ -425,7 +492,7 @@ document.querySelectorAll(".fu").forEach(el=>o.observe(el));
           </div>
         </div>
       </div>
-            <div class="foot-col">
+      <div class="foot-col">
         <h5 data-en="Services">Services</h5>
         <a href="conseil.html" data-en="Management Consulting">Conseil en gestion</a>
         <a href="gouvernance.html" data-en="Governance">Gouvernance</a>
@@ -446,14 +513,17 @@ document.querySelectorAll(".fu").forEach(el=>o.observe(el));
         <h5 data-en="Contact">Contact</h5>
         <a href="mailto:info@lituspartners.com">info@lituspartners.com</a>
         <a data-en="Quebec, Canada">Qu&eacute;bec, Canada</a>
+      </div>
     </div>
     <div class="foot-btm">
-      <div data-en="© 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
+      <div data-en="&copy; 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</div>
       <div class="foot-btm-links">
         <a data-en="Privacy">Confidentialit&eacute;</a>
         <a data-en="Terms">Conditions</a>
+      </div>
     </div>
   </div>
 </footer>
+
 </body>
 </html>
