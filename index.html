@@ -110,19 +110,28 @@ section{padding:96px 0}
 #expertises .s-title{color:var(--navy)}
 .exp-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
 .exp-intro-right{font-size:15px;color:var(--gray);line-height:1.7;max-width:380px;flex-shrink:0}
-.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:1px;background:var(--border);border:1px solid var(--border);overflow:visible}
-.exp-card{background:#ffffff;padding:44px 40px;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s cubic-bezier(.16,1,.3,1),background .3s;display:flex;flex-direction:column}
-.exp-card::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--accent);transition:width .35s cubic-bezier(.16,1,.3,1)}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:0}
+.exp-card{padding:56px 52px;cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:filter .3s;min-height:320px}
+.exp-card.dark{background:var(--navy)}
+.exp-card.light{background:#fff;border:1px solid var(--border)}
+.exp-accent{width:40px;height:3px;background:var(--accent);margin-bottom:28px;transition:width .35s cubic-bezier(.16,1,.3,1)}
+.exp-card:hover .exp-accent{width:64px}
+.exp-card::before{display:none}
 .exp-card::after{display:none}
-.exp-card:hover{background:#fafbfc;transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,35,64,.10);z-index:1}
-.exp-card:hover::before{width:100%}
-.exp-card:hover .exp-arrow{transform:translate(3px,-3px);color:var(--accent)}
+.exp-card.dark:hover{filter:brightness(1.12)}
+.exp-card.light:hover{filter:brightness(.97)}
 .exp-bg-num{display:none}
 .exp-tag{display:none}
-.exp-card h3{font-size:18px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:12px;letter-spacing:-.3px}
-.exp-card p{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:24px}
-.exp-arrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--accent);transition:all .25s;letter-spacing:.5px;text-transform:uppercase;margin-top:auto}
-.exp-arrow svg{width:14px;height:14px}
+.exp-card h3{font-size:20px;font-weight:800;line-height:1.2;letter-spacing:-.3px;margin-bottom:16px}
+.exp-card.dark h3{color:#fff}
+.exp-card.light h3{color:var(--navy)}
+.exp-card p{font-size:14px;line-height:1.8;margin-bottom:36px;flex:1}
+.exp-card.dark p{color:rgba(255,255,255,.65)}
+.exp-card.light p{color:var(--gray)}
+.exp-arrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);transition:gap .25s;margin-top:auto}
+.exp-card:hover .exp-arrow{gap:16px}
+.exp-arrow svg{width:13px;height:13px;transition:transform .25s}
+.exp-card:hover .exp-arrow svg{transform:translate(3px,-3px)}
 
 /* ─── FORMATION ─── */
 #formation{position:relative;padding:0;overflow:hidden;min-height:480px;display:flex;align-items:stretch}
@@ -273,7 +282,7 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
   .diag-wrap{grid-template-columns:1fr;text-align:center}
   .diag-wrap p{margin:0 auto 24px}
   .diag-card{min-width:auto}
-  .exp-grid{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr;grid-template-rows:auto}
   .foot-top{grid-template-columns:1fr 1fr}
   .stats-in{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
@@ -309,7 +318,7 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
   .foot-top{grid-template-columns:1fr}
   .stats-in{grid-template-columns:1fr}
   .stat{border-right:none}
-  .exp-grid{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr;grid-template-rows:auto}
 }
 </style>
 </head>
@@ -412,26 +421,26 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
       <p class="exp-intro-right" data-en="From strategy to execution, we bring the right expertise to every transformation challenge.">De la stratégie à la mise en œuvre, nous mobilisons les bonnes expertises pour chaque défi de transformation.</p>
     </div>
     <div class="exp-grid">
-      <div class="exp-card fade" onclick="window.location.href='expertises/gouvernance.html'">
-        <div class="exp-tag" data-en="Digital Governance">Gouvernance du num&eacute;rique</div>
+      <div class="exp-card dark fade" onclick="window.location.href='expertises/gouvernance.html'">
+        <div class="exp-accent"></div>
         <h3 data-en="Digital Governance">Gouvernance du num&eacute;rique</h3>
         <p data-en="A structured framework to understand the advantages, limitations and risks of digital use within your organization.">Un cadre structur&eacute; pour comprendre les avantages, les limites et les risques li&eacute;s &agrave; l&rsquo;utilisation du num&eacute;rique au sein de votre organisation.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/gestion-projet.html'">
-        <div class="exp-tag" data-en="Project Management">Gestion de projet num&eacute;rique</div>
+      <div class="exp-card light fade" onclick="window.location.href='expertises/gestion-projet.html'">
+        <div class="exp-accent"></div>
         <h3 data-en="Digital Project Management">Gestion de projet num&eacute;rique</h3>
         <p data-en="An integrated method for planning, steering and delivering your digital transformation projects from start to finish.">Une m&eacute;thode int&eacute;gr&eacute;e pour planifier, piloter et livrer vos projets de transformation num&eacute;rique de bout en bout.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/transformation-ia.html'">
-        <div class="exp-tag" data-en="Digital Transformation &amp; AI">Transformation num&eacute;rique et IA</div>
+      <div class="exp-card light fade" onclick="window.location.href='expertises/transformation-ia.html'">
+        <div class="exp-accent"></div>
         <h3 data-en="Digital Transformation and Artificial Intelligence">Transformation num&eacute;rique et Intelligence artificielle</h3>
         <p data-en="Deploy the right technologies and AI models to modernize your operations and generate measurable competitive advantage.">D&eacute;ployez les bonnes technologies et mod&egrave;les d&rsquo;IA pour moderniser vos op&eacute;rations et g&eacute;n&eacute;rer un avantage concurrentiel mesurable.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/conseil-strategie.html'">
-        <div class="exp-tag" data-en="Strategy &amp; Innovation">Conseil strat&eacute;gique et innovation</div>
+      <div class="exp-card dark fade" onclick="window.location.href='expertises/conseil-strategie.html'">
+        <div class="exp-accent"></div>
         <h3 data-en="Strategic Consulting and Innovation">Conseil strat&eacute;gique et innovation</h3>
         <p data-en="Strategic clarity and structured innovation methods to make faster, better-grounded decisions and deliver lasting impact.">Clart&eacute; strat&eacute;gique et m&eacute;thodologie d&rsquo;innovation structur&eacute;e pour prendre de meilleures d&eacute;cisions et livrer un impact durable.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
