@@ -110,7 +110,7 @@ section{padding:96px 0}
 #expertises .s-title{color:var(--navy)}
 .exp-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
 .exp-intro-right{font-size:15px;color:var(--gray);line-height:1.7;max-width:380px;flex-shrink:0}
-.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:1px;background:var(--border);border:1px solid var(--border);overflow:visible}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:1px;background:var(--border);border:1px solid var(--border);overflow:visible}
 .exp-card{background:#ffffff;padding:44px 40px;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s cubic-bezier(.16,1,.3,1),background .3s;display:flex;flex-direction:column}
 .exp-card::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--accent);transition:width .35s cubic-bezier(.16,1,.3,1)}
 .exp-card::after{display:none}
@@ -273,7 +273,7 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
   .diag-wrap{grid-template-columns:1fr;text-align:center}
   .diag-wrap p{margin:0 auto 24px}
   .diag-card{min-width:auto}
-  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .exp-grid{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr 1fr}
   .stats-in{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
   .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
@@ -304,9 +304,6 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
   .s-in{padding:0 20px}
   .diag-wrap{padding:40px 24px}
   .about-text{padding:48px 24px}
-  .exp-card-diag{grid-column:span 1!important;display:flex!important;flex-direction:column!important}
-  .exp-card-diag .exp-diag-arrow{display:none}
-  .exp-card-diag .exp-diag-inner{display:flex!important;flex-direction:column!important}
 }
 @media(max-width:480px){
   .foot-top{grid-template-columns:1fr}
@@ -410,65 +407,34 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
     <div class="exp-intro">
       <div>
         <div class="kicker" data-en="Our Services">Nos services</div>
-        <h2 class="s-title" data-en="Seven Domains.&lt;br&gt;One Approach.">Sept domaines.<br>Une approche.</h2>
+        <h2 class="s-title" data-en="Four Expertises.&lt;br&gt;One Approach.">Des expertises compl&eacute;mentaires.<br>Une approche int&eacute;gr&eacute;e.</h2>
       </div>
       <p class="exp-intro-right" data-en="From strategy to execution, we bring the right expertise to every transformation challenge.">De la stratégie à la mise en œuvre, nous mobilisons les bonnes expertises pour chaque défi de transformation.</p>
     </div>
     <div class="exp-grid">
-      <div class="exp-card fade" onclick="window.location.href='expertises/conseil.html'">
-        <div class="exp-bg-num">01</div>
-        <div class="exp-tag" data-en="Consulting">Conseil</div>
-        <h3 data-en="Management Consulting and Strategic Advisory">Conseil en gestion et accompagnement stratégique</h3>
-        <p data-en="Strategic advisory, organizational diagnostics and customized roadmaps.">Accompagnement stratégique, diagnostic organisationnel et feuilles de route sur mesure.</p>
-        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-      </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/soutien.html'" style="cursor:pointer">
-        <div class="exp-bg-num">02</div>
-        <div class="exp-tag" data-en="Operations">Opérations</div>
-        <h3 data-en="Operations Support and Continuous Improvement">Soutien aux opérations et amélioration continue</h3>
-        <p data-en="Sustained support to optimize performance, develop your teams and map your processes.">Soutien durable pour optimiser vos performances, former vos équipes et cartographier vos processus.</p>
-        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-      </div>
-      <div class="exp-card fade" onclick="window.location.href='technologies/index.html'" style="cursor:pointer">
-        <div class="exp-bg-num">03</div>
-        <div class="exp-tag" data-en="Technology">Technologie</div>
-        <h3 data-en="Technologies">Technologies</h3>
-        <p data-en="Selection, deployment and automation of solutions adapted to your business objectives.">Sélection, déploiement et automatisation des solutions adaptées à vos objectifs d'affaires.</p>
-        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-      </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/innovation.html'" style="cursor:pointer">
-        <div class="exp-bg-num">04</div>
-        <div class="exp-tag" data-en="Innovation">Innovation</div>
-        <h3 data-en="Corporate Innovation">Innovation en entreprise</h3>
-        <p data-en="Strategy, culture and innovation project management to accelerate your growth.">Strat&eacute;gie, culture et gestion de projets d&rsquo;innovation pour acc&eacute;l&eacute;rer votre croissance.</p>
-        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-      </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/gouvernance.html'" style="cursor:pointer">
-        <div class="exp-bg-num">05</div>
+      <div class="exp-card fade" onclick="window.location.href='expertises/gouvernance.html'">
         <div class="exp-tag" data-en="Digital Governance">Gouvernance du num&eacute;rique</div>
         <h3 data-en="Digital Governance">Gouvernance du num&eacute;rique</h3>
         <p data-en="A structured framework to understand the advantages, limitations and risks of digital use within your organization.">Un cadre structur&eacute; pour comprendre les avantages, les limites et les risques li&eacute;s &agrave; l&rsquo;utilisation du num&eacute;rique au sein de votre organisation.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card fade" onclick="window.location.href='expertises/ia.html'" style="cursor:pointer">
-        <div class="exp-bg-num">06</div>
-        <div class="exp-tag" data-en="Artificial Intelligence">Intelligence artificielle</div>
-        <h3 data-en="Artificial Intelligence">Intelligence artificielle</h3>
-        <p data-en="AI roadmaps and end-to-end strategic advisory.">Feuilles de route IA et accompagnement stratégique de bout en bout.</p>
+      <div class="exp-card fade" onclick="window.location.href='expertises/gestion-projet.html'">
+        <div class="exp-tag" data-en="Project Management">Gestion de projet num&eacute;rique</div>
+        <h3 data-en="Digital Project Management">Gestion de projet num&eacute;rique</h3>
+        <p data-en="An integrated method for planning, steering and delivering your digital transformation projects from start to finish.">Une m&eacute;thode int&eacute;gr&eacute;e pour planifier, piloter et livrer vos projets de transformation num&eacute;rique de bout en bout.</p>
         <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
-      <div class="exp-card exp-card-diag fade" onclick="window.location.href='diagnostic/index.html'" style="cursor:pointer;grid-column:span 3;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:40px">
-        <div class="exp-diag-inner" style="grid-column:1">
-          <div class="exp-bg-num" style="position:static;font-size:48px;opacity:.06;margin-bottom:8px">07</div>
-          <div class="exp-tag" data-en="Exclusive Service">Service exclusif</div>
-          <h3 data-en="AI Maturity Diagnostic">Diagnostic de maturité IA</h3>
-        </div>
-        <div style="grid-column:2">
-          <p style="font-size:15px;color:var(--gray);line-height:1.75" data-en="Litus Partners guides you through a structured assessment across 6 key dimensions: Strategy, Technology, Data, People, Processes, Governance — to measure your AI readiness and identify concrete improvement areas.">Litus Partners vous accompagne dans une démarche structurée d'évaluation sur 6 dimensions clés : Stratégie, Technologie, Données, Employés, Processus, Gouvernance, pour mesurer votre niveau de préparation à l'IA et identifier des axes d'amélioration concrets.</p>
-        </div>
-        <div class="exp-diag-arrow" style="grid-column:3;display:flex;justify-content:flex-end;align-items:center">
-          <span class="exp-arrow" style="font-size:14px"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-        </div>
+      <div class="exp-card fade" onclick="window.location.href='expertises/transformation-ia.html'">
+        <div class="exp-tag" data-en="Digital Transformation &amp; AI">Transformation num&eacute;rique et IA</div>
+        <h3 data-en="Digital Transformation and Artificial Intelligence">Transformation num&eacute;rique et Intelligence artificielle</h3>
+        <p data-en="Deploy the right technologies and AI models to modernize your operations and generate measurable competitive advantage.">D&eacute;ployez les bonnes technologies et mod&egrave;les d&rsquo;IA pour moderniser vos op&eacute;rations et g&eacute;n&eacute;rer un avantage concurrentiel mesurable.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+      </div>
+      <div class="exp-card fade" onclick="window.location.href='expertises/conseil-strategie.html'">
+        <div class="exp-tag" data-en="Strategy &amp; Innovation">Conseil strat&eacute;gique et innovation</div>
+        <h3 data-en="Strategic Consulting and Innovation">Conseil strat&eacute;gique et innovation</h3>
+        <p data-en="Strategic clarity and structured innovation methods to make faster, better-grounded decisions and deliver lasting impact.">Clart&eacute; strat&eacute;gique et m&eacute;thodologie d&rsquo;innovation structur&eacute;e pour prendre de meilleures d&eacute;cisions et livrer un impact durable.</p>
+        <span class="exp-arrow"><span data-en="Explore">Explorer</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </div>
     </div>
   </div>
@@ -633,13 +599,10 @@ footer{background:#002147;color:rgba(255,255,255,.7);padding:56px 0 24px}
       </div>
       <div class="foot-col">
         <h5 data-en="Services">Services</h5>
-        <a href="expertises/conseil.html" data-en="Management Consulting">Conseil en gestion</a>
-        <a href="expertises/gouvernance.html" data-en="Governance">Gouvernance</a>
-        <a href="expertises/ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
-        <a href="expertises/innovation.html" data-en="Innovation">Innovation</a>
-        <a href="technologies/index.html" data-en="Technologies">Technologies</a>
-        <a href="expertises/soutien.html" data-en="Operations Support">Soutien aux op&eacute;rations</a>
-        <a href="diagnostic/index.html" data-en="AI Diagnostic">Diagnostic IA</a>
+        <a href="expertises/gouvernance.html" data-en="Digital Governance">Gouvernance du num&eacute;rique</a>
+        <a href="expertises/gestion-projet.html" data-en="Digital Project Management">Gestion de projet num&eacute;rique</a>
+        <a href="expertises/transformation-ia.html" data-en="Digital Transformation &amp; AI">Transformation num&eacute;rique et IA</a>
+        <a href="expertises/conseil-strategie.html" data-en="Strategic Consulting &amp; Innovation">Conseil strat&eacute;gique et innovation</a>
       </div>
       <div class="foot-col">
         <h5 data-en="Company">Entreprise</h5>
