@@ -70,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .s-title{font-size:clamp(28px,3.2vw,44px);font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
 .s-sub{font-size:clamp(15px,1.4vw,17px);color:var(--gray);line-height:1.8;max-width:640px}
 
-/* SECTION CONSEIL STRATEGIQUE — PHOTO CARDS */
+/* SECTION CONSEIL STRATEGIQUE : PHOTO CARDS */
 .section-conseil{background:#f4f7fb;padding:88px 0}
 .conseil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
 .tc{background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s;box-shadow:0 2px 16px rgba(15,35,64,.09);border:1px solid #dde4ef}
@@ -102,7 +102,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .section-lead-right{padding-top:4px;border-left:3px solid var(--blue);padding-left:24px}
 .section-lead-intro{font-size:15px;color:#374151;line-height:1.75;margin-bottom:18px;font-weight:400}
 
-/* SECTION INNOVATION — PROCESSUS 4 ÉTAPES */
+/* SECTION INNOVATION : PROCESSUS 4 ETAPES */
 .section-innovation{background:#fff;padding:88px 0}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
 .process-card{background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 16px rgba(0,33,71,.09);border:1px solid #dde4ef;transition:box-shadow .3s,transform .3s}
@@ -201,6 +201,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   .hero h1{font-size:28px;margin-bottom:14px;white-space:normal}
   .hero-sub{font-size:14px;margin-bottom:28px;line-height:1.6}
   .hero-cta{padding:12px 24px;font-size:13px}
+  .conseil-grid{grid-template-columns:1fr}
 }
 @media(max-width:500px){
   .foot-top{grid-template-columns:1fr}
@@ -231,6 +232,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
       <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
       <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
+      <a href="../index.html#carrieres" class="nav-a" data-en="Careers">Carri&egrave;res</a>
       <a href="/contact" class="nav-btn nav-a" data-en="Contact us">Nous contacter</a>
       <div class="lang-switch">
         <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
@@ -250,6 +252,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
   <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
   <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#carrieres" onclick="document.getElementById('mob').classList.remove('open')" data-en="Careers">Carri&egrave;res</a>
   <a href="/contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us &rarr;">Nous contacter &rarr;</a>
   <div class="lang-switch" style="margin-top:24px">
     <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px">FR</button>
@@ -258,7 +261,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   </div>
 </div>
 
-<!-- HERO — image fond: 148.webp (à déployer sous images/conseil-strategie-hero.webp) -->
+<!-- HERO : image fond: 148.webp (à déployer sous images/conseil-strategie-hero.webp) -->
 <section class="hero">
   <img class="hero-img" src="../images/conseil-strategie-hero.webp" alt="Conseil strat&eacute;gique et innovation">
   <div class="hero-overlay"></div>
@@ -593,7 +596,7 @@ function togglePillar(header){
       </div>
       <div class="foot-col">
         <h5 data-en="Services">Services</h5>
-        <a href="gouvernance.html" data-en="Digital Governance">Gouvernance num&eacute;rique</a>
+        <a href="gouvernance.html" data-en="Digital Governance">Gouvernance du num&eacute;rique</a>
         <a href="gestion-projet.html" data-en="Digital Project Management">Gestion de projet num&eacute;rique</a>
         <a href="transformation-ia.html" data-en="Digital Transformation and AI">Transformation num&eacute;rique et IA</a>
         <a href="conseil-strategie.html" data-en="Strategic Consulting and Innovation">Conseil strat&eacute;gique et innovation</a>
@@ -610,7 +613,7 @@ function togglePillar(header){
       </div>
     </div>
     <div class="foot-btm">
-      <span data-en="&copy; 2025 Litus Partners. All rights reserved.">&copy; 2025 Litus Partners. Tous droits r&eacute;serv&eacute;s.</span>
+      <span data-en="&copy; 2026 Litus Partners. All rights reserved.">&copy; 2026 Litus Partners. Tous droits r&eacute;serv&eacute;s.</span>
       <div class="foot-btm-links">
         <a href="#" data-en="Privacy Policy">Politique de confidentialit&eacute;</a>
         <a href="#" data-en="Terms of Use">Conditions d&rsquo;utilisation</a>

@@ -60,7 +60,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .hero-breadcrumb span{color:rgba(255,255,255,.2)}
 .hero-breadcrumb .cur{color:#fff;font-weight:600}
 .hero h1{font-size:clamp(36px,4.5vw,64px);font-weight:300;color:#fff;line-height:1.08;letter-spacing:-.5px;max-width:560px;margin-bottom:28px}
-.hero-sub{font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.88);font-weight:600;max-width:460px;line-height:1.85;margin-bottom:48px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.hero-sub{font-size:clamp(14px,1.1vw,16px);color:rgba(255,255,255,.82);font-weight:400;max-width:500px;line-height:1.6;margin-bottom:48px;text-shadow:0 1px 4px rgba(0,0,0,.4);letter-spacing:.01em}
+.hero-sub strong{color:#fff;font-weight:700;display:block;font-size:clamp(15px,1.25vw,18px);margin-bottom:10px;letter-spacing:-.01em}
 .hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:50px;padding:15px 32px;font-size:15px;font-weight:700;transition:all .25s}
 .hero-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.2)}
 .hero-cta svg{width:18px;height:18px}
@@ -71,19 +72,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;ali
 .explore-section p{font-size:17px;color:var(--gray);max-width:680px;margin:0 auto;line-height:1.85}
 
 /* CARDS */
-.cards-section{background:var(--bg);padding:0 40px 80px}
+.cards-section{background:#f4f7fb;padding:80px 40px}
 .cards-wrap{max-width:1200px;margin:0 auto}
-.cards-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.cards-grid{grid-template-columns:1fr}}
-.svc-card{background:#fff;padding:48px 40px;display:flex;flex-direction:column;border-left:4px solid transparent;transition:border-color .3s;border-top:1px solid #e8e8e8}
-.svc-card:not(:last-child){border-right:1px solid #e8e8e8}
-.svc-card:hover{border-left-color:var(--accent)}
-.svc-card h3{font-size:22px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:18px}
-.svc-card p{font-size:15px;color:var(--gray);line-height:1.9;flex-grow:1;margin-bottom:32px}
-.svc-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:3px;transition:all .2s;width:fit-content}
-.svc-link:hover{color:var(--accent);border-color:var(--accent)}
-.svc-link:hover svg{transform:translateX(4px)}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:900px){.cards-grid{grid-template-columns:1fr;gap:20px}}
+.svc-card{background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s;box-shadow:0 2px 16px rgba(15,35,64,.09);border:1px solid #dde4ef}
+.svc-card:hover{box-shadow:0 14px 44px rgba(15,35,64,.15);transform:translateY(-5px)}
+.svc-card-photo{position:relative;height:220px;overflow:hidden;flex-shrink:0}
+.svc-card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.svc-card:hover .svc-card-photo img{transform:scale(1.05)}
+.svc-card-photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,33,71,.05) 40%,rgba(0,33,71,.45) 100%)}
+.svc-card-bar{position:absolute;top:0;left:0;width:100%;height:4px}
+.svc-card:nth-child(1) .svc-card-bar,.svc-card:nth-child(3) .svc-card-bar{background:var(--blue)}
+.svc-card:nth-child(2) .svc-card-bar{background:var(--accent)}
+.svc-card-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.svc-card h3{font-size:15px;font-weight:800;color:var(--navy);line-height:1.3;margin:0}
+.svc-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer;background:none;border:none;padding:0;font-family:inherit;margin-top:2px;text-decoration:none}
+.svc-card:nth-child(even) .svc-link{color:var(--accent)}
 .svc-link svg{width:16px;height:16px;transition:transform .2s}
+.svc-link:hover svg{transform:translateX(4px)}
+.svc-card p{font-size:14px;color:var(--gray);line-height:1.7;flex-grow:1;margin-bottom:24px}
 
 /* DETAIL PANELS */
 .detail-panel{display:none;background:linear-gradient(135deg,#08142a 0%,#0d2444 40%,#163d6b 75%,#0d2444 100%);padding:72px 40px;position:relative;overflow:hidden}
@@ -228,6 +236,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <a href="../index.html#formation" class="nav-a" data-en="Training">Formation</a>
       <a href="../index.html#apropos" class="nav-a" data-en="About">&Agrave; propos</a>
       <a href="../reflexions.html" class="nav-a" data-en="Publications">Publications</a>
+      <a href="../index.html#carrieres" class="nav-a" data-en="Careers">Carri&egrave;res</a>
       <a href="/contact" class="nav-btn nav-a" data-en="Contact us">Nous contacter</a>
       <div class="lang-switch">
         <button data-lang="fr" data-active="true" onclick="setLang('fr')">FR</button>
@@ -247,6 +256,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <a href="../index.html#formation" onclick="document.getElementById('mob').classList.remove('open')" data-en="Training">Formation</a>
   <a href="../index.html#apropos" onclick="document.getElementById('mob').classList.remove('open')" data-en="About">&Agrave; propos</a>
   <a href="../reflexions.html" onclick="document.getElementById('mob').classList.remove('open')" data-en="Publications">Publications</a>
+  <a href="../index.html#carrieres" onclick="document.getElementById('mob').classList.remove('open')" data-en="Careers">Carri&egrave;res</a>
   <a href="/contact" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--accent)" data-en="Contact us &rarr;">Nous contacter &rarr;</a>
   <div class="lang-switch" style="margin-top:24px">
     <button data-lang="fr" data-active="true" onclick="setLang('fr')" style="font-size:16px;padding:8px 10px;color:var(--navy)">FR</button>
@@ -266,7 +276,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
       <a href="../index.html" data-en="Home">Accueil</a><span>/</span><a href="../index.html#expertises" data-en="Services">Services</a><span>/</span><span class="cur" data-en="Digital Governance">Gouvernance du num&eacute;rique</span>
     </div>
     <h1 class="fu" data-en="Digital Governance">Gouvernance du<br>num&eacute;rique</h1>
-    <p class="hero-sub fu" data-en="Digital governance is no longer a formality. It is what allows your organization to decide with rigor, act with consistency, and fully assume its digital responsibilities.">La gouvernance num&eacute;rique n&rsquo;est plus une formalit&eacute;. C&rsquo;est ce qui permet &agrave; votre organisation de d&eacute;cider avec rigueur, d&rsquo;agir avec coh&eacute;rence et d&rsquo;assumer pleinement ses responsabilit&eacute;s num&eacute;riques.</p>
+    <p class="hero-sub fu" data-en="Your digital decisions commit your organization for years. Governance is the structure that allows you to make them with clarity, assume them with consistency, and defend them with confidence.">Vos d&eacute;cisions num&eacute;riques engagent votre organisation pour des ann&eacute;es. La gouvernance, c&rsquo;est la structure qui vous permet de les prendre avec clart&eacute;, de les assumer avec coh&eacute;rence et de les d&eacute;fendre avec confiance.</p>
     <a href="#explorer" class="hero-cta fu">
       <span data-en="Explore our services">Explorer nos services</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
@@ -277,7 +287,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 <!-- EXPLORER -->
 <section class="explore-section" id="explorer">
   <h2 class="fu" data-en="Explore our governance services">Explorer nos services de gouvernance</h2>
-  <p class="fu" data-en="Three complementary interventions to build digital governance that works: from diagnosis to implementation, through architecture design.">Trois interventions compl&eacute;mentaires pour b&acirc;tir une gouvernance num&eacute;rique qui fonctionne&nbsp;: du diagnostic &agrave; la mise en oeuvre, en passant par la conception de l&rsquo;architecture.</p>
+  <p class="fu" data-en="Complementary interventions to build digital governance that works: from diagnosis to implementation, through architecture design.">Des interventions compl&eacute;mentaires pour b&acirc;tir une gouvernance num&eacute;rique qui fonctionne&nbsp;: du diagnostic &agrave; la mise en oeuvre, en passant par la conception de l&rsquo;architecture.</p>
 </section>
 
 <!-- CARDS -->
@@ -286,30 +296,51 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
     <div class="cards-grid">
 
       <div class="svc-card fu">
-        <h3 data-en="Organizational Diagnostic">Diagnostic organisationnel</h3>
-        <p data-en="A successful digital transformation starts with a rigorous diagnostic. We map your processes, governance and risks to produce a factual analysis that informs your strategic decisions.">Une transformation num&eacute;rique r&eacute;ussie commence par un diagnostic rigoureux. Nous cartographions vos processus, votre gouvernance et vos risques pour produire une analyse factuelle qui &eacute;claire vos d&eacute;cisions strat&eacute;giques.</p>
-        <a href="#detail-diagnostic" class="svc-link" onclick="openDetail('detail-diagnostic');return false;" data-en="Learn more">
-          En savoir plus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <div class="svc-card-photo">
+          <div class="svc-card-bar"></div>
+          <img src="../images/188.jpg" alt="Diagnostic organisationnel">
+          <div class="svc-card-photo-overlay"></div>
+        </div>
+        <div class="svc-card-body">
+          <h3 data-en="Organizational Diagnostic">Diagnostic organisationnel</h3>
+          <p data-en="A rigorous mapping of your processes, governance and risks to produce a factual analysis that informs your strategic decisions.">Une cartographie rigoureuse de vos processus, de votre gouvernance et de vos risques pour produire une analyse factuelle qui &eacute;claire vos d&eacute;cisions strat&eacute;giques.</p>
+          <a href="#detail-diagnostic" class="svc-link" onclick="openDetail('detail-diagnostic');return false;" data-en="Learn more">
+            En savoir plus
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
       </div>
 
       <div class="svc-card fu">
-        <h3 data-en="Governance Architecture">Architecture de gouvernance</h3>
-        <p data-en="We design robust and scalable governance architectures, aligned with international standards and calibrated to your organization's reality. Committees, policies, roles and accountability mechanisms: each component is built to last.">Nous concevons des architectures de gouvernance robustes et &eacute;volutives, align&eacute;es sur les standards internationaux et calibr&eacute;es &agrave; la r&eacute;alit&eacute; de votre organisation. Comit&eacute;s, politiques, r&ocirc;les et m&eacute;canismes de reddition de comptes&nbsp;: chaque composante est construite pour durer et r&eacute;sister &agrave; l&rsquo;&eacute;preuve du terrain.</p>
-        <a href="#detail-architecture" class="svc-link" onclick="openDetail('detail-architecture');return false;" data-en="Learn more">
-          En savoir plus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <div class="svc-card-photo">
+          <div class="svc-card-bar"></div>
+          <img src="../images/189.jpg" alt="Architecture de gouvernance">
+          <div class="svc-card-photo-overlay"></div>
+        </div>
+        <div class="svc-card-body">
+          <h3 data-en="Governance Architecture">Architecture de gouvernance</h3>
+          <p data-en="Robust and scalable governance architectures, aligned with international standards (COBIT 2019, ISO/IEC 38500, ITIL 4) and calibrated to your organization's reality.">Des architectures de gouvernance robustes et &eacute;volutives, align&eacute;es sur les standards internationaux (COBIT&nbsp;2019, ISO/IEC&nbsp;38500, ITIL&nbsp;4) et calibr&eacute;es &agrave; la r&eacute;alit&eacute; de votre organisation.</p>
+          <a href="#detail-architecture" class="svc-link" onclick="openDetail('detail-architecture');return false;" data-en="Learn more">
+            En savoir plus
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
       </div>
 
       <div class="svc-card fu">
-        <h3 data-en="Operationalization">Op&eacute;rationnalisation</h3>
-        <p data-en="The value of governance is measured by its execution. We support the deployment of your mechanisms with decision analytics tools and dashboards that allow your leadership to steer performance, risks and digital priorities in real time.">La valeur d&rsquo;une gouvernance se mesure &agrave; son ex&eacute;cution. Nous accompagnons le d&eacute;ploiement de vos m&eacute;canismes avec des outils d&rsquo;analyse d&eacute;cisionnelle et des tableaux de bord permettant &agrave; votre direction de piloter la performance, les risques et les priorit&eacute;s num&eacute;riques en temps r&eacute;el.</p>
-        <a href="#detail-operationnalisation" class="svc-link" onclick="openDetail('detail-operationnalisation');return false;" data-en="Learn more">
-          En savoir plus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <div class="svc-card-photo">
+          <div class="svc-card-bar"></div>
+          <img src="../images/190.jpg" alt="Op&eacute;rationnalisation">
+          <div class="svc-card-photo-overlay"></div>
+        </div>
+        <div class="svc-card-body">
+          <h3 data-en="Operationalization">Op&eacute;rationnalisation</h3>
+          <p data-en="Deployment of your governance mechanisms with decision analytics tools and dashboards that allow your leadership to steer performance, risks and digital priorities in real time.">D&eacute;ploiement de vos m&eacute;canismes de gouvernance avec des outils d&rsquo;analyse d&eacute;cisionnelle et des tableaux de bord permettant &agrave; votre direction de piloter la performance et les risques en temps r&eacute;el.</p>
+          <a href="#detail-operationnalisation" class="svc-link" onclick="openDetail('detail-operationnalisation');return false;" data-en="Learn more">
+            En savoir plus
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -412,8 +443,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
   <div class="connexes-in">
     <h2 class="fu" data-en="How we can support you">Comment nous pouvons vous accompagner</h2>
     <div class="connexes-grid">
-      <a href="conseil.html" class="connexe-card fu">
-        <span data-en="Consulting">Conseil</span>
+      <a href="conseil-strategie.html" class="connexe-card fu">
+        <span data-en="Strategic Consulting &amp; Innovation">Conseil strat&eacute;gique et innovation</span>
       </a>
       <a href="../formation/offre.html" class="connexe-card fu">
         <span data-en="Training in digital governance">Formation en gouvernance num&eacute;rique</span>
@@ -493,13 +524,10 @@ document.querySelectorAll('.fu').forEach(function(el){obs.observe(el);});
       </div>
       <div class="foot-col">
         <h5 data-en="Services">Services</h5>
-        <a href="conseil.html" data-en="Management Consulting">Conseil en gestion</a>
-        <a href="gouvernance.html" data-en="Governance">Gouvernance</a>
-        <a href="ia.html" data-en="Artificial Intelligence">Intelligence artificielle</a>
-        <a href="innovation.html" data-en="Innovation">Innovation</a>
-        <a href="../technologies/index.html" data-en="Technologies">Technologies</a>
-        <a href="../expertises/soutien.html" data-en="Operations Support">Soutien aux op&eacute;rations</a>
-        <a href="../diagnostic/index.html" data-en="AI Diagnostic">Diagnostic IA</a>
+        <a href="gouvernance.html" data-en="Digital Governance">Gouvernance du num&eacute;rique</a>
+        <a href="gestion-projet.html" data-en="Digital Project Management">Gestion de projet num&eacute;rique</a>
+        <a href="transformation-ia.html" data-en="Digital Transformation &amp; AI">Transformation num&eacute;rique et IA</a>
+        <a href="conseil-strategie.html" data-en="Strategic Consulting &amp; Innovation">Conseil strat&eacute;gique et innovation</a>
       </div>
       <div class="foot-col">
         <h5 data-en="Company">Entreprise</h5>
