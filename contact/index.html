@@ -343,16 +343,16 @@ document.getElementById('consultationForm').addEventListener('submit', async fun
   btn.disabled = true;
 
   try {
-    const body = Object.entries(data)
-      .filter(([k]) => !k.startsWith('_'))
-      .map(([k,v]) => `${k}: ${v}`)
-      .join('\n');
-
-    window.location.href = `mailto:${LITUS_EMAIL}`
-      + `?subject=${encodeURIComponent(data._subject)}`
-      + `&body=${encodeURIComponent(body)}`;
-
-    setTimeout(showSuccess, 800);
+    const res = await fetch('https://formspree.io/f/mwlelqkd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if(res.ok){
+      showSuccess();
+    } else {
+      throw new Error('formspree error');
+    }
   } catch(err){
     var lang2 = getLang();
     btn.textContent = lang2==='en'?'Send my request':'Envoyer ma demande';
