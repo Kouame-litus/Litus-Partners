@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin-acces
 
 Sitemap: https://lituspartners.com/sitemap.xml

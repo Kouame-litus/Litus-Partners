@@ -290,7 +290,7 @@ function showFileName(input){
   }
 }
 
-function submitApp(){
+async function submitApp(){
   var lang = getLang();
   const prenom = document.getElementById('a1').value.trim();
   const nom    = document.getElementById('a2').value.trim();
@@ -322,10 +322,30 @@ function submitApp(){
     '\n\n' + (msg||'Aucun message.')
   );
 
-  window.location.href = 'mailto:info@lituspartners.com?subject=' + sub + '&body=' + body;
-
-  document.getElementById('appForm').style.display = 'none';
-  document.getElementById('appOk').style.display   = 'block';
+  try {
+    const res = await fetch('https://formspree.io/f/mwlelqkd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Candidature : ' + poste + ' | ' + prenom + ' ' + nom,
+        _replyto: email,
+        prenom, nom, email,
+        telephone: tel || '(non fourni)',
+        poste,
+        langue: langue === 'fr' ? 'Français' : 'Anglais',
+        linkedin: li || '(non fourni)',
+        message: msg || 'Aucun message.'
+      })
+    });
+    if (res.ok) {
+      document.getElementById('appForm').style.display = 'none';
+      document.getElementById('appOk').style.display   = 'block';
+    } else {
+      throw new Error('formspree error');
+    }
+  } catch(err) {
+    alert(getLang() === 'en' ? 'An error occurred. Please try again.' : 'Une erreur est survenue. Veuillez réessayer.');
+  }
 }
 </script>
 </body>

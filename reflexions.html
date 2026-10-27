@@ -331,11 +331,29 @@ function sortArticles(order){
 }
 
 // NEWSLETTER
-function subscribeNewsletter(){
+async function subscribeNewsletter(){
   var lang=getLang();
   const em=document.getElementById('nlEmail').value.trim();
   if(!em){alert(lang==='en'?'Please enter your email.':'Veuillez entrer votre courriel.');return;}
-  window.location.href='mailto:info@lituspartners.com?subject='+(lang==='en'?'Newsletter subscription':'Inscription infolettre')+'&body='+(lang==='en'?'Newsletter subscription: ':'Inscription à l\'infolettre : ')+em;
+  try {
+    const res = await fetch('https://formspree.io/f/mwlelqkd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: lang==='en' ? 'Newsletter subscription' : 'Inscription infolettre',
+        email: em,
+        source: 'infolettre'
+      })
+    });
+    if(res.ok){
+      alert(lang==='en'?'Subscription confirmed. Thank you!':'Inscription confirmée. Merci !');
+      document.getElementById('nlEmail').value='';
+    } else {
+      throw new Error('formspree error');
+    }
+  } catch(err){
+    alert(lang==='en'?'An error occurred. Please try again.':'Une erreur est survenue. Veuillez réessayer.');
+  }
 }
 
 // CMS ARTICLE LOADING

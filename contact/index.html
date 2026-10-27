@@ -185,13 +185,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
           <label class="form-label" for="service"><span data-en="Service">Service concern&eacute;</span> <span>*</span></label>
           <select class="form-select" id="service" name="service" required>
             <option value="" data-en="Select a service">S&eacute;lectionnez un service</option>
-            <option value="Conseil en gestion" data-en="Management Consulting">Conseil en gestion</option>
-            <option value="Soutien aux op&eacute;rations" data-en="Operations Support">Soutien aux op&eacute;rations</option>
-            <option value="Gouvernance" data-en="Governance">Gouvernance</option>
-            <option value="Intelligence artificielle" data-en="Artificial Intelligence">Intelligence artificielle</option>
-            <option value="Innovation" data-en="Innovation">Innovation</option>
-            <option value="Technologies" data-en="Technologies">Technologies</option>
-            <option value="Diagnostic de maturit&eacute; IA" data-en="AI Maturity Diagnostic">Diagnostic de maturit&eacute; IA</option>
+            <option value="Gouvernance du num&eacute;rique" data-en="Digital Governance">Gouvernance du num&eacute;rique</option>
+            <option value="Gestion de projet num&eacute;rique" data-en="Digital Project Management">Gestion de projet num&eacute;rique</option>
+            <option value="Transformation num&eacute;rique et IA" data-en="Digital Transformation &amp; AI">Transformation num&eacute;rique et IA</option>
+            <option value="Conseil strat&eacute;gique et innovation" data-en="Strategic Consulting &amp; Innovation">Conseil strat&eacute;gique et innovation</option>
             <option value="Autre" data-en="Other">Autre</option>
           </select>
         </div>
@@ -301,13 +298,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 24px}
 const LITUS_EMAIL = 'info@lituspartners.com';
 
 const SERVICE_MAP = {
-  'conseil':      'Conseil en gestion',
-  'soutien':      'Soutien aux opérations',
-  'gouvernance':  'Gouvernance',
-  'ia':           'Intelligence artificielle',
-  'innovation':   'Innovation',
-  'technologies': 'Technologies',
-  'diagnostic':   'Diagnostic de maturité IA'
+  'gouvernance':        'Gouvernance du numérique',
+  'gestion-projet':     'Gestion de projet numérique',
+  'transformation-ia':  'Transformation numérique et IA',
+  'conseil-strategie':  'Conseil stratégique et innovation'
 };
 const params = new URLSearchParams(window.location.search);
 const sParam = window.CONTACT_SERVICE || params.get('service');
